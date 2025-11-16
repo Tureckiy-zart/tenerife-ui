@@ -41,7 +41,8 @@
     "test:coverage": "jest --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run clean && npm run build && npm run typecheck"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
@@ -115,10 +116,6 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    },
-    "./theme": {
-      "types": "./dist/theme/index.d.ts",
-      "import": "./dist/theme/index.js"
     },
     "./styles": "./dist/styles.css",
     "./tailwind.config": "./tailwind.config.ts"

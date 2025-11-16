@@ -63,6 +63,12 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
           'react/jsx-runtime': 'react/jsx-runtime'
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') {
+            return 'styles.css';
+          }
+          return assetInfo.name || 'assets/[name][extname]';
         }
       }
     },

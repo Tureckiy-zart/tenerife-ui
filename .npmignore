@@ -1,0 +1,58 @@
+# Source files
+src/
+*.ts
+*.tsx
+!*.d.ts
+
+# Development files
+.storybook/
+stories/
+*.stories.tsx
+*.test.tsx
+*.test.ts
+*.test.tsx.snap
+jest.config.cjs
+jest.setup.js
+vite.config.ts
+tsconfig.json
+tsconfig.test.json
+eslint.config.mjs
+
+# Build tools
+node_modules/
+.vite/
+.cache/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation (keep README, LICENSE, CHANGELOG)
+MIGRATION_GUIDE.md
+README_MIGRATION.md
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
