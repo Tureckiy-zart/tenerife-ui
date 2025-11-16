@@ -12,9 +12,7 @@ export default defineConfig({
     })
   ],
   esbuild: {
-    banner: {
-      js: '"use client";',
-    },
+    banner: '"use client";',
     sourcemap: false // Disable esbuild sourcemaps to avoid resolution warnings
   },
   build: {
