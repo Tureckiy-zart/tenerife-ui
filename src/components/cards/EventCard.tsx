@@ -23,31 +23,57 @@ interface EventCardProps {
   className?: string;
   featured?: boolean;
   showImage?: boolean;
+  getTicketsLabel: string;
 }
 
 export const EventCard: React.FC<EventCardProps> = ({
   event,
   className,
   featured = false,
-  showImage = true
+  showImage = true,
+  getTicketsLabel
 }) => {
-  // Safe string extraction with fallbacks 
+  if (!getTicketsLabel || getTicketsLabel.trim() === '') {
+    throw new Error('EventCard: "getTicketsLabel" prop is required and cannot be empty');
+  }
+
+  // Safe string extraction - throw error if required fields are missing
   const title = typeof event?.name === 'string' 
     ? event.name 
-    : (event?.name?.en || event?.name?.es || event?.name?.ru || "Sample Event");
+    : (event?.name?.en || event?.name?.es || event?.name?.ru);
+  if (!title || title.trim() === '') {
+    throw new Error('EventCard: event.name is required and cannot be empty');
+  }
+
   const description = typeof event?.description === 'string' 
     ? event.description 
-    : (event?.description?.en || event?.description?.es || event?.description?.ru || "Sample event description");
-  const date = event?.start_date || "2024-12-31";
+    : (event?.description?.en || event?.description?.es || event?.description?.ru);
+  if (!description || description.trim() === '') {
+    throw new Error('EventCard: event.description is required and cannot be empty');
+  }
+
+  const date = event?.start_date;
+  if (!date || date.trim() === '') {
+    throw new Error('EventCard: event.start_date is required and cannot be empty');
+  }
+
   const venue = typeof event?.venue_id?.name === 'string' 
     ? event.venue_id.name 
-    : (event?.venue_id?.name?.en || event?.venue_id?.name?.es || event?.venue_id?.name?.ru || "Sample Venue");
+    : (event?.venue_id?.name?.en || event?.venue_id?.name?.es || event?.venue_id?.name?.ru);
+  if (!venue || venue.trim() === '') {
+    throw new Error('EventCard: event.venue_id.name is required and cannot be empty');
+  }
+
   // Ensure price is always a string, not an object
   const price = typeof event?.price === 'string' 
     ? event.price 
     : (typeof event?.price === 'object' && event?.price !== null
       ? `€${(event.price as any)?.min || 0} - €${(event.price as any)?.max || '∞'}`
-      : "€25");
+      : null);
+  if (!price || price.trim() === '') {
+    throw new Error('EventCard: event.price is required and cannot be empty');
+  }
+
   const image = event?.image;
 
   return (
@@ -117,7 +143,7 @@ export const EventCard: React.FC<EventCardProps> = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              Get Tickets
+              {getTicketsLabel}
               <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>

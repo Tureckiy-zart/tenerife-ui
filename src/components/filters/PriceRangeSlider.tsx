@@ -16,7 +16,12 @@ export interface PriceRangeSliderProps {
   min?: number;
   max?: number;
   step?: number;
-  currency?: string;
+  currency: string;
+  priceRangeLabel: string;
+  minLabel: string;
+  maxLabel: string;
+  anyPriceLabel: string;
+  clearLabel: string;
   className?: string;
 }
 
@@ -26,9 +31,32 @@ export function PriceRangeSlider({
   min = 0,
   max = 1000,
   step = 10,
-  currency = "€",
+  currency,
+  priceRangeLabel,
+  minLabel,
+  maxLabel,
+  anyPriceLabel,
+  clearLabel,
   className,
 }: PriceRangeSliderProps) {
+  if (!currency || currency.trim() === '') {
+    throw new Error('PriceRangeSlider: "currency" prop is required and cannot be empty');
+  }
+  if (!priceRangeLabel || priceRangeLabel.trim() === '') {
+    throw new Error('PriceRangeSlider: "priceRangeLabel" prop is required and cannot be empty');
+  }
+  if (!minLabel || minLabel.trim() === '') {
+    throw new Error('PriceRangeSlider: "minLabel" prop is required and cannot be empty');
+  }
+  if (!maxLabel || maxLabel.trim() === '') {
+    throw new Error('PriceRangeSlider: "maxLabel" prop is required and cannot be empty');
+  }
+  if (!anyPriceLabel || anyPriceLabel.trim() === '') {
+    throw new Error('PriceRangeSlider: "anyPriceLabel" prop is required and cannot be empty');
+  }
+  if (!clearLabel || clearLabel.trim() === '') {
+    throw new Error('PriceRangeSlider: "clearLabel" prop is required and cannot be empty');
+  }
   // Generate unique IDs for each instance to avoid duplicates
   const minPriceId = React.useId();
   const maxPriceId = React.useId();
@@ -93,11 +121,11 @@ export function PriceRangeSlider({
   return (
     <div className={cn("space-y-4", className)}>
       <div className="space-y-2">
-        <Label>Price Range</Label>
+        <Label>{priceRangeLabel}</Label>
         <div className="flex items-center space-x-2">
           <div className="flex-1">
             <Label htmlFor={minPriceId} className="text-xs text-muted-foreground">
-              Min
+              {minLabel}
             </Label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
@@ -119,7 +147,7 @@ export function PriceRangeSlider({
           </div>
           <div className="flex-1">
             <Label htmlFor={maxPriceId} className="text-xs text-muted-foreground">
-              Max
+              {maxLabel}
             </Label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
@@ -189,14 +217,14 @@ export function PriceRangeSlider({
         <span className="text-sm text-muted-foreground">
           {value.min !== null || value.max !== null
             ? `${currency}${value.min || min} - ${currency}${value.max || max}`
-            : "Any price"}
+            : anyPriceLabel}
         </span>
         <button
           type="button"
           onClick={clearRange}
           className="text-xs text-muted-foreground hover:text-foreground"
         >
-          Clear
+          {clearLabel}
         </button>
       </div>
     </div>
