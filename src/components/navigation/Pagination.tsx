@@ -1,6 +1,7 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
+
+import { cn } from "@/lib/utils";
 
 interface PaginationProps {
   currentPage: number;
@@ -13,7 +14,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
-  className
+  className,
 }) => {
   const getVisiblePages = () => {
     const delta = 2;
@@ -29,7 +30,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     }
 
     if (currentPage - delta > 2) {
-      rangeWithDots.push(1, '...');
+      rangeWithDots.push(1, "...");
     } else {
       rangeWithDots.push(1);
     }
@@ -37,7 +38,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     rangeWithDots.push(...range);
 
     if (currentPage + delta < totalPages - 1) {
-      rangeWithDots.push('...', totalPages);
+      rangeWithDots.push("...", totalPages);
     } else {
       rangeWithDots.push(totalPages);
     }
@@ -46,27 +47,27 @@ export const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <nav className={cn('flex items-center space-x-1', className)}>
+    <nav className={cn("flex items-center space-x-1", className)}>
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-md border border-input bg-background hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed"
+        className="rounded-md border border-input bg-background p-2 hover:bg-accent disabled:cursor-not-allowed disabled:opacity-50"
       >
         <ChevronLeft className="h-4 w-4" />
       </button>
 
       {getVisiblePages().map((page, index) => (
         <React.Fragment key={index}>
-          {page === '...' ? (
+          {page === "..." ? (
             <span className="px-3 py-2 text-muted-foreground">...</span>
           ) : (
             <button
               onClick={() => onPageChange(page as number)}
               className={cn(
-                'px-3 py-2 rounded-md border transition-colors',
+                "rounded-md border px-3 py-2 transition-colors",
                 page === currentPage
-                  ? 'bg-primary text-primary-foreground border-primary'
-                  : 'border-input bg-background hover:bg-accent'
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-input bg-background hover:bg-accent",
               )}
             >
               {page}
@@ -78,7 +79,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-md border border-input bg-background hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed"
+        className="rounded-md border border-input bg-background p-2 hover:bg-accent disabled:cursor-not-allowed disabled:opacity-50"
       >
         <ChevronRight className="h-4 w-4" />
       </button>

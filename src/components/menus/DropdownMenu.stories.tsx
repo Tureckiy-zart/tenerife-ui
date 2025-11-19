@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import { Button } from '../primitives/Button';
+import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
+import { Button } from "../primitives/Button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,15 +9,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from './DropdownMenu';
+} from "./DropdownMenu";
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: 'Menus/DropdownMenu',
+  title: "Menus/DropdownMenu",
   component: DropdownMenu,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;

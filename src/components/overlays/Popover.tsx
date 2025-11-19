@@ -1,7 +1,8 @@
-import * as React from 'react';
-import * as PopoverPrimitive from '@radix-ui/react-popover';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
 
 const Popover = PopoverPrimitive.Root;
 
@@ -31,14 +32,14 @@ const popoverContentVariants = cva(
       variant: "default",
       size: "md",
     },
-  }
+  },
 );
 
 const PopoverContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> &
     VariantProps<typeof popoverContentVariants>
->(({ className, variant, size, align = 'center', sideOffset = 4, ...props }, ref) => (
+>(({ className, variant, size, align = "center", sideOffset = 4, ...props }, ref) => (
   <PopoverPrimitive.Portal>
     <PopoverPrimitive.Content
       ref={ref}
@@ -54,10 +55,10 @@ PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 export interface PopoverProps {
   children: React.ReactNode;
   content: React.ReactNode;
-  variant?: VariantProps<typeof popoverContentVariants>['variant'];
-  size?: VariantProps<typeof popoverContentVariants>['size'];
-  side?: 'top' | 'right' | 'bottom' | 'left';
-  align?: 'start' | 'center' | 'end';
+  variant?: VariantProps<typeof popoverContentVariants>["variant"];
+  size?: VariantProps<typeof popoverContentVariants>["size"];
+  side?: "top" | "right" | "bottom" | "left";
+  align?: "start" | "center" | "end";
   sideOffset?: number;
   alignOffset?: number;
   open?: boolean;
@@ -71,8 +72,8 @@ export function PopoverWrapper({
   content,
   variant,
   size,
-  side = 'bottom',
-  align = 'center',
+  side = "bottom",
+  align = "center",
   sideOffset,
   alignOffset,
   open,
@@ -82,9 +83,7 @@ export function PopoverWrapper({
 }: PopoverProps) {
   return (
     <Popover open={open} onOpenChange={onOpenChange} modal={modal}>
-      <PopoverTrigger asChild>
-        {children}
-      </PopoverTrigger>
+      <PopoverTrigger asChild>{children}</PopoverTrigger>
       <PopoverContent
         variant={variant}
         size={size}
@@ -100,10 +99,4 @@ export function PopoverWrapper({
   );
 }
 
-export { 
-  Popover, 
-  PopoverTrigger, 
-  PopoverContent, 
-  PopoverAnchor,
-  popoverContentVariants 
-};
+export { Popover, PopoverAnchor, PopoverContent, popoverContentVariants, PopoverTrigger };

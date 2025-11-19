@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import { Toast } from './Toast';
-import { ToastProvider, useToast } from './ToastProvider';
-import { Button } from '../primitives/Button';
+import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
+import { Toast } from "./Toast";
+import { ToastProvider, useToast } from "./ToastProvider";
+import { Button } from "../primitives/Button";
 
 // Wrapper component for stories
 function ToastDemo() {
@@ -11,14 +11,14 @@ function ToastDemo() {
   return (
     <div className="space-y-4 p-4">
       <h2 className="text-lg font-semibold">Toast Examples</h2>
-      
+
       <div className="flex flex-wrap gap-2">
         <Button
-          onClick={() => 
+          onClick={() =>
             toast({
-              type: 'default',
-              title: 'Default Toast',
-              description: 'This is a default toast message.',
+              type: "default",
+              title: "Default Toast",
+              description: "This is a default toast message.",
             })
           }
         >
@@ -26,10 +26,10 @@ function ToastDemo() {
         </Button>
 
         <Button
-          onClick={() => 
+          onClick={() =>
             success({
-              title: 'Success!',
-              description: 'Your action was completed successfully.',
+              title: "Success!",
+              description: "Your action was completed successfully.",
             })
           }
         >
@@ -37,10 +37,10 @@ function ToastDemo() {
         </Button>
 
         <Button
-          onClick={() => 
+          onClick={() =>
             error({
-              title: 'Error occurred',
-              description: 'Something went wrong. Please try again.',
+              title: "Error occurred",
+              description: "Something went wrong. Please try again.",
             })
           }
         >
@@ -48,10 +48,10 @@ function ToastDemo() {
         </Button>
 
         <Button
-          onClick={() => 
+          onClick={() =>
             warning({
-              title: 'Warning',
-              description: 'Please check your input before proceeding.',
+              title: "Warning",
+              description: "Please check your input before proceeding.",
             })
           }
         >
@@ -59,10 +59,10 @@ function ToastDemo() {
         </Button>
 
         <Button
-          onClick={() => 
+          onClick={() =>
             info({
-              title: 'Information',
-              description: 'Here is some useful information for you.',
+              title: "Information",
+              description: "Here is some useful information for you.",
             })
           }
         >
@@ -70,13 +70,13 @@ function ToastDemo() {
         </Button>
 
         <Button
-          onClick={() => 
+          onClick={() =>
             success({
-              title: 'Toast with Action',
-              description: 'This toast has an action button.',
+              title: "Toast with Action",
+              description: "This toast has an action button.",
               action: {
-                label: 'Undo',
-                onClick: () => console.log('Action clicked!'),
+                label: "Undo",
+                onClick: () => console.log("Action clicked!"),
               },
             })
           }
@@ -85,11 +85,11 @@ function ToastDemo() {
         </Button>
 
         <Button
-          onClick={() => 
+          onClick={() =>
             toast({
-              type: 'success',
-              title: 'Long Duration Toast',
-              description: 'This toast will stay visible for 10 seconds.',
+              type: "success",
+              title: "Long Duration Toast",
+              description: "This toast will stay visible for 10 seconds.",
               duration: 10000,
             })
           }
@@ -98,11 +98,11 @@ function ToastDemo() {
         </Button>
 
         <Button
-          onClick={() => 
+          onClick={() =>
             toast({
-              type: 'info',
-              title: 'Persistent Toast',
-              description: 'This toast will not auto-dismiss.',
+              type: "info",
+              title: "Persistent Toast",
+              description: "This toast will not auto-dismiss.",
               duration: 0,
             })
           }
@@ -115,10 +115,10 @@ function ToastDemo() {
 }
 
 const meta: Meta<typeof Toast> = {
-  title: 'Components/Toast',
+  title: "Components/Toast",
   component: Toast,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   decorators: [
     (Story) => (
@@ -144,8 +144,8 @@ export const Success: Story = {
           onClick={() => {
             const { success } = useToast();
             success({
-              title: 'Success!',
-              description: 'Your action was completed successfully.',
+              title: "Success!",
+              description: "Your action was completed successfully.",
             });
           }}
         >
@@ -164,8 +164,8 @@ export const Error: Story = {
           onClick={() => {
             const { error } = useToast();
             error({
-              title: 'Error occurred',
-              description: 'Something went wrong. Please try again.',
+              title: "Error occurred",
+              description: "Something went wrong. Please try again.",
             });
           }}
         >
@@ -184,8 +184,8 @@ export const Warning: Story = {
           onClick={() => {
             const { warning } = useToast();
             warning({
-              title: 'Warning',
-              description: 'Please check your input before proceeding.',
+              title: "Warning",
+              description: "Please check your input before proceeding.",
             });
           }}
         >
@@ -204,8 +204,8 @@ export const Info: Story = {
           onClick={() => {
             const { info } = useToast();
             info({
-              title: 'Information',
-              description: 'Here is some useful information for you.',
+              title: "Information",
+              description: "Here is some useful information for you.",
             });
           }}
         >
@@ -224,11 +224,11 @@ export const WithAction: Story = {
           onClick={() => {
             const { success } = useToast();
             success({
-              title: 'Toast with Action',
-              description: 'This toast has an action button.',
+              title: "Toast with Action",
+              description: "This toast has an action button.",
               action: {
-                label: 'Undo',
-                onClick: () => alert('Action clicked!'),
+                label: "Undo",
+                onClick: () => alert("Action clicked!"),
               },
             });
           }}
@@ -244,8 +244,17 @@ export const DifferentPositions: Story = {
   render: () => (
     <div className="space-y-4">
       <h3 className="text-lg font-semibold">Different Toast Positions</h3>
-      
-      {(['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'] as const).map((position) => (
+
+      {(
+        [
+          "top-left",
+          "top-center",
+          "top-right",
+          "bottom-left",
+          "bottom-center",
+          "bottom-right",
+        ] as const
+      ).map((position) => (
         <ToastProvider key={position} position={position}>
           <div className="p-4">
             <Button
@@ -253,11 +262,11 @@ export const DifferentPositions: Story = {
                 const { info } = useToast();
                 info({
                   title: `${position} Toast`,
-                  description: `This toast appears at ${position.replace('-', ' ')}.`,
+                  description: `This toast appears at ${position.replace("-", " ")}.`,
                 });
               }}
             >
-              Show {position.replace('-', ' ')} Toast
+              Show {position.replace("-", " ")} Toast
             </Button>
           </div>
         </ToastProvider>

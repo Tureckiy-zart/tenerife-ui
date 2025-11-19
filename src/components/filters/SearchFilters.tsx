@@ -1,10 +1,12 @@
 "use client";
 
-import React from 'react';
-import { SearchInput } from './SearchInput';
-import { FilterSelect } from './FilterSelect';
-import { DateRangePicker, type DateRange } from './DateRangePicker';
-import { cn } from '@/lib/utils';
+import React from "react";
+
+import { cn } from "@/lib/utils";
+
+import { type DateRange, DateRangePicker } from "./DateRangePicker";
+import { FilterSelect } from "./FilterSelect";
+import { SearchInput } from "./SearchInput";
 
 export interface FilterOption {
   value: string;
@@ -58,42 +60,44 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
   venueOptions,
   venueValue,
   onVenueChange,
-  className
+  className,
 }) => {
-  if (!searchLabel || searchLabel.trim() === '') {
+  if (!searchLabel || searchLabel.trim() === "") {
     throw new Error('SearchFilters: "searchLabel" prop is required and cannot be empty');
   }
-  if (!searchPlaceholder || searchPlaceholder.trim() === '') {
+  if (!searchPlaceholder || searchPlaceholder.trim() === "") {
     throw new Error('SearchFilters: "searchPlaceholder" prop is required and cannot be empty');
   }
-  if (!dateLabel || dateLabel.trim() === '') {
+  if (!dateLabel || dateLabel.trim() === "") {
     throw new Error('SearchFilters: "dateLabel" prop is required and cannot be empty');
   }
-  if (!datePlaceholder || datePlaceholder.trim() === '') {
+  if (!datePlaceholder || datePlaceholder.trim() === "") {
     throw new Error('SearchFilters: "datePlaceholder" prop is required and cannot be empty');
   }
-  if (!dateSelectDateRangeLabel || dateSelectDateRangeLabel.trim() === '') {
-    throw new Error('SearchFilters: "dateSelectDateRangeLabel" prop is required and cannot be empty');
+  if (!dateSelectDateRangeLabel || dateSelectDateRangeLabel.trim() === "") {
+    throw new Error(
+      'SearchFilters: "dateSelectDateRangeLabel" prop is required and cannot be empty',
+    );
   }
-  if (!dateClearLabel || dateClearLabel.trim() === '') {
+  if (!dateClearLabel || dateClearLabel.trim() === "") {
     throw new Error('SearchFilters: "dateClearLabel" prop is required and cannot be empty');
   }
-  if (!dateCloseLabel || dateCloseLabel.trim() === '') {
+  if (!dateCloseLabel || dateCloseLabel.trim() === "") {
     throw new Error('SearchFilters: "dateCloseLabel" prop is required and cannot be empty');
   }
-  if (!genreLabel || genreLabel.trim() === '') {
+  if (!genreLabel || genreLabel.trim() === "") {
     throw new Error('SearchFilters: "genreLabel" prop is required and cannot be empty');
   }
-  if (!genrePlaceholder || genrePlaceholder.trim() === '') {
+  if (!genrePlaceholder || genrePlaceholder.trim() === "") {
     throw new Error('SearchFilters: "genrePlaceholder" prop is required and cannot be empty');
   }
   if (!genreOptions || genreOptions.length === 0) {
     throw new Error('SearchFilters: "genreOptions" prop is required and cannot be empty');
   }
-  if (!venueLabel || venueLabel.trim() === '') {
+  if (!venueLabel || venueLabel.trim() === "") {
     throw new Error('SearchFilters: "venueLabel" prop is required and cannot be empty');
   }
-  if (!venuePlaceholder || venuePlaceholder.trim() === '') {
+  if (!venuePlaceholder || venuePlaceholder.trim() === "") {
     throw new Error('SearchFilters: "venuePlaceholder" prop is required and cannot be empty');
   }
   if (!venueOptions || venueOptions.length === 0) {
@@ -101,22 +105,19 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
   }
 
   return (
-    <div className={cn(
-      "bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg",
-      className
-    )}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className={cn("rounded-lg bg-white p-6 shadow-lg dark:bg-gray-800", className)}>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <label className="block text-sm font-medium mb-2">{searchLabel}</label>
+          <label className="mb-2 block text-sm font-medium">{searchLabel}</label>
           <SearchInput
             placeholder={searchPlaceholder}
             value={searchValue}
             onChange={onSearchChange}
           />
         </div>
-        
+
         <div>
-          <label className="block text-sm font-medium mb-2">{dateLabel}</label>
+          <label className="mb-2 block text-sm font-medium">{dateLabel}</label>
           <DateRangePicker
             value={dateValue}
             onChange={onDateChange}
@@ -126,9 +127,9 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
             closeLabel={dateCloseLabel}
           />
         </div>
-        
+
         <div>
-          <label className="block text-sm font-medium mb-2">{genreLabel}</label>
+          <label className="mb-2 block text-sm font-medium">{genreLabel}</label>
           <FilterSelect
             placeholder={genrePlaceholder}
             value={genreValue}
@@ -136,9 +137,9 @@ export const SearchFilters: React.FC<SearchFiltersProps> = ({
             onValueChange={onGenreChange}
           />
         </div>
-        
+
         <div>
-          <label className="block text-sm font-medium mb-2">{venueLabel}</label>
+          <label className="mb-2 block text-sm font-medium">{venueLabel}</label>
           <FilterSelect
             placeholder={venuePlaceholder}
             value={venueValue}

@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from 'react';
-import { cn } from '@/lib/utils';
+import React, { useEffect, useMemo, useState } from "react";
+
+import { cn } from "@/lib/utils";
 
 export interface LanguageOption {
   code: string;
@@ -29,16 +30,16 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   disabled,
   onLanguageChange,
 }) => {
-  if (!ariaLabel || ariaLabel.trim() === '') {
+  if (!ariaLabel || ariaLabel.trim() === "") {
     throw new Error('LanguageSelector: "ariaLabel" prop is required and cannot be empty');
   }
-  if (!dataTestId || dataTestId.trim() === '') {
+  if (!dataTestId || dataTestId.trim() === "") {
     throw new Error('LanguageSelector: "dataTestId" prop is required and cannot be empty');
   }
   if (!languages || languages.length === 0) {
     throw new Error('LanguageSelector: "languages" prop is required and cannot be empty');
   }
-  
+
   const options = useMemo(() => languages, [languages]);
 
   const getInitialValue = (): string => {
@@ -47,7 +48,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       return defaultValue;
     }
     if (options.length === 0) {
-      throw new Error('LanguageSelector: languages array must contain at least one option');
+      throw new Error("LanguageSelector: languages array must contain at least one option");
     }
     return options[0]!.code;
   };
@@ -74,8 +75,8 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       onChange={handleChange}
       disabled={disabled}
       className={cn(
-        'px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-sm',
-        disabled && 'opacity-70 cursor-not-allowed',
+        "rounded-md border border-gray-300 bg-white px-3 py-2 text-sm dark:border-gray-600 dark:bg-gray-800",
+        disabled && "cursor-not-allowed opacity-70",
         className,
       )}
       aria-label={ariaLabel}

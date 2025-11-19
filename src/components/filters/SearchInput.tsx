@@ -1,13 +1,14 @@
 "use client";
 
-import * as React from "react";
 import { Search, X } from "lucide-react";
-import { Input } from "@/components/primitives/Input";
+import * as React from "react";
+
 import { Button } from "@/components/primitives/Button";
+import { Input } from "@/components/primitives/Input";
 import { cn } from "@/lib/utils";
 
 export interface SearchInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange"> {
   value: string;
   onChange: (value: string) => void;
   onClear?: () => void;
@@ -28,13 +29,15 @@ export function SearchInput({
   name,
   ...props
 }: SearchInputProps) {
-  if (!placeholder || placeholder.trim() === '') {
+  // Generate unique ID if not provided (must be called before any early returns)
+  const generatedId = React.useId();
+  const inputId = id || generatedId;
+  const inputName = name || `search-input-${inputId}`;
+
+  if (!placeholder || placeholder.trim() === "") {
     throw new Error('SearchInput: "placeholder" prop is required and cannot be empty');
   }
-  // Generate unique ID if not provided
-  const inputId = id || React.useId();
-  const inputName = name || `search-input-${inputId}`;
-  
+
   const [localValue, setLocalValue] = React.useState(value);
   const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -57,8 +60,8 @@ export function SearchInput({
   };
 
   const handleClear = () => {
-    setLocalValue('');
-    onChange('');
+    setLocalValue("");
+    onChange("");
     onClear?.();
   };
 
@@ -98,7 +101,7 @@ export function SearchInput({
 }
 
 // Hook for search functionality
-export function useSearch(initialValue: string = '') {
+export function useSearch(initialValue: string = "") {
   const [search, setSearch] = React.useState(initialValue);
   const [debouncedSearch, setDebouncedSearch] = React.useState(initialValue);
 
@@ -111,8 +114,8 @@ export function useSearch(initialValue: string = '') {
   }, [search]);
 
   const clearSearch = React.useCallback(() => {
-    setSearch('');
-    setDebouncedSearch('');
+    setSearch("");
+    setDebouncedSearch("");
   }, []);
 
   return {

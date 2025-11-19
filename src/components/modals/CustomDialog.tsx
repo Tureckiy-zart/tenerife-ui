@@ -1,14 +1,15 @@
 "use client";
 
-import React from 'react';
+import React from "react";
+
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 interface CustomDialogProps {
   isOpen: boolean;
@@ -25,7 +26,7 @@ export const CustomDialog: React.FC<CustomDialogProps> = ({
   title,
   description,
   children,
-  className
+  className,
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>

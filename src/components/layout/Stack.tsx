@@ -1,5 +1,6 @@
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 const stackVariants = cva("flex flex-col", {
@@ -17,27 +18,27 @@ const stackVariants = cva("flex flex-col", {
       12: "space-y-12",
       16: "space-y-16",
       20: "space-y-20",
-      24: "space-y-24"
+      24: "space-y-24",
     },
     align: {
       start: "items-start",
       end: "items-end",
       center: "items-center",
-      stretch: "items-stretch"
+      stretch: "items-stretch",
     },
     justify: {
       start: "justify-start",
       end: "justify-end",
       center: "justify-center",
       between: "justify-between",
-      around: "justify-around"
-    }
+      around: "justify-around",
+    },
   },
   defaultVariants: {
     spacing: 4,
     align: "stretch",
-    justify: "start"
-  }
+    justify: "start",
+  },
 });
 
 export interface StackProps
@@ -53,7 +54,7 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>(
         {...props}
       />
     );
-  }
+  },
 );
 Stack.displayName = "Stack";
 

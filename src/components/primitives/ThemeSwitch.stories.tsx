@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import { ThemeSwitch } from './ThemeSwitch';
+import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
+import { ThemeSwitch } from "./ThemeSwitch";
 
 const meta: Meta<typeof ThemeSwitch> = {
-  title: 'Components/ThemeSwitch',
+  title: "Components/ThemeSwitch",
   component: ThemeSwitch,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     size: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg'],
+      control: { type: "select" },
+      options: ["sm", "md", "lg"],
     },
     variant: {
-      control: { type: 'select' },
-      options: ['default', 'outline', 'ghost'],
+      control: { type: "select" },
+      options: ["default", "outline", "ghost"],
     },
   },
 };
@@ -30,31 +30,31 @@ export const Default: Story = {
 
 export const Small: Story = {
   args: {
-    size: 'sm',
+    size: "sm",
   },
 };
 
 export const Large: Story = {
   args: {
-    size: 'lg',
+    size: "lg",
   },
 };
 
 export const Outline: Story = {
   args: {
-    variant: 'outline',
+    variant: "outline",
   },
 };
 
 export const Ghost: Story = {
   args: {
-    variant: 'ghost',
+    variant: "ghost",
   },
 };
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex gap-4 items-center">
+    <div className="flex items-center gap-4">
       <ThemeSwitch variant="default" />
       <ThemeSwitch variant="outline" />
       <ThemeSwitch variant="ghost" />

@@ -1,34 +1,33 @@
-import React from 'react';
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import { Button } from './Button';
+import React from "react";
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import { Button } from "./Button";
 
-describe('Button component', () => {
-  it('should render button with text', () => {
+describe("Button component", () => {
+  it("should render button with text", () => {
     render(<Button>Click me</Button>);
-    const button = screen.getByRole('button', { name: /click me/i });
+    const button = screen.getByRole("button", { name: /click me/i });
     expect(button).toBeInTheDocument();
   });
 
-  it('should apply variant classes', () => {
+  it("should apply variant classes", () => {
     const { container } = render(<Button variant="destructive">Delete</Button>);
-    const button = container.querySelector('button');
-    expect(button).toHaveClass('bg-destructive');
-    expect(button).toHaveClass('text-destructive-foreground');
+    const button = container.querySelector("button");
+    expect(button).toHaveClass("bg-destructive");
+    expect(button).toHaveClass("text-destructive-foreground");
   });
 
-  it('should handle onClick events', () => {
+  it("should handle onClick events", () => {
     const handleClick = jest.fn();
     render(<Button onClick={handleClick}>Click</Button>);
-    const button = screen.getByRole('button');
+    const button = screen.getByRole("button");
     button.click();
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('should be disabled when disabled prop is true', () => {
+  it("should be disabled when disabled prop is true", () => {
     render(<Button disabled>Disabled</Button>);
-    const button = screen.getByRole('button');
+    const button = screen.getByRole("button");
     expect(button).toBeDisabled();
   });
 });
-

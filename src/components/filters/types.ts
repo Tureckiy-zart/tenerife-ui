@@ -20,30 +20,32 @@ export interface FilterState {
     max: number | null;
   };
   sortBy: string;
-  sortOrder: 'asc' | 'desc';
+  sortOrder: "asc" | "desc";
 }
 
 // Mock hook for components that need filter functionality
 // In actual usage, these should be imported from apps/web/src/stores/useFiltersStore
 export const useFilterManager = () => {
-  console.warn('useFilterManager: This is a mock implementation. Use the actual hook from apps/web/src/stores/useFiltersStore');
-  
+  console.warn(
+    "useFilterManager: This is a mock implementation. Use the actual hook from apps/web/src/stores/useFiltersStore",
+  );
+
   return {
-    search: '',
-    category: '',
+    search: "",
+    category: "",
     tags: [],
     dateRange: { start: null, end: null },
     priceRange: { min: null, max: null },
-    sortBy: 'date',
-    sortOrder: 'desc' as const,
-    setSearch: (search: string) => {},
-    setCategory: (category: string) => {},
-    setTags: (tags: string[]) => {},
-    addTag: (tag: string) => {},
-    removeTag: (tag: string) => {},
-    setDateRange: (start: Date | null, end: Date | null) => {},
-    setPriceRange: (min: number | null, max: number | null) => {},
-    setSorting: (sortBy: string, sortOrder: 'asc' | 'desc') => {},
+    sortBy: "date",
+    sortOrder: "desc" as const,
+    setSearch: (_search: string) => {},
+    setCategory: (_category: string) => {},
+    setTags: (_tags: string[]) => {},
+    addTag: (_tag: string) => {},
+    removeTag: (_tag: string) => {},
+    setDateRange: (_start: Date | null, _end: Date | null) => {},
+    setPriceRange: (_min: number | null, _max: number | null) => {},
+    setSorting: (_sortBy: string, _sortOrder: "asc" | "desc") => {},
     resetFilters: () => {},
     getActiveFiltersCount: () => 0,
     getFilterSummary: () => [],

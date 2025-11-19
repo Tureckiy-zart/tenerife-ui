@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
 import { Moon, Sun } from "lucide-react";
+import React from "react";
+
 import { Button } from "@/components/primitives/Button";
 import { cn } from "@/lib/utils";
 import type { Mode } from "@/tokens/colors";
+
 import { applyDocumentMode } from "../../theme/applyMode";
 
 interface ThemeSwitchProps {
@@ -137,8 +139,19 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = ({
     <Button
       onClick={toggleMode}
       variant={variant}
-      size={size === "sm" ? "sm" : size === "lg" ? "lg" : "default"}
-      className={cn(size === "sm" ? "h-8 w-8" : size === "lg" ? "h-12 w-12" : "h-10 w-10", className)}
+      size={(() => {
+        if (size === "sm") return "sm";
+        if (size === "lg") return "lg";
+        return "default";
+      })()}
+      className={cn(
+        (() => {
+          if (size === "sm") return "h-8 w-8";
+          if (size === "lg") return "h-12 w-12";
+          return "h-10 w-10";
+        })(),
+        className,
+      )}
       aria-label={`Switch to ${mode === "night" ? "day" : "night"} theme`}
       type="button"
     >

@@ -1,5 +1,6 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React from "react";
+
+import { cn } from "@/lib/utils";
 
 interface ProgressProps {
   value: number;
@@ -7,20 +8,13 @@ interface ProgressProps {
   className?: string;
 }
 
-export const Progress: React.FC<ProgressProps> = ({
-  value,
-  max = 100,
-  className
-}) => {
+export const Progress: React.FC<ProgressProps> = ({ value, max = 100, className }) => {
   const percentage = Math.min(100, Math.max(0, (value / max) * 100));
 
   return (
-    <div className={cn(
-      'w-full bg-secondary rounded-full h-2',
-      className
-    )}>
+    <div className={cn("h-2 w-full rounded-full bg-secondary", className)}>
       <div
-        className="bg-primary h-2 rounded-full transition-all duration-300"
+        className="h-2 rounded-full bg-primary transition-all duration-300"
         style={{ width: `${percentage}%` }}
       />
     </div>

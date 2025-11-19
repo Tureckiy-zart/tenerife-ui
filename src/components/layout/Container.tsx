@@ -1,5 +1,6 @@
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 const containerVariants = cva("mx-auto px-4", {
@@ -15,20 +16,20 @@ const containerVariants = cva("mx-auto px-4", {
       "5xl": "max-w-5xl",
       "6xl": "max-w-6xl",
       "7xl": "max-w-7xl",
-      full: "max-w-full"
+      full: "max-w-full",
     },
     padding: {
       none: "px-0",
       sm: "px-2",
       md: "px-4",
       lg: "px-6",
-      xl: "px-8"
-    }
+      xl: "px-8",
+    },
   },
   defaultVariants: {
     size: "7xl",
-    padding: "md"
-  }
+    padding: "md",
+  },
 });
 
 export interface ContainerProps
@@ -38,13 +39,9 @@ export interface ContainerProps
 const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
   ({ className, size, padding, ...props }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={cn(containerVariants({ size, padding, className }))}
-        {...props}
-      />
+      <div ref={ref} className={cn(containerVariants({ size, padding, className }))} {...props} />
     );
-  }
+  },
 );
 Container.displayName = "Container";
 

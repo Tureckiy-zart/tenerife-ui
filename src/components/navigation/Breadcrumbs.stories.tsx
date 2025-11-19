@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Breadcrumbs } from './Breadcrumbs';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Breadcrumbs } from "./Breadcrumbs";
 
 const meta: Meta<typeof Breadcrumbs> = {
-  title: 'Components/Breadcrumbs',
+  title: "Components/Breadcrumbs",
   component: Breadcrumbs,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -19,17 +19,14 @@ export const Default: Story = {
       { label: "Home", href: "/" },
       { label: "Events", href: "/events" },
       { label: "Classical", href: "/events/classical" },
-      { label: "Current Page" }
+      { label: "Current Page" },
     ],
   },
 };
 
 export const Short: Story = {
   args: {
-    items: [
-      { label: "Home", href: "/" },
-      { label: "Current Page" }
-    ],
+    items: [{ label: "Home", href: "/" }, { label: "Current Page" }],
   },
 };
 
@@ -41,7 +38,7 @@ export const Long: Story = {
       { label: "Subcategory", href: "/category/subcategory" },
       { label: "Item", href: "/category/subcategory/item" },
       { label: "Details", href: "/category/subcategory/item/details" },
-      { label: "Current Page" }
+      { label: "Current Page" },
     ],
   },
 };

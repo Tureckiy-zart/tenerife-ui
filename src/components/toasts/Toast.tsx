@@ -1,11 +1,12 @@
 "use client";
 
-import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { X, CheckCircle, AlertCircle, AlertTriangle, Info } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/primitives/Button';
-import { type Toast as ToastType } from '@/hooks/useToast';
+import { cva, type VariantProps } from "class-variance-authority";
+import { AlertCircle, AlertTriangle, CheckCircle, Info, X } from "lucide-react";
+import * as React from "react";
+
+import { Button } from "@/components/primitives/Button";
+import { type Toast as ToastType } from "@/hooks/useToast";
+import { cn } from "@/lib/utils";
 
 // Enhanced toast variants using shadcn/ui patterns with Tenerife branding
 const toastVariants = cva(
@@ -14,16 +15,19 @@ const toastVariants = cva(
     variants: {
       type: {
         default: "border bg-background text-foreground",
-        success: "border-green-200 bg-green-50 text-green-900 dark:border-green-800 dark:bg-green-950 dark:text-green-100",
-        error: "border-red-200 bg-red-50 text-red-900 dark:border-red-800 dark:bg-red-950 dark:text-red-100",
-        warning: "border-yellow-200 bg-yellow-50 text-yellow-900 dark:border-yellow-800 dark:bg-yellow-950 dark:text-yellow-100",
+        success:
+          "border-green-200 bg-green-50 text-green-900 dark:border-green-800 dark:bg-green-950 dark:text-green-100",
+        error:
+          "border-red-200 bg-red-50 text-red-900 dark:border-red-800 dark:bg-red-950 dark:text-red-100",
+        warning:
+          "border-yellow-200 bg-yellow-50 text-yellow-900 dark:border-yellow-800 dark:bg-yellow-950 dark:text-yellow-100",
         info: "border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-100",
       },
     },
     defaultVariants: {
       type: "default",
     },
-  }
+  },
 );
 
 const toastIconVariants = cva("h-4 w-4 flex-shrink-0", {
@@ -41,22 +45,24 @@ const toastIconVariants = cva("h-4 w-4 flex-shrink-0", {
   },
 });
 
-const getToastIcon = (type: ToastType['type']) => {
+const getToastIcon = (type: ToastType["type"]) => {
   switch (type) {
-    case 'success':
+    case "success":
       return CheckCircle;
-    case 'error':
+    case "error":
       return AlertCircle;
-    case 'warning':
+    case "warning":
       return AlertTriangle;
-    case 'info':
+    case "info":
       return Info;
     default:
       return Info;
   }
 };
 
-export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof toastVariants> {
+export interface ToastProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof toastVariants> {
   toast: ToastType;
   onDismiss: (id: string) => void;
 }
@@ -66,24 +72,12 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
     const Icon = getToastIcon(toast.type);
 
     return (
-      <div
-        ref={ref}
-        className={cn(toastVariants({ type, className }))}
-        {...props}
-      >
-        <div className="flex items-start space-x-3 flex-1">
+      <div ref={ref} className={cn(toastVariants({ type, className }))} {...props}>
+        <div className="flex flex-1 items-start space-x-3">
           <Icon className={cn(toastIconVariants({ type: toast.type }))} />
           <div className="flex-1 space-y-1">
-            {toast.title && (
-              <div className="text-sm font-semibold">
-                {toast.title}
-              </div>
-            )}
-            {toast.description && (
-              <div className="text-sm opacity-90">
-                {toast.description}
-              </div>
-            )}
+            {toast.title && <div className="text-sm font-semibold">{toast.title}</div>}
+            {toast.description && <div className="text-sm opacity-90">{toast.description}</div>}
             {toast.action && (
               <div className="mt-2">
                 <Button
@@ -101,14 +95,14 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-1 top-1 h-6 w-6 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-1 group-hover:opacity-100"
+          className="text-foreground/50 absolute right-1 top-1 h-6 w-6 rounded-md p-1 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-1 group-hover:opacity-100"
           onClick={() => onDismiss(toast.id)}
         >
           <X className="h-4 w-4" />
         </Button>
       </div>
     );
-  }
+  },
 );
 Toast.displayName = "Toast";
 

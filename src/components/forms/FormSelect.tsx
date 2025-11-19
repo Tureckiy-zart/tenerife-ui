@@ -1,9 +1,10 @@
 "use client";
 
-import React from 'react';
-import { Label } from '@/components/primitives/Label';
-import { Text } from '@/components/primitives/Typography';
-import { cn } from '@/lib/utils';
+import React from "react";
+
+import { Label } from "@/components/primitives/Label";
+import { Text } from "@/components/primitives/Typography";
+import { cn } from "@/lib/utils";
 
 interface FormSelectProps {
   id?: string;
@@ -26,26 +27,30 @@ export const FormSelect: React.FC<FormSelectProps> = ({
   value,
   onChange,
   error,
-  className
+  className,
 }) => {
   // value is optional - if undefined/null, use empty string (uncontrolled select)
   // If provided (even empty string), use it (controlled select)
-  const selectValue = value ?? '';
+  const selectValue = value ?? "";
 
   return (
     <div className={cn("space-y-2", className)}>
       {label && (
-        <Label htmlFor={id} className="block">{label}</Label>
+        <Label htmlFor={id} className="block">
+          {label}
+        </Label>
       )}
       <select
         id={id}
         name={name}
         value={selectValue}
         onChange={(e) => onChange?.(e.target.value)}
-        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
+        className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
       >
         {placeholder && (
-          <option value="" disabled>{placeholder}</option>
+          <option value="" disabled>
+            {placeholder}
+          </option>
         )}
         {options.map((option) => (
           <option key={option.value} value={option.value}>
@@ -54,7 +59,9 @@ export const FormSelect: React.FC<FormSelectProps> = ({
         ))}
       </select>
       {error && (
-        <Text size="sm" color="destructive">{error}</Text>
+        <Text size="sm" color="destructive">
+          {error}
+        </Text>
       )}
     </div>
   );

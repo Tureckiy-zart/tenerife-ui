@@ -1,7 +1,9 @@
 "use client";
 
 import * as React from "react";
+
 import { Button } from "@/components/primitives/Button";
+
 import {
   Modal,
   ModalContent,
@@ -36,16 +38,16 @@ export function ConfirmDialog({
   variant = "default",
   isLoading = false,
 }: ConfirmDialogProps) {
-  if (!title || title.trim() === '') {
+  if (!title || title.trim() === "") {
     throw new Error('ConfirmDialog: "title" prop is required and cannot be empty');
   }
-  if (!description || description.trim() === '') {
+  if (!description || description.trim() === "") {
     throw new Error('ConfirmDialog: "description" prop is required and cannot be empty');
   }
-  if (!confirmText || confirmText.trim() === '') {
+  if (!confirmText || confirmText.trim() === "") {
     throw new Error('ConfirmDialog: "confirmText" prop is required and cannot be empty');
   }
-  if (!cancelText || cancelText.trim() === '') {
+  if (!cancelText || cancelText.trim() === "") {
     throw new Error('ConfirmDialog: "cancelText" prop is required and cannot be empty');
   }
 
@@ -65,12 +67,8 @@ export function ConfirmDialog({
           <Button variant="outline" onClick={onClose} disabled={isLoading}>
             {cancelText}
           </Button>
-          <Button
-            variant={variant}
-            onClick={handleConfirm}
-            disabled={isLoading}
-          >
-            {isLoading ? (loadingText || confirmText) : confirmText}
+          <Button variant={variant} onClick={handleConfirm} disabled={isLoading}>
+            {isLoading ? loadingText || confirmText : confirmText}
           </Button>
         </ModalFooter>
       </ModalContent>
@@ -108,7 +106,7 @@ export function useConfirmDialog() {
         ...options,
       });
     },
-    []
+    [],
   );
 
   const hideConfirm = React.useCallback(() => {
@@ -123,15 +121,15 @@ export function useConfirmDialog() {
         isOpen={state.isOpen}
         onClose={hideConfirm}
         onConfirm={state.onConfirm || (() => {})}
-        title={state.title || ''}
-        description={state.description || ''}
-        confirmText={state.confirmText || ''}
-        cancelText={state.cancelText || ''}
+        title={state.title || ""}
+        description={state.description || ""}
+        confirmText={state.confirmText || ""}
+        cancelText={state.cancelText || ""}
         loadingText={state.loadingText}
         variant={state.variant}
       />
     ),
-    [state, hideConfirm]
+    [state, hideConfirm],
   );
 
   return {

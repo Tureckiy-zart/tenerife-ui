@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
-import { Progress } from './Progress';
+import type { Meta, StoryObj } from "@storybook/react";
+import React, { useState } from "react";
+import { Progress } from "./Progress";
 
 const meta: Meta<typeof Progress> = {
-  title: 'Components/Progress',
+  title: "Components/Progress",
   component: Progress,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     value: {
-      control: { type: 'range', min: 0, max: 100 },
+      control: { type: "range", min: 0, max: 100 },
     },
   },
 };
@@ -50,18 +50,18 @@ export const Interactive: Story = {
     return (
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-2">Progress: {progress}%</label>
+          <label className="mb-2 block text-sm font-medium">Progress: {progress}%</label>
           <Progress value={progress} />
           <div className="mt-2 flex gap-2">
             <button
               onClick={() => setProgress(Math.max(0, progress - 10))}
-              className="px-3 py-1 text-sm bg-secondary text-secondary-foreground rounded hover:bg-secondary/80"
+              className="rounded bg-secondary px-3 py-1 text-sm text-secondary-foreground hover:bg-secondary/80"
             >
               -10%
             </button>
             <button
               onClick={() => setProgress(Math.min(100, progress + 10))}
-              className="px-3 py-1 text-sm bg-secondary text-secondary-foreground rounded hover:bg-secondary/80"
+              className="rounded bg-secondary px-3 py-1 text-sm text-secondary-foreground hover:bg-secondary/80"
             >
               +10%
             </button>

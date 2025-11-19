@@ -1,7 +1,8 @@
-import * as React from 'react';
-import * as TooltipPrimitive from '@radix-ui/react-tooltip';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
 
 const TooltipProvider = TooltipPrimitive.Provider;
 
@@ -24,7 +25,7 @@ const tooltipContentVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 
 const TooltipContent = React.forwardRef<
@@ -44,9 +45,9 @@ TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 export interface TooltipProps {
   children: React.ReactNode;
   content: React.ReactNode;
-  variant?: VariantProps<typeof tooltipContentVariants>['variant'];
-  side?: 'top' | 'right' | 'bottom' | 'left';
-  align?: 'start' | 'center' | 'end';
+  variant?: VariantProps<typeof tooltipContentVariants>["variant"];
+  side?: "top" | "right" | "bottom" | "left";
+  align?: "start" | "center" | "end";
   sideOffset?: number;
   alignOffset?: number;
   delayDuration?: number;
@@ -60,22 +61,20 @@ export function TooltipWrapper({
   children,
   content,
   variant,
-  side = 'top',
-  align = 'center',
+  side = "top",
+  align = "center",
   sideOffset,
   alignOffset,
   delayDuration = 400,
   skipDelayDuration = 300,
-  disableHoverableContent = false,
+  disableHoverableContent: _disableHoverableContent = false,
   open,
   onOpenChange,
 }: TooltipProps) {
   return (
     <TooltipProvider delayDuration={delayDuration} skipDelayDuration={skipDelayDuration}>
       <Tooltip open={open} onOpenChange={onOpenChange}>
-        <TooltipTrigger asChild>
-          {children}
-        </TooltipTrigger>
+        <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipContent
           variant={variant}
           side={side}
@@ -90,10 +89,4 @@ export function TooltipWrapper({
   );
 }
 
-export { 
-  Tooltip, 
-  TooltipTrigger, 
-  TooltipContent, 
-  TooltipProvider,
-  tooltipContentVariants 
-};
+export { Tooltip, TooltipContent, tooltipContentVariants, TooltipProvider, TooltipTrigger };

@@ -1,5 +1,6 @@
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 const gridVariants = cva("grid", {
@@ -12,7 +13,7 @@ const gridVariants = cva("grid", {
       5: "grid-cols-5",
       6: "grid-cols-6",
       12: "grid-cols-12",
-      none: "grid-cols-none"
+      none: "grid-cols-none",
     },
     rows: {
       1: "grid-rows-1",
@@ -21,7 +22,7 @@ const gridVariants = cva("grid", {
       4: "grid-rows-4",
       5: "grid-rows-5",
       6: "grid-rows-6",
-      none: "grid-rows-none"
+      none: "grid-rows-none",
     },
     gap: {
       0: "gap-0",
@@ -36,22 +37,22 @@ const gridVariants = cva("grid", {
       12: "gap-12",
       16: "gap-16",
       20: "gap-20",
-      24: "gap-24"
+      24: "gap-24",
     },
     flow: {
       row: "grid-flow-row",
       col: "grid-flow-col",
       dense: "grid-flow-dense",
       "row-dense": "grid-flow-row-dense",
-      "col-dense": "grid-flow-col-dense"
-    }
+      "col-dense": "grid-flow-col-dense",
+    },
   },
   defaultVariants: {
     cols: 1,
     rows: "none",
     gap: 0,
-    flow: "row"
-  }
+    flow: "row",
+  },
 });
 
 export interface GridProps
@@ -67,7 +68,7 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
         {...props}
       />
     );
-  }
+  },
 );
 Grid.displayName = "Grid";
 

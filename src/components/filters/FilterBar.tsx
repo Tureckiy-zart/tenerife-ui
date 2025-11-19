@@ -1,15 +1,17 @@
 "use client";
 
+import { Filter, X } from "lucide-react";
 import * as React from "react";
-import { X, Filter } from "lucide-react";
-import { Button } from "@/components/primitives/Button";
+
 import { Badge } from "@/components/primitives/Badge";
-import { SearchInput } from "./SearchInput";
-import { FilterSelect } from "./FilterSelect";
-import { DateRangePicker } from "./DateRangePicker";
-import { PriceRangeSlider } from "./PriceRangeSlider";
-import { useFilterManager } from "./types";
+import { Button } from "@/components/primitives/Button";
 import { cn } from "@/lib/utils";
+
+import { DateRangePicker } from "./DateRangePicker";
+import { FilterSelect } from "./FilterSelect";
+import { PriceRangeSlider } from "./PriceRangeSlider";
+import { SearchInput } from "./SearchInput";
+import { useFilterManager } from "./types";
 
 export interface FilterBarProps {
   className?: string;
@@ -81,70 +83,70 @@ export function FilterBar({
   if (!sortOptions || sortOptions.length === 0) {
     throw new Error('FilterBar: "sortOptions" prop is required and cannot be empty');
   }
-  if (!searchPlaceholder || searchPlaceholder.trim() === '') {
+  if (!searchPlaceholder || searchPlaceholder.trim() === "") {
     throw new Error('FilterBar: "searchPlaceholder" prop is required and cannot be empty');
   }
-  if (!filtersLabel || filtersLabel.trim() === '') {
+  if (!filtersLabel || filtersLabel.trim() === "") {
     throw new Error('FilterBar: "filtersLabel" prop is required and cannot be empty');
   }
-  if (!clearAllLabel || clearAllLabel.trim() === '') {
+  if (!clearAllLabel || clearAllLabel.trim() === "") {
     throw new Error('FilterBar: "clearAllLabel" prop is required and cannot be empty');
   }
-  if (!categoryLabel || categoryLabel.trim() === '') {
+  if (!categoryLabel || categoryLabel.trim() === "") {
     throw new Error('FilterBar: "categoryLabel" prop is required and cannot be empty');
   }
-  if (!allCategoriesLabel || allCategoriesLabel.trim() === '') {
+  if (!allCategoriesLabel || allCategoriesLabel.trim() === "") {
     throw new Error('FilterBar: "allCategoriesLabel" prop is required and cannot be empty');
   }
-  if (!dateRangeLabel || dateRangeLabel.trim() === '') {
+  if (!dateRangeLabel || dateRangeLabel.trim() === "") {
     throw new Error('FilterBar: "dateRangeLabel" prop is required and cannot be empty');
   }
-  if (!anyDateLabel || anyDateLabel.trim() === '') {
+  if (!anyDateLabel || anyDateLabel.trim() === "") {
     throw new Error('FilterBar: "anyDateLabel" prop is required and cannot be empty');
   }
-  if (!dateSelectDateRangeLabel || dateSelectDateRangeLabel.trim() === '') {
+  if (!dateSelectDateRangeLabel || dateSelectDateRangeLabel.trim() === "") {
     throw new Error('FilterBar: "dateSelectDateRangeLabel" prop is required and cannot be empty');
   }
-  if (!dateClearLabel || dateClearLabel.trim() === '') {
+  if (!dateClearLabel || dateClearLabel.trim() === "") {
     throw new Error('FilterBar: "dateClearLabel" prop is required and cannot be empty');
   }
-  if (!dateCloseLabel || dateCloseLabel.trim() === '') {
+  if (!dateCloseLabel || dateCloseLabel.trim() === "") {
     throw new Error('FilterBar: "dateCloseLabel" prop is required and cannot be empty');
   }
-  if (!sortByLabel || sortByLabel.trim() === '') {
+  if (!sortByLabel || sortByLabel.trim() === "") {
     throw new Error('FilterBar: "sortByLabel" prop is required and cannot be empty');
   }
-  if (!sortAscLabel || sortAscLabel.trim() === '') {
+  if (!sortAscLabel || sortAscLabel.trim() === "") {
     throw new Error('FilterBar: "sortAscLabel" prop is required and cannot be empty');
   }
-  if (!sortDescLabel || sortDescLabel.trim() === '') {
+  if (!sortDescLabel || sortDescLabel.trim() === "") {
     throw new Error('FilterBar: "sortDescLabel" prop is required and cannot be empty');
   }
-  if (!sortByPlaceholder || sortByPlaceholder.trim() === '') {
+  if (!sortByPlaceholder || sortByPlaceholder.trim() === "") {
     throw new Error('FilterBar: "sortByPlaceholder" prop is required and cannot be empty');
   }
-  if (!activeFiltersLabel || activeFiltersLabel.trim() === '') {
+  if (!activeFiltersLabel || activeFiltersLabel.trim() === "") {
     throw new Error('FilterBar: "activeFiltersLabel" prop is required and cannot be empty');
   }
-  if (!priceRangeLabel || priceRangeLabel.trim() === '') {
+  if (!priceRangeLabel || priceRangeLabel.trim() === "") {
     throw new Error('FilterBar: "priceRangeLabel" prop is required and cannot be empty');
   }
-  if (!priceMinLabel || priceMinLabel.trim() === '') {
+  if (!priceMinLabel || priceMinLabel.trim() === "") {
     throw new Error('FilterBar: "priceMinLabel" prop is required and cannot be empty');
   }
-  if (!priceMaxLabel || priceMaxLabel.trim() === '') {
+  if (!priceMaxLabel || priceMaxLabel.trim() === "") {
     throw new Error('FilterBar: "priceMaxLabel" prop is required and cannot be empty');
   }
-  if (!priceAnyLabel || priceAnyLabel.trim() === '') {
+  if (!priceAnyLabel || priceAnyLabel.trim() === "") {
     throw new Error('FilterBar: "priceAnyLabel" prop is required and cannot be empty');
   }
-  if (!priceClearLabel || priceClearLabel.trim() === '') {
+  if (!priceClearLabel || priceClearLabel.trim() === "") {
     throw new Error('FilterBar: "priceClearLabel" prop is required and cannot be empty');
   }
-  if (!priceMinAriaLabel || priceMinAriaLabel.trim() === '') {
+  if (!priceMinAriaLabel || priceMinAriaLabel.trim() === "") {
     throw new Error('FilterBar: "priceMinAriaLabel" prop is required and cannot be empty');
   }
-  if (!priceMaxAriaLabel || priceMaxAriaLabel.trim() === '') {
+  if (!priceMaxAriaLabel || priceMaxAriaLabel.trim() === "") {
     throw new Error('FilterBar: "priceMaxAriaLabel" prop is required and cannot be empty');
   }
   const {
@@ -188,29 +190,20 @@ export function FilterBar({
   return (
     <div className={cn("space-y-4", className)}>
       {/* Search and Active Filters */}
-      <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex flex-col gap-4 sm:flex-row">
         {showSearch && (
           <div className="flex-1">
-            <SearchInput
-              value={search}
-              onChange={setSearch}
-              placeholder={searchPlaceholder}
-            />
+            <SearchInput value={search} onChange={setSearch} placeholder={searchPlaceholder} />
           </div>
         )}
-        
+
         {hasActiveFilters && (
           <div className="flex items-center gap-2">
             <Badge variant="secondary" className="gap-1">
               <Filter className="h-3 w-3" />
               {getFilterSummary().length} {filtersLabel}
             </Badge>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={clearAllFilters}
-              className="gap-1"
-            >
+            <Button variant="outline" size="sm" onClick={clearAllFilters} className="gap-1">
               <X className="h-3 w-3" />
               {clearAllLabel}
             </Button>
@@ -219,7 +212,7 @@ export function FilterBar({
       </div>
 
       {/* Filter Controls */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {showCategory && categories.length > 0 && (
           <FilterSelect
             value={category}
@@ -275,20 +268,22 @@ export function FilterBar({
             <FilterSelect
               value={`${sortBy}-${sortOrder}`}
               onValueChange={(value) => {
-                const [newSortBy, newSortOrder] = value.split('-');
+                const [newSortBy, newSortOrder] = value.split("-");
                 if (newSortBy && newSortOrder) {
-                  setSorting(newSortBy, newSortOrder as 'asc' | 'desc');
+                  setSorting(newSortBy, newSortOrder as "asc" | "desc");
                 }
               }}
-              options={sortOptions.map(option => ({
-                value: `${option.value}-asc`,
-                label: `${option.label} ${sortAscLabel}`,
-              })).concat(
-                sortOptions.map(option => ({
-                  value: `${option.value}-desc`,
-                  label: `${option.label} ${sortDescLabel}`,
+              options={sortOptions
+                .map((option) => ({
+                  value: `${option.value}-asc`,
+                  label: `${option.label} ${sortAscLabel}`,
                 }))
-              )}
+                .concat(
+                  sortOptions.map((option) => ({
+                    value: `${option.value}-desc`,
+                    label: `${option.label} ${sortDescLabel}`,
+                  })),
+                )}
               placeholder={sortByPlaceholder}
             />
           </div>
@@ -298,7 +293,7 @@ export function FilterBar({
       {/* Active Filters Summary */}
       {hasActiveFilters && (
         <div className="bg-muted/50 rounded-lg p-3">
-          <div className="text-sm font-medium mb-2">{activeFiltersLabel}</div>
+          <div className="mb-2 text-sm font-medium">{activeFiltersLabel}</div>
           <div className="flex flex-wrap gap-2">
             {getFilterSummary().map((filter, index) => (
               <Badge key={index} variant="outline" className="text-xs">
@@ -313,14 +308,6 @@ export function FilterBar({
 }
 
 // Compact version for mobile
-export function FilterBarCompact({
-  className,
-  ...props
-}: FilterBarProps) {
-  return (
-    <FilterBar
-      className={cn("space-y-2", className)}
-      {...props}
-    />
-  );
+export function FilterBarCompact({ className, ...props }: FilterBarProps) {
+  return <FilterBar className={cn("space-y-2", className)} {...props} />;
 }

@@ -1,7 +1,8 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
-import { ChevronRight } from 'lucide-react';
-import { Link } from '@/components/primitives/Link';
+import { ChevronRight } from "lucide-react";
+import React from "react";
+
+import { Link } from "@/components/primitives/Link";
+import { cn } from "@/lib/utils";
 
 interface BreadcrumbItem {
   label: string;
@@ -13,28 +14,21 @@ interface BreadcrumbsProps {
   className?: string;
 }
 
-export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
-  items,
-  className
-}) => {
+export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className }) => {
   return (
-    <nav className={cn('flex items-center space-x-2 text-sm', className)}>
+    <nav className={cn("flex items-center space-x-2 text-sm", className)}>
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          {index > 0 && (
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
-          )}
+          {index > 0 && <ChevronRight className="h-4 w-4 text-muted-foreground" />}
           {item.href ? (
-            <Link 
+            <Link
               href={item.href}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </Link>
           ) : (
-            <span className="text-foreground font-medium">
-              {item.label}
-            </span>
+            <span className="font-medium text-foreground">{item.label}</span>
           )}
         </React.Fragment>
       ))}

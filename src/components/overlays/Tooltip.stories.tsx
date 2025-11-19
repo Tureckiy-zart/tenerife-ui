@@ -1,17 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import { TooltipWrapper, Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from './Tooltip';
-import { Button } from '../primitives/Button';
-import { Badge } from '../primitives/Badge';
-import { Input } from '../primitives/Input';
-import { Label } from '../primitives/Label';
-import { Info, HelpCircle, AlertCircle } from 'lucide-react';
+import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
+import {
+  TooltipWrapper,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "./Tooltip";
+import { Button } from "../primitives/Button";
+import { Badge } from "../primitives/Badge";
+import { Input } from "../primitives/Input";
+import { Label } from "../primitives/Label";
+import { Info, HelpCircle, AlertCircle } from "lucide-react";
 
 const meta: Meta<typeof TooltipWrapper> = {
-  title: 'Components/Overlays/Tooltip',
+  title: "Components/Overlays/Tooltip",
   component: TooltipWrapper,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   decorators: [
     (Story) => (
@@ -27,14 +33,15 @@ type Story = StoryObj<typeof TooltipWrapper>;
 
 export const Default: Story = {
   args: {
-    content: 'This is a tooltip',
+    content: "This is a tooltip",
     children: <Button>Hover me</Button>,
   },
 };
 
 export const WithLongContent: Story = {
   args: {
-    content: 'This is a longer tooltip message that provides more detailed information about the element.',
+    content:
+      "This is a longer tooltip message that provides more detailed information about the element.",
     children: <Button>Hover for details</Button>,
   },
 };
@@ -42,38 +49,23 @@ export const WithLongContent: Story = {
 export const DifferentVariants: Story = {
   render: () => (
     <div className="flex gap-4">
-      <TooltipWrapper
-        content="Default tooltip"
-        variant="default"
-      >
+      <TooltipWrapper content="Default tooltip" variant="default">
         <Button variant="default">Default</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="Success tooltip"
-        variant="success"
-      >
+      <TooltipWrapper content="Success tooltip" variant="success">
         <Button variant="outline">Success</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="Warning tooltip"
-        variant="warning"
-      >
+      <TooltipWrapper content="Warning tooltip" variant="warning">
         <Button variant="outline">Warning</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="Error tooltip"
-        variant="destructive"
-      >
+      <TooltipWrapper content="Error tooltip" variant="destructive">
         <Button variant="outline">Error</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="Info tooltip"
-        variant="info"
-      >
+      <TooltipWrapper content="Info tooltip" variant="info">
         <Button variant="outline">Info</Button>
       </TooltipWrapper>
     </div>
@@ -83,31 +75,19 @@ export const DifferentVariants: Story = {
 export const DifferentPositions: Story = {
   render: () => (
     <div className="grid grid-cols-2 gap-8 p-8">
-      <TooltipWrapper
-        content="Top tooltip"
-        side="top"
-      >
+      <TooltipWrapper content="Top tooltip" side="top">
         <Button>Top</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="Right tooltip"
-        side="right"
-      >
+      <TooltipWrapper content="Right tooltip" side="right">
         <Button>Right</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="Bottom tooltip"
-        side="bottom"
-      >
+      <TooltipWrapper content="Bottom tooltip" side="bottom">
         <Button>Bottom</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="Left tooltip"
-        side="left"
-      >
+      <TooltipWrapper content="Left tooltip" side="left">
         <Button>Left</Button>
       </TooltipWrapper>
     </div>
@@ -116,14 +96,11 @@ export const DifferentPositions: Story = {
 
 export const WithFormElements: Story = {
   render: () => (
-    <div className="space-y-4 w-80">
+    <div className="w-80 space-y-4">
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <Label htmlFor="email">Email</Label>
-          <TooltipWrapper
-            content="We'll never share your email with anyone else."
-            variant="info"
-          >
+          <TooltipWrapper content="We'll never share your email with anyone else." variant="info">
             <Info className="h-4 w-4 text-muted-foreground" />
           </TooltipWrapper>
         </div>
@@ -133,10 +110,7 @@ export const WithFormElements: Story = {
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <Label htmlFor="password">Password</Label>
-          <TooltipWrapper
-            content="Password must be at least 8 characters long"
-            variant="warning"
-          >
+          <TooltipWrapper content="Password must be at least 8 characters long" variant="warning">
             <HelpCircle className="h-4 w-4 text-muted-foreground" />
           </TooltipWrapper>
         </div>
@@ -146,10 +120,7 @@ export const WithFormElements: Story = {
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <Label htmlFor="confirm-password">Confirm Password</Label>
-          <TooltipWrapper
-            content="Passwords do not match"
-            variant="destructive"
-          >
+          <TooltipWrapper content="Passwords do not match" variant="destructive">
             <AlertCircle className="h-4 w-4 text-red-500" />
           </TooltipWrapper>
         </div>
@@ -162,24 +133,15 @@ export const WithFormElements: Story = {
 export const WithBadges: Story = {
   render: () => (
     <div className="flex gap-4">
-      <TooltipWrapper
-        content="This feature is currently in development"
-        variant="warning"
-      >
+      <TooltipWrapper content="This feature is currently in development" variant="warning">
         <Badge variant="secondary">Beta</Badge>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="This feature is available for premium users"
-        variant="info"
-      >
+      <TooltipWrapper content="This feature is available for premium users" variant="info">
         <Badge variant="outline">Premium</Badge>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="This feature is no longer supported"
-        variant="destructive"
-      >
+      <TooltipWrapper content="This feature is no longer supported" variant="destructive">
         <Badge variant="destructive">Deprecated</Badge>
       </TooltipWrapper>
     </div>
@@ -189,24 +151,15 @@ export const WithBadges: Story = {
 export const CustomDelay: Story = {
   render: () => (
     <div className="flex gap-4">
-      <TooltipWrapper
-        content="Fast tooltip (200ms delay)"
-        delayDuration={200}
-      >
+      <TooltipWrapper content="Fast tooltip (200ms delay)" delayDuration={200}>
         <Button>Fast Tooltip</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="Slow tooltip (1000ms delay)"
-        delayDuration={1000}
-      >
+      <TooltipWrapper content="Slow tooltip (1000ms delay)" delayDuration={1000}>
         <Button>Slow Tooltip</Button>
       </TooltipWrapper>
 
-      <TooltipWrapper
-        content="No delay tooltip"
-        delayDuration={0}
-      >
+      <TooltipWrapper content="No delay tooltip" delayDuration={0}>
         <Button>No Delay</Button>
       </TooltipWrapper>
     </div>

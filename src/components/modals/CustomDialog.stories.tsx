@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
-import { CustomDialog } from './CustomDialog';
+import type { Meta, StoryObj } from "@storybook/react";
+import React, { useState } from "react";
+import { CustomDialog } from "./CustomDialog";
 
 const meta: Meta<typeof CustomDialog> = {
-  title: 'Components/CustomDialog',
+  title: "Components/CustomDialog",
   component: CustomDialog,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     isOpen: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
   },
 };
@@ -26,20 +26,16 @@ const DialogWithState = () => {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+        className="rounded-md bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90"
       >
         Open Dialog
       </button>
-      <CustomDialog
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        title="Demo Dialog"
-      >
+      <CustomDialog isOpen={isOpen} onClose={() => setIsOpen(false)} title="Demo Dialog">
         <p>This is a demo dialog content.</p>
         <div className="mt-4 flex justify-end">
           <button
             onClick={() => setIsOpen(false)}
-            className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+            className="rounded-md bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90"
           >
             Close
           </button>
@@ -61,19 +57,16 @@ export const WithoutTitle: Story = {
       <div>
         <button
           onClick={() => setIsOpen(true)}
-          className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+          className="rounded-md bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90"
         >
           Open Dialog Without Title
         </button>
-        <CustomDialog
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-        >
+        <CustomDialog isOpen={isOpen} onClose={() => setIsOpen(false)}>
           <p>This dialog doesn't have a title.</p>
           <div className="mt-4 flex justify-end">
             <button
               onClick={() => setIsOpen(false)}
-              className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+              className="rounded-md bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90"
             >
               Close
             </button>

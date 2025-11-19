@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import { Heading, Text, Code, Blockquote } from './Typography';
+import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
+import { Heading, Text, Code, Blockquote } from "./Typography";
 
 const meta: Meta<typeof Heading> = {
-  title: 'Components/Typography',
+  title: "Components/Typography",
   component: Heading,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -67,12 +67,10 @@ export const ParagraphExample: Story = {
     return (
       <div className="space-y-4">
         <Paragraph>
-          This is a paragraph with normal text. It demonstrates how the Paragraph component
-          renders text with proper spacing and line height for readability.
+          This is a paragraph with normal text. It demonstrates how the Paragraph component renders
+          text with proper spacing and line height for readability.
         </Paragraph>
-        <Paragraph>
-          This is another paragraph to show the spacing between paragraphs.
-        </Paragraph>
+        <Paragraph>This is another paragraph to show the spacing between paragraphs.</Paragraph>
       </div>
     );
   },
@@ -90,9 +88,5 @@ export const CodeExample: Story = {
 };
 
 export const BlockquoteExample: Story = {
-  render: () => (
-    <Blockquote>
-      "The best way to predict the future is to create it."
-    </Blockquote>
-  ),
+  render: () => <Blockquote>"The best way to predict the future is to create it."</Blockquote>,
 };
