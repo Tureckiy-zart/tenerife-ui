@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { createContext, useContext, type ReactNode } from "react";
+import { createContext, type ReactNode,useContext } from "react";
+
 import { useModalManager } from "@/hooks/useModal";
 
 interface ModalContextType {
@@ -21,11 +22,7 @@ export interface ModalProviderProps {
 export function ModalProvider({ children }: ModalProviderProps) {
   const modalManager = useModalManager();
 
-  return (
-    <ModalContext.Provider value={modalManager}>
-      {children}
-    </ModalContext.Provider>
-  );
+  return <ModalContext.Provider value={modalManager}>{children}</ModalContext.Provider>;
 }
 
 export function useModalContext() {
@@ -37,10 +34,7 @@ export function useModalContext() {
 }
 
 // Higher-order component for modal management
-export function withModal<T extends object>(
-  Component: React.ComponentType<T>,
-  modalId: string
-) {
+export function withModal<T extends object>(Component: React.ComponentType<T>, modalId: string) {
   return function WrappedComponent(props: T) {
     const { openModal, closeModal, toggleModal, isModalOpen, getModalData } = useModalContext();
 

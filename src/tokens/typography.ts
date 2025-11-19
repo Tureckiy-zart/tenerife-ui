@@ -13,16 +13,9 @@ export const fontFamily = {
     "Apple Color Emoji",
     "Segoe UI Emoji",
     "Segoe UI Symbol",
-    "Noto Color Emoji"
+    "Noto Color Emoji",
   ],
-  serif: [
-    "ui-serif",
-    "Georgia",
-    "Cambria",
-    "Times New Roman",
-    "Times",
-    "serif"
-  ],
+  serif: ["ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
   mono: [
     "ui-monospace",
     "SFMono-Regular",
@@ -31,8 +24,8 @@ export const fontFamily = {
     "Consolas",
     "Liberation Mono",
     "Courier New",
-    "monospace"
-  ]
+    "monospace",
+  ],
 } as const;
 
 export const fontSize = {
@@ -48,7 +41,7 @@ export const fontSize = {
   "6xl": ["3.75rem", { lineHeight: "1" }],
   "7xl": ["4.5rem", { lineHeight: "1" }],
   "8xl": ["6rem", { lineHeight: "1" }],
-  "9xl": ["8rem", { lineHeight: "1" }]
+  "9xl": ["8rem", { lineHeight: "1" }],
 } as const;
 
 export const fontWeight = {
@@ -60,7 +53,7 @@ export const fontWeight = {
   semibold: "600",
   bold: "700",
   extrabold: "800",
-  black: "900"
+  black: "900",
 } as const;
 
 export const letterSpacing = {
@@ -69,7 +62,7 @@ export const letterSpacing = {
   normal: "0em",
   wide: "0.025em",
   wider: "0.05em",
-  widest: "0.1em"
+  widest: "0.1em",
 } as const;
 
 export const lineHeight = {
@@ -78,7 +71,7 @@ export const lineHeight = {
   snug: "1.375",
   normal: "1.5",
   relaxed: "1.625",
-  loose: "2"
+  loose: "2",
 } as const;
 
 export type FontFamily = keyof typeof fontFamily;

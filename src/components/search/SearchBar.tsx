@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import { SearchInput } from '@/components/filters/SearchInput';
-import { Button } from '@/components/primitives/Button';
-import { cn } from '@/lib/utils';
+import React, { useEffect,useRef, useState } from "react";
+
+import { SearchInput } from "@/components/filters/SearchInput";
+import { Button } from "@/components/primitives/Button";
+import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
   placeholder: string;
@@ -13,17 +14,17 @@ interface SearchBarProps {
   onSuggestionSelect?: (suggestion: string) => void;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ 
-  placeholder, 
+export const SearchBar: React.FC<SearchBarProps> = ({
+  placeholder,
   className,
   onSearch,
   suggestions = [],
-  onSuggestionSelect
+  onSuggestionSelect,
 }) => {
-  if (!placeholder || placeholder.trim() === '') {
+  if (!placeholder || placeholder.trim() === "") {
     throw new Error('SearchBar: "placeholder" prop is required and cannot be empty');
   }
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const searchRef = useRef<HTMLDivElement>(null);
@@ -40,7 +41,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     setIsFocused(true);
   };
 
-  const handleBlur = (e: React.FocusEvent) => {
+  const handleBlur = (_e: React.FocusEvent) => {
     // Delay to allow click on suggestion
     setTimeout(() => {
       if (!searchRef.current?.contains(document.activeElement)) {
@@ -53,15 +54,13 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (suggestions.length === 0) return;
 
-    if (e.key === 'ArrowDown') {
+    if (e.key === "ArrowDown") {
       e.preventDefault();
-      setSelectedIndex((prev) => 
-        prev < suggestions.length - 1 ? prev + 1 : prev
-      );
-    } else if (e.key === 'ArrowUp') {
+      setSelectedIndex((prev) => (prev < suggestions.length - 1 ? prev + 1 : prev));
+    } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
-    } else if (e.key === 'Enter' && selectedIndex >= 0 && selectedIndex < suggestions.length) {
+    } else if (e.key === "Enter" && selectedIndex >= 0 && selectedIndex < suggestions.length) {
       e.preventDefault();
       const selected = suggestions[selectedIndex];
       if (selected) {
@@ -70,7 +69,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         onSuggestionSelect?.(selected);
         setIsFocused(false);
       }
-    } else if (e.key === 'Escape') {
+    } else if (e.key === "Escape") {
       setIsFocused(false);
       setSelectedIndex(-1);
     }
@@ -92,12 +91,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const filteredSuggestions = suggestions.filter((suggestion) =>
-    suggestion.toLowerCase().includes(value.toLowerCase())
+    suggestion.toLowerCase().includes(value.toLowerCase()),
   );
 
   return (
@@ -113,11 +112,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           "transition-all duration-200",
           "focus:ring-2 focus:ring-primary focus:ring-offset-2",
           "hover:border-primary/50",
-          isFocused && "border-primary shadow-sm"
+          isFocused && "border-primary shadow-sm",
         )}
       />
       {isFocused && filteredSuggestions.length > 0 && (
-        <div className="absolute z-50 w-full mt-1 bg-popover border rounded-md shadow-lg max-h-60 overflow-auto">
+        <div className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-popover shadow-lg">
           {filteredSuggestions.map((suggestion, index) => (
             <Button
               key={suggestion}
@@ -126,7 +125,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
               onClick={() => handleSuggestionClick(suggestion)}
               className={cn(
                 "w-full justify-start px-4 py-2 text-sm",
-                index === selectedIndex && "bg-accent text-accent-foreground"
+                index === selectedIndex && "bg-accent text-accent-foreground",
               )}
             >
               {suggestion}

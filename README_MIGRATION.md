@@ -92,4 +92,3 @@ After migration, verify everything works:
 ---
 
 **Total size:** ~960KB (source files only, without dependencies)
-

@@ -1,9 +1,10 @@
 "use client";
 
-import React from 'react';
-import { FormInput } from '@/components/forms/FormInput';
-import { Button } from '@/components/primitives/Button';
-import { cn } from '@/lib/utils';
+import React from "react";
+
+import { FormInput } from "@/components/forms/FormInput";
+import { Button } from "@/components/primitives/Button";
+import { cn } from "@/lib/utils";
 
 interface RegisterFormProps {
   nameLabel: string;
@@ -16,7 +17,7 @@ interface RegisterFormProps {
   className?: string;
 }
 
-export const RegisterForm: React.FC<RegisterFormProps> = ({ 
+export const RegisterForm: React.FC<RegisterFormProps> = ({
   nameLabel,
   namePlaceholder,
   emailLabel,
@@ -24,27 +25,27 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
   passwordLabel,
   passwordPlaceholder,
   registerButtonText,
-  className 
+  className,
 }) => {
-  if (!nameLabel || nameLabel.trim() === '') {
+  if (!nameLabel || nameLabel.trim() === "") {
     throw new Error('RegisterForm: "nameLabel" prop is required and cannot be empty');
   }
-  if (!namePlaceholder || namePlaceholder.trim() === '') {
+  if (!namePlaceholder || namePlaceholder.trim() === "") {
     throw new Error('RegisterForm: "namePlaceholder" prop is required and cannot be empty');
   }
-  if (!emailLabel || emailLabel.trim() === '') {
+  if (!emailLabel || emailLabel.trim() === "") {
     throw new Error('RegisterForm: "emailLabel" prop is required and cannot be empty');
   }
-  if (!emailPlaceholder || emailPlaceholder.trim() === '') {
+  if (!emailPlaceholder || emailPlaceholder.trim() === "") {
     throw new Error('RegisterForm: "emailPlaceholder" prop is required and cannot be empty');
   }
-  if (!passwordLabel || passwordLabel.trim() === '') {
+  if (!passwordLabel || passwordLabel.trim() === "") {
     throw new Error('RegisterForm: "passwordLabel" prop is required and cannot be empty');
   }
-  if (!passwordPlaceholder || passwordPlaceholder.trim() === '') {
+  if (!passwordPlaceholder || passwordPlaceholder.trim() === "") {
     throw new Error('RegisterForm: "passwordPlaceholder" prop is required and cannot be empty');
   }
-  if (!registerButtonText || registerButtonText.trim() === '') {
+  if (!registerButtonText || registerButtonText.trim() === "") {
     throw new Error('RegisterForm: "registerButtonText" prop is required and cannot be empty');
   }
 

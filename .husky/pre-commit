@@ -1,0 +1,4 @@
+#!/bin/sh
+# Pre-commit hook disabled - using pre-push hook instead
+# All checks are performed before push, not before each commit
+exit 0

@@ -1,5 +1,6 @@
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 const flexVariants = cva("flex", {
@@ -8,12 +9,12 @@ const flexVariants = cva("flex", {
       row: "flex-row",
       "row-reverse": "flex-row-reverse",
       column: "flex-col",
-      "column-reverse": "flex-col-reverse"
+      "column-reverse": "flex-col-reverse",
     },
     wrap: {
       nowrap: "flex-nowrap",
       wrap: "flex-wrap",
-      "wrap-reverse": "flex-wrap-reverse"
+      "wrap-reverse": "flex-wrap-reverse",
     },
     justify: {
       start: "justify-start",
@@ -21,14 +22,14 @@ const flexVariants = cva("flex", {
       center: "justify-center",
       between: "justify-between",
       around: "justify-around",
-      evenly: "justify-evenly"
+      evenly: "justify-evenly",
     },
     align: {
       start: "items-start",
       end: "items-end",
       center: "items-center",
       baseline: "items-baseline",
-      stretch: "items-stretch"
+      stretch: "items-stretch",
     },
     gap: {
       0: "gap-0",
@@ -43,16 +44,16 @@ const flexVariants = cva("flex", {
       12: "gap-12",
       16: "gap-16",
       20: "gap-20",
-      24: "gap-24"
-    }
+      24: "gap-24",
+    },
   },
   defaultVariants: {
     direction: "row",
     wrap: "nowrap",
     justify: "start",
     align: "start",
-    gap: 0
-  }
+    gap: 0,
+  },
 });
 
 export interface FlexProps
@@ -68,7 +69,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
         {...props}
       />
     );
-  }
+  },
 );
 Flex.displayName = "Flex";
 

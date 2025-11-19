@@ -1,9 +1,10 @@
 "use client";
 
-import React from 'react';
-import { Label } from '@/components/primitives/Label';
-import { Text } from '@/components/primitives/Typography';
-import { cn } from '@/lib/utils';
+import React from "react";
+
+import { Label } from "@/components/primitives/Label";
+import { Text } from "@/components/primitives/Typography";
+import { cn } from "@/lib/utils";
 
 interface FormTextareaProps {
   id?: string;
@@ -26,16 +27,18 @@ export const FormTextarea: React.FC<FormTextareaProps> = ({
   onChange,
   error,
   rows = 4,
-  className
+  className,
 }) => {
   // value is optional - if undefined/null, use empty string (uncontrolled textarea)
   // If provided (even empty string), use it (controlled textarea)
-  const textareaValue = value ?? '';
+  const textareaValue = value ?? "";
 
   return (
     <div className={cn("space-y-2", className)}>
       {label && (
-        <Label htmlFor={id} className="block">{label}</Label>
+        <Label htmlFor={id} className="block">
+          {label}
+        </Label>
       )}
       <textarea
         id={id}
@@ -43,11 +46,13 @@ export const FormTextarea: React.FC<FormTextareaProps> = ({
         placeholder={placeholder}
         value={textareaValue}
         onChange={(e) => onChange?.(e.target.value)}
-        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800"
+        className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
         rows={rows}
       />
       {error && (
-        <Text size="sm" color="destructive">{error}</Text>
+        <Text size="sm" color="destructive">
+          {error}
+        </Text>
       )}
     </div>
   );

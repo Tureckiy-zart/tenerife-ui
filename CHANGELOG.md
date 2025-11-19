@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.1] - 2025-01-29
 
 ### Added
+
 - Initial release of @tenerife.music/ui package
 - 74+ React components extracted from Tenerife.Music monorepo
 - Day/Night theme support
@@ -19,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Radix UI accessibility support
 
 ### Components
+
 - **Primitives**: Button, Input, Card, Badge, Label, Divider, Link, Typography, ThemeSwitch
 - **Layout**: Navbar, Footer, Container, Section, Grid, Flex, Stack, ModeHero
 - **Forms**: FormInput, FormSelect, FormTextarea
@@ -38,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Admin**: Dashboard, UserManagement
 
 ### Design Tokens
+
 - Color system with CSS variables
 - Typography tokens
 - Spacing tokens
@@ -45,6 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Theme tokens (day/night)
 
 ### Build & Publishing
+
 - Vite build configuration
 - ESM and CJS exports
 - TypeScript declaration files
@@ -53,9 +57,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 [0.0.1]: https://github.com/tenerife-music/tenerife-ui/releases/tag/v0.0.1
-
-
-
-
-
-

@@ -20,7 +20,7 @@
   --input: 0 0% 89.8%;
   --ring: 0 0% 3.9%;
   --radius: 0.5rem;
-  
+
   /* Tenerife Music specific colors (day mode) */
   --tm-primary: 173 100% 37%; /* #00bfa6 - Tenerife brand primary */
   --tm-primary-foreground: 0 0% 100%;
@@ -59,7 +59,7 @@ html[data-mode="night"],
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
   --ring: 240 4.9% 83.9%;
-  
+
   /* Tenerife Music specific colors (night mode) */
   --tm-primary: 259 70% 67%; /* #7b5eff - night accent */
   --tm-primary-foreground: 0 0% 100%;

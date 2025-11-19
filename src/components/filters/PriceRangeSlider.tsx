@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+
 import { Input } from "@/components/primitives/Input";
 import { Label } from "@/components/primitives/Label";
 import { cn } from "@/lib/utils";
@@ -43,43 +44,43 @@ export function PriceRangeSlider({
   maxAriaLabel,
   className,
 }: PriceRangeSliderProps) {
-  if (typeof min !== 'number' || isNaN(min)) {
+  if (typeof min !== "number" || isNaN(min)) {
     throw new Error('PriceRangeSlider: "min" prop is required and must be a number');
   }
-  if (typeof max !== 'number' || isNaN(max)) {
+  if (typeof max !== "number" || isNaN(max)) {
     throw new Error('PriceRangeSlider: "max" prop is required and must be a number');
   }
-  if (typeof step !== 'number' || isNaN(step) || step <= 0) {
+  if (typeof step !== "number" || isNaN(step) || step <= 0) {
     throw new Error('PriceRangeSlider: "step" prop is required and must be a positive number');
   }
-  if (!currency || currency.trim() === '') {
+  if (!currency || currency.trim() === "") {
     throw new Error('PriceRangeSlider: "currency" prop is required and cannot be empty');
   }
-  if (!priceRangeLabel || priceRangeLabel.trim() === '') {
+  if (!priceRangeLabel || priceRangeLabel.trim() === "") {
     throw new Error('PriceRangeSlider: "priceRangeLabel" prop is required and cannot be empty');
   }
-  if (!minLabel || minLabel.trim() === '') {
+  if (!minLabel || minLabel.trim() === "") {
     throw new Error('PriceRangeSlider: "minLabel" prop is required and cannot be empty');
   }
-  if (!maxLabel || maxLabel.trim() === '') {
+  if (!maxLabel || maxLabel.trim() === "") {
     throw new Error('PriceRangeSlider: "maxLabel" prop is required and cannot be empty');
   }
-  if (!anyPriceLabel || anyPriceLabel.trim() === '') {
+  if (!anyPriceLabel || anyPriceLabel.trim() === "") {
     throw new Error('PriceRangeSlider: "anyPriceLabel" prop is required and cannot be empty');
   }
-  if (!clearLabel || clearLabel.trim() === '') {
+  if (!clearLabel || clearLabel.trim() === "") {
     throw new Error('PriceRangeSlider: "clearLabel" prop is required and cannot be empty');
   }
-  if (!minAriaLabel || minAriaLabel.trim() === '') {
+  if (!minAriaLabel || minAriaLabel.trim() === "") {
     throw new Error('PriceRangeSlider: "minAriaLabel" prop is required and cannot be empty');
   }
-  if (!maxAriaLabel || maxAriaLabel.trim() === '') {
+  if (!maxAriaLabel || maxAriaLabel.trim() === "") {
     throw new Error('PriceRangeSlider: "maxAriaLabel" prop is required and cannot be empty');
   }
   // Generate unique IDs for each instance to avoid duplicates
   const minPriceId = React.useId();
   const maxPriceId = React.useId();
-  
+
   const [localMin, setLocalMin] = React.useState(value.min?.toString() || "");
   const [localMax, setLocalMax] = React.useState(value.max?.toString() || "");
 
@@ -91,10 +92,10 @@ export function PriceRangeSlider({
   const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newMin = e.target.value;
     setLocalMin(newMin);
-    
+
     const minValue = newMin === "" ? null : Math.max(min, parseInt(newMin) || min);
     const maxValue = value.max ? Math.min(max, value.max) : null;
-    
+
     if (minValue !== null && maxValue !== null && minValue > maxValue) {
       onChange({ min: minValue, max: minValue });
     } else {
@@ -105,10 +106,10 @@ export function PriceRangeSlider({
   const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newMax = e.target.value;
     setLocalMax(newMax);
-    
+
     const maxValue = newMax === "" ? null : Math.min(max, parseInt(newMax) || max);
     const minValue = value.min ? Math.max(min, value.min) : null;
-    
+
     if (minValue !== null && maxValue !== null && minValue > maxValue) {
       onChange({ min: maxValue, max: maxValue });
     } else {
@@ -116,8 +117,8 @@ export function PriceRangeSlider({
     }
   };
 
-  const handleSliderChange = (type: 'min' | 'max', sliderValue: number) => {
-    if (type === 'min') {
+  const handleSliderChange = (type: "min" | "max", sliderValue: number) => {
+    if (type === "min") {
       const newMin = Math.max(min, Math.min(max, sliderValue));
       const newMax = value.max ? Math.max(newMin, value.max) : null;
       onChange({ min: newMin, max: newMax });
@@ -200,8 +201,8 @@ export function PriceRangeSlider({
             max={max}
             step={step}
             value={minSliderValue}
-            onChange={(e) => handleSliderChange('min', parseInt(e.target.value))}
-            className="absolute w-full h-2 bg-transparent appearance-none cursor-pointer slider-thumb"
+            onChange={(e) => handleSliderChange("min", parseInt(e.target.value))}
+            className="slider-thumb absolute h-2 w-full cursor-pointer appearance-none bg-transparent"
             aria-label={minAriaLabel}
           />
           <input
@@ -212,13 +213,13 @@ export function PriceRangeSlider({
             max={max}
             step={step}
             value={maxSliderValue}
-            onChange={(e) => handleSliderChange('max', parseInt(e.target.value))}
-            className="absolute w-full h-2 bg-transparent appearance-none cursor-pointer slider-thumb"
+            onChange={(e) => handleSliderChange("max", parseInt(e.target.value))}
+            className="slider-thumb absolute h-2 w-full cursor-pointer appearance-none bg-transparent"
             aria-label={maxAriaLabel}
           />
-          <div className="h-2 bg-muted rounded-full">
+          <div className="h-2 rounded-full bg-muted">
             <div
-              className="h-2 bg-primary rounded-full"
+              className="h-2 rounded-full bg-primary"
               style={{
                 left: `${((minSliderValue - min) / (max - min)) * 100}%`,
                 width: `${((maxSliderValue - minSliderValue) / (max - min)) * 100}%`,
@@ -227,12 +228,18 @@ export function PriceRangeSlider({
           </div>
         </div>
         <div className="flex justify-between text-xs text-muted-foreground">
-          <span>{currency}{min}</span>
-          <span>{currency}{max}</span>
+          <span>
+            {currency}
+            {min}
+          </span>
+          <span>
+            {currency}
+            {max}
+          </span>
         </div>
       </div>
 
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <span className="text-sm text-muted-foreground">
           {value.min !== null || value.max !== null
             ? `${currency}${value.min || min} - ${currency}${value.max || max}`

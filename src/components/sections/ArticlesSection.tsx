@@ -1,9 +1,10 @@
 "use client";
 
-import React from 'react';
-import { Link } from '@/components/primitives/Link';
-import { Heading, Text } from '@/components/primitives/Typography';
-import { cn } from '@/lib/utils';
+import React from "react";
+
+import { Link } from "@/components/primitives/Link";
+import { Heading, Text } from "@/components/primitives/Typography";
+import { cn } from "@/lib/utils";
 
 interface Article {
   slug: string;
@@ -22,22 +23,23 @@ interface ArticlesSectionProps {
 export const ArticlesSection: React.FC<ArticlesSectionProps> = ({
   articles,
   readMoreLabel,
-  className
+  className,
 }) => {
-  if (!readMoreLabel || readMoreLabel.trim() === '') {
+  if (!readMoreLabel || readMoreLabel.trim() === "") {
     throw new Error('ArticlesSection: "readMoreLabel" prop is required and cannot be empty');
   }
 
   return (
     <div className={cn("space-y-6", className)}>
       {articles.map((article) => (
-        <article key={article.slug} className="border rounded-lg p-6 hover:shadow-md transition-shadow">
-          {article.image && (
-            <div className="w-full h-48 bg-muted rounded-md mb-4" />
-          )}
+        <article
+          key={article.slug}
+          className="rounded-lg border p-6 transition-shadow hover:shadow-md"
+        >
+          {article.image && <div className="mb-4 h-48 w-full rounded-md bg-muted" />}
           <div className="space-y-2">
             <Heading level={2} className="text-xl font-semibold">
-              <Link 
+              <Link
                 href={`/news/${article.slug}`}
                 variant="ghost"
                 size="none"
@@ -46,13 +48,13 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({
                 {article.title}
               </Link>
             </Heading>
-            {article.description && (
-              <Text color="muted">{article.description}</Text>
-            )}
+            {article.description && <Text color="muted">{article.description}</Text>}
             {article.date && (
-              <Text size="sm" color="muted">{article.date}</Text>
+              <Text size="sm" color="muted">
+                {article.date}
+              </Text>
             )}
-            <Link 
+            <Link
               href={`/news/${article.slug}`}
               variant="default"
               size="none"

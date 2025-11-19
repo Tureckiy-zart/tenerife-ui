@@ -1,8 +1,9 @@
 "use client";
 
-import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 const linkVariants = cva(
@@ -11,12 +12,15 @@ const linkVariants = cva(
     variants: {
       variant: {
         default: "text-primary hover:text-primary/80 underline-offset-4 hover:underline",
-        destructive: "text-destructive hover:text-destructive/80 underline-offset-4 hover:underline",
+        destructive:
+          "text-destructive hover:text-destructive/80 underline-offset-4 hover:underline",
         ghost: "text-foreground hover:text-accent-foreground hover:bg-accent rounded-md px-3 py-2",
         secondary: "text-secondary-foreground underline-offset-4 hover:underline",
         button: "bg-primary text-primary-foreground hover:bg-primary/90 rounded-md",
-        "button-outline": "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md",
-        "button-secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md",
+        "button-outline":
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md",
+        "button-secondary":
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -30,7 +34,7 @@ const linkVariants = cva(
       variant: "default",
       size: "none",
     },
-  }
+  },
 );
 
 export interface LinkProps
@@ -42,16 +46,9 @@ export interface LinkProps
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "a";
-    return (
-      <Comp
-        className={cn(linkVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
+    return <Comp className={cn(linkVariants({ variant, size, className }))} ref={ref} {...props} />;
+  },
 );
 Link.displayName = "Link";
 
 export { Link, linkVariants };
-

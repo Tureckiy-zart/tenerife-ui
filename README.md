@@ -18,8 +18,8 @@ yarn add @tenerife.music/ui
 ## 🚀 Quick Start
 
 ```tsx
-import { Button, Card, EventCard } from '@tenerife.music/ui';
-import '@tenerife.music/ui/styles'; // Import styles
+import { Button, Card, EventCard } from "@tenerife.music/ui";
+import "@tenerife.music/ui/styles"; // Import styles
 
 function App() {
   return (
@@ -73,7 +73,7 @@ The library supports day/night themes:
 
 ```tsx
 // Set theme
-document.documentElement.setAttribute('data-mode', 'day'); // or 'night'
+document.documentElement.setAttribute("data-mode", "day"); // or 'night'
 ```
 
 ## 📖 Usage Examples
@@ -189,9 +189,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Version:** 0.0.1  
 **Last Updated:** 2025-01-29
-
-
-
-
-
-

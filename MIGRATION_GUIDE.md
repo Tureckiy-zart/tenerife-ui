@@ -12,6 +12,7 @@ This guide explains how to move the UI library from staging folder to a new stan
 ### Step 1: Prepare Files for Migration
 
 Files to **EXCLUDE** (already in `.gitignore`):
+
 - `node_modules/` - Dependencies (will be reinstalled)
 - `dist/` - Build artifacts (will be regenerated)
 - `storybook-static/` - Storybook build (will be regenerated)
@@ -20,6 +21,7 @@ Files to **EXCLUDE** (already in `.gitignore`):
 - `*.log` - Log files
 
 Files to **INCLUDE**:
+
 - All source code (`src/`)
 - Configuration files (`package.json`, `tsconfig.json`, `vite.config.ts`, etc.)
 - Documentation (`README.md`, `CHANGELOG.md`, `LICENSE`)
@@ -231,4 +233,3 @@ After successful migration:
 1. Set up GitHub Actions for CI/CD (see Step 7 in main guide)
 2. Configure npm publishing (see Step 6 in main guide)
 3. Update monorepo to use external package (see Step 8 in main guide)
-

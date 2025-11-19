@@ -47,7 +47,7 @@ export function applyDocumentMode(mode: Mode) {
     }
   });
 
-  const body = document.body;
+  const {body} = document;
   if (body) {
     body.dataset.mode = mode;
     const background = overrides["--background"];
@@ -64,4 +64,3 @@ export function applyDocumentMode(mode: Mode) {
     }
   }
 }
-

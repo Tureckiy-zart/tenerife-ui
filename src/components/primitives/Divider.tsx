@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 export interface DividerProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -11,7 +12,7 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
     const borderStyle = {
       solid: "border-solid",
       dashed: "border-dashed",
-      dotted: "border-dotted"
+      dotted: "border-dotted",
     };
 
     return (
@@ -19,15 +20,15 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
         ref={ref}
         className={cn(
           "border-border",
-          orientation === "horizontal" 
-            ? `w-full border-t ${borderStyle[variant]}` 
+          orientation === "horizontal"
+            ? `w-full border-t ${borderStyle[variant]}`
             : `h-full border-l ${borderStyle[variant]}`,
-          className
+          className,
         )}
         {...props}
       />
     );
-  }
+  },
 );
 Divider.displayName = "Divider";
 

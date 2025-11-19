@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback,useState } from "react";
 
 export interface ModalState {
   isOpen: boolean;
@@ -16,27 +16,27 @@ export interface UseModalReturn {
 export function useModal(initialState: boolean = false): UseModalReturn {
   const [state, setState] = useState<ModalState>({
     isOpen: initialState,
-    data: undefined
+    data: undefined,
   });
 
   const open = useCallback((data?: any) => {
     setState({
       isOpen: true,
-      data
+      data,
     });
   }, []);
 
   const close = useCallback(() => {
-    setState(prev => ({
+    setState((prev) => ({
       ...prev,
-      isOpen: false
+      isOpen: false,
     }));
   }, []);
 
   const toggle = useCallback(() => {
-    setState(prev => ({
+    setState((prev) => ({
       ...prev,
-      isOpen: !prev.isOpen
+      isOpen: !prev.isOpen,
     }));
   }, []);
 
@@ -45,7 +45,7 @@ export function useModal(initialState: boolean = false): UseModalReturn {
     data: state.data,
     open,
     close,
-    toggle
+    toggle,
   };
 }
 
@@ -54,48 +54,54 @@ export function useModalManager() {
   const [modals, setModals] = useState<Record<string, ModalState>>({});
 
   const openModal = useCallback((modalId: string, data?: any) => {
-    setModals(prev => ({
+    setModals((prev) => ({
       ...prev,
       [modalId]: {
         isOpen: true,
-        data
-      }
+        data,
+      },
     }));
   }, []);
 
   const closeModal = useCallback((modalId: string) => {
-    setModals(prev => ({
+    setModals((prev) => ({
       ...prev,
       [modalId]: {
         isOpen: false,
-        data: undefined
-      }
+        data: undefined,
+      },
     }));
   }, []);
 
   const toggleModal = useCallback((modalId: string) => {
-    setModals(prev => ({
+    setModals((prev) => ({
       ...prev,
       [modalId]: {
         isOpen: !prev[modalId]?.isOpen,
-        data: prev[modalId]?.data
-      }
+        data: prev[modalId]?.data,
+      },
     }));
   }, []);
 
-  const isModalOpen = useCallback((modalId: string) => {
-    return modals[modalId]?.isOpen || false;
-  }, [modals]);
+  const isModalOpen = useCallback(
+    (modalId: string) => {
+      return modals[modalId]?.isOpen || false;
+    },
+    [modals],
+  );
 
-  const getModalData = useCallback((modalId: string) => {
-    return modals[modalId]?.data;
-  }, [modals]);
+  const getModalData = useCallback(
+    (modalId: string) => {
+      return modals[modalId]?.data;
+    },
+    [modals],
+  );
 
   return {
     openModal,
     closeModal,
     toggleModal,
     isModalOpen,
-    getModalData
+    getModalData,
   };
 }

@@ -1,5 +1,6 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React from "react";
+
+import { cn } from "@/lib/utils";
 
 interface ListItem {
   id: string;
@@ -12,22 +13,14 @@ interface ListProps {
   className?: string;
 }
 
-export const List: React.FC<ListProps> = ({
-  items,
-  className
-}) => {
+export const List: React.FC<ListProps> = ({ items, className }) => {
   return (
-    <div className={cn('space-y-2', className)}>
+    <div className={cn("space-y-2", className)}>
       {items.map((item) => (
-        <div
-          key={item.id}
-          className="p-4 border rounded-lg hover:bg-muted/50 transition-colors"
-        >
+        <div key={item.id} className="hover:bg-muted/50 rounded-lg border p-4 transition-colors">
           <h3 className="font-medium text-foreground">{item.title}</h3>
           {item.description && (
-            <p className="text-sm text-muted-foreground mt-1">
-              {item.description}
-            </p>
+            <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
           )}
         </div>
       ))}

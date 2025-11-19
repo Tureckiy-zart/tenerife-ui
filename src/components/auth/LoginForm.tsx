@@ -1,9 +1,10 @@
 "use client";
 
-import React from 'react';
-import { FormInput } from '@/components/forms/FormInput';
-import { Button } from '@/components/primitives/Button';
-import { cn } from '@/lib/utils';
+import React from "react";
+
+import { FormInput } from "@/components/forms/FormInput";
+import { Button } from "@/components/primitives/Button";
+import { cn } from "@/lib/utils";
 
 interface LoginFormProps {
   emailLabel: string;
@@ -14,27 +15,27 @@ interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm: React.FC<LoginFormProps> = ({ 
+export const LoginForm: React.FC<LoginFormProps> = ({
   emailLabel,
   emailPlaceholder,
   passwordLabel,
   passwordPlaceholder,
   loginButtonText,
-  className 
+  className,
 }) => {
-  if (!emailLabel || emailLabel.trim() === '') {
+  if (!emailLabel || emailLabel.trim() === "") {
     throw new Error('LoginForm: "emailLabel" prop is required and cannot be empty');
   }
-  if (!emailPlaceholder || emailPlaceholder.trim() === '') {
+  if (!emailPlaceholder || emailPlaceholder.trim() === "") {
     throw new Error('LoginForm: "emailPlaceholder" prop is required and cannot be empty');
   }
-  if (!passwordLabel || passwordLabel.trim() === '') {
+  if (!passwordLabel || passwordLabel.trim() === "") {
     throw new Error('LoginForm: "passwordLabel" prop is required and cannot be empty');
   }
-  if (!passwordPlaceholder || passwordPlaceholder.trim() === '') {
+  if (!passwordPlaceholder || passwordPlaceholder.trim() === "") {
     throw new Error('LoginForm: "passwordPlaceholder" prop is required and cannot be empty');
   }
-  if (!loginButtonText || loginButtonText.trim() === '') {
+  if (!loginButtonText || loginButtonText.trim() === "") {
     throw new Error('LoginForm: "loginButtonText" prop is required and cannot be empty');
   }
 

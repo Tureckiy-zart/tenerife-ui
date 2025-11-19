@@ -1,4 +1,4 @@
 "use client";
 
 // Re-export shadcn/ui Button with Tenerife branding
-export { Button, buttonVariants, type ButtonProps } from "@/components/ui/button";
+export { Button, type ButtonProps,buttonVariants } from "@/components/ui/button";

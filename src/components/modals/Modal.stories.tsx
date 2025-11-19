@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
-import { Button } from '../primitives/Button';
+import type { Meta, StoryObj } from "@storybook/react";
+import React, { useState } from "react";
+import { Button } from "../primitives/Button";
 import {
   Modal,
   ModalContent,
@@ -9,15 +9,15 @@ import {
   ModalHeader,
   ModalTitle,
   ModalTrigger,
-} from './Modal';
+} from "./Modal";
 
 const meta: Meta<typeof Modal> = {
-  title: 'Modals/Modal',
+  title: "Modals/Modal",
   component: Modal,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     const [open, setOpen] = useState(false);
-    
+
     return (
       <Modal open={open} onOpenChange={setOpen}>
         <ModalTrigger asChild>
@@ -35,9 +35,7 @@ export const Default: Story = {
         <ModalContent>
           <ModalHeader>
             <ModalTitle>Modal Title</ModalTitle>
-            <ModalDescription>
-              This is a description of what the modal does.
-            </ModalDescription>
+            <ModalDescription>This is a description of what the modal does.</ModalDescription>
           </ModalHeader>
           <div className="py-4">
             <p>Modal content goes here...</p>
@@ -46,9 +44,7 @@ export const Default: Story = {
             <Button variant="outline" onClick={() => setOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={() => setOpen(false)}>
-              Confirm
-            </Button>
+            <Button onClick={() => setOpen(false)}>Confirm</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -59,7 +55,7 @@ export const Default: Story = {
 export const WithoutTrigger: Story = {
   render: () => {
     const [open, setOpen] = useState(false);
-    
+
     return (
       <>
         <Button onClick={() => setOpen(true)}>Open Modal</Button>
@@ -67,9 +63,7 @@ export const WithoutTrigger: Story = {
           <ModalContent>
             <ModalHeader>
               <ModalTitle>Controlled Modal</ModalTitle>
-              <ModalDescription>
-                This modal is controlled programmatically.
-              </ModalDescription>
+              <ModalDescription>This modal is controlled programmatically.</ModalDescription>
             </ModalHeader>
             <div className="py-4">
               <p>You can control this modal from outside.</p>
@@ -89,7 +83,7 @@ export const WithoutTrigger: Story = {
 export const LargeModal: Story = {
   render: () => {
     const [open, setOpen] = useState(false);
-    
+
     return (
       <Modal open={open} onOpenChange={setOpen}>
         <ModalTrigger asChild>
@@ -98,15 +92,13 @@ export const LargeModal: Story = {
         <ModalContent className="max-w-2xl">
           <ModalHeader>
             <ModalTitle>Large Modal</ModalTitle>
-            <ModalDescription>
-              This is a larger modal with more content.
-            </ModalDescription>
+            <ModalDescription>This is a larger modal with more content.</ModalDescription>
           </ModalHeader>
-          <div className="py-4 space-y-4">
+          <div className="space-y-4 py-4">
             <p>This modal has more space for content.</p>
             <p>You can put forms, tables, or other complex content here.</p>
-            <div className="bg-muted p-4 rounded-md">
-              <h4 className="font-semibold mb-2">Example Content</h4>
+            <div className="rounded-md bg-muted p-4">
+              <h4 className="mb-2 font-semibold">Example Content</h4>
               <p className="text-sm text-muted-foreground">
                 This is an example of how you might structure content in a larger modal.
               </p>
@@ -116,9 +108,7 @@ export const LargeModal: Story = {
             <Button variant="outline" onClick={() => setOpen(false)}>
               Cancel
             </Button>
-            <Button onClick={() => setOpen(false)}>
-              Save Changes
-            </Button>
+            <Button onClick={() => setOpen(false)}>Save Changes</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
