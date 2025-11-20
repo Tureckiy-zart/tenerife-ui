@@ -1,0 +1,168 @@
+{
+  "parent_task": "U10",
+  "parent_title": "Integrate Figma token sync",
+  "subtasks": [
+    {
+      "id": "U10.1",
+      "title": "Research Figma API and token plugin requirements",
+      "steps": [
+        "Review Figma Plugin API documentation",
+        "Research Figma Tokens plugin and its API",
+        "Identify authentication requirements for Figma API",
+        "Document Figma token format and structure",
+        "Create research document: docs/FIGMA_SYNC_RESEARCH.md"
+      ],
+      "acceptance_criteria": [
+        "Figma API documentation reviewed",
+        "Token plugin API understood",
+        "Authentication method identified",
+        "Figma token format documented",
+        "Research document created"
+      ]
+    },
+    {
+      "id": "U10.2",
+      "title": "Set up Figma API authentication and configuration",
+      "steps": [
+        "Create Figma API access token configuration",
+        "Set up environment variables for Figma API key",
+        "Create config file for Figma file IDs and node IDs",
+        "Implement authentication helper functions",
+        "Test API connection to Figma"
+      ],
+      "acceptance_criteria": [
+        "Figma API token configured securely",
+        "Environment variables set up correctly",
+        "Config file exists with file/node IDs",
+        "Authentication helper functions work",
+        "API connection test passes"
+      ]
+    },
+    {
+      "id": "U10.3",
+      "title": "Create token export script (codebase → JSON)",
+      "steps": [
+        "Create scripts/export-tokens.js script",
+        "Read all token files (colors, typography, spacing, etc.)",
+        "Convert TypeScript token objects to JSON format",
+        "Generate tokens.json file in design-tokens/ directory",
+        "Ensure JSON matches Figma token format"
+      ],
+      "acceptance_criteria": [
+        "export-tokens.js script exists",
+        "Script reads all token files correctly",
+        "JSON output matches Figma token format",
+        "tokens.json file generated successfully",
+        "All token categories included in export"
+      ]
+    },
+    {
+      "id": "U10.4",
+      "title": "Implement push script (JSON → Figma)",
+      "steps": [
+        "Create scripts/figma-sync.js with push functionality",
+        "Read tokens.json file",
+        "Map token structure to Figma styles format",
+        "Use Figma API to update styles in design file",
+        "Handle errors and provide feedback"
+      ],
+      "acceptance_criteria": [
+        "figma-sync.js script exists with push command",
+        "Script reads tokens.json correctly",
+        "Tokens mapped to Figma styles format",
+        "Figma API updates styles successfully",
+        "Error handling provides clear feedback"
+      ]
+    },
+    {
+      "id": "U10.5",
+      "title": "Implement pull script (Figma → JSON)",
+      "steps": [
+        "Add pull functionality to figma-sync.js",
+        "Use Figma API to read styles from design file",
+        "Map Figma styles to token JSON format",
+        "Update tokens.json file with pulled values",
+        "Validate pulled tokens match expected structure"
+      ],
+      "acceptance_criteria": [
+        "Pull command exists in figma-sync.js",
+        "Script reads Figma styles correctly",
+        "Styles mapped to token JSON format",
+        "tokens.json updated with pulled values",
+        "Token validation passes"
+      ]
+    },
+    {
+      "id": "U10.6",
+      "title": "Add bidirectional sync with conflict resolution",
+      "steps": [
+        "Implement sync command that compares codebase and Figma",
+        "Detect conflicts when both sides have changes",
+        "Add conflict resolution strategy (codebase wins, Figma wins, or manual)",
+        "Implement dry-run mode to preview changes",
+        "Add logging for sync operations"
+      ],
+      "acceptance_criteria": [
+        "Sync command detects conflicts",
+        "Conflict resolution strategies implemented",
+        "Dry-run mode shows what would change",
+        "Logging provides clear sync information",
+        "Bidirectional sync works correctly"
+      ]
+    },
+    {
+      "id": "U10.7",
+      "title": "Integrate sync script into CI pipeline",
+      "steps": [
+        "Create GitHub Actions workflow for token sync",
+        "Configure workflow to run on token file changes",
+        "Add workflow to validate tokens before pushing",
+        "Set up automated sync on schedule (optional)",
+        "Document CI integration"
+      ],
+      "acceptance_criteria": [
+        "GitHub Actions workflow exists",
+        "Workflow runs on token file changes",
+        "Token validation runs before push",
+        "CI integration documented",
+        "Workflow prevents token divergence"
+      ]
+    },
+    {
+      "id": "U10.8",
+      "title": "Create documentation for designers and developers",
+      "steps": [
+        "Create docs/FIGMA_SYNC.md with usage instructions",
+        "Document push workflow for developers",
+        "Document pull workflow for designers",
+        "Add troubleshooting section",
+        "Include examples and screenshots"
+      ],
+      "acceptance_criteria": [
+        "FIGMA_SYNC.md exists with complete documentation",
+        "Developer workflow documented",
+        "Designer workflow documented",
+        "Troubleshooting guide included",
+        "Examples provided"
+      ]
+    },
+    {
+      "id": "U10.9",
+      "title": "Test sync script with real Figma file",
+      "steps": [
+        "Create test Figma file for token sync",
+        "Test push: export tokens and push to Figma",
+        "Test pull: modify tokens in Figma and pull to codebase",
+        "Test conflict resolution scenarios",
+        "Verify tokens stay in sync"
+      ],
+      "acceptance_criteria": [
+        "Test Figma file created",
+        "Push test succeeds",
+        "Pull test succeeds",
+        "Conflict resolution works",
+        "Tokens verified to be in sync"
+      ]
+    }
+  ]
+}

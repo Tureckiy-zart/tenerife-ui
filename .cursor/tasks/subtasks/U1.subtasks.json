@@ -1,0 +1,163 @@
+{
+  "parent_task": "U1",
+  "parent_title": "Introduce theme system into existing components",
+  "subtasks": [
+    {
+      "id": "U1.1",
+      "title": "Audit component imports and identify theme integration points",
+      "steps": [
+        "Scan all component files in src/components/**/* for direct Tailwind class usage",
+        "Identify components that use inline styles or hardcoded color values",
+        "Document which components need ThemeProvider context integration",
+        "Create a checklist of components grouped by complexity (simple, medium, complex)"
+      ],
+      "acceptance_criteria": [
+        "Complete list of all components requiring theme integration exists",
+        "Each component is categorized by integration complexity",
+        "Documentation file created: docs/U1_component_audit.md"
+      ]
+    },
+    {
+      "id": "U1.2",
+      "title": "Set up ThemeProvider context and hook utilities",
+      "steps": [
+        "Verify ThemeProvider.tsx exists and exports useTheme hook",
+        "Create theme context utilities if missing (src/theme/useTheme.ts)",
+        "Test ThemeProvider with default, dark, and brand themes",
+        "Ensure CSS variables are properly injected into document root"
+      ],
+      "acceptance_criteria": [
+        "ThemeProvider wraps components correctly and provides theme context",
+        "useTheme hook returns current theme and setTheme function",
+        "CSS variables update when theme changes without page reload",
+        "All three themes (default, dark, brand) are functional"
+      ]
+    },
+    {
+      "id": "U1.3",
+      "title": "Refactor simple components (primitives) to use theme tokens",
+      "steps": [
+        "Start with Button component: replace hardcoded colors with CSS variables",
+        "Update Badge component: use token-based colors and spacing",
+        "Update Label component: use typography tokens",
+        "Test each component in Storybook with theme switching",
+        "Verify no raw Tailwind color classes remain"
+      ],
+      "acceptance_criteria": [
+        "Button component uses only CSS variables from tokens",
+        "Badge component responds to theme changes",
+        "Label component uses typography tokens",
+        "All three components render correctly in all themes",
+        "Storybook stories demonstrate theme switching for each component"
+      ]
+    },
+    {
+      "id": "U1.4",
+      "title": "Refactor form components (Input, Select, Textarea) to use theme tokens",
+      "steps": [
+        "Update Input component: replace border colors, backgrounds, shadows with tokens",
+        "Update Select component: use token-based styling",
+        "Update Textarea component: apply same token system",
+        "Ensure validation states (error, success) use semantic color tokens",
+        "Test form components in all themes"
+      ],
+      "acceptance_criteria": [
+        "Input component uses CSS variables for all colors, borders, shadows",
+        "Select component matches Input styling and uses tokens",
+        "Textarea component uses tokens consistently",
+        "Validation states work correctly in all themes",
+        "Form components render correctly in Storybook with theme switching"
+      ]
+    },
+    {
+      "id": "U1.5",
+      "title": "Refactor layout components (Card, Section, Grid) to use theme tokens",
+      "steps": [
+        "Update Card component: replace surface colors and shadows with tokens",
+        "Update Section component: use spacing and background tokens",
+        "Update GridLayout component: use gap tokens from spacing system",
+        "Test layout components with different theme backgrounds",
+        "Verify responsive behavior is maintained"
+      ],
+      "acceptance_criteria": [
+        "Card component uses surface elevation tokens and shadow tokens",
+        "Section component uses spacing tokens for padding",
+        "GridLayout uses gap tokens correctly",
+        "All layout components respond to theme changes",
+        "Responsive breakpoints work correctly in all themes"
+      ]
+    },
+    {
+      "id": "U1.6",
+      "title": "Refactor advanced components (Modal, Dropdown, Navigation) to use theme tokens",
+      "steps": [
+        "Update Modal component: use backdrop and panel tokens",
+        "Update Dropdown component: use surface and shadow tokens",
+        "Update Navigation component: use glass surface tokens",
+        "Test overlay components with theme switching",
+        "Verify z-index and layering work correctly"
+      ],
+      "acceptance_criteria": [
+        "Modal backdrop and panel use token-based colors and shadows",
+        "Dropdown panel uses surface elevation tokens",
+        "Navigation uses glass surface tokens correctly",
+        "All overlay components work in all themes",
+        "Z-index layering is correct in all themes"
+      ]
+    },
+    {
+      "id": "U1.7",
+      "title": "Refactor composite components (EventCard, VenueCard, Hero) to use theme tokens",
+      "steps": [
+        "Update EventCard: ensure all nested components use tokens",
+        "Update VenueCard: verify token usage throughout",
+        "Update Hero components: use gradient and overlay tokens",
+        "Test composite components with theme switching",
+        "Verify all child components inherit theme correctly"
+      ],
+      "acceptance_criteria": [
+        "EventCard and all nested components use tokens",
+        "VenueCard uses tokens consistently",
+        "Hero components use gradient tokens correctly",
+        "All composite components render correctly in all themes",
+        "No hardcoded values remain in composite components"
+      ]
+    },
+    {
+      "id": "U1.8",
+      "title": "Update Storybook stories to demonstrate theme switching",
+      "steps": [
+        "Add theme switcher decorator to Storybook configuration",
+        "Update all component stories to show multiple themes",
+        "Create theme comparison stories for key components",
+        "Test all stories render correctly in all themes",
+        "Document theme usage in Storybook"
+      ],
+      "acceptance_criteria": [
+        "Storybook includes theme switcher in toolbar",
+        "All component stories demonstrate theme switching",
+        "Theme comparison stories exist for Button, Card, Input, Modal",
+        "No visual regressions when switching themes",
+        "Storybook documentation explains theme system"
+      ]
+    },
+    {
+      "id": "U1.9",
+      "title": "Verify no raw Tailwind values remain and update documentation",
+      "steps": [
+        "Run automated scan for raw Tailwind color classes (bg-slate-*, text-blue-*, etc.)",
+        "Run automated scan for hardcoded spacing values (px-4, py-2, etc.)",
+        "Run automated scan for hardcoded shadow values",
+        "Update component documentation to reference theme system",
+        "Create migration guide for future components"
+      ],
+      "acceptance_criteria": [
+        "Zero raw Tailwind color classes found in component code",
+        "Zero hardcoded spacing values found (all use tokens)",
+        "Zero hardcoded shadow values found",
+        "Component documentation updated with theme usage examples",
+        "Migration guide created: docs/THEME_MIGRATION_GUIDE.md"
+      ]
+    }
+  ]
+}
