@@ -1,6 +1,6 @@
 {
   "project": "Tenerife UI Library Master Task",
-  "version": "1.0",
+  "version": "3.0",
   "timezone": "London",
   "layers": [
     {
@@ -11,10 +11,10 @@
           "title": "Consult project structure and design documentation",
           "purpose": "Ensure the entire team fully understands the layered architecture, guidelines and principles defined in STRUCTURE_OF_WORK.md and the original design specifications before starting any implementation or refactoring. This knowledge underpins every other task in the project.",
           "inputs": [
-            "docs/tenerife_audit/STRUCTURE_OF_WORK.md",
-            "docs/tenerife_audit/design_system.md",
-            "docs/tenerife_audit/components_redesign.md",
-            "docs/tenerife_audit/layout_and_brand_guide.md"
+            "docs/structure/STRUCTURE_OF_WORK.md",
+            "tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md",
+            "tenerife_audit/layout_and_brand_guide.md"
           ],
           "outputs": [
             "Team alignment on project principles and layered workflow"
@@ -35,9 +35,7 @@
             "src/components/**/*",
             "tokens defined in Foundation Layer"
           ],
-          "outputs": [
-            "docs/AUDIT_REPORT.md"
-          ],
+          "outputs": [],
           "acceptance_criteria": [
             "Every component file has been inspected for raw Tailwind classes and static values.",
             "The audit report lists all components which violate token usage guidelines, detailing which tokens should replace hard coded values.",
@@ -58,8 +56,7 @@
           "inputs": [
             "src/components/**/*",
             "src/theme/ThemeProvider.tsx",
-            "tokens from Foundation Layer (F0–F6)",
-            "docs/tenerife_audit/AUDIT_REPORT.md"
+            "tokens from Foundation Layer (F0–F6)"
           ],
           "outputs": [
             "Refactored components using theme context",
@@ -84,9 +81,8 @@
           "title": "Enforce minimal API and variant consistency",
           "purpose": "Standardise the public API across all components by defining allowable properties such as `variant`, `size` and predefined slots (e.g., icon slots). Remove any ad‑hoc style props or inline customization props that compromise consistency.  Align variant names with the design specifications and ensure the same semantic names are used throughout the library.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md",
-            "existing component API definitions",
-            "docs/tenerife_audit/AUDIT_REPORT.md"
+            "tenerife_audit/components_redesign.md",
+            "existing component API definitions"
           ],
           "outputs": [
             "Updated component TypeScript interfaces",
@@ -136,8 +132,8 @@
           "title": "Introduce premium layout sections",
           "purpose": "Create high‑level layout components such as HeroSection, FeatureSection, CTASection and SplitLayout that assemble multiple core components into beautiful, ready‑to‑use sections following the layout and brand guide. These sections should work seamlessly with the theme system and support slotting in custom content via props.",
           "inputs": [
-            "docs/tenerife_audit/layout_and_brand_guide.md",
-            "docs/tenerife_audit/components_redesign.md",
+            "tenerife_audit/layout_and_brand_guide.md",
+            "tenerife_audit/components_redesign.md",
             "tokens from F1–F6"
           ],
           "outputs": [
@@ -254,7 +250,7 @@
           "title": "Create dynamic layout primitives (Box, Flex, Grid, Stack)",
           "purpose": "Introduce primitive layout components that handle common layout patterns (box, flex container, grid, stack) with responsive props such as gap, direction, align and justify.  These primitives should be built on CSS variables and tokens, enabling dynamic spacing and alignment across different screen sizes and themes.",
           "inputs": [
-            "docs/tenerife_audit/design_system.md: spacing and layout guidelines",
+            "docs/design_system.md: spacing and layout guidelines",
             "tokens from F0–F6"
           ],
           "outputs": [
@@ -287,7 +283,7 @@
           "inputs": [
             "src/components/layout/**/*",
             "src/components/core/**/*",
-            "layout_and_brand_guide.md"
+            "tenerife_audit/layout_and_brand_guide.md"
           ],
           "outputs": [
             "src/components/SectionBuilder.tsx",
@@ -313,7 +309,7 @@
           "has_subtasks": true,
           "subtasks_file": ".cursor/tasks/subtasks/U10.subtasks.json",
           "inputs": [
-            "docs/tenerife_audit/design-tokens/tokens.json",
+            "tenerife_audit/design-tokens/tokens.json",
             "Figma token plugin API documentation"
           ],
           "outputs": [
@@ -361,7 +357,7 @@
           "title": "Provide component scaffolding CLI",
           "purpose": "Develop a command line utility that generates a new component skeleton, including TypeScript file, variant configuration, story file, test file and index export.  The CLI should apply the token‑driven and minimal API guidelines automatically.",
           "inputs": [
-            "docs/tenerife_audit/templates for components",
+            "tenerife_audit/templates for components",
             "tokens and theme system",
             "existing component conventions"
           ],
@@ -415,8 +411,8 @@
           "title": "Create base token files",
           "purpose": "Establish a dedicated tokens folder containing separate files for colours, typography, radii, shadows, spacing and transitions. This meta-task ensures that all visual values are stored in one place and can be centrally managed.",
           "inputs": [
-            "docs/tenerife_audit/design_system.md",
-            "docs/tenerife_audit/components_redesign.md"
+            "tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md"
           ],
           "outputs": [
             "src/tokens/colors.ts",
@@ -440,7 +436,7 @@
           "title": "Implement color palette tokens",
           "purpose": "Define the complete color palette as design tokens based on the Design System's color palette section. This includes primary midnight blues, accent purples, secondary refined cyan, surface colors for dark/light themes, and semantic colors. Tokens must use CSS custom properties and integrate into the Tailwind theme.",
           "inputs": [
-            "docs/tenerife_audit/design_system.md: colour palette section"
+            "docs/design_system.md: colour palette section"
           ],
           "outputs": [
             "src/tokens/colors.ts",
@@ -460,7 +456,7 @@
           "title": "Implement typography system tokens",
           "purpose": "Define font families, type scale, font weights, line heights, letter spacing, and predefined text styles as design tokens based on the Design System’s typography section. Include Inter as primary font, optional Satoshi, and Clash Display for headings, and implement a fluid type scale using clamp().",
           "inputs": [
-            "docs/tenerife_audit/design_system.md: typography system section"
+            "docs/design_system.md: typography system section"
           ],
           "outputs": [
             "src/tokens/typography.ts",
@@ -481,7 +477,7 @@
           "title": "Implement spacing system tokens",
           "purpose": "Define the 8‑px based spacing system, including base unit, spacing scale, semantic spacing, component internal spacing, and layout spacing as tokens.",
           "inputs": [
-            "docs/tenerife_audit/design_system.md: spacing system section"
+            "docs/design_system.md: spacing system section"
           ],
           "outputs": [
             "src/tokens/spacing.ts",
@@ -502,7 +498,7 @@
           "title": "Implement shadow and glow system tokens",
           "purpose": "Define elevation shadows, colored shadows, glow effects, and focus shadows as tokens. Map default, hover, and active states to specific shadow levels for components.",
           "inputs": [
-            "docs/tenerife_audit/design_system.md: shadow system section"
+            "docs/design_system.md: shadow system section"
           ],
           "outputs": [
             "src/tokens/shadows.ts",
@@ -523,7 +519,7 @@
           "title": "Implement border radius system tokens",
           "purpose": "Define corner radius tokens and component-specific standards in accordance with the design system.",
           "inputs": [
-            "docs/tenerife_audit/design_system.md: border radius system section"
+            "docs/design_system.md: border radius system section"
           ],
           "outputs": [
             "src/tokens/radius.ts",
@@ -542,7 +538,7 @@
           "title": "Implement motion and transition tokens",
           "purpose": "Create timing and easing tokens for animations and transitions using the durations and philosophy defined in the design system.",
           "inputs": [
-            "docs/tenerife_audit/design_system.md: motion & transition system section"
+            "docs/design_system.md: motion & transition system section"
           ],
           "outputs": [
             "src/tokens/motion.ts",
@@ -562,7 +558,7 @@
           "purpose": "Integrate color, typography, spacing, shadow, radius, and motion tokens into Tailwind’s configuration. Provide dark and light theme support using CSS variables.",
           "inputs": [
             "tokens generated by tasks F1–F6",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "tailwind.config.js",
@@ -591,7 +587,7 @@
           "purpose": "Create a theme provider (e.g., React context) to handle dark and light themes. Implement logic to switch between themes and persist user preference. Provide a utility hook for components.",
           "inputs": [
             "tokens from F1–F6",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/design_system.md",
             "tailwind.config.js"
           ],
           "outputs": [
@@ -616,7 +612,7 @@
           "purpose": "Provide a mechanism to override the default tokens via a single theme file. Support multiple themes (default, dark, brand-specific) stored under /themes.",
           "inputs": [
             "tokens from F0-F6",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "src/themes/default.ts",
@@ -644,7 +640,7 @@
           "purpose": "Define coding guidelines ensuring that all components use token-derived CSS variables through Tailwind classes. Components must be fully controlled via props with no internal state and may not reference raw Tailwind colours, spacing, radii or shadows.",
           "inputs": [
             "tokens from Foundation layer",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/design_system.md",
             "theme system"
           ],
           "outputs": [
@@ -667,7 +663,7 @@
           "title": "Create Button component",
           "purpose": "Implement a reusable Button component following the redesign specifications. Support seven variants (primary, secondary, accent, outline, ghost, link, destructive) and five sizes. Include optional icons, loading state, and full ARIA support.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Button section",
+            "tenerife_audit/components_redesign.md: Button section",
             "tokens from F1–F6"
           ],
           "outputs": [
@@ -702,9 +698,9 @@
           "title": "Create Input component",
           "purpose": "Build a modular Input component with default, filled, and outline variants, three size options, floating label animation, icon support, and validation states.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Input/FormInput section",
+            "tenerife_audit/components_redesign.md: Input/FormInput section",
             "tokens from foundation layer",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "src/components/Input.tsx",
@@ -740,8 +736,8 @@
           "title": "Create FormInput component",
           "purpose": "Compose Input with Label and optional helper text into a FormInput component that manages floating labels and validation messages.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Input/FormInput section",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md: Input/FormInput section",
+            "tenerife_audit/design_system.md",
             "C2"
           ],
           "outputs": [
@@ -767,8 +763,8 @@
           "title": "Create Select component",
           "purpose": "Implement a custom Select component with searchable options, accessible keyboard navigation, and three variants (default, filled, outline) matching Input styles.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Input and Select guidelines",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md: Input and Select guidelines",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -796,9 +792,9 @@
           "title": "Create Textarea component",
           "purpose": "Implement a Textarea component with auto‑resizing, default/filled/outline variants, sizes matching Input, and validation states.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md",
+            "tenerife_audit/components_redesign.md",
             "tokens",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "src/components/Textarea.tsx",
@@ -823,8 +819,8 @@
           "title": "Create Label component",
           "purpose": "Implement a simple Label component for form controls with required indicator and helper text support.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -849,8 +845,8 @@
           "title": "Create Card (base) component",
           "purpose": "Develop the Card component with variants (default, elevated, glass, outline) and support for images, content, actions, and shadows.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Card section",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md: Card section",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -884,8 +880,8 @@
           "title": "Create Section component",
           "purpose": "Implement a Section wrapper that applies responsive vertical and horizontal padding, background colours, and container constraints based on the layout guide.",
           "inputs": [
-            "docs/tenerife_audit/layout_and_brand_guide.md: section construction principles",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/layout_and_brand_guide.md: section construction principles",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -913,8 +909,8 @@
           "title": "Create GridLayout component",
           "purpose": "Provide a flexible GridLayout component for arranging items in responsive columns with configurable gaps and auto‑fit behaviour.",
           "inputs": [
-            "docs/tenerife_audit/layout_and_brand_guide.md: grid system",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/layout_and_brand_guide.md: grid system",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -942,8 +938,8 @@
           "title": "Create Badge component",
           "purpose": "Implement the Badge/Tag component with variants and sizes as defined in the redesign specs.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Tag/Badge section",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md: Tag/Badge section",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -979,7 +975,7 @@
           "title": "Create EventCard component",
           "purpose": "Develop the EventCard component using the base Card and Badge components. Support featured variant, size options, premium image treatment, metadata icons, and click handling.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: EventCard section",
+            "tenerife_audit/components_redesign.md: EventCard section",
             "C7",
             "C10",
             "tokens"
@@ -1013,7 +1009,7 @@
           "title": "Create VenueCard component",
           "purpose": "Implement VenueCard similar to EventCard but tailored for venue information (capacity, rating/reviews).",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: VenueCard section",
+            "tenerife_audit/components_redesign.md: VenueCard section",
             "C7",
             "C10"
           ],
@@ -1041,8 +1037,8 @@
           "title": "Create SearchBar component",
           "purpose": "Develop the premium SearchBar with pill shape, glass-morphism effect, and clear/focus interactions.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: SearchBar section",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md: SearchBar section",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -1071,8 +1067,8 @@
           "title": "Create Navigation components",
           "purpose": "Implement top navigation bar and navigation link components using glass surfaces and interactive underline animations.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Navigation section",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md: Navigation section",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -1102,7 +1098,7 @@
           "title": "Create Hero components (full and half height)",
           "purpose": "Provide reusable Hero components for full-height and half-height sections with gradient overlays, background images, and call-to-action buttons.",
           "inputs": [
-            "docs/tenerife_audit/layout_and_brand_guide.md: Hero sections",
+            "tenerife_audit/layout_and_brand_guide.md: Hero sections",
             "C1",
             "C8"
           ],
@@ -1132,7 +1128,7 @@
           "title": "Create Feature component",
           "purpose": "Build an alternating feature section component that supports image and text content with configurable ordering.",
           "inputs": [
-            "docs/tenerife_audit/layout_and_brand_guide.md: Feature Section",
+            "tenerife_audit/layout_and_brand_guide.md: Feature Section",
             "C1",
             "C8",
             "C9"
@@ -1161,7 +1157,7 @@
           "title": "Create CTA component",
           "purpose": "Develop a generic call‑to‑action component for section footers with title, description, and two buttons.",
           "inputs": [
-            "docs/tenerife_audit/layout_and_brand_guide.md",
+            "tenerife_audit/layout_and_brand_guide.md",
             "C1",
             "C8"
           ],
@@ -1189,8 +1185,8 @@
           "title": "Create Modal component",
           "purpose": "Implement accessible modal/dialog component with backdrop, panel, animations, and focus management.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Modal section",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md: Modal section",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -1220,8 +1216,8 @@
           "title": "Create Dropdown component",
           "purpose": "Implement an accessible dropdown menu with panel styling, keyboard navigation, and animation.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md: Dropdown section",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/components_redesign.md: Dropdown section",
+            "tenerife_audit/design_system.md",
             "tokens"
           ],
           "outputs": [
@@ -1249,7 +1245,7 @@
           "title": "Create Avatar component",
           "purpose": "Implement Avatar component supporting multiple sizes, circular shape, and optional status indicator.",
           "inputs": [
-            "components_redesign.md: Avatar section",
+            "tenerife_audit/components_redesign.md: Avatar section",
             "tokens"
           ],
           "outputs": [
@@ -1275,7 +1271,7 @@
           "title": "Create Skeleton Loader component",
           "purpose": "Implement a skeleton loader using gradient shimmer animation for loading states.",
           "inputs": [
-            "components_redesign.md: Skeleton Loader section",
+            "tenerife_audit/components_redesign.md: Skeleton Loader section",
             "tokens"
           ],
           "outputs": [
@@ -1393,9 +1389,9 @@
           "title": "Perform accessibility audits",
           "purpose": "Ensure all components comply with WCAG 2.1 AA using automated tooling and manual checks.",
           "inputs": [
-            "docs/tenerife_audit/design_system.md: accessibility standards",
+            "docs/design_system.md: accessibility standards",
             "stories",
-            "docs/tenerife_audit/components_redesign.md"
+            "tenerife_audit/components_redesign.md"
           ],
           "outputs": [
             "a11y audit reports"
@@ -1418,9 +1414,9 @@
           "title": "Write component documentation",
           "purpose": "Produce comprehensive MDX documentation for each component including purpose, props, usage examples, and design references.",
           "inputs": [
-            "docs/tenerife_audit/components_redesign.md",
-            "docs/tenerife_audit/layout_and_brand_guide.md",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/components_redesign.md",
+            "tenerife_audit/layout_and_brand_guide.md",
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "docs/components/*.mdx"
@@ -1462,7 +1458,7 @@
           "purpose": "Annotate all functions, hooks, and components with JSDoc comments to generate API documentation automatically.",
           "inputs": [
             "source code",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "typedoc generated docs"
@@ -1504,7 +1500,7 @@
           "inputs": [
             "JSDoc comments",
             "tailwind config",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "docs/api"
@@ -1525,7 +1521,7 @@
           "purpose": "Write documentation explaining how to override the default theme via /themes files and how to integrate the theme provider in consuming projects.",
           "inputs": [
             "theme files",
-            "docs/tenerife_audit/design_system.md",
+            "tenerife_audit/design_system.md",
             "ThemeProvider"
           ],
           "outputs": [
@@ -1549,7 +1545,7 @@
           "inputs": [
             "theme files",
             "component stories",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "tests/theme.test.ts"
@@ -1577,7 +1573,7 @@
           "purpose": "Set up package.json with name '@tenerife/ui', description, author, repository, license, and publishConfig.",
           "inputs": [
             "project requirements",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "package.json"
@@ -1599,7 +1595,7 @@
           "inputs": [
             "tailwind.config.js",
             "source code",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "dist/"
@@ -1641,7 +1637,7 @@
           "purpose": "Define and automate semantic versioning (major/minor/patch) based on commit messages (Conventional Commits). Use standard-version or similar tool.",
           "inputs": [
             "package.json",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "CHANGELOG.md",
@@ -1693,7 +1689,7 @@
           "inputs": [
             "Storybook build",
             "GitHub Pages/Vercel config",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "deployed Storybook"
@@ -1715,7 +1711,7 @@
           "inputs": [
             "dist folder",
             "npm credentials",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "published package"
@@ -1743,7 +1739,7 @@
           "inputs": [
             "package.json",
             "GitHub configuration",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             ".github/dependabot.yml",
@@ -1765,7 +1761,7 @@
           "purpose": "Provide clear templates for bug reports, feature requests, and pull requests to standardise contributions.",
           "inputs": [
             "repository requirements",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             ".github/ISSUE_TEMPLATE/*.md",
@@ -1785,7 +1781,7 @@
           "purpose": "Document the versioning policy (semantic versioning), release cadence, and support window for the UI library.",
           "inputs": [
             "project charter",
-            "docs/tenerife_audit/design_system.md"
+            "tenerife_audit/design_system.md"
           ],
           "outputs": [
             "MAINTENANCE.md"
@@ -1813,7 +1809,7 @@
     "Components are stateless and controlled via props only."
   ],
   "reference": {
-    "structure_of_work": "docs/STRUCTURE_OF_WORK.md"
+    "structure_of_work": "docs/structure/STRUCTURE_OF_WORK.md"
   },
   "post_task_actions": [
     "After completing ANY task or subtask, Cursor MUST update the task status to 'completed' in master_tasks.json",
