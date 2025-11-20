@@ -1,4 +1,5 @@
-# Tenerife UI — Structure of Work  
+# Tenerife UI — Structure of Work
+
 **Version 1.0**  
 **Purpose:** This document defines the complete architecture and sequence of work required to build the autonomous, theme-driven Tenerife UI component library.
 
@@ -9,10 +10,10 @@
 Tenerife UI is a fully independent, design-token-driven UI library.  
 Главная задача — создать **универсальную библиотеку**, где весь дизайн контролируется через:
 
-- 🎨 Design Tokens  
-- 🎛️ Theme Overrides  
-- 🧱 Stateless Components  
-- 🌗 Theme Provider  
+- 🎨 Design Tokens
+- 🎛️ Theme Overrides
+- 🧱 Stateless Components
+- 🌗 Theme Provider
 - 📦 Tailwind Config Integration
 
 Ни один компонент НЕ содержит захардкоженных цветов, размеров и теней.  
@@ -25,7 +26,7 @@ Tenerife UI is a fully independent, design-token-driven UI library.
 Работа выполняется по чёткой цепочке:
 
 1. **Foundation Layer (Tokens + Theme System)**
-2. **Core Components Layer (Base UI)**  
+2. **Core Components Layer (Base UI)**
 3. **Advanced Components Layer (Complex UI blocks)**
 4. **Quality Layer (Tests, Storybook, Docs)**
 5. **Publishing Layer (Build, Bundles, NPM package)**
@@ -38,6 +39,7 @@ Tenerife UI is a fully independent, design-token-driven UI library.
 ## 3.1 Foundation Layer — MUST BE DONE FIRST
 
 ### 3.1.1 Create tokens folder (base structure)
+
 src/
 tokens/
 colors.ts
@@ -82,10 +84,10 @@ Copy code
 
 Support:
 
-- Dark + Light themes  
-- Additional brand themes  
-- Theme switching  
-- Automatic token override injection  
+- Dark + Light themes
+- Additional brand themes
+- Theme switching
+- Automatic token override injection
 
 ### 3.1.5 Theme Overrides (multi-theme support)
 
@@ -299,3 +301,4 @@ Publishing → Section 3.5
 
 6. Final Notes
 This file defines the architecture and ensures that Cursor (и любой разработчик) выполняет работу строго по правильному порядку, не ломая существующую библиотеку, не переписывая всё с нуля, и не придумывая ничего «от себя».
+```

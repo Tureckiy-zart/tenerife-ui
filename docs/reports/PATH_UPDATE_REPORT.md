@@ -24,13 +24,13 @@
 
 ### Обновленные пути
 
-| Старый путь | Новый путь | Количество вхождений |
-|-------------|------------|---------------------|
-| `docs/tenerife_audit/design_system.md` | `tenerife_audit/design_system.md` | ~30 |
-| `docs/tenerife_audit/components_redesign.md` | `tenerife_audit/components_redesign.md` | ~20 |
-| `docs/tenerife_audit/layout_and_brand_guide.md` | `tenerife_audit/layout_and_brand_guide.md` | ~10 |
-| `docs/tenerife_audit/design-tokens/tokens.json` | `tenerife_audit/design-tokens/tokens.json` | 1 |
-| `docs/tenerife_audit/templates for components` | `tenerife_audit/templates for components` | 1 |
+| Старый путь                                     | Новый путь                                 | Количество вхождений |
+| ----------------------------------------------- | ------------------------------------------ | -------------------- |
+| `docs/tenerife_audit/design_system.md`          | `tenerife_audit/design_system.md`          | ~30                  |
+| `docs/tenerife_audit/components_redesign.md`    | `tenerife_audit/components_redesign.md`    | ~20                  |
+| `docs/tenerife_audit/layout_and_brand_guide.md` | `tenerife_audit/layout_and_brand_guide.md` | ~10                  |
+| `docs/tenerife_audit/design-tokens/tokens.json` | `tenerife_audit/design-tokens/tokens.json` | 1                    |
+| `docs/tenerife_audit/templates for components`  | `tenerife_audit/templates for components`  | 1                    |
 
 ---
 
@@ -56,6 +56,7 @@
 ### Задача G0
 
 **Было:**
+
 ```json
 "inputs": [
   "docs/structure/STRUCTURE_OF_WORK.md",
@@ -66,6 +67,7 @@
 ```
 
 **Стало:**
+
 ```json
 "inputs": [
   "docs/structure/STRUCTURE_OF_WORK.md",
@@ -78,6 +80,7 @@
 ### Задача U10
 
 **Было:**
+
 ```json
 "inputs": [
   "docs/tenerife_audit/design-tokens/tokens.json",
@@ -86,6 +89,7 @@
 ```
 
 **Стало:**
+
 ```json
 "inputs": [
   "tenerife_audit/design-tokens/tokens.json",
@@ -104,6 +108,7 @@
 **Готовность к работе:** ✅ **100%**
 
 Репозиторий полностью готов к выполнению Master Task V3:
+
 - ✅ Все пути корректны
 - ✅ Файлы находятся в ожидаемых местах
 - ✅ JSON валиден
@@ -114,4 +119,3 @@
 **Дата обновления:** 2025-11-20  
 **Файл обновлен:** `.cursor/tasks/master/master_tasks.json`  
 **Всего изменений:** 65 вхождений
-

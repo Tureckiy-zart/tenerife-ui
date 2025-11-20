@@ -18,8 +18,10 @@ This file tracks the completion status of all tasks and subtasks in the Master T
 ## Task Completion Log
 
 ### Format
+
 ```markdown
 ## [Task ID] - [Task Title]
+
 - **Status:** [pending | in_progress | completed | cancelled]
 - **Date Updated:** YYYY-MM-DD
 - **Summary:** Brief description of what was accomplished

@@ -27,6 +27,7 @@
 Master Task V3 defines **64 tasks** across **8 layers** to build a universal, theme-driven UI component library. All tasks follow a strict dependency chain and must be executed in the correct order.
 
 **Key Principles:**
+
 - All design values come from design tokens
 - Components are stateless and controlled via props
 - Theme system enables multiple brand support
@@ -41,25 +42,26 @@ Master Task V3 defines **64 tasks** across **8 layers** to build a universal, th
 
 ### Tasks
 
-| ID | Title | Dependencies | Status |
-|----|-------|--------------|--------|
-| **G0** | Consult project structure and design documentation | None | pending |
-| **U0** | Audit existing components for token compliance | G0 | pending |
-| **U1** | Introduce theme system into existing components | U0, F7, F8, F9 | pending |
-| **U2** | Enforce minimal API and variant consistency | U1 | pending |
-| **U3** | Implement theme scaffolding CLI | F7, F8, F9 | pending |
-| **U4** | Introduce premium layout sections | C0, U1, U2 | pending |
-| **U5** | Export tokens for design tools | F0-F6 | pending |
-| **U6** | Augment accessibility and testing | Q1, Q2 | pending |
-| **U7** | Build multi-brand theme engine | U3, F8, F9 | pending |
-| **U8** | Create dynamic layout primitives | F3, F7, F8 | pending |
-| **U9** | Implement dynamic section builder | U8, C0, U4 | pending |
-| **U10** | Integrate Figma token sync | U5 | pending |
-| **U11** | Build theme marketplace infrastructure | U7, U3 | pending |
-| **U12** | Provide component scaffolding CLI | C0, U2 | pending |
-| **U13** | Provide guidelines for customizing tokens and themes | U5, U7 | pending |
+| ID      | Title                                                | Dependencies   | Status  |
+| ------- | ---------------------------------------------------- | -------------- | ------- |
+| **G0**  | Consult project structure and design documentation   | None           | pending |
+| **U0**  | Audit existing components for token compliance       | G0             | pending |
+| **U1**  | Introduce theme system into existing components      | U0, F7, F8, F9 | pending |
+| **U2**  | Enforce minimal API and variant consistency          | U1             | pending |
+| **U3**  | Implement theme scaffolding CLI                      | F7, F8, F9     | pending |
+| **U4**  | Introduce premium layout sections                    | C0, U1, U2     | pending |
+| **U5**  | Export tokens for design tools                       | F0-F6          | pending |
+| **U6**  | Augment accessibility and testing                    | Q1, Q2         | pending |
+| **U7**  | Build multi-brand theme engine                       | U3, F8, F9     | pending |
+| **U8**  | Create dynamic layout primitives                     | F3, F7, F8     | pending |
+| **U9**  | Implement dynamic section builder                    | U8, C0, U4     | pending |
+| **U10** | Integrate Figma token sync                           | U5             | pending |
+| **U11** | Build theme marketplace infrastructure               | U7, U3         | pending |
+| **U12** | Provide component scaffolding CLI                    | C0, U2         | pending |
+| **U13** | Provide guidelines for customizing tokens and themes | U5, U7         | pending |
 
 **Key Documentation:**
+
 - [Structure of Work](../structure/STRUCTURE_OF_WORK.md)
 - [Design System](../tenerife_audit/design_system.md) (missing)
 - [Components Redesign](../tenerife_audit/components_redesign.md) (missing)
@@ -73,23 +75,25 @@ Master Task V3 defines **64 tasks** across **8 layers** to build a universal, th
 
 ### Tasks
 
-| ID | Title | Dependencies | Status |
-|----|-------|--------------|--------|
-| **F0** | Create base token files | None | pending |
-| **F1** | Implement color palette tokens | None | pending |
-| **F2** | Implement typography system tokens | None | pending |
-| **F3** | Implement spacing system tokens | None | pending |
-| **F4** | Implement shadow and glow system tokens | None | pending |
-| **F5** | Implement border radius system tokens | None | pending |
-| **F6** | Implement motion and transition tokens | None | pending |
-| **F7** | Configure Tailwind CSS and theme integration | F1-F6 | pending |
-| **F8** | Establish theme system | F7 | pending |
-| **F9** | Create theme override files | F8 | pending |
+| ID     | Title                                        | Dependencies | Status  |
+| ------ | -------------------------------------------- | ------------ | ------- |
+| **F0** | Create base token files                      | None         | pending |
+| **F1** | Implement color palette tokens               | None         | pending |
+| **F2** | Implement typography system tokens           | None         | pending |
+| **F3** | Implement spacing system tokens              | None         | pending |
+| **F4** | Implement shadow and glow system tokens      | None         | pending |
+| **F5** | Implement border radius system tokens        | None         | pending |
+| **F6** | Implement motion and transition tokens       | None         | pending |
+| **F7** | Configure Tailwind CSS and theme integration | F1-F6        | pending |
+| **F8** | Establish theme system                       | F7           | pending |
+| **F9** | Create theme override files                  | F8           | pending |
 
 **Key Documentation:**
+
 - [Design System](../tenerife_audit/design_system.md) (missing)
 
 **Outputs:**
+
 - `src/tokens/colors.ts`
 - `src/tokens/typography.ts`
 - `src/tokens/spacing.ts`
@@ -109,21 +113,22 @@ Master Task V3 defines **64 tasks** across **8 layers** to build a universal, th
 
 ### Tasks
 
-| ID | Title | Dependencies | Status |
-|----|-------|--------------|--------|
-| **C0** | Enforce token-driven component architecture | F0, F7, F8 | pending |
-| **C1** | Create Button component | F1-F8 | pending |
-| **C2** | Create Input component | F1-F8 | pending |
-| **C3** | Create FormInput component | C2 | pending |
-| **C4** | Create Select component | C2, C3 | pending |
-| **C5** | Create Textarea component | C2 | pending |
-| **C6** | Create Label component | None | pending |
-| **C7** | Create Card (base) component | F1-F8 | pending |
-| **C8** | Create Section component | F3, F7, F8 | pending |
-| **C9** | Create GridLayout component | F3, F7, F8 | pending |
-| **C10** | Create Badge component | F1, F3-F5, F7, F8 | pending |
+| ID      | Title                                       | Dependencies      | Status  |
+| ------- | ------------------------------------------- | ----------------- | ------- |
+| **C0**  | Enforce token-driven component architecture | F0, F7, F8        | pending |
+| **C1**  | Create Button component                     | F1-F8             | pending |
+| **C2**  | Create Input component                      | F1-F8             | pending |
+| **C3**  | Create FormInput component                  | C2                | pending |
+| **C4**  | Create Select component                     | C2, C3            | pending |
+| **C5**  | Create Textarea component                   | C2                | pending |
+| **C6**  | Create Label component                      | None              | pending |
+| **C7**  | Create Card (base) component                | F1-F8             | pending |
+| **C8**  | Create Section component                    | F3, F7, F8        | pending |
+| **C9**  | Create GridLayout component                 | F3, F7, F8        | pending |
+| **C10** | Create Badge component                      | F1, F3-F5, F7, F8 | pending |
 
 **Key Documentation:**
+
 - [Components Redesign](../tenerife_audit/components_redesign.md) (missing)
 - [Design System](../tenerife_audit/design_system.md) (missing)
 
@@ -135,21 +140,22 @@ Master Task V3 defines **64 tasks** across **8 layers** to build a universal, th
 
 ### Tasks
 
-| ID | Title | Dependencies | Status |
-|----|-------|--------------|--------|
-| **A1** | Create EventCard component | C7, C10, F4 | pending |
-| **A2** | Create VenueCard component | A1 | pending |
-| **A3** | Create SearchBar component | C2, F4, F6 | pending |
-| **A4** | Create Navigation components | C1, C8, F4, F6 | pending |
-| **A5** | Create Hero components | C1, C8, F4 | pending |
-| **A6** | Create Feature component | C8, C9 | pending |
-| **A7** | Create CTA component | C1, C8 | pending |
-| **A8** | Create Modal component | F4-F7 | pending |
-| **A9** | Create Dropdown component | C4, F4, F6 | pending |
-| **A10** | Create Avatar component | F5 | pending |
-| **A11** | Create Skeleton Loader component | F6 | pending |
+| ID      | Title                            | Dependencies   | Status  |
+| ------- | -------------------------------- | -------------- | ------- |
+| **A1**  | Create EventCard component       | C7, C10, F4    | pending |
+| **A2**  | Create VenueCard component       | A1             | pending |
+| **A3**  | Create SearchBar component       | C2, F4, F6     | pending |
+| **A4**  | Create Navigation components     | C1, C8, F4, F6 | pending |
+| **A5**  | Create Hero components           | C1, C8, F4     | pending |
+| **A6**  | Create Feature component         | C8, C9         | pending |
+| **A7**  | Create CTA component             | C1, C8         | pending |
+| **A8**  | Create Modal component           | F4-F7          | pending |
+| **A9**  | Create Dropdown component        | C4, F4, F6     | pending |
+| **A10** | Create Avatar component          | F5             | pending |
+| **A11** | Create Skeleton Loader component | F6             | pending |
 
 **Key Documentation:**
+
 - [Components Redesign](../tenerife_audit/components_redesign.md) (missing)
 - [Layout and Brand Guide](../tenerife_audit/layout_and_brand_guide.md) (missing)
 - [Design System](../tenerife_audit/design_system.md) (missing)
@@ -162,18 +168,19 @@ Master Task V3 defines **64 tasks** across **8 layers** to build a universal, th
 
 ### Tasks
 
-| ID | Title | Dependencies | Status |
-|----|-------|--------------|--------|
-| **Q1** | Configure Storybook | All components | pending |
-| **Q2** | Write unit and integration tests | All components | pending |
-| **Q3** | Perform accessibility audits | Q1 | pending |
-| **Q4** | Write component documentation | All components | pending |
-| **Q5** | Add JSDoc comments | All components | pending |
-| **Q6** | Generate API documentation | Q5 | pending |
-| **Q7** | Document theme switching | F9, Q4 | pending |
-| **Q8** | Add multi-theme compilation tests | F9, Q1, Q2 | pending |
+| ID     | Title                             | Dependencies   | Status  |
+| ------ | --------------------------------- | -------------- | ------- |
+| **Q1** | Configure Storybook               | All components | pending |
+| **Q2** | Write unit and integration tests  | All components | pending |
+| **Q3** | Perform accessibility audits      | Q1             | pending |
+| **Q4** | Write component documentation     | All components | pending |
+| **Q5** | Add JSDoc comments                | All components | pending |
+| **Q6** | Generate API documentation        | Q5             | pending |
+| **Q7** | Document theme switching          | F9, Q4         | pending |
+| **Q8** | Add multi-theme compilation tests | F9, Q1, Q2     | pending |
 
 **Key Documentation:**
+
 - [Design System](../tenerife_audit/design_system.md) (missing)
 - [Components Redesign](../tenerife_audit/components_redesign.md) (missing)
 - [Layout and Brand Guide](../tenerife_audit/layout_and_brand_guide.md) (missing)
@@ -186,13 +193,14 @@ Master Task V3 defines **64 tasks** across **8 layers** to build a universal, th
 
 ### Tasks
 
-| ID | Title | Dependencies | Status |
-|----|-------|--------------|--------|
-| **P1** | Configure package metadata | None | pending |
-| **P2** | Implement build system | P1, All components | pending |
-| **P3** | Implement semantic versioning and release process | P1 | pending |
+| ID     | Title                                             | Dependencies       | Status  |
+| ------ | ------------------------------------------------- | ------------------ | ------- |
+| **P1** | Configure package metadata                        | None               | pending |
+| **P2** | Implement build system                            | P1, All components | pending |
+| **P3** | Implement semantic versioning and release process | P1                 | pending |
 
 **Key Documentation:**
+
 - [Design System](../tenerife_audit/design_system.md) (missing)
 - [Publishing Guide](../PUBLISHING.md)
 
@@ -204,13 +212,14 @@ Master Task V3 defines **64 tasks** across **8 layers** to build a universal, th
 
 ### Tasks
 
-| ID | Title | Dependencies | Status |
-|----|-------|--------------|--------|
-| **CI1** | Set up continuous integration pipeline | P2, Q1, Q2 | pending |
-| **CI2** | Deploy Storybook automatically | Q1 | pending |
-| **CI3** | Automate npm publishing | P3, P2 | pending |
+| ID      | Title                                  | Dependencies | Status  |
+| ------- | -------------------------------------- | ------------ | ------- |
+| **CI1** | Set up continuous integration pipeline | P2, Q1, Q2   | pending |
+| **CI2** | Deploy Storybook automatically         | Q1           | pending |
+| **CI3** | Automate npm publishing                | P3, P2       | pending |
 
 **Key Documentation:**
+
 - [Design System](../tenerife_audit/design_system.md) (missing)
 
 ---
@@ -221,13 +230,14 @@ Master Task V3 defines **64 tasks** across **8 layers** to build a universal, th
 
 ### Tasks
 
-| ID | Title | Dependencies | Status |
-|----|-------|--------------|--------|
-| **M1** | Enable automated dependency updates | CI1 | pending |
-| **M2** | Create issue and pull request templates | None | pending |
-| **M3** | Define versioning and maintenance policy | P3 | pending |
+| ID     | Title                                    | Dependencies | Status  |
+| ------ | ---------------------------------------- | ------------ | ------- |
+| **M1** | Enable automated dependency updates      | CI1          | pending |
+| **M2** | Create issue and pull request templates  | None         | pending |
+| **M3** | Define versioning and maintenance policy | P3           | pending |
 
 **Key Documentation:**
+
 - [Design System](../tenerife_audit/design_system.md) (missing)
 
 ---
@@ -249,11 +259,13 @@ G0 → U0 → [F0-F9] → C0 → C1-C10 → A1-A11 → Q1-Q8 → P1-P3 → CI1-C
 ### Key Dependency Chains
 
 1. **Theme System Chain:**
+
    ```
    F0-F6 → F7 → F8 → F9 → U1, U3, U7
    ```
 
 2. **Component Chain:**
+
    ```
    C0 → C1-C10 → A1-A11
    ```
@@ -269,23 +281,23 @@ G0 → U0 → [F0-F9] → C0 → C1-C10 → A1-A11 → Q1-Q8 → P1-P3 → CI1-C
 
 ### Required Documentation Files
 
-| File | Location | Status | Referenced In |
-|------|----------|--------|---------------|
-| **design_system.md** | `docs/tenerife_audit/` | ❌ Missing | 30+ tasks |
-| **components_redesign.md** | `docs/tenerife_audit/` | ❌ Missing | 20+ tasks |
-| **layout_and_brand_guide.md** | `docs/tenerife_audit/` | ❌ Missing | 10+ tasks |
-| **STRUCTURE_OF_WORK.md** | `docs/structure/` | ✅ Exists | G0, Reference |
-| **AUDIT_REPORT.md** | `docs/reports/` | ⚠️ Will be created by U0 | U0, U1, U2 |
+| File                          | Location               | Status                   | Referenced In |
+| ----------------------------- | ---------------------- | ------------------------ | ------------- |
+| **design_system.md**          | `docs/tenerife_audit/` | ❌ Missing               | 30+ tasks     |
+| **components_redesign.md**    | `docs/tenerife_audit/` | ❌ Missing               | 20+ tasks     |
+| **layout_and_brand_guide.md** | `docs/tenerife_audit/` | ❌ Missing               | 10+ tasks     |
+| **STRUCTURE_OF_WORK.md**      | `docs/structure/`      | ✅ Exists                | G0, Reference |
+| **AUDIT_REPORT.md**           | `docs/reports/`        | ⚠️ Will be created by U0 | U0, U1, U2    |
 
 ### Available Documentation Files
 
-| File | Location | Status |
-|------|----------|--------|
-| **PROJECT_PROGRESS.md** | `docs/` | ✅ Exists |
-| **PUBLISHING.md** | `docs/` | ✅ Exists |
-| **PROJECT_AUDIT_REPORT.md** | `docs/reports/` | ✅ Exists |
+| File                          | Location        | Status    |
+| ----------------------------- | --------------- | --------- |
+| **PROJECT_PROGRESS.md**       | `docs/`         | ✅ Exists |
+| **PUBLISHING.md**             | `docs/`         | ✅ Exists |
+| **PROJECT_AUDIT_REPORT.md**   | `docs/reports/` | ✅ Exists |
 | **PATH_RESOLUTION_REPORT.md** | `docs/reports/` | ✅ Exists |
-| **CHANGELOG.md** | `docs/reports/` | ✅ Exists |
+| **CHANGELOG.md**              | `docs/reports/` | ✅ Exists |
 
 ---
 
@@ -312,4 +324,3 @@ G0 → U0 → [F0-F9] → C0 → C1-C10 → A1-A11 → Q1-Q8 → P1-P3 → CI1-C
 **Master Task Version:** 3.0  
 **Total Tasks:** 64  
 **Total Layers:** 8
-
