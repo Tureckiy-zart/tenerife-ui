@@ -1,0 +1,186 @@
+{
+  "parent_task": "U9",
+  "parent_title": "Implement dynamic section builder",
+  "subtasks": [
+    {
+      "id": "U9.1",
+      "title": "Design SectionBuilder API and configuration schema",
+      "steps": [
+        "Review layout_and_brand_guide.md for section requirements",
+        "Design TypeScript interfaces for section configuration",
+        "Define section types (hero, feature, split, grid, testimonial)",
+        "Create configuration schema with TypeScript types",
+        "Document API design in docs/SECTION_BUILDER_API.md"
+      ],
+      "acceptance_criteria": [
+        "TypeScript interfaces defined for SectionConfig",
+        "Section types documented with examples",
+        "Configuration schema supports all required layouts",
+        "API design document exists"
+      ]
+    },
+    {
+      "id": "U9.2",
+      "title": "Implement base SectionBuilder component structure",
+      "steps": [
+        "Create src/components/SectionBuilder.tsx file",
+        "Implement SectionBuilder component with config prop",
+        "Add TypeScript types for props and configuration",
+        "Create base rendering logic that reads config",
+        "Add error handling for invalid configurations"
+      ],
+      "acceptance_criteria": [
+        "SectionBuilder.tsx file exists",
+        "Component accepts SectionConfig prop",
+        "TypeScript types are properly defined",
+        "Component renders basic structure from config",
+        "Invalid configs show helpful error messages"
+      ]
+    },
+    {
+      "id": "U9.3",
+      "title": "Implement layout primitive composition system",
+      "steps": [
+        "Integrate Box, Flex, Grid, Stack components from U8",
+        "Create layout composition logic based on config type",
+        "Map config properties to layout primitive props",
+        "Ensure spacing tokens are used throughout",
+        "Test layout composition with different configs"
+      ],
+      "acceptance_criteria": [
+        "SectionBuilder uses Box, Flex, Grid, Stack components",
+        "Layout composition works for all section types",
+        "Spacing tokens used correctly",
+        "Layouts render correctly for different configs",
+        "No hardcoded spacing values"
+      ]
+    },
+    {
+      "id": "U9.4",
+      "title": "Implement split layout type (image + text)",
+      "steps": [
+        "Add split layout rendering logic",
+        "Support imagePosition: 'left' | 'right'",
+        "Integrate Image component with proper aspect ratios",
+        "Add text content slots with typography tokens",
+        "Test split layout with both image positions"
+      ],
+      "acceptance_criteria": [
+        "Split layout renders correctly",
+        "Image position switching works",
+        "Text content uses typography tokens",
+        "Split layout responsive on mobile",
+        "Storybook story demonstrates split layout"
+      ]
+    },
+    {
+      "id": "U9.5",
+      "title": "Implement grid layout type (feature grid)",
+      "steps": [
+        "Add grid layout rendering logic",
+        "Support configurable columns (1-4 columns)",
+        "Integrate GridLayout component with gap tokens",
+        "Support content items array with icons and text",
+        "Test grid layout with different column counts"
+      ],
+      "acceptance_criteria": [
+        "Grid layout renders correctly",
+        "Column count configurable via config",
+        "Gap tokens used for spacing",
+        "Content items render with icons and text",
+        "Grid responsive on mobile devices"
+      ]
+    },
+    {
+      "id": "U9.6",
+      "title": "Implement hero layout type",
+      "steps": [
+        "Add hero layout rendering logic",
+        "Support full-height and half-height variants",
+        "Integrate background image/gradient support",
+        "Add CTA button slots using Button component",
+        "Test hero layout with different variants"
+      ],
+      "acceptance_criteria": [
+        "Hero layout renders correctly",
+        "Full-height and half-height variants work",
+        "Background images/gradients apply correctly",
+        "CTA buttons use Button component variants",
+        "Hero layout responsive"
+      ]
+    },
+    {
+      "id": "U9.7",
+      "title": "Implement background surface and overlay system",
+      "steps": [
+        "Add background surface support (default, elevated, glass, gradient)",
+        "Implement overlay system for images",
+        "Use surface tokens for backgrounds",
+        "Support gradient overlays with opacity tokens",
+        "Test backgrounds and overlays in all themes"
+      ],
+      "acceptance_criteria": [
+        "Background surfaces use surface tokens",
+        "Overlays work correctly with images",
+        "Gradient overlays use opacity tokens",
+        "Backgrounds respond to theme changes",
+        "All surface types render correctly"
+      ]
+    },
+    {
+      "id": "U9.8",
+      "title": "Add content slot system for custom content",
+      "steps": [
+        "Implement content slot props (header, body, footer)",
+        "Support ReactNode content in slots",
+        "Allow custom components in content slots",
+        "Maintain token system when custom content is used",
+        "Test content slots with various components"
+      ],
+      "acceptance_criteria": [
+        "Content slots accept ReactNode",
+        "Custom components work in slots",
+        "Token system maintained with custom content",
+        "Slots render in correct order",
+        "Content slots documented"
+      ]
+    },
+    {
+      "id": "U9.9",
+      "title": "Create SectionBuilder documentation and examples",
+      "steps": [
+        "Create Storybook stories for each section type",
+        "Document SectionBuilder API with examples",
+        "Create at least 3 complete examples (hero, feature grid, testimonial)",
+        "Add usage guide to component documentation",
+        "Include best practices and common patterns"
+      ],
+      "acceptance_criteria": [
+        "Storybook stories exist for all section types",
+        "API documentation complete with examples",
+        "Three complete examples provided",
+        "Usage guide explains common patterns",
+        "Best practices documented"
+      ]
+    },
+    {
+      "id": "U9.10",
+      "title": "Add TypeScript type safety and validation",
+      "steps": [
+        "Add runtime validation for section config",
+        "Create TypeScript discriminated unions for section types",
+        "Add prop validation with helpful error messages",
+        "Ensure type safety throughout SectionBuilder",
+        "Test type checking catches invalid configs"
+      ],
+      "acceptance_criteria": [
+        "Runtime validation catches invalid configs",
+        "TypeScript types prevent invalid configurations",
+        "Error messages helpful for developers",
+        "Type safety enforced at compile time",
+        "Invalid configs caught before rendering"
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,223 @@
+{
+  "parent_task": "P2",
+  "parent_title": "Implement build system",
+  "subtasks": [
+    {
+      "id": "P2.1",
+      "title": "Choose and configure build tool (Vite or TSup)",
+      "steps": [
+        "Evaluate Vite vs TSup for library build requirements",
+        "Choose build tool based on project needs",
+        "Install chosen build tool and dependencies",
+        "Create base configuration file (vite.config.ts or tsup.config.ts)",
+        "Test basic build configuration"
+      ],
+      "acceptance_criteria": [
+        "Build tool chosen and justified",
+        "Build tool installed",
+        "Configuration file created",
+        "Basic build runs without errors",
+        "Build output structure defined"
+      ]
+    },
+    {
+      "id": "P2.2",
+      "title": "Configure TypeScript compilation for library",
+      "steps": [
+        "Set up TypeScript config for library build (tsconfig.build.json)",
+        "Configure entry points (src/index.ts)",
+        "Set up type declaration generation (.d.ts files)",
+        "Configure module resolution (ESM and CJS)",
+        "Test TypeScript compilation"
+      ],
+      "acceptance_criteria": [
+        "TypeScript config exists for build",
+        "Entry points configured",
+        "Type declarations generated",
+        "Module resolution works for ESM and CJS",
+        "TypeScript compilation succeeds"
+      ]
+    },
+    {
+      "id": "P2.3",
+      "title": "Configure ESM (ES Modules) output",
+      "steps": [
+        "Configure build tool for ESM output",
+        "Set output format to 'es' or 'esm'",
+        "Configure output directory (dist/esm or dist/es)",
+        "Ensure proper module exports",
+        "Test ESM output imports correctly"
+      ],
+      "acceptance_criteria": [
+        "ESM output configured",
+        "Output format set correctly",
+        "Output directory configured",
+        "Module exports correct",
+        "ESM build imports work"
+      ]
+    },
+    {
+      "id": "P2.4",
+      "title": "Configure CJS (CommonJS) output",
+      "steps": [
+        "Configure build tool for CJS output",
+        "Set output format to 'cjs' or 'commonjs'",
+        "Configure output directory (dist/cjs or dist/lib)",
+        "Ensure proper CommonJS exports",
+        "Test CJS output requires correctly"
+      ],
+      "acceptance_criteria": [
+        "CJS output configured",
+        "Output format set correctly",
+        "Output directory configured",
+        "CommonJS exports correct",
+        "CJS build requires work"
+      ]
+    },
+    {
+      "id": "P2.5",
+      "title": "Configure CSS and Tailwind build process",
+      "steps": [
+        "Set up CSS extraction from components",
+        "Configure Tailwind CSS processing",
+        "Ensure design tokens included in CSS output",
+        "Generate separate CSS file or inline styles",
+        "Test CSS output includes all styles"
+      ],
+      "acceptance_criteria": [
+        "CSS extraction configured",
+        "Tailwind CSS processed correctly",
+        "Design tokens included in CSS",
+        "CSS file generated",
+        "CSS output complete and correct"
+      ]
+    },
+    {
+      "id": "P2.6",
+      "title": "Configure external dependencies and peer dependencies",
+      "steps": [
+        "Mark React and React-DOM as external dependencies",
+        "Configure peer dependencies in package.json",
+        "Ensure external deps not bundled",
+        "Configure build to exclude node_modules",
+        "Test external dependencies work correctly"
+      ],
+      "acceptance_criteria": [
+        "React marked as external",
+        "Peer dependencies configured",
+        "External deps not bundled",
+        "node_modules excluded",
+        "External deps resolve correctly"
+      ]
+    },
+    {
+      "id": "P2.7",
+      "title": "Set up build scripts in package.json",
+      "steps": [
+        "Add 'build' script to package.json",
+        "Add 'build:watch' script for development",
+        "Add 'build:clean' script to clean dist folder",
+        "Configure build scripts to run in correct order",
+        "Test all build scripts work"
+      ],
+      "acceptance_criteria": [
+        "build script exists",
+        "build:watch script exists",
+        "build:clean script exists",
+        "Scripts run in correct order",
+        "All scripts execute successfully"
+      ]
+    },
+    {
+      "id": "P2.8",
+      "title": "Configure package.json exports and entry points",
+      "steps": [
+        "Configure 'main' field for CJS entry",
+        "Configure 'module' field for ESM entry",
+        "Configure 'types' field for TypeScript declarations",
+        "Set up 'exports' field with conditional exports",
+        "Test package.json exports work"
+      ],
+      "acceptance_criteria": [
+        "main field points to CJS entry",
+        "module field points to ESM entry",
+        "types field points to .d.ts file",
+        "exports field configured correctly",
+        "Package exports resolve correctly"
+      ]
+    },
+    {
+      "id": "P2.9",
+      "title": "Add build optimization and tree-shaking",
+      "steps": [
+        "Enable tree-shaking in build configuration",
+        "Configure minification for production builds",
+        "Set up code splitting if needed",
+        "Optimize bundle size",
+        "Test optimized build"
+      ],
+      "acceptance_criteria": [
+        "Tree-shaking enabled",
+        "Minification configured",
+        "Code splitting set up (if applicable)",
+        "Bundle size optimized",
+        "Optimized build works correctly"
+      ]
+    },
+    {
+      "id": "P2.10",
+      "title": "Add build validation and testing",
+      "steps": [
+        "Run TypeScript type checking before build",
+        "Run linting before build",
+        "Run tests after build",
+        "Validate build output structure",
+        "Add build validation script"
+      ],
+      "acceptance_criteria": [
+        "Type checking runs before build",
+        "Linting runs before build",
+        "Tests run after build",
+        "Build output validated",
+        "Build validation script exists"
+      ]
+    },
+    {
+      "id": "P2.11",
+      "title": "Test build output in consuming project",
+      "steps": [
+        "Create test consuming project",
+        "Install built package locally",
+        "Import components in test project",
+        "Verify ESM and CJS imports work",
+        "Test CSS imports and styling"
+      ],
+      "acceptance_criteria": [
+        "Test project created",
+        "Package installs correctly",
+        "ESM imports work",
+        "CJS imports work",
+        "CSS and styling work correctly"
+      ]
+    },
+    {
+      "id": "P2.12",
+      "title": "Document build process and configuration",
+      "steps": [
+        "Create docs/BUILD.md with build documentation",
+        "Document build configuration options",
+        "Explain build output structure",
+        "Document how to use build scripts",
+        "Add troubleshooting section"
+      ],
+      "acceptance_criteria": [
+        "BUILD.md exists",
+        "Configuration documented",
+        "Output structure explained",
+        "Build scripts documented",
+        "Troubleshooting guide included"
+      ]
+    }
+  ]
+}
+

@@ -24,7 +24,8 @@
             "During planning sessions, team members accurately reference the correct layers and guidelines when proposing work.",
             "Questions raised during the onboarding phase are documented and answered in a FAQ section in the repository."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "U0",
@@ -45,12 +46,15 @@
           ],
           "dependencies": [
             "G0"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U1",
           "title": "Introduce theme system into existing components",
           "purpose": "Retrofit the existing components with the theme provider and token system from the Foundation layer. All components must read design values from the theme context and respond correctly to theme changes (e.g., dark, light, custom brand).  This includes replacing any remaining inline styles or Tailwind classes with references to CSS custom properties generated from the tokens.",
+          "has_subtasks": true,
+          "subtasks_file": ".cursor/tasks/subtasks/U1.subtasks.json",
           "inputs": [
             "src/components/**/*",
             "src/theme/ThemeProvider.tsx",
@@ -72,7 +76,8 @@
             "F7",
             "F8",
             "F9"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U2",
@@ -97,7 +102,8 @@
           ],
           "dependencies": [
             "U1"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U3",
@@ -122,7 +128,8 @@
             "F7",
             "F8",
             "F9"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U4",
@@ -150,7 +157,8 @@
             "C0",
             "U1",
             "U2"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U5",
@@ -183,7 +191,8 @@
             "F4",
             "F5",
             "F6"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U6",
@@ -209,12 +218,15 @@
           "dependencies": [
             "Q1",
             "Q2"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U7",
           "title": "Build multi‑brand theme engine",
           "purpose": "Extend the theme system to support multiple brand packages beyond default and dark themes.  This involves organising tokens into a structure that can be overridden per brand and providing a mechanism to load and switch brands at runtime. The engine should support namespaced tokens so that brand‑specific values do not leak into other themes.",
+          "has_subtasks": true,
+          "subtasks_file": ".cursor/tasks/subtasks/U7.subtasks.json",
           "inputs": [
             "src/theme/ThemeProvider.tsx",
             "existing theme files",
@@ -227,14 +239,15 @@
           "acceptance_criteria": [
             "The theme provider can load multiple theme objects and apply them at runtime.",
             "Brand themes define overrides for colours, typography, spacing, radii and shadows.",
-            "Switching the brand via context or configuration updates all components’ appearances consistently.",
+            "Switching the brand via context or configuration updates all components' appearances consistently.",
             "A demonstration page shows at least three distinct brand themes working side‑by‑side."
           ],
           "dependencies": [
             "U3",
             "F8",
             "F9"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U8",
@@ -262,12 +275,15 @@
             "F3",
             "F7",
             "F8"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U9",
           "title": "Implement dynamic section builder",
           "purpose": "Create a high‑level API that allows assembling sections by combining layout primitives and core components.  The builder should accept configuration objects defining the layout (columns, rows, order), background surfaces, content slots and overlays.  This will enable rapid construction of custom sections without writing repetitive markup.",
+          "has_subtasks": true,
+          "subtasks_file": ".cursor/tasks/subtasks/U9.subtasks.json",
           "inputs": [
             "src/components/layout/**/*",
             "src/components/core/**/*",
@@ -287,12 +303,15 @@
             "U8",
             "C0",
             "U4"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U10",
           "title": "Integrate Figma token sync",
           "purpose": "Provide a script or GitHub action to synchronise design tokens between the codebase and Figma.  This ensures that designers and developers work off the same token values and that updates flow in both directions.",
+          "has_subtasks": true,
+          "subtasks_file": ".cursor/tasks/subtasks/U10.subtasks.json",
           "inputs": [
             "docs/tenerife_audit/design-tokens/tokens.json",
             "Figma token plugin API documentation"
@@ -309,7 +328,8 @@
           ],
           "dependencies": [
             "U5"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U11",
@@ -333,7 +353,8 @@
           "dependencies": [
             "U7",
             "U3"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U12",
@@ -357,7 +378,8 @@
           "dependencies": [
             "C0",
             "U2"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "U13",
@@ -380,7 +402,8 @@
           "dependencies": [
             "U5",
             "U7"
-          ]
+          ],
+          "status": "pending"
         }
       ]
     },
@@ -409,7 +432,8 @@
             "No component imports static values; they import from these token files.",
             "Editing a token value updates all consuming styles across the library."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "F1",
@@ -428,7 +452,8 @@
             "Tailwind config extends the theme colors using these variables.",
             "Dark and light surface tokens are both included."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "F2",
@@ -448,7 +473,8 @@
             "Line height and letter spacing tokens are defined as specified【524020591353274†L469-L487】.",
             "Tailwind config extends typography utilities using these tokens."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "F3",
@@ -468,7 +494,8 @@
             "Layout spacing tokens for container widths, section padding, grid gaps, and stack gaps are created【524020591353274†L791-L822】.",
             "Tokens are exported and integrated into Tailwind config."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "F4",
@@ -488,7 +515,8 @@
             "Focus shadow tokens for accessibility are included【524020591353274†L1032-L1046】.",
             "Shadow mapping table for components is documented for later reference【524020591353274†L1048-L1062】."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "F5",
@@ -506,7 +534,8 @@
             "Component standards map card, button, modal, badge, avatar, etc., to the correct radius token【524020591353274†L1265-L1282】.",
             "Consistency guidelines (matching parent radius, corner variations) are documented for developers【524020591353274†L1284-L1319】."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "F6",
@@ -524,7 +553,8 @@
             "Easing functions (standard, ease-out, ease-in-out) are defined as specified in the design system.",
             "Motion tokens include guidelines for reduced motion respecting user preferences."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "F7",
@@ -552,7 +582,8 @@
             "F4",
             "F5",
             "F6"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "F8",
@@ -576,7 +607,8 @@
           ],
           "dependencies": [
             "F7"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "F9",
@@ -598,7 +630,8 @@
           ],
           "dependencies": [
             "F8"
-          ]
+          ],
+          "status": "pending"
         }
       ]
     },
@@ -626,7 +659,8 @@
             "F0",
             "F7",
             "F8"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C1",
@@ -660,7 +694,8 @@
             "F6",
             "F7",
             "F8"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C2",
@@ -697,7 +732,8 @@
             "F6",
             "F7",
             "F8"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C3",
@@ -723,7 +759,8 @@
           ],
           "dependencies": [
             "C2"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C4",
@@ -751,7 +788,8 @@
           "dependencies": [
             "C2",
             "C3"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C5",
@@ -777,7 +815,8 @@
           ],
           "dependencies": [
             "C2"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C6",
@@ -802,7 +841,8 @@
             "Component uses only Tailwind classes that reference CSS variables derived from tokens; no raw colours, spacing or radii are used.",
             "Component is fully controlled via props with zero internal state."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "C7",
@@ -836,7 +876,8 @@
             "F6",
             "F7",
             "F8"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C8",
@@ -864,7 +905,8 @@
             "F3",
             "F7",
             "F8"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C9",
@@ -892,7 +934,8 @@
             "F3",
             "F7",
             "F8"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "C10",
@@ -923,7 +966,8 @@
             "F5",
             "F7",
             "F8"
-          ]
+          ],
+          "status": "pending"
         }
       ]
     },
@@ -961,7 +1005,8 @@
             "C7",
             "C10",
             "F4"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A2",
@@ -988,7 +1033,8 @@
           ],
           "dependencies": [
             "A1"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A3",
@@ -1017,7 +1063,8 @@
             "C2",
             "F4",
             "F6"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A4",
@@ -1047,7 +1094,8 @@
             "C8",
             "F4",
             "F6"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A5",
@@ -1076,7 +1124,8 @@
             "C1",
             "C8",
             "F4"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A6",
@@ -1104,7 +1153,8 @@
           "dependencies": [
             "C8",
             "C9"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A7",
@@ -1131,7 +1181,8 @@
           "dependencies": [
             "C1",
             "C8"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A8",
@@ -1161,7 +1212,8 @@
             "F5",
             "F6",
             "F7"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A9",
@@ -1189,7 +1241,8 @@
             "C4",
             "F4",
             "F6"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A10",
@@ -1214,7 +1267,8 @@
           ],
           "dependencies": [
             "F5"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "A11",
@@ -1239,7 +1293,8 @@
           ],
           "dependencies": [
             "F6"
-          ]
+          ],
+          "status": "pending"
         }
       ]
     },
@@ -1250,6 +1305,8 @@
           "id": "Q1",
           "title": "Configure Storybook",
           "purpose": "Set up Storybook for the component library and write stories for all components and their variants.",
+          "has_subtasks": true,
+          "subtasks_file": ".cursor/tasks/subtasks/Q1.subtasks.json",
           "inputs": [
             "All component implementations"
           ],
@@ -1285,7 +1342,8 @@
             "A9",
             "A10",
             "A11"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "Q2",
@@ -1327,7 +1385,8 @@
             "A9",
             "A10",
             "A11"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "Q3",
@@ -1351,7 +1410,8 @@
           ],
           "dependencies": [
             "Q1"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "Q4",
@@ -1393,7 +1453,8 @@
             "A9",
             "A10",
             "A11"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "Q5",
@@ -1433,7 +1494,8 @@
             "A9",
             "A10",
             "A11"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "Q6",
@@ -1454,7 +1516,8 @@
           ],
           "dependencies": [
             "Q5"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "Q7",
@@ -1476,7 +1539,8 @@
           "dependencies": [
             "F9",
             "Q4"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "Q8",
@@ -1499,7 +1563,8 @@
             "F9",
             "Q1",
             "Q2"
-          ]
+          ],
+          "status": "pending"
         }
       ]
     },
@@ -1522,12 +1587,15 @@
             "publishConfig sets the registry to npm and access to public.",
             "Dependencies and peerDependencies are declared appropriately."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "P2",
           "title": "Implement build system",
           "purpose": "Set up build scripts using Vite or TSup to compile TypeScript/React components into ESM and CJS outputs and generate CSS files.",
+          "has_subtasks": true,
+          "subtasks_file": ".cursor/tasks/subtasks/P2.subtasks.json",
           "inputs": [
             "tailwind.config.js",
             "source code",
@@ -1564,7 +1632,8 @@
             "A9",
             "A10",
             "A11"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "P3",
@@ -1585,7 +1654,8 @@
           ],
           "dependencies": [
             "P1"
-          ]
+          ],
+          "status": "pending"
         }
       ]
     },
@@ -1613,7 +1683,8 @@
             "P2",
             "Q1",
             "Q2"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "CI2",
@@ -1634,7 +1705,8 @@
           ],
           "dependencies": [
             "Q1"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "CI3",
@@ -1656,7 +1728,8 @@
           "dependencies": [
             "P3",
             "P2"
-          ]
+          ],
+          "status": "pending"
         }
       ]
     },
@@ -1683,7 +1756,8 @@
           ],
           "dependencies": [
             "CI1"
-          ]
+          ],
+          "status": "pending"
         },
         {
           "id": "M2",
@@ -1702,7 +1776,8 @@
             "PR template includes checklist for tests, documentation, and changelog updates.",
             "Templates guide contributors to reference relevant design documents."
           ],
-          "dependencies": []
+          "dependencies": [],
+          "status": "pending"
         },
         {
           "id": "M3",
@@ -1722,7 +1797,8 @@
           ],
           "dependencies": [
             "P3"
-          ]
+          ],
+          "status": "pending"
         }
       ]
     }
@@ -1739,5 +1815,12 @@
   "reference": {
     "structure_of_work": "docs/STRUCTURE_OF_WORK.md"
   },
+  "post_task_actions": [
+    "After completing ANY task or subtask, Cursor MUST update the task status to 'completed' in master_tasks.json",
+    "After completing ANY task or subtask, Cursor MUST update the file: docs/PROJECT_PROGRESS.md",
+    "The update MUST include: task ID, date, summary of changes, commit hash (if available)",
+    "This applies automatically to: top-level tasks, subtasks, meta-tasks, nested tasks",
+    "Task status values: 'pending' (not started), 'in_progress' (currently working), 'completed' (finished successfully), 'cancelled' (no longer needed)"
+  ],
   "description": "Master Task version 3.0 builds upon previous versions by incorporating a comprehensive orientation and upgrade layer.  It adds tasks for auditing the existing library, integrating a token‑driven theme system, enforcing a minimal API, scaffolding themes and components via CLI tools, introducing premium layout sections, exporting design tokens, enhancing accessibility and testing, supporting multiple brand themes, creating dynamic layout primitives, building a section builder, integrating Figma token sync, establishing a theme marketplace and documenting customisation guidelines. These tasks complement the existing foundation, core, advanced, quality, publishing, CI/CD and maintenance layers to deliver a truly universal UI library."
 }

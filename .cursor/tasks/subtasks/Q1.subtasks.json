@@ -1,0 +1,223 @@
+{
+  "parent_task": "Q1",
+  "parent_title": "Configure Storybook",
+  "subtasks": [
+    {
+      "id": "Q1.1",
+      "title": "Install and configure Storybook base setup",
+      "steps": [
+        "Run npx storybook@latest init to initialize Storybook",
+        "Choose React framework and TypeScript support",
+        "Configure .storybook/main.ts with proper settings",
+        "Set up .storybook/preview.ts for global decorators",
+        "Verify Storybook runs locally without errors"
+      ],
+      "acceptance_criteria": [
+        "Storybook installed and initialized",
+        "main.ts configured correctly",
+        "preview.ts exists with decorators",
+        "Storybook runs with npm run storybook",
+        "No errors in Storybook startup"
+      ]
+    },
+    {
+      "id": "Q1.2",
+      "title": "Configure Tailwind CSS integration with Storybook",
+      "steps": [
+        "Install @storybook/addon-postcss if needed",
+        "Configure PostCSS in Storybook config",
+        "Import Tailwind CSS in preview.ts",
+        "Import global CSS file with tokens",
+        "Test Tailwind classes work in Storybook"
+      ],
+      "acceptance_criteria": [
+        "Tailwind CSS integrated with Storybook",
+        "PostCSS configured correctly",
+        "Global CSS imported",
+        "Tailwind classes render correctly",
+        "Design tokens available in stories"
+      ]
+    },
+    {
+      "id": "Q1.3",
+      "title": "Integrate ThemeProvider into Storybook",
+      "steps": [
+        "Create Storybook decorator that wraps stories with ThemeProvider",
+        "Add theme switcher to Storybook toolbar",
+        "Configure default theme and theme options",
+        "Test theme switching works in Storybook",
+        "Verify all themes (default, dark, brand) work"
+      ],
+      "acceptance_criteria": [
+        "ThemeProvider decorator exists",
+        "Theme switcher in Storybook toolbar",
+        "Default theme configured",
+        "Theme switching works",
+        "All themes render correctly"
+      ]
+    },
+    {
+      "id": "Q1.4",
+      "title": "Install and configure Storybook addons",
+      "steps": [
+        "Install @storybook/addon-docs for documentation",
+        "Install @storybook/addon-controls for interactive controls",
+        "Install @storybook/addon-actions for action logging",
+        "Install @storybook/addon-a11y for accessibility",
+        "Configure all addons in main.ts"
+      ],
+      "acceptance_criteria": [
+        "Docs addon installed and configured",
+        "Controls addon installed and configured",
+        "Actions addon installed and configured",
+        "A11y addon installed and configured",
+        "All addons appear in Storybook UI"
+      ]
+    },
+    {
+      "id": "Q1.5",
+      "title": "Create stories for primitive components (Button, Badge, Label)",
+      "steps": [
+        "Create Button.stories.tsx with all variants and sizes",
+        "Create Badge.stories.tsx with all variants",
+        "Create Label.stories.tsx with examples",
+        "Configure argTypes for all props",
+        "Test stories render correctly"
+      ],
+      "acceptance_criteria": [
+        "Button.stories.tsx exists with all variants",
+        "Badge.stories.tsx exists",
+        "Label.stories.tsx exists",
+        "ArgTypes configured for all props",
+        "All stories render without errors"
+      ]
+    },
+    {
+      "id": "Q1.6",
+      "title": "Create stories for form components (Input, Select, Textarea)",
+      "steps": [
+        "Create Input.stories.tsx with all variants and states",
+        "Create Select.stories.tsx with examples",
+        "Create Textarea.stories.tsx with examples",
+        "Add FormInput.stories.tsx combining Input and Label",
+        "Test form component stories"
+      ],
+      "acceptance_criteria": [
+        "Input.stories.tsx exists with all variants",
+        "Select.stories.tsx exists",
+        "Textarea.stories.tsx exists",
+        "FormInput.stories.tsx exists",
+        "All form stories render correctly"
+      ]
+    },
+    {
+      "id": "Q1.7",
+      "title": "Create stories for layout components (Card, Section, Grid)",
+      "steps": [
+        "Create Card.stories.tsx with all variants",
+        "Create Section.stories.tsx with examples",
+        "Create GridLayout.stories.tsx with grid examples",
+        "Add layout composition examples",
+        "Test layout component stories"
+      ],
+      "acceptance_criteria": [
+        "Card.stories.tsx exists",
+        "Section.stories.tsx exists",
+        "GridLayout.stories.tsx exists",
+        "Layout composition examples included",
+        "All layout stories render correctly"
+      ]
+    },
+    {
+      "id": "Q1.8",
+      "title": "Create stories for advanced components (Modal, Dropdown, Navigation)",
+      "steps": [
+        "Create Modal.stories.tsx with open/close examples",
+        "Create Dropdown.stories.tsx with menu examples",
+        "Create Navigation.stories.tsx with nav examples",
+        "Add interaction examples (click, hover, focus)",
+        "Test advanced component stories"
+      ],
+      "acceptance_criteria": [
+        "Modal.stories.tsx exists",
+        "Dropdown.stories.tsx exists",
+        "Navigation.stories.tsx exists",
+        "Interaction examples included",
+        "All advanced stories render correctly"
+      ]
+    },
+    {
+      "id": "Q1.9",
+      "title": "Create stories for composite components (EventCard, VenueCard, Hero)",
+      "steps": [
+        "Create EventCard.stories.tsx with event examples",
+        "Create VenueCard.stories.tsx with venue examples",
+        "Create Hero.stories.tsx with hero variants",
+        "Add real-world usage examples",
+        "Test composite component stories"
+      ],
+      "acceptance_criteria": [
+        "EventCard.stories.tsx exists",
+        "VenueCard.stories.tsx exists",
+        "Hero.stories.tsx exists",
+        "Real-world examples included",
+        "All composite stories render correctly"
+      ]
+    },
+    {
+      "id": "Q1.10",
+      "title": "Configure Storybook for accessibility testing",
+      "steps": [
+        "Ensure @storybook/addon-a11y is configured",
+        "Add a11y parameters to story files",
+        "Configure a11y rules and thresholds",
+        "Test a11y addon works in Storybook",
+        "Document a11y testing process"
+      ],
+      "acceptance_criteria": [
+        "A11y addon configured",
+        "A11y parameters added to stories",
+        "A11y rules configured",
+        "A11y addon shows results",
+        "A11y testing documented"
+      ]
+    },
+    {
+      "id": "Q1.11",
+      "title": "Add Storybook documentation and usage guide",
+      "steps": [
+        "Create README.md in .storybook directory",
+        "Document Storybook setup and configuration",
+        "Explain how to add new stories",
+        "Document theme switching and addons",
+        "Add troubleshooting section"
+      ],
+      "acceptance_criteria": [
+        "Storybook README exists",
+        "Setup documented",
+        "Story creation process explained",
+        "Theme and addons documented",
+        "Troubleshooting guide included"
+      ]
+    },
+    {
+      "id": "Q1.12",
+      "title": "Test Storybook build and deployment",
+      "steps": [
+        "Run npm run build-storybook",
+        "Verify build completes without errors",
+        "Test static Storybook build locally",
+        "Configure Storybook deployment (if needed)",
+        "Document deployment process"
+      ],
+      "acceptance_criteria": [
+        "Storybook builds successfully",
+        "No build errors",
+        "Static build works locally",
+        "Deployment configured (if applicable)",
+        "Deployment documented"
+      ]
+    }
+  ]
+}
+

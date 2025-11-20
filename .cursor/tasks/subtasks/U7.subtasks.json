@@ -1,0 +1,150 @@
+{
+  "parent_task": "U7",
+  "parent_title": "Build multi‑brand theme engine",
+  "subtasks": [
+    {
+      "id": "U7.1",
+      "title": "Design theme engine architecture and namespace structure",
+      "steps": [
+        "Review existing theme files (default.ts, dark.ts, brand.ts) to understand current structure",
+        "Design token namespace system to prevent brand-specific values from leaking",
+        "Create TypeScript interfaces for theme objects",
+        "Document theme engine architecture in docs/THEME_ENGINE_ARCHITECTURE.md",
+        "Define how brand themes override base tokens"
+      ],
+      "acceptance_criteria": [
+        "Theme engine architecture document exists",
+        "TypeScript interfaces defined for Theme and BrandTheme types",
+        "Namespace structure prevents token conflicts",
+        "Architecture supports multiple brands simultaneously"
+      ]
+    },
+    {
+      "id": "U7.2",
+      "title": "Implement theme registry and loading system",
+      "steps": [
+        "Create src/themes/brand_engine.ts with ThemeRegistry class",
+        "Implement theme registration method (registerTheme(name, theme))",
+        "Implement theme loading method (loadTheme(name))",
+        "Add theme validation to ensure required tokens exist",
+        "Create theme merge utility to combine base and brand tokens"
+      ],
+      "acceptance_criteria": [
+        "ThemeRegistry class exists and can register themes",
+        "Themes can be loaded by name at runtime",
+        "Theme validation catches missing required tokens",
+        "Theme merge utility correctly combines base and override tokens",
+        "Unit tests exist for theme registry and loading"
+      ]
+    },
+    {
+      "id": "U7.3",
+      "title": "Extend ThemeProvider to support multiple brand themes",
+      "steps": [
+        "Update ThemeProvider to accept brand theme name prop",
+        "Implement brand theme switching logic",
+        "Update useTheme hook to return current brand theme",
+        "Add brand theme persistence (localStorage)",
+        "Ensure CSS variables update when brand changes"
+      ],
+      "acceptance_criteria": [
+        "ThemeProvider accepts brand prop and switches themes",
+        "useTheme hook returns current brand theme name",
+        "Brand theme preference persists across page reloads",
+        "CSS variables update immediately when brand changes",
+        "ThemeProvider works with default, dark, and brand themes"
+      ]
+    },
+    {
+      "id": "U7.4",
+      "title": "Create example brand theme: neon theme",
+      "steps": [
+        "Create src/themes/neon.ts with neon color overrides",
+        "Define neon-specific primary, accent, and surface colors",
+        "Override typography tokens if needed for neon theme",
+        "Register neon theme in theme registry",
+        "Test neon theme renders correctly"
+      ],
+      "acceptance_criteria": [
+        "neon.ts file exists with complete theme overrides",
+        "Neon theme uses bright, vibrant colors distinct from default",
+        "Neon theme registered and loadable",
+        "All components render correctly with neon theme",
+        "Neon theme demonstrates brand customization capability"
+      ]
+    },
+    {
+      "id": "U7.5",
+      "title": "Create example brand theme: minimal theme",
+      "steps": [
+        "Create src/themes/minimal.ts with minimal design overrides",
+        "Define minimal-specific colors (muted, high contrast)",
+        "Override spacing and typography for minimal aesthetic",
+        "Register minimal theme in theme registry",
+        "Test minimal theme renders correctly"
+      ],
+      "acceptance_criteria": [
+        "minimal.ts file exists with complete theme overrides",
+        "Minimal theme uses muted colors and clean design",
+        "Minimal theme registered and loadable",
+        "All components render correctly with minimal theme",
+        "Minimal theme demonstrates different brand aesthetic"
+      ]
+    },
+    {
+      "id": "U7.6",
+      "title": "Implement namespaced token system to prevent conflicts",
+      "steps": [
+        "Update token generation to support brand namespaces",
+        "Implement CSS variable naming with brand prefix (--tm-neon-primary-500)",
+        "Ensure brand tokens don't override base tokens incorrectly",
+        "Add token isolation tests",
+        "Document namespace system"
+      ],
+      "acceptance_criteria": [
+        "Brand tokens use namespaced CSS variables",
+        "No token conflicts between brands",
+        "Base tokens remain unchanged when brands load",
+        "Token isolation tests pass",
+        "Namespace system documented"
+      ]
+    },
+    {
+      "id": "U7.7",
+      "title": "Create brand theme demonstration page",
+      "steps": [
+        "Create demo page showing all three brand themes side-by-side",
+        "Implement theme switcher component",
+        "Display same components in default, dark, neon, and minimal themes",
+        "Add visual comparison of key components",
+        "Test theme switching on demo page"
+      ],
+      "acceptance_criteria": [
+        "Demo page exists at src/demo/brand-themes.tsx or similar",
+        "Demo page shows at least 3 distinct brand themes",
+        "Theme switcher works correctly",
+        "Components render correctly in all themes on demo page",
+        "Demo page accessible via Storybook or standalone"
+      ]
+    },
+    {
+      "id": "U7.8",
+      "title": "Add brand theme documentation and usage guide",
+      "steps": [
+        "Create docs/BRAND_THEMES.md explaining brand theme system",
+        "Document how to create new brand themes",
+        "Provide examples of theme overrides",
+        "Explain namespace system and best practices",
+        "Add troubleshooting section"
+      ],
+      "acceptance_criteria": [
+        "BRAND_THEMES.md exists with complete documentation",
+        "Documentation explains theme creation process",
+        "Examples show how to override tokens",
+        "Best practices documented",
+        "Troubleshooting guide included"
+      ]
+    }
+  ]
+}
+
