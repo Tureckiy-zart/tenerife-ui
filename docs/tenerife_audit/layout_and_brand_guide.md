@@ -9,6 +9,7 @@
 ## Table of Contents
 
 ### Part 1: Layout Guide
+
 1. [Spacing Rules & Principles](#1-spacing-rules--principles)
 2. [Section Construction Principles](#2-section-construction-principles)
 3. [Page Layout Patterns](#3-page-layout-patterns)
@@ -19,6 +20,7 @@
 8. [Common Layout Mistakes](#8-common-layout-mistakes)
 
 ### Part 2: Brand Voice Guide
+
 9. [Brand Essence](#9-brand-essence)
 10. [Visual Mood & Aesthetic](#10-visual-mood--aesthetic)
 11. [UX Character & Personality](#11-ux-character--personality)
@@ -43,6 +45,7 @@
 Our 8px base unit creates mathematical harmony throughout the interface.
 
 **Spacing Scale:**
+
 ```
 4px   (0.5 unit)  → xs   → Tight spacing (icon-text gaps)
 8px   (1 unit)    → sm   → Compact spacing (label-input)
@@ -56,6 +59,7 @@ Our 8px base unit creates mathematical harmony throughout the interface.
 ```
 
 **Tailwind Classes:**
+
 ```css
 /* Gap utilities */
 gap-1  → 4px
@@ -78,15 +82,18 @@ p-16             → 64px
 ### 1.2 Section Spacing Standards
 
 **Hero Sections:**
+
 - Top padding: `pt-32` (128px) on desktop, `pt-24` (96px) on mobile
 - Bottom padding: `pb-24` (96px) on desktop, `pb-16` (64px) on mobile
 - Internal content spacing: `gap-8` (32px)
 
 **Content Sections:**
+
 - Top/bottom padding: `py-16` (64px) on desktop, `py-12` (48px) on mobile
 - Internal spacing: `gap-12` (48px) between major content blocks
 
 **Footer Section:**
+
 - Top padding: `pt-16` (64px)
 - Bottom padding: `pb-8` (32px)
 - Internal column gap: `gap-12` (48px)
@@ -94,25 +101,37 @@ p-16             → 64px
 ### 1.3 Component Spacing
 
 **Cards:**
+
 ```tsx
 // Event Card
-<div className="p-6 space-y-4">  // 24px padding, 16px internal spacing
-  <img />                          // Image
-  <div className="space-y-2">     // 8px spacing for tight groups
+<div className="space-y-4 p-6">
+  {" "}
+  // 24px padding, 16px internal spacing
+  <img /> // Image
+  <div className="space-y-2">
+    {" "}
+    // 8px spacing for tight groups
     <h3 />
     <p />
   </div>
-  <div className="pt-4 mt-auto">  // 16px top padding for CTA
+  <div className="mt-auto pt-4">
+    {" "}
+    // 16px top padding for CTA
     <button />
   </div>
 </div>
 ```
 
 **Forms:**
+
 ```tsx
 // Form Field Spacing
-<div className="space-y-6">        // 24px between fields
-  <div className="space-y-2">      // 8px label-input gap
+<div className="space-y-6">
+  {" "}
+  // 24px between fields
+  <div className="space-y-2">
+    {" "}
+    // 8px label-input gap
     <label />
     <input />
   </div>
@@ -120,6 +139,7 @@ p-16             → 64px
 ```
 
 **Navigation:**
+
 ```tsx
 // Desktop Navigation
 <nav className="px-8 py-4">       // 32px horizontal, 16px vertical
@@ -137,12 +157,14 @@ p-16             → 64px
 **Premium = Breathing Room**
 
 ✅ **DO:**
+
 - Use generous whitespace to create sophistication
 - Let content breathe (minimum 24px between major elements)
 - Use whitespace to create visual hierarchy
 - Embrace asymmetry with intentional white space
 
 ❌ **DON'T:**
+
 - Cram content to "use all space"
 - Use whitespace inconsistently
 - Ignore responsive spacing needs
@@ -151,28 +173,26 @@ p-16             → 64px
 **Examples:**
 
 **Good - Generous Spacing:**
+
 ```tsx
-<section className="py-24 px-8">
-  <div className="max-w-7xl mx-auto space-y-16">
+<section className="px-8 py-24">
+  <div className="mx-auto max-w-7xl space-y-16">
     <header className="space-y-4">
       <h2>Trending Events</h2>
       <p>Most popular this week</p>
     </header>
-    <div className="grid grid-cols-3 gap-8">
-      {/* Cards with breathing room */}
-    </div>
+    <div className="grid grid-cols-3 gap-8">{/* Cards with breathing room */}</div>
   </div>
 </section>
 ```
 
 **Bad - Cramped:**
+
 ```tsx
-<section className="py-4 px-2">
+<section className="px-2 py-4">
   <div className="space-y-2">
     <h2>Trending Events</h2>
-    <div className="grid grid-cols-3 gap-2">
-      {/* Too tight, feels cheap */}
-    </div>
+    <div className="grid grid-cols-3 gap-2">{/* Too tight, feels cheap */}</div>
   </div>
 </section>
 ```
@@ -180,6 +200,7 @@ p-16             → 64px
 ### 1.5 Responsive Spacing
 
 **Mobile-First Scaling:**
+
 ```tsx
 // Section padding scales up
 <section className="py-12 md:py-16 lg:py-24">
@@ -199,40 +220,45 @@ p-16             → 64px
 ### 1.6 Common Spacing Patterns
 
 **Pattern 1: Hero + Content Sections**
+
 ```tsx
 <main>
-  <section className="pt-32 pb-24">       {/* Hero: extra top padding */}
+  <section className="pb-24 pt-32">
+    {" "}
+    {/* Hero: extra top padding */}
     {/* Hero content */}
   </section>
-  
-  <section className="py-16">             {/* Standard content section */}
+
+  <section className="py-16">
+    {" "}
+    {/* Standard content section */}
     {/* Content */}
   </section>
-  
-  <section className="py-16 bg-midnight">  {/* Alternating background */}
+
+  <section className="bg-midnight py-16">
+    {" "}
+    {/* Alternating background */}
     {/* Content */}
   </section>
 </main>
 ```
 
 **Pattern 2: Card Grid**
+
 ```tsx
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-  <article className="p-6 space-y-4">
-    {/* Card content */}
-  </article>
+<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+  <article className="space-y-4 p-6">{/* Card content */}</article>
 </div>
 ```
 
 **Pattern 3: Split Layout (Image + Text)**
+
 ```tsx
-<div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+<div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
   <div>
     <img />
   </div>
-  <div className="space-y-6">
-    {/* Text content */}
-  </div>
+  <div className="space-y-6">{/* Text content */}</div>
 </div>
 ```
 
@@ -245,22 +271,15 @@ p-16             → 64px
 Every section follows this structure:
 
 ```tsx
-<section className="
-  py-16              // Vertical padding (responsive)
-  px-4               // Edge protection
-  bg-midnight-950    // Background (optional)
-">
-  <div className="
-    max-w-7xl        // Container constraint
-    mx-auto          // Center alignment
-    space-y-12       // Internal spacing
-  ">
+<section className="// Vertical padding (responsive) // Edge protection bg-midnight-950 // Background (optional) px-4 py-16">
+  <div className="// Container constraint // Center alignment // Internal spacing mx-auto max-w-7xl space-y-12">
     {/* Section content */}
   </div>
 </section>
 ```
 
 **Key Elements:**
+
 1. **Outer section** → Vertical spacing + background
 2. **Container** → Max-width + centering
 3. **Content** → Internal spacing
@@ -273,43 +292,34 @@ Every section follows this structure:
 **Purpose:** Immediate impact, set tone
 
 ```tsx
-<section className="
-  relative 
-  min-h-screen 
-  flex items-center 
-  bg-gradient-to-br from-midnight-950 via-midnight-900 to-purple-950
-">
+<section className="from-midnight-950 via-midnight-900 relative flex min-h-screen items-center bg-gradient-to-br to-purple-950">
   {/* Background Image/Video */}
   <div className="absolute inset-0 z-0">
-    <img 
-      src="/hero-bg.jpg" 
-      className="w-full h-full object-cover opacity-30"
-      alt=""
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-midnight-950/90 to-transparent" />
+    <img src="/hero-bg.jpg" className="h-full w-full object-cover opacity-30" alt="" />
+    <div className="from-midnight-950/90 absolute inset-0 bg-gradient-to-t to-transparent" />
   </div>
-  
+
   {/* Content */}
   <div className="relative z-10 w-full px-4 md:px-8">
-    <div className="max-w-7xl mx-auto py-32">
+    <div className="mx-auto max-w-7xl py-32">
       <div className="max-w-3xl space-y-8">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white">
+        <h1 className="font-display text-5xl font-bold text-white md:text-7xl lg:text-8xl">
           Discover Tenerife's Best Nights
         </h1>
-        <p className="text-xl md:text-2xl text-gray-300">
+        <p className="text-xl text-gray-300 md:text-2xl">
           Curated nightlife experiences from local experts
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row">
           <button className="btn-primary">Explore Events</button>
           <button className="btn-secondary">For Organizers</button>
         </div>
       </div>
     </div>
   </div>
-  
+
   {/* Scroll Indicator */}
   <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <ChevronDown className="w-6 h-6 text-white/60" />
+    <ChevronDown className="h-6 w-6 text-white/60" />
   </div>
 </section>
 ```
@@ -323,30 +333,24 @@ Every section follows this structure:
 <section className="relative h-[60vh] min-h-[500px]">
   {/* Background Image */}
   <div className="absolute inset-0">
-    <img 
-      src="/event-cover.jpg"
-      className="w-full h-full object-cover"
-      alt="Event cover"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-midnight-950 via-midnight-950/60 to-transparent" />
+    <img src="/event-cover.jpg" className="h-full w-full object-cover" alt="Event cover" />
+    <div className="from-midnight-950 via-midnight-950/60 absolute inset-0 bg-gradient-to-t to-transparent" />
   </div>
-  
+
   {/* Content - Bottom Aligned */}
-  <div className="relative z-10 h-full flex items-end">
-    <div className="w-full px-4 md:px-8 pb-12">
-      <div className="max-w-7xl mx-auto space-y-4">
+  <div className="relative z-10 flex h-full items-end">
+    <div className="w-full px-4 pb-12 md:px-8">
+      <div className="mx-auto max-w-7xl space-y-4">
         <div className="flex items-center gap-3 text-sm">
-          <span className="px-3 py-1 bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 rounded-full text-purple-300">
+          <span className="rounded-full border border-purple-500/30 bg-purple-500/20 px-3 py-1 text-purple-300 backdrop-blur-sm">
             Techno
           </span>
           <span className="text-gray-300">Fri, Dec 15 • 23:00</span>
         </div>
-        <h1 className="text-4xl md:text-6xl font-display font-bold text-white">
+        <h1 className="font-display text-4xl font-bold text-white md:text-6xl">
           Neon Nights: Underground Session
         </h1>
-        <p className="text-xl text-gray-300">
-          Papagayo Beach Club • Playa de las Américas
-        </p>
+        <p className="text-xl text-gray-300">Papagayo Beach Club • Playa de las Américas</p>
       </div>
     </div>
   </div>
@@ -360,21 +364,17 @@ Every section follows this structure:
 
 ```tsx
 <section className="py-16 md:py-24">
-  <div className="max-w-7xl mx-auto px-4 md:px-8">
+  <div className="mx-auto max-w-7xl px-4 md:px-8">
     {/* Section Header */}
     <header className="mb-12 space-y-4">
-      <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-        Trending This Week
-      </h2>
-      <p className="text-lg text-gray-400 max-w-2xl">
+      <h2 className="font-display text-3xl font-bold text-white md:text-5xl">Trending This Week</h2>
+      <p className="max-w-2xl text-lg text-gray-400">
         The hottest events happening right now in Tenerife
       </p>
     </header>
-    
+
     {/* Section Content */}
-    <div className="space-y-8">
-      {/* Content here */}
-    </div>
+    <div className="space-y-8">{/* Content here */}</div>
   </div>
 </section>
 ```
@@ -386,36 +386,37 @@ Every section follows this structure:
 
 ```tsx
 <section className="py-24">
-  <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-32">
+  <div className="mx-auto max-w-7xl space-y-32 px-4 md:px-8">
     {/* Feature 1 - Image Left */}
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
-        <img src="/feature-1.jpg" className="w-full h-full object-cover" alt="" />
+    <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+        <img src="/feature-1.jpg" className="h-full w-full object-cover" alt="" />
       </div>
       <div className="space-y-6">
-        <h3 className="text-3xl md:text-4xl font-display font-bold text-white">
+        <h3 className="font-display text-3xl font-bold text-white md:text-4xl">
           Curated by Local Experts
         </h3>
-        <p className="text-lg text-gray-400 leading-relaxed">
-          Every event is handpicked by our team of nightlife specialists who know Tenerife inside out.
+        <p className="text-lg leading-relaxed text-gray-400">
+          Every event is handpicked by our team of nightlife specialists who know Tenerife inside
+          out.
         </p>
         <button className="btn-primary">Learn More</button>
       </div>
     </div>
-    
+
     {/* Feature 2 - Image Right */}
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
       <div className="space-y-6 lg:order-1">
-        <h3 className="text-3xl md:text-4xl font-display font-bold text-white">
+        <h3 className="font-display text-3xl font-bold text-white md:text-4xl">
           Smart Recommendations
         </h3>
-        <p className="text-lg text-gray-400 leading-relaxed">
+        <p className="text-lg leading-relaxed text-gray-400">
           AI-powered suggestions based on your preferences and past experiences.
         </p>
         <button className="btn-primary">Explore</button>
       </div>
-      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden lg:order-2">
-        <img src="/feature-2.jpg" className="w-full h-full object-cover" alt="" />
+      <div className="relative aspect-[4/3] overflow-hidden rounded-3xl lg:order-2">
+        <img src="/feature-2.jpg" className="h-full w-full object-cover" alt="" />
       </div>
     </div>
   </div>
@@ -428,15 +429,13 @@ Every section follows this structure:
 **Purpose:** Drive action
 
 ```tsx
-<section className="py-24 bg-gradient-to-br from-purple-950 to-midnight-950">
-  <div className="max-w-4xl mx-auto px-4 md:px-8 text-center space-y-8">
-    <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
+<section className="to-midnight-950 bg-gradient-to-br from-purple-950 py-24">
+  <div className="mx-auto max-w-4xl space-y-8 px-4 text-center md:px-8">
+    <h2 className="font-display text-4xl font-bold text-white md:text-5xl">
       Ready to Experience Tenerife's Nightlife?
     </h2>
-    <p className="text-xl text-gray-300">
-      Join thousands discovering the best events every week
-    </p>
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <p className="text-xl text-gray-300">Join thousands discovering the best events every week</p>
+    <div className="flex flex-col justify-center gap-4 sm:flex-row">
       <button className="btn-primary btn-lg">Get Started</button>
       <button className="btn-secondary btn-lg">Learn More</button>
     </div>
@@ -451,44 +450,60 @@ Every section follows this structure:
 
 ```tsx
 <footer className="bg-midnight-950 border-t border-white/5">
-  <div className="max-w-7xl mx-auto px-4 md:px-8">
+  <div className="mx-auto max-w-7xl px-4 md:px-8">
     {/* Main Footer */}
-    <div className="py-16 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+    <div className="grid grid-cols-2 gap-8 py-16 md:grid-cols-4 lg:gap-12">
       {/* Brand Column */}
       <div className="col-span-2 space-y-4">
         <img src="/logo.svg" alt="Tenerife Music" className="h-8" />
-        <p className="text-gray-400 max-w-xs">
-          Tenerife's premier nightlife intelligence platform
-        </p>
-        <div className="flex gap-4">
-          {/* Social icons */}
-        </div>
+        <p className="max-w-xs text-gray-400">Tenerife's premier nightlife intelligence platform</p>
+        <div className="flex gap-4">{/* Social icons */}</div>
       </div>
-      
+
       {/* Links Columns */}
       <div className="space-y-4">
         <h3 className="font-semibold text-white">Discover</h3>
         <ul className="space-y-2 text-gray-400">
-          <li><a href="/events" className="hover:text-white transition-colors">Events</a></li>
-          <li><a href="/venues" className="hover:text-white transition-colors">Venues</a></li>
+          <li>
+            <a href="/events" className="transition-colors hover:text-white">
+              Events
+            </a>
+          </li>
+          <li>
+            <a href="/venues" className="transition-colors hover:text-white">
+              Venues
+            </a>
+          </li>
         </ul>
       </div>
-      
+
       <div className="space-y-4">
         <h3 className="font-semibold text-white">Company</h3>
         <ul className="space-y-2 text-gray-400">
-          <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
-          <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
+          <li>
+            <a href="/about" className="transition-colors hover:text-white">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/contact" className="transition-colors hover:text-white">
+              Contact
+            </a>
+          </li>
         </ul>
       </div>
     </div>
-    
+
     {/* Bottom Bar */}
-    <div className="py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+    <div className="flex flex-col items-center justify-between gap-4 border-t border-white/5 py-6 text-sm text-gray-500 md:flex-row">
       <p>© 2025 Tenerife Music. All rights reserved.</p>
       <div className="flex gap-6">
-        <a href="/privacy" className="hover:text-gray-300 transition-colors">Privacy</a>
-        <a href="/terms" className="hover:text-gray-300 transition-colors">Terms</a>
+        <a href="/privacy" className="transition-colors hover:text-gray-300">
+          Privacy
+        </a>
+        <a href="/terms" className="transition-colors hover:text-gray-300">
+          Terms
+        </a>
       </div>
     </div>
   </div>
@@ -498,31 +513,33 @@ Every section follows this structure:
 ### 2.3 Background Treatments
 
 **Solid Color:**
+
 ```tsx
 <section className="bg-midnight-950">
 ```
 
 **Gradient:**
+
 ```tsx
 <section className="bg-gradient-to-br from-midnight-950 via-midnight-900 to-purple-950">
 ```
 
 **Image with Overlay:**
+
 ```tsx
 <section className="relative">
   <div className="absolute inset-0 z-0">
-    <img src="/bg.jpg" className="w-full h-full object-cover opacity-20" alt="" />
-    <div className="absolute inset-0 bg-midnight-950/80" />
+    <img src="/bg.jpg" className="h-full w-full object-cover opacity-20" alt="" />
+    <div className="bg-midnight-950/80 absolute inset-0" />
   </div>
-  <div className="relative z-10">
-    {/* Content */}
-  </div>
+  <div className="relative z-10">{/* Content */}</div>
 </section>
 ```
 
 **Glass-morphism:**
+
 ```tsx
-<div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+<div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
   {/* Content */}
 </div>
 ```
@@ -530,17 +547,20 @@ Every section follows this structure:
 ### 2.4 Section Transitions
 
 **No Divider (Seamless):**
+
 ```tsx
 <section className="py-24 bg-midnight-950">
 <section className="py-24 bg-midnight-900">
 ```
 
 **Gradient Transition:**
+
 ```tsx
 <section className="py-24 bg-gradient-to-b from-midnight-950 to-midnight-900">
 ```
 
 **Overlapping Elements:**
+
 ```tsx
 <section className="py-24 bg-midnight-950">
   {/* Content */}
@@ -562,6 +582,7 @@ Every section follows this structure:
 ### 3.1 Homepage Layout
 
 **Structure:**
+
 1. Hero (Full-height with CTA)
 2. Featured Events (3-column grid)
 3. Categories (Horizontal scroll)
@@ -571,18 +592,15 @@ Every section follows this structure:
 7. Footer
 
 **Code Structure:**
+
 ```tsx
 <main>
   {/* 1. Hero Section */}
-  <section className="min-h-screen flex items-center bg-gradient-to-br from-midnight-950 to-purple-950">
-    <div className="max-w-7xl mx-auto px-4 py-32">
+  <section className="from-midnight-950 flex min-h-screen items-center bg-gradient-to-br to-purple-950">
+    <div className="mx-auto max-w-7xl px-4 py-32">
       <div className="max-w-3xl space-y-8">
-        <h1 className="text-7xl font-display font-bold">
-          Discover Tenerife's Best Nights
-        </h1>
-        <p className="text-2xl text-gray-300">
-          Curated nightlife experiences from local experts
-        </p>
+        <h1 className="font-display text-7xl font-bold">Discover Tenerife's Best Nights</h1>
+        <p className="text-2xl text-gray-300">Curated nightlife experiences from local experts</p>
         <div className="flex gap-4">
           <button className="btn-primary btn-lg">Explore Events</button>
           <button className="btn-secondary btn-lg">For Organizers</button>
@@ -593,71 +611,61 @@ Every section follows this structure:
 
   {/* 2. Featured Events */}
   <section className="py-24">
-    <div className="max-w-7xl mx-auto px-4">
-      <header className="mb-12 flex justify-between items-end">
+    <div className="mx-auto max-w-7xl px-4">
+      <header className="mb-12 flex items-end justify-between">
         <div>
-          <h2 className="text-5xl font-display font-bold mb-4">Featured Events</h2>
+          <h2 className="font-display mb-4 text-5xl font-bold">Featured Events</h2>
           <p className="text-lg text-gray-400">Handpicked by our experts</p>
         </div>
-        <a href="/events" className="btn-ghost">View All →</a>
+        <a href="/events" className="btn-ghost">
+          View All →
+        </a>
       </header>
-      
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Event cards */}
-      </div>
+
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">{/* Event cards */}</div>
     </div>
   </section>
 
   {/* 3. Categories */}
-  <section className="py-24 bg-midnight-900/50">
-    <div className="max-w-7xl mx-auto px-4">
+  <section className="bg-midnight-900/50 py-24">
+    <div className="mx-auto max-w-7xl px-4">
       <header className="mb-12">
-        <h2 className="text-5xl font-display font-bold mb-4">Browse by Genre</h2>
+        <h2 className="font-display mb-4 text-5xl font-bold">Browse by Genre</h2>
       </header>
-      
-      <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
-        {/* Category pills */}
-      </div>
+
+      <div className="scrollbar-hide flex gap-4 overflow-x-auto pb-4">{/* Category pills */}</div>
     </div>
   </section>
 
   {/* 4. Trending This Week */}
   <section className="py-24">
-    <div className="max-w-7xl mx-auto px-4">
+    <div className="mx-auto max-w-7xl px-4">
       <header className="mb-12">
-        <h2 className="text-5xl font-display font-bold mb-4">Trending This Week</h2>
+        <h2 className="font-display mb-4 text-5xl font-bold">Trending This Week</h2>
         <p className="text-lg text-gray-400">Most popular events right now</p>
       </header>
-      
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Compact event cards */}
-      </div>
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">{/* Compact event cards */}</div>
     </div>
   </section>
 
   {/* 5. Featured Venues */}
-  <section className="py-24 bg-midnight-900/50">
-    <div className="max-w-7xl mx-auto px-4">
+  <section className="bg-midnight-900/50 py-24">
+    <div className="mx-auto max-w-7xl px-4">
       <header className="mb-12">
-        <h2 className="text-5xl font-display font-bold mb-4">Top Venues</h2>
+        <h2 className="font-display mb-4 text-5xl font-bold">Top Venues</h2>
       </header>
-      
-      <div className="space-y-32">
-        {/* Alternating image-text layouts */}
-      </div>
+
+      <div className="space-y-32">{/* Alternating image-text layouts */}</div>
     </div>
   </section>
 
   {/* 6. Newsletter CTA */}
   <section className="py-24">
-    <div className="max-w-4xl mx-auto px-4 text-center">
-      <h2 className="text-4xl font-display font-bold mb-8">
-        Never Miss a Beat
-      </h2>
-      <p className="text-xl text-gray-400 mb-8">
-        Get weekly updates on the hottest events
-      </p>
-      <form className="flex gap-4 max-w-md mx-auto">
+    <div className="mx-auto max-w-4xl px-4 text-center">
+      <h2 className="font-display mb-8 text-4xl font-bold">Never Miss a Beat</h2>
+      <p className="mb-8 text-xl text-gray-400">Get weekly updates on the hottest events</p>
+      <form className="mx-auto flex max-w-md gap-4">
         <input type="email" placeholder="your@email.com" className="input flex-1" />
         <button className="btn-primary">Subscribe</button>
       </form>
@@ -665,35 +673,35 @@ Every section follows this structure:
   </section>
 
   {/* 7. Footer */}
-  <footer>
-    {/* Footer content */}
-  </footer>
+  <footer>{/* Footer content */}</footer>
 </main>
 ```
 
 ### 3.2 Event Listing Page
 
 **Structure:**
+
 1. Page Header with Search
 2. Filters Sidebar + Event Grid
 3. Pagination
 4. Footer
 
 **Code Structure:**
+
 ```tsx
 <main>
   {/* Page Header */}
-  <section className="pt-32 pb-12 bg-gradient-to-b from-midnight-900 to-midnight-950">
-    <div className="max-w-7xl mx-auto px-4">
-      <h1 className="text-6xl font-display font-bold mb-8">All Events</h1>
-      
+  <section className="from-midnight-900 to-midnight-950 bg-gradient-to-b pb-12 pt-32">
+    <div className="mx-auto max-w-7xl px-4">
+      <h1 className="font-display mb-8 text-6xl font-bold">All Events</h1>
+
       {/* Search Bar */}
       <div className="relative max-w-2xl">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-        <input 
+        <input
           type="text"
           placeholder="Search events, venues, artists..."
-          className="input pl-12 w-full"
+          className="input w-full pl-12"
         />
       </div>
     </div>
@@ -701,8 +709,8 @@ Every section follows this structure:
 
   {/* Filters + Grid */}
   <section className="py-12">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid lg:grid-cols-[280px_1fr] gap-8">
+    <div className="mx-auto max-w-7xl px-4">
+      <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
         {/* Filters Sidebar */}
         <aside className="space-y-6">
           <div className="sticky top-24 space-y-6">
@@ -717,13 +725,11 @@ Every section follows this structure:
                 {/* More options */}
               </div>
             </div>
-            
+
             {/* Genre Filter */}
             <div className="space-y-3">
               <h3 className="font-semibold text-white">Genre</h3>
-              <div className="space-y-2">
-                {/* Checkboxes */}
-              </div>
+              <div className="space-y-2">{/* Checkboxes */}</div>
             </div>
           </div>
         </aside>
@@ -731,7 +737,7 @@ Every section follows this structure:
         {/* Event Grid */}
         <div className="space-y-8">
           {/* Results Header */}
-          <div className="flex justify-between items-center">
+          <div className="flex items-center justify-between">
             <p className="text-gray-400">142 events found</p>
             <select className="input w-auto">
               <option>Sort by Date</option>
@@ -740,9 +746,7 @@ Every section follows this structure:
           </div>
 
           {/* Grid */}
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {/* Event cards */}
-          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">{/* Event cards */}</div>
 
           {/* Pagination */}
           <div className="flex justify-center gap-2 pt-8">
@@ -762,6 +766,7 @@ Every section follows this structure:
 ### 3.3 Event Detail Page
 
 **Structure:**
+
 1. Hero Image with Key Info
 2. Sticky Booking Bar
 3. Event Details (Description, Lineup, Venue Info)
@@ -769,37 +774,33 @@ Every section follows this structure:
 5. Footer
 
 **Code Structure:**
+
 ```tsx
 <main>
   {/* Hero */}
   <section className="relative h-[60vh] min-h-[500px]">
     <div className="absolute inset-0">
-      <img src="/event.jpg" className="w-full h-full object-cover" alt="" />
-      <div className="absolute inset-0 bg-gradient-to-t from-midnight-950 via-midnight-950/60 to-transparent" />
+      <img src="/event.jpg" className="h-full w-full object-cover" alt="" />
+      <div className="from-midnight-950 via-midnight-950/60 absolute inset-0 bg-gradient-to-t to-transparent" />
     </div>
-    
-    <div className="relative z-10 h-full flex items-end">
+
+    <div className="relative z-10 flex h-full items-end">
       <div className="w-full px-4 pb-12">
-        <div className="max-w-7xl mx-auto space-y-4">
+        <div className="mx-auto max-w-7xl space-y-4">
           <div className="flex gap-3">
             <span className="badge badge-purple">Techno</span>
             <span className="text-gray-300">Fri, Dec 15 • 23:00</span>
           </div>
-          <h1 className="text-6xl font-display font-bold">
-            Neon Nights: Underground Session
-          </h1>
-          <p className="text-xl text-gray-300">
-            Papagayo Beach Club • Playa de las Américas
-          </p>
+          <h1 className="font-display text-6xl font-bold">Neon Nights: Underground Session</h1>
+          <p className="text-xl text-gray-300">Papagayo Beach Club • Playa de las Américas</p>
         </div>
       </div>
     </div>
   </section>
-
   {/* Sticky Booking Bar */}
-  <div className="sticky top-0 z-40 bg-midnight-900/95 backdrop-blur-xl border-b border-white/10">
-    <div className="max-w-7xl mx-auto px-4 py-4">
-      <div className="flex justify-between items-center">
+  <div className="bg-midnight-900/95 sticky top-0 z-40 border-b border-white/10 backdrop-blur-xl">
+    <div className="mx-auto max-w-7xl px-4 py-4">
+      <div className="flex items-center justify-between">
         <div>
           <p className="font-semibold text-white">Neon Nights</p>
           <p className="text-sm text-gray-400">Fri, Dec 15 • 23:00</p>
@@ -814,54 +815,47 @@ Every section follows this structure:
       </div>
     </div>
   </div>
-
   {/* Content */}
-rell  <section className="py-16">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid lg:grid-cols-[1fr_400px] gap-12">
+  rell{" "}
+  <section className="py-16">
+    <div className="mx-auto max-w-7xl px-4">
+      <div className="grid gap-12 lg:grid-cols-[1fr_400px]">
         {/* Main Content */}
         <div className="space-y-12">
           {/* Description */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-display font-bold">About This Event</h2>
-            <p className="text-gray-400 leading-relaxed">
-              {/* Description text */}
-            </p>
+            <h2 className="font-display text-3xl font-bold">About This Event</h2>
+            <p className="leading-relaxed text-gray-400">{/* Description text */}</p>
           </div>
 
           {/* Lineup */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-display font-bold">Lineup</h2>
-            <div className="space-y-4">
-              {/* Artist cards */}
-            </div>
+            <h2 className="font-display text-3xl font-bold">Lineup</h2>
+            <div className="space-y-4">{/* Artist cards */}</div>
           </div>
         </div>
 
         {/* Sidebar */}
         <aside className="space-y-6">
           {/* Venue Info Card */}
-          <div className="card p-6 space-y-4">
+          <div className="card space-y-4 p-6">
             <h3 className="text-xl font-semibold">Venue</h3>
             {/* Venue details */}
           </div>
 
           {/* Map */}
-          <div className="aspect-square rounded-2xl overflow-hidden">
-            <img src="/map.jpg" alt="Map" className="w-full h-full object-cover" />
+          <div className="aspect-square overflow-hidden rounded-2xl">
+            <img src="/map.jpg" alt="Map" className="h-full w-full object-cover" />
           </div>
         </aside>
       </div>
     </div>
   </section>
-
   {/* Similar Events */}
-  <section className="py-16 bg-midnight-900/50">
-    <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-4xl font-display font-bold mb-8">Similar Events</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Event cards */}
-      </div>
+  <section className="bg-midnight-900/50 py-16">
+    <div className="mx-auto max-w-7xl px-4">
+      <h2 className="font-display mb-8 text-4xl font-bold">Similar Events</h2>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">{/* Event cards */}</div>
     </div>
   </section>
 </main>
@@ -870,6 +864,7 @@ rell  <section className="py-16">
 ### 3.4 Venue Page
 
 **Structure:**
+
 1. Hero Image + Venue Name
 2. Venue Info + Gallery
 3. Upcoming Events
@@ -877,6 +872,7 @@ rell  <section className="py-16">
 5. Footer
 
 **Wireframe:**
+
 ```
 [Hero Image - 50vh]
   ↓ Venue Name, Location, Rating overlaid
@@ -894,22 +890,24 @@ rell  <section className="py-16">
 ### 3.5 Dashboard (Organizer)
 
 **Structure:**
+
 - Sidebar Navigation
 - Top Header with Search
 - Main Content Area
 - Stats Cards + Charts
 
 **Code Structure:**
+
 ```tsx
-<div className="flex h-screen bg-midnight-950">
+<div className="bg-midnight-950 flex h-screen">
   {/* Sidebar */}
-  <aside className="w-64 bg-midnight-900 border-r border-white/5 flex flex-col">
+  <aside className="bg-midnight-900 flex w-64 flex-col border-r border-white/5">
     <div className="p-6">
       <img src="/logo.svg" alt="Tenerife Music" className="h-8" />
     </div>
-    <nav className="flex-1 px-4 space-y-1">
+    <nav className="flex-1 space-y-1 px-4">
       <a href="/dashboard" className="nav-item active">
-        <LayoutDashboard className="w-5 h-5" />
+        <LayoutDashboard className="h-5 w-5" />
         <span>Dashboard</span>
       </a>
       {/* More nav items */}
@@ -917,42 +915,38 @@ rell  <section className="py-16">
   </aside>
 
   {/* Main Content */}
-  <div className="flex-1 flex flex-col overflow-hidden">
+  <div className="flex flex-1 flex-col overflow-hidden">
     {/* Header */}
-    <header className="h-16 bg-midnight-900/50 border-b border-white/5 flex items-center justify-between px-6">
+    <header className="bg-midnight-900/50 flex h-16 items-center justify-between border-b border-white/5 px-6">
       <div className="relative max-w-md">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-        <input 
-          type="text"
-          placeholder="Search..."
-          className="input pl-10 w-full"
-        />
+        <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+        <input type="text" placeholder="Search..." className="input w-full pl-10" />
       </div>
       <div className="flex items-center gap-4">
         <button className="btn-ghost p-2">
-          <Bell className="w-5 h-5" />
+          <Bell className="h-5 w-5" />
         </button>
         <button className="btn-ghost p-2">
-          <User className="w-5 h-5" />
+          <User className="h-5 w-5" />
         </button>
       </div>
     </header>
 
     {/* Content Area */}
     <main className="flex-1 overflow-y-auto p-6">
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="mx-auto max-w-7xl space-y-8">
         {/* Page Header */}
-        <div className="flex justify-between items-start">
+        <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-4xl font-display font-bold mb-2">Dashboard</h1>
+            <h1 className="font-display mb-2 text-4xl font-bold">Dashboard</h1>
             <p className="text-gray-400">Welcome back, João</p>
           </div>
           <button className="btn-primary">Create Event</button>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="card p-6 space-y-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="card space-y-2 p-6">
             <p className="text-sm text-gray-400">Total Events</p>
             <p className="text-3xl font-bold">24</p>
             <p className="text-sm text-green-400">+12% vs last month</p>
@@ -961,13 +955,13 @@ rell  <section className="py-16">
         </div>
 
         {/* Charts */}
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid gap-6 lg:grid-cols-2">
           <div className="card p-6">
-            <h3 className="text-xl font-semibold mb-4">Ticket Sales</h3>
+            <h3 className="mb-4 text-xl font-semibold">Ticket Sales</h3>
             {/* Chart */}
           </div>
           <div className="card p-6">
-            <h3 className="text-xl font-semibold mb-4">Revenue</h3>
+            <h3 className="mb-4 text-xl font-semibold">Revenue</h3>
             {/* Chart */}
           </div>
         </div>
@@ -980,12 +974,14 @@ rell  <section className="py-16">
 ### 3.6 Profile Page
 
 **Structure:**
+
 1. Profile Header (Cover + Avatar)
 2. Tabs (About, Events, Favorites)
 3. Tab Content
 4. Footer
 
 **Wireframe:**
+
 ```
 [Cover Image - 30vh]
   ↓ [Avatar overlapping] Name, Bio
@@ -1005,6 +1001,7 @@ rell  <section className="py-16">
 ### 4.1 Container System
 
 **Max-Width Containers:**
+
 ```tsx
 // Small content (forms, articles)
 <div className="max-w-2xl mx-auto">  {/* 672px */}
@@ -1020,6 +1017,7 @@ rell  <section className="py-16">
 ```
 
 **Always add horizontal padding:**
+
 ```tsx
 <div className="max-w-7xl mx-auto px-4 md:px-8">
 ```
@@ -1027,16 +1025,18 @@ rell  <section className="py-16">
 ### 4.2 Column Layouts
 
 **2-Column (50/50):**
+
 ```tsx
-<div className="grid md:grid-cols-2 gap-8">
+<div className="grid gap-8 md:grid-cols-2">
   <div>{/* Column 1 */}</div>
   <div>{/* Column 2 */}</div>
 </div>
 ```
 
 **3-Column (Equal):**
+
 ```tsx
-<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   <div>{/* Card */}</div>
   <div>{/* Card */}</div>
   <div>{/* Card */}</div>
@@ -1044,20 +1044,23 @@ rell  <section className="py-16">
 ```
 
 **4-Column (Compact cards):**
+
 ```tsx
-<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+<div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
   <div>{/* Compact card */}</div>
 </div>
 ```
 
 **6-Column (Category pills, small items):**
+
 ```tsx
-<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
   <div>{/* Small item */}</div>
 </div>
 ```
 
 **Asymmetric (Sidebar + Content):**
+
 ```tsx
 // Filters + Content
 <div className="grid lg:grid-cols-[280px_1fr] gap-8">
@@ -1075,21 +1078,23 @@ rell  <section className="py-16">
 ### 4.3 Grid Gaps
 
 **Context-based gaps:**
+
 ```tsx
 // Tight (related items, small cards)
-gap-4   // 16px
+gap - 4; // 16px
 
 // Standard (most grids)
-gap-6   // 24px
+gap - 6; // 24px
 
 // Comfortable (large cards)
-gap-8   // 32px
+gap - 8; // 32px
 
 // Generous (feature sections)
-gap-12  // 48px
+gap - 12; // 48px
 ```
 
 **Responsive gaps:**
+
 ```tsx
 <div className="grid gap-4 md:gap-6 lg:gap-8">
 ```
@@ -1097,6 +1102,7 @@ gap-12  // 48px
 ### 4.4 Auto-Fit vs Auto-Fill
 
 **Auto-Fit (Cards expand to fill space):**
+
 ```tsx
 <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
   {/* Cards will grow to fill available space */}
@@ -1104,6 +1110,7 @@ gap-12  // 48px
 ```
 
 **Auto-Fill (Cards stay minimum size, create more columns):**
+
 ```tsx
 <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-6">
   {/* More columns as space allows */}
@@ -1111,21 +1118,21 @@ gap-12  // 48px
 ```
 
 **When to use:**
+
 - **Auto-fit:** Event cards, venue cards (want them larger on big screens)
 - **Auto-fill:** Category pills, small thumbnails (want more items visible)
 
 ### 4.5 Asymmetric Grids
 
 **Featured + Regular (1 large + grid):**
+
 ```tsx
-<div className="grid lg:grid-cols-2 gap-8">
+<div className="grid gap-8 lg:grid-cols-2">
   {/* Featured - spans 1 row but twice the height */}
   <div className="lg:row-span-2">
-    <div className="h-full card">
-      {/* Large featured content */}
-    </div>
+    <div className="card h-full">{/* Large featured content */}</div>
   </div>
-  
+
   {/* Regular items fill remaining space */}
   <div className="card">{/* Item 1 */}</div>
   <div className="card">{/* Item 2 */}</div>
@@ -1133,12 +1140,11 @@ gap-12  // 48px
 ```
 
 **Pinterest-style (different heights):**
+
 ```tsx
-<div className="columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+<div className="columns-2 gap-6 space-y-6 md:columns-3 lg:columns-4">
   <div className="break-inside-avoid">
-    <div className="card">
-      {/* Content with natural height */}
-    </div>
+    <div className="card">{/* Content with natural height */}</div>
   </div>
   {/* More items */}
 </div>
@@ -1147,17 +1153,19 @@ gap-12  // 48px
 ### 4.6 Masonry Layouts
 
 **CSS Columns (Simplest):**
+
 ```tsx
-<div className="columns-2 md:columns-3 lg:columns-4 gap-6">
-  <div className="break-inside-avoid mb-6">
+<div className="columns-2 gap-6 md:columns-3 lg:columns-4">
+  <div className="mb-6 break-inside-avoid">
     <div className="card">{/* Content */}</div>
   </div>
 </div>
 ```
 
 **Grid with row-span (More control):**
+
 ```tsx
-<div className="grid grid-cols-3 auto-rows-[200px] gap-6">
+<div className="grid auto-rows-[200px] grid-cols-3 gap-6">
   <div className="row-span-2">{/* Tall item */}</div>
   <div className="row-span-1">{/* Short item */}</div>
   <div className="row-span-3">{/* Very tall item */}</div>
@@ -1184,22 +1192,43 @@ Component heights: 40px, 48px, 56px, 64px
 ### 5.2 Line Height Consistency
 
 **Typography Line Heights:**
+
 ```css
 /* Display headings */
-.text-7xl { line-height: 1.1; }  /* 96px → 105.6px ≈ 104px (13×8) */
-.text-6xl { line-height: 1.1; }  /* 72px → 79.2px ≈ 80px (10×8) */
-.text-5xl { line-height: 1.2; }  /* 48px → 57.6px ≈ 56px (7×8) */
+.text-7xl {
+  line-height: 1.1;
+} /* 96px → 105.6px ≈ 104px (13×8) */
+.text-6xl {
+  line-height: 1.1;
+} /* 72px → 79.2px ≈ 80px (10×8) */
+.text-5xl {
+  line-height: 1.2;
+} /* 48px → 57.6px ≈ 56px (7×8) */
 
 /* Body headings */
-.text-4xl { line-height: 1.2; }  /* 36px → 43.2px ≈ 48px (6×8) */
-.text-3xl { line-height: 1.3; }  /* 30px → 39px ≈ 40px (5×8) */
-.text-2xl { line-height: 1.4; }  /* 24px → 33.6px ≈ 32px (4×8) */
+.text-4xl {
+  line-height: 1.2;
+} /* 36px → 43.2px ≈ 48px (6×8) */
+.text-3xl {
+  line-height: 1.3;
+} /* 30px → 39px ≈ 40px (5×8) */
+.text-2xl {
+  line-height: 1.4;
+} /* 24px → 33.6px ≈ 32px (4×8) */
 
 /* Body text */
-.text-xl  { line-height: 1.5; }  /* 20px → 30px */
-.text-lg  { line-height: 1.5; }  /* 18px → 27px ≈ 24px (3×8) */
-.text-base { line-height: 1.5; } /* 16px → 24px (3×8) */
-.text-sm  { line-height: 1.5; }  /* 14px → 21px ≈ 24px (3×8) */
+.text-xl {
+  line-height: 1.5;
+} /* 20px → 30px */
+.text-lg {
+  line-height: 1.5;
+} /* 18px → 27px ≈ 24px (3×8) */
+.text-base {
+  line-height: 1.5;
+} /* 16px → 24px (3×8) */
+.text-sm {
+  line-height: 1.5;
+} /* 14px → 21px ≈ 24px (3×8) */
 ```
 
 ### 5.3 Section Rhythm
@@ -1208,29 +1237,42 @@ Component heights: 40px, 48px, 56px, 64px
 
 ```tsx
 <main>
-  <section className="py-24">     {/* 192px (24×8) */}
+  <section className="py-24">
+    {" "}
+    {/* 192px (24×8) */}
     {/* Section 1 */}
   </section>
-  
-  <section className="py-24">     {/* 192px (24×8) */}
+
+  <section className="py-24">
+    {" "}
+    {/* 192px (24×8) */}
     {/* Section 2 */}
   </section>
-  
-  <section className="py-24">     {/* 192px (24×8) */}
+
+  <section className="py-24">
+    {" "}
+    {/* 192px (24×8) */}
     {/* Section 3 */}
   </section>
 </main>
 ```
 
 **Internal section rhythm:**
+
 ```tsx
 <section className="py-24">
-  <div className="max-w-7xl mx-auto px-4 space-y-16">  {/* 128px between major blocks */}
-    <header className="space-y-4">                     {/* 32px title-description */}
+  <div className="mx-auto max-w-7xl space-y-16 px-4">
+    {" "}
+    {/* 128px between major blocks */}
+    <header className="space-y-4">
+      {" "}
+      {/* 32px title-description */}
       <h2 />
       <p />
     </header>
-    <div className="space-y-8">                        {/* 64px between content groups */}
+    <div className="space-y-8">
+      {" "}
+      {/* 64px between content groups */}
       {/* Content */}
     </div>
   </div>
@@ -1240,14 +1282,21 @@ Component heights: 40px, 48px, 56px, 64px
 ### 5.4 Component Rhythm
 
 **Card internal spacing:**
+
 ```tsx
-<div className="card p-6 space-y-4">  {/* 24px padding, 16px internal spacing */}
+<div className="card space-y-4 p-6">
+  {" "}
+  {/* 24px padding, 16px internal spacing */}
   <img />
-  <div className="space-y-2">         {/* 8px for tight groups */}
+  <div className="space-y-2">
+    {" "}
+    {/* 8px for tight groups */}
     <h3 />
     <p />
   </div>
-  <div className="pt-4">              {/* 16px separator before action */}
+  <div className="pt-4">
+    {" "}
+    {/* 16px separator before action */}
     <button />
   </div>
 </div>
@@ -1256,23 +1305,28 @@ Component heights: 40px, 48px, 56px, 64px
 ### 5.5 Visual Rhythm Rules
 
 ✅ **DO:**
+
 - Maintain consistent spacing between similar elements
-- Use space-y-* utilities for stacked content
+- Use space-y-\* utilities for stacked content
 - Keep rhythm even when content varies
 - Use padding/margin that's divisible by 8
 
 ❌ **DON'T:**
+
 - Use arbitrary spacing (space-y-[13px])
 - Mix different spacing for similar elements
 - Ignore the 8px system
 
 **Example - Good Rhythm:**
+
 ```tsx
-<article className="space-y-6">     {/* Consistent 24px spacing */}
-  <h2 className="text-3xl" />        {/* ~40px line height */}
-  <p className="text-lg" />          {/* 24px line height */}
-  <p className="text-lg" />          {/* 24px line height */}
-  <button className="h-12" />        {/* 48px height */}
+<article className="space-y-6">
+  {" "}
+  {/* Consistent 24px spacing */}
+  <h2 className="text-3xl" /> {/* ~40px line height */}
+  <p className="text-lg" /> {/* 24px line height */}
+  <p className="text-lg" /> {/* 24px line height */}
+  <button className="h-12" /> {/* 48px height */}
 </article>
 ```
 
@@ -1289,17 +1343,18 @@ Component heights: 40px, 48px, 56px, 64px
 // Tablet: 2 columns
 // Desktop: 3 columns
 <div className="
-  grid 
-  grid-cols-1 
-  md:grid-cols-2 
-  lg:grid-cols-3 
-  gap-4 
-  md:gap-6 
+  grid
+  grid-cols-1
+  md:grid-cols-2
+  lg:grid-cols-3
+  gap-4
+  md:gap-6
   lg:gap-8
 ">
 ```
 
 **Why Mobile-First:**
+
 - Forces priority decisions (what's essential?)
 - Easier to add features than remove
 - Better performance (progressive enhancement)
@@ -1308,6 +1363,7 @@ Component heights: 40px, 48px, 56px, 64px
 ### 6.2 Breakpoint Strategy
 
 **Standard Breakpoints:**
+
 ```css
 sm:  640px   → Large phones (landscape)
 md:  768px   → Tablets
@@ -1318,24 +1374,28 @@ xl:  1280px  → Desktops
 
 **When to Change Layouts:**
 
-**640px (sm):** 
+**640px (sm):**
+
 - Switch from 1 to 2 columns for small cards
 - Show horizontal flex instead of stack
 - Larger touch targets
 
 **768px (md):**
+
 - Switch from 1 to 2 columns for content
 - Show sidebar navigation
 - Increase font sizes
 - More generous spacing
 
 **1024px (lg):**
+
 - Switch to 3-4 columns
 - Show full desktop navigation
 - Side-by-side layouts (image + text)
 - Maximum font sizes
 
 **1280px (xl):**
+
 - 4+ columns where appropriate
 - Maximum container widths
 - More whitespace
@@ -1343,17 +1403,19 @@ xl:  1280px  → Desktops
 ### 6.3 Component Behavior
 
 **Typography Scaling:**
+
 ```tsx
 <h1 className="
   text-4xl      // 36px mobile
   md:text-5xl   // 48px tablet
   lg:text-7xl   // 72px desktop
-  font-display 
+  font-display
   font-bold
 ">
 ```
 
 **Spacing Scaling:**
+
 ```tsx
 <section className="
   py-12        // 48px mobile
@@ -1363,6 +1425,7 @@ xl:  1280px  → Desktops
 ```
 
 **Grid Adaptation:**
+
 ```tsx
 // Mobile: 1 column
 // Tablet: 2 columns
@@ -1371,6 +1434,7 @@ xl:  1280px  → Desktops
 ```
 
 **Hide/Show Elements:**
+
 ```tsx
 // Mobile menu icon
 <button className="lg:hidden">
@@ -1382,8 +1446,9 @@ xl:  1280px  → Desktops
 ```
 
 **Stack to Row:**
+
 ```tsx
-<div className="flex flex-col md:flex-row gap-4">
+<div className="flex flex-col gap-4 md:flex-row">
   <button />
   <button />
 </div>
@@ -1392,37 +1457,42 @@ xl:  1280px  → Desktops
 ### 6.4 Navigation Patterns
 
 **Mobile Navigation:**
+
 ```tsx
-<header className="fixed top-0 w-full z-50 bg-midnight-900/95 backdrop-blur-xl">
-  <div className="px-4 py-4 flex justify-between items-center">
+<header className="bg-midnight-900/95 fixed top-0 z-50 w-full backdrop-blur-xl">
+  <div className="flex items-center justify-between px-4 py-4">
     <img src="/logo.svg" className="h-8" alt="Tenerife Music" />
-    
+
     {/* Mobile menu button */}
     <button className="lg:hidden" onClick={() => setMenuOpen(true)}>
-      <Menu className="w-6 h-6" />
+      <Menu className="h-6 w-6" />
     </button>
-    
+
     {/* Desktop nav */}
-    <nav className="hidden lg:flex items-center gap-8">
+    <nav className="hidden items-center gap-8 lg:flex">
       <a href="/events">Events</a>
       <a href="/venues">Venues</a>
       <button className="btn-primary">Sign In</button>
     </nav>
   </div>
-  
+
   {/* Mobile drawer */}
   {menuOpen && (
-    <div className="lg:hidden fixed inset-0 bg-midnight-950 z-50">
-      <div className="p-4 flex justify-between">
+    <div className="bg-midnight-950 fixed inset-0 z-50 lg:hidden">
+      <div className="flex justify-between p-4">
         <img src="/logo.svg" className="h-8" alt="Tenerife Music" />
         <button onClick={() => setMenuOpen(false)}>
-          <X className="w-6 h-6" />
+          <X className="h-6 w-6" />
         </button>
       </div>
-      <nav className="p-4 space-y-4">
-        <a href="/events" className="block py-3 text-xl">Events</a>
-        <a href="/venues" className="block py-3 text-xl">Venues</a>
-        <button className="btn-primary w-full mt-8">Sign In</button>
+      <nav className="space-y-4 p-4">
+        <a href="/events" className="block py-3 text-xl">
+          Events
+        </a>
+        <a href="/venues" className="block py-3 text-xl">
+          Venues
+        </a>
+        <button className="btn-primary mt-8 w-full">Sign In</button>
       </nav>
     </div>
   )}
@@ -1430,9 +1500,10 @@ xl:  1280px  → Desktops
 ```
 
 **Tablet Navigation:**
+
 ```tsx
 // Condensed horizontal nav with dropdowns
-<nav className="hidden md:flex lg:hidden items-center gap-4">
+<nav className="hidden items-center gap-4 md:flex lg:hidden">
   <button>Events ▾</button>
   <button>Venues ▾</button>
 </nav>
@@ -1441,8 +1512,9 @@ xl:  1280px  → Desktops
 ### 6.5 Image Handling
 
 **Responsive Images:**
+
 ```tsx
-<img 
+<img
   src="/event-large.jpg"
   srcSet="
     /event-small.jpg 640w,
@@ -1451,11 +1523,12 @@ xl:  1280px  → Desktops
   "
   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
   alt="Event"
-  className="w-full h-full object-cover"
+  className="h-full w-full object-cover"
 />
 ```
 
 **Aspect Ratios:**
+
 ```tsx
 // Maintain aspect ratio across screens
 <div className="aspect-[16/9]">
@@ -1469,8 +1542,9 @@ xl:  1280px  → Desktops
 ```
 
 **Background Images:**
+
 ```tsx
-<div 
+<div
   className="h-screen bg-cover bg-center"
   style={{
     backgroundImage: `url('/hero-mobile.jpg')`,
@@ -1482,20 +1556,21 @@ xl:  1280px  → Desktops
 // Better: Use CSS media queries for different images
 <div className="hero-bg">
 ```
+
 ```css
 .hero-bg {
-  background-image: url('/hero-mobile.jpg');
+  background-image: url("/hero-mobile.jpg");
 }
 
 @media (min-width: 768px) {
   .hero-bg {
-    background-image: url('/hero-tablet.jpg');
+    background-image: url("/hero-tablet.jpg");
   }
 }
 
 @media (min-width: 1024px) {
   .hero-bg {
-    background-image: url('/hero-desktop.jpg');
+    background-image: url("/hero-desktop.jpg");
   }
 }
 ```
@@ -1503,15 +1578,17 @@ xl:  1280px  → Desktops
 ### 6.6 Typography Scaling
 
 **Fluid Typography (Scales smoothly):**
+
 ```tsx
 <h1 className="
   text-[clamp(2.5rem,5vw,5rem)]  // 40px → 80px fluid
-  font-display 
+  font-display
   font-bold
 ">
 ```
 
 **Stepped Typography (Clear breakpoints):**
+
 ```tsx
 <h1 className="
   text-4xl       // 36px mobile
@@ -1523,6 +1600,7 @@ xl:  1280px  → Desktops
 ```
 
 **Body Text Scaling:**
+
 ```tsx
 <p className="
   text-base      // 16px mobile
@@ -1534,6 +1612,7 @@ xl:  1280px  → Desktops
 ### 6.7 Touch Targets
 
 **Minimum Sizes for Mobile:**
+
 ```tsx
 // Buttons - minimum 44×44px
 <button className="
@@ -1559,6 +1638,7 @@ xl:  1280px  → Desktops
 ```
 
 **Spacing Between Touch Targets:**
+
 ```tsx
 // Minimum 8px gap between tappable elements
 <div className="flex gap-2">
@@ -1570,61 +1650,45 @@ xl:  1280px  → Desktops
 ### 6.8 Responsive Code Examples
 
 **Complete Event Card - Mobile to Desktop:**
+
 ```tsx
-<article className="
-  card
-  overflow-hidden
-  transition-all
-  hover:shadow-2xl
-">
+<article className="card overflow-hidden transition-all hover:shadow-2xl">
   {/* Image - 16:9 on mobile, 4:3 on desktop */}
-  <div className="aspect-video md:aspect-[4/3] relative overflow-hidden">
-    <img 
+  <div className="relative aspect-video overflow-hidden md:aspect-[4/3]">
+    <img
       src="/event.jpg"
-      className="w-full h-full object-cover transition-transform hover:scale-105"
+      className="h-full w-full object-cover transition-transform hover:scale-105"
       alt="Event"
     />
-    <div className="absolute top-4 left-4">
+    <div className="absolute left-4 top-4">
       <span className="badge badge-purple">Techno</span>
     </div>
   </div>
-  
+
   {/* Content - scales padding and spacing */}
-  <div className="
-    p-4 md:p-6           // 16px → 24px padding
-    space-y-3 md:space-y-4  // 12px → 16px spacing
-  ">
+  <div className="// 16px → 24px padding // 12px → 16px spacing space-y-3 p-4 md:space-y-4 md:p-6">
     {/* Date */}
     <div className="flex items-center gap-2 text-sm text-gray-400">
-      <Calendar className="w-4 h-4" />
+      <Calendar className="h-4 w-4" />
       <span>Fri, Dec 15 • 23:00</span>
     </div>
-    
+
     {/* Title - scales text size */}
-    <h3 className="
-      text-lg md:text-xl lg:text-2xl
-      font-semibold
-      line-clamp-2
-    ">
+    <h3 className="line-clamp-2 text-lg font-semibold md:text-xl lg:text-2xl">
       Neon Nights: Underground Session
     </h3>
-    
+
     {/* Location */}
     <div className="flex items-center gap-2 text-sm text-gray-400">
-      <MapPin className="w-4 h-4" />
+      <MapPin className="h-4 w-4" />
       <span>Papagayo Beach Club</span>
     </div>
-    
+
     {/* CTA - full width on mobile, auto on desktop */}
-    <div className="pt-4 flex gap-3">
-      <button className="
-        btn-primary
-        flex-1 md:flex-none
-      ">
-        Get Tickets
-      </button>
+    <div className="flex gap-3 pt-4">
+      <button className="btn-primary flex-1 md:flex-none">Get Tickets</button>
       <button className="btn-ghost p-3">
-        <Heart className="w-5 h-5" />
+        <Heart className="h-5 w-5" />
       </button>
     </div>
   </div>
@@ -1640,43 +1704,39 @@ xl:  1280px  → Desktops
 **Creating hierarchy with size, color, weight:**
 
 **Primary (Most Important):**
+
 ```tsx
-<h1 className="text-7xl font-display font-bold text-white">
-  Main Heading
-</h1>
+<h1 className="font-display text-7xl font-bold text-white">Main Heading</h1>
 ```
 
 **Secondary:**
+
 ```tsx
-<h2 className="text-5xl font-display font-bold text-white">
-  Section Heading
-</h2>
+<h2 className="font-display text-5xl font-bold text-white">Section Heading</h2>
 ```
 
 **Tertiary:**
+
 ```tsx
-<h3 className="text-3xl font-semibold text-white">
-  Subsection
-</h3>
+<h3 className="text-3xl font-semibold text-white">Subsection</h3>
 ```
 
 **Body:**
+
 ```tsx
-<p className="text-lg text-gray-400">
-  Supporting text
-</p>
+<p className="text-lg text-gray-400">Supporting text</p>
 ```
 
 **Meta (Least Important):**
+
 ```tsx
-<span className="text-sm text-gray-500">
-  Timestamp, labels
-</span>
+<span className="text-sm text-gray-500">Timestamp, labels</span>
 ```
 
 ### 7.2 F-Pattern and Z-Pattern
 
 **F-Pattern (Content-heavy pages):**
+
 ```
 [Logo]  [Navigation →→→→→→→→→]
 [Large Headline →→→→→]
@@ -1687,6 +1747,7 @@ xl:  1280px  → Desktops
 ```
 
 **Z-Pattern (Landing pages):**
+
 ```
 [Logo] →→→→→→→→→→→ [CTA Button]
           ↘
@@ -1698,6 +1759,7 @@ xl:  1280px  → Desktops
 ```
 
 **Application:**
+
 ```tsx
 // F-Pattern (Blog/Article)
 <article>
@@ -1730,6 +1792,7 @@ xl:  1280px  → Desktops
 **Creating emphasis:**
 
 **Size:**
+
 ```tsx
 <div className="space-y-4">
   <h2 className="text-5xl">Primary (5× larger than body)</h2>
@@ -1738,6 +1801,7 @@ xl:  1280px  → Desktops
 ```
 
 **Color:**
+
 ```tsx
 <div>
   <h3 className="text-white">High contrast (important)</h3>
@@ -1747,15 +1811,19 @@ xl:  1280px  → Desktops
 ```
 
 **Isolation (Whitespace):**
+
 ```tsx
-<div className="py-24">  {/* Generous whitespace around focal point */}
-  <div className="text-center space-y-8">
+<div className="py-24">
+  {" "}
+  {/* Generous whitespace around focal point */}
+  <div className="space-y-8 text-center">
     <h1 className="text-7xl">Isolated = Important</h1>
   </div>
 </div>
 ```
 
 **Visual Treatment:**
+
 ```tsx
 // Gradient text for emphasis
 <h1 className="text-7xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -1773,14 +1841,15 @@ xl:  1280px  → Desktops
 **Related content proximity:**
 
 **Good - Clear Groups:**
+
 ```tsx
-<article className="card p-6 space-y-6">
+<article className="card space-y-6 p-6">
   {/* Group 1: Header */}
   <div className="space-y-2">
     <h3 className="text-2xl font-semibold">Event Title</h3>
     <p className="text-sm text-gray-400">Subtitle</p>
   </div>
-  
+
   {/* Group 2: Meta info */}
   <div className="space-y-2">
     <div className="flex items-center gap-2 text-sm">
@@ -1790,21 +1859,26 @@ xl:  1280px  → Desktops
       <MapPin /> <span>Location</span>
     </div>
   </div>
-  
+
   {/* Group 3: Action */}
-  <div className="pt-4 border-t border-white/5">
+  <div className="border-t border-white/5 pt-4">
     <button className="btn-primary">Get Tickets</button>
   </div>
 </article>
 ```
 
 **Bad - No Clear Groups:**
+
 ```tsx
-<article className="card p-6 space-y-3">
+<article className="card space-y-3 p-6">
   <h3>Event Title</h3>
-  <div><Calendar /> Date</div>
+  <div>
+    <Calendar /> Date
+  </div>
   <p>Subtitle</p>
-  <div><MapPin /> Location</div>
+  <div>
+    <MapPin /> Location
+  </div>
   <button>Get Tickets</button>
   {/* Everything has equal spacing = no hierarchy */}
 </article>
@@ -1815,6 +1889,7 @@ xl:  1280px  → Desktops
 **Consistent alignment creates order:**
 
 **Left-Aligned (Default for content):**
+
 ```tsx
 <article className="text-left">
   <h2>Heading</h2>
@@ -1823,6 +1898,7 @@ xl:  1280px  → Desktops
 ```
 
 **Center-Aligned (Hero sections, CTAs):**
+
 ```tsx
 <section className="text-center">
   <h1>Main Heading</h1>
@@ -1832,6 +1908,7 @@ xl:  1280px  → Desktops
 ```
 
 **Right-Aligned (Rare, for effect):**
+
 ```tsx
 <div className="text-right">
   <p className="text-sm text-gray-400">Meta info</p>
@@ -1840,6 +1917,7 @@ xl:  1280px  → Desktops
 ```
 
 **Grid Alignment:**
+
 ```tsx
 // Items align to grid
 <div className="grid grid-cols-3 gap-6">
@@ -1861,6 +1939,7 @@ xl:  1280px  → Desktops
 ### ❌ Inconsistent Spacing
 
 **Bad:**
+
 ```tsx
 <section className="py-16">     {/* 64px top/bottom */}
   <section className="py-12">  {/* 48px - why different? */}
@@ -1868,6 +1947,7 @@ xl:  1280px  → Desktops
 ```
 
 **Good:**
+
 ```tsx
 <section className="py-24">    {/* Consistent section spacing */}
   <section className="py-24">
@@ -1877,8 +1957,11 @@ xl:  1280px  → Desktops
 ### ❌ Lack of Whitespace
 
 **Bad:**
+
 ```tsx
-<div className="p-2 space-y-1">  {/* Cramped, feels cheap */}
+<div className="space-y-1 p-2">
+  {" "}
+  {/* Cramped, feels cheap */}
   <h3 className="text-sm">Title</h3>
   <p className="text-xs">Description</p>
   <button className="text-xs">Action</button>
@@ -1886,8 +1969,11 @@ xl:  1280px  → Desktops
 ```
 
 **Good:**
+
 ```tsx
-<div className="p-6 space-y-4">  {/* Breathing room, feels premium */}
+<div className="space-y-4 p-6">
+  {" "}
+  {/* Breathing room, feels premium */}
   <h3 className="text-xl">Title</h3>
   <p className="text-base">Description</p>
   <button className="mt-2">Action</button>
@@ -1897,15 +1983,19 @@ xl:  1280px  → Desktops
 ### ❌ Poor Responsive Behavior
 
 **Bad:**
+
 ```tsx
-<div className="grid grid-cols-4">  {/* 4 columns on mobile = tiny! */}
+<div className="grid grid-cols-4">
+  {" "}
+  {/* 4 columns on mobile = tiny! */}
   <div>Card</div>
 </div>
 ```
 
 **Good:**
+
 ```tsx
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
   <div>Card</div>
 </div>
 ```
@@ -1913,17 +2003,21 @@ xl:  1280px  → Desktops
 ### ❌ Misaligned Elements
 
 **Bad:**
+
 ```tsx
 <div>
-  <h2 className="text-center">Heading</h2>  {/* Center */}
-  <p className="text-left">Body</p>          {/* Left */}
+  <h2 className="text-center">Heading</h2> {/* Center */}
+  <p className="text-left">Body</p> {/* Left */}
   <button className="float-right">CTA</button> {/* Right - chaos! */}
 </div>
 ```
 
 **Good:**
+
 ```tsx
-<div className="text-center">  {/* Consistent center alignment */}
+<div className="text-center">
+  {" "}
+  {/* Consistent center alignment */}
   <h2>Heading</h2>
   <p>Body</p>
   <button>CTA</button>
@@ -1933,13 +2027,18 @@ xl:  1280px  → Desktops
 ### ❌ Overcrowded Layouts
 
 **Bad:**
+
 ```tsx
 <section className="p-4">
-  <div className="grid grid-cols-5 gap-2">  {/* Too many columns, too tight */}
-    {events.map(event => (
-      <div className="p-1">  {/* No room to breathe */}
+  <div className="grid grid-cols-5 gap-2">
+    {" "}
+    {/* Too many columns, too tight */}
+    {events.map((event) => (
+      <div className="p-1">
+        {" "}
+        {/* No room to breathe */}
         <img className="w-full" />
-        <h3 className="text-xs truncate">{event.title}</h3>
+        <h3 className="truncate text-xs">{event.title}</h3>
       </div>
     ))}
   </div>
@@ -1947,14 +2046,19 @@ xl:  1280px  → Desktops
 ```
 
 **Good:**
+
 ```tsx
 <section className="py-16">
-  <div className="max-w-7xl mx-auto px-4">
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">  {/* Fewer, bigger, clearer */}
-      {events.map(event => (
-        <article className="card p-6">  {/* Generous spacing */}
-          <img className="w-full aspect-video object-cover" />
-          <h3 className="text-xl mt-4">{event.title}</h3>
+  <div className="mx-auto max-w-7xl px-4">
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {" "}
+      {/* Fewer, bigger, clearer */}
+      {events.map((event) => (
+        <article className="card p-6">
+          {" "}
+          {/* Generous spacing */}
+          <img className="aspect-video w-full object-cover" />
+          <h3 className="mt-4 text-xl">{event.title}</h3>
         </article>
       ))}
     </div>
@@ -1965,18 +2069,24 @@ xl:  1280px  → Desktops
 ### ❌ Ignoring Container Constraints
 
 **Bad:**
+
 ```tsx
 <section className="py-16">
-  <div className="px-4">  {/* Content spans full width on ultra-wide screens */}
+  <div className="px-4">
+    {" "}
+    {/* Content spans full width on ultra-wide screens */}
     <h2>Super long heading that stretches across a 4K monitor making it impossible to read</h2>
   </div>
 </section>
 ```
 
 **Good:**
+
 ```tsx
 <section className="py-16">
-  <div className="max-w-7xl mx-auto px-4">  {/* Constrained, centered, readable */}
+  <div className="mx-auto max-w-7xl px-4">
+    {" "}
+    {/* Constrained, centered, readable */}
     <h2>Heading stays at readable width</h2>
   </div>
 </section>
@@ -1985,6 +2095,7 @@ xl:  1280px  → Desktops
 ### ❌ Inconsistent Card Patterns
 
 **Bad:**
+
 ```tsx
 // Event card 1
 <div className="p-6 space-y-4">
@@ -2000,10 +2111,13 @@ xl:  1280px  → Desktops
 ```
 
 **Good:**
+
 ```tsx
 // Consistent card component
 const EventCard = ({ event }) => (
-  <article className="card p-6 space-y-4">  {/* Always same spacing */}
+  <article className="card space-y-4 p-6">
+    {" "}
+    {/* Always same spacing */}
     <img />
     <h3 />
   </article>
@@ -2023,6 +2137,7 @@ const EventCard = ({ event }) => (
 Not just an event listing site. Not a ticket marketplace. But a sophisticated, curated platform that provides **intelligence** about Tenerife's nightlife scene.
 
 **What this means:**
+
 - Curated, not comprehensive (quality over quantity)
 - Expert insights, not just event listings
 - Local knowledge, not generic database
@@ -2031,8 +2146,10 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 ### 9.2 Brand Pillars
 
 #### 1. Discovery
+
 **What it means:** Helping people find their perfect night out  
 **How it manifests:**
+
 - Intelligent search and filtering
 - Personalized recommendations
 - "You might like" suggestions
@@ -2042,8 +2159,10 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 **Voice:** "Discover what others miss"
 
 #### 2. Sophistication
+
 **What it means:** Premium experience throughout  
 **How it manifests:**
+
 - Clean, uncluttered design
 - High-quality imagery
 - Smooth animations
@@ -2053,8 +2172,10 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 **Voice:** "Elevated, never pretentious"
 
 #### 3. Local Expertise
+
 **What it means:** Insider knowledge of Tenerife's scene  
 **How it manifests:**
+
 - Curated event selection
 - Local team verification
 - Venue insights
@@ -2064,8 +2185,10 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 **Voice:** "Your insider guide"
 
 #### 4. Community
+
 **What it means:** Connecting people through music and nightlife  
 **How it manifests:**
+
 - User reviews and ratings
 - Friend activity feeds
 - Shared experiences
@@ -2079,6 +2202,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 **"Never miss the perfect night out"**
 
 **What we promise:**
+
 - Every event is vetted and quality-assured
 - You'll always know what's happening
 - Recommendations match your taste
@@ -2086,6 +2210,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 - Booking is seamless and secure
 
 **What we don't promise:**
+
 - We don't list every event (curated selection)
 - We're not the cheapest (premium positioning)
 - We're not for everyone (nightlife focus)
@@ -2097,6 +2222,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 ### 10.1 Mood Descriptors
 
 **Primary Moods:**
+
 1. **Premium** - High-quality, refined, sophisticated
 2. **Minimalistic** - Clean, uncluttered, focused
 3. **Modern** - Contemporary, forward-thinking, fresh
@@ -2104,6 +2230,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 5. **Energetic (but refined)** - Vibrant without being chaotic
 
 **NOT:**
+
 - Loud, overwhelming, chaotic
 - Generic, corporate, cold
 - Playful, whimsical, casual
@@ -2112,6 +2239,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 ### 10.2 Visual References
 
 **Tidal's Elegance:**
+
 - High-quality album artwork display
 - Generous whitespace
 - Refined typography
@@ -2119,6 +2247,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 - Focus on content, not UI chrome
 
 **Apple Music's Clarity:**
+
 - Clean information hierarchy
 - Clear CTAs
 - Smooth transitions
@@ -2126,6 +2255,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 - Glass-morphism effects
 
 **Spotify for Artists' Functionality:**
+
 - Data visualization
 - Dashboard clarity
 - Professional tools
@@ -2137,6 +2267,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 **How to balance sophistication with nightlife energy:**
 
 **✅ DO:**
+
 - Use dark backgrounds (midnight blues, deep purples)
 - Add subtle neon accents (purple, electric blue)
 - Use glass-morphism for depth
@@ -2145,6 +2276,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 - Use gradients sparingly for effect
 
 **❌ DON'T:**
+
 - Use harsh, bright neon everywhere
 - Add flashing or pulsing animations
 - Use club flyer aesthetics
@@ -2152,6 +2284,7 @@ Not just an event listing site. Not a ticket marketplace. But a sophisticated, c
 - Show low-quality party photos
 
 **Color Application:**
+
 ```tsx
 // Primary background - sophisticated dark
 bg-midnight-950   // #0a0a12
@@ -2169,100 +2302,84 @@ bg-white/5 backdrop-blur-xl border-white/10
 ```
 
 **Example - Event Card (Sophisticated Nightlife):**
+
 ```tsx
-<article className="
-  bg-white/5              // Subtle glass effect
-  backdrop-blur-xl
-  border border-white/10
-  rounded-3xl             // Soft, modern corners
-  overflow-hidden
-  transition-all duration-500
-  hover:bg-white/10       // Subtle interaction
-  hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]  // Subtle glow
-  group
-">
+<article className="// Subtle glass effect // Soft, modern corners // Subtle interaction // Subtle glow group overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-500 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]">
   {/* High-quality image */}
-  <div className="aspect-video relative overflow-hidden">
-    <img 
+  <div className="relative aspect-video overflow-hidden">
+    <img
       src="/event.jpg"
-      className="
-        w-full h-full object-cover
-        transition-transform duration-700
-        group-hover:scale-105   // Smooth, slow zoom
-      "
+      className="// Smooth, slow zoom h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
       alt=""
     />
     {/* Subtle gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-t from-midnight-950/80 to-transparent" />
-    
+    <div className="from-midnight-950/80 absolute inset-0 bg-gradient-to-t to-transparent" />
+
     {/* Refined badge */}
-    <div className="absolute top-4 left-4">
-      <span className="
-        px-3 py-1
-        bg-purple-500/20      // Subtle background
-        backdrop-blur-md
-        border border-purple-500/30
-        rounded-full
-        text-sm text-purple-300
-      ">
+    <div className="absolute left-4 top-4">
+      <span className="// Subtle background rounded-full border border-purple-500/30 bg-purple-500/20 px-3 py-1 text-sm text-purple-300 backdrop-blur-md">
         Techno
       </span>
     </div>
   </div>
-  
-  <div className="p-6">
-    {/* Clean, sophisticated typography */}
-  </div>
+
+  <div className="p-6">{/* Clean, sophisticated typography */}</div>
 </article>
 ```
 
 ### 10.4 What to Avoid
 
 ❌ **Harsh Colors:**
+
 ```tsx
 // TOO BRIGHT
 <div className="bg-red-500 text-yellow-300">
 ```
 
 ✅ **Refined Colors:**
+
 ```tsx
 // SOPHISTICATED
 <div className="bg-purple-500/10 text-purple-300">
 ```
 
 ❌ **Cluttered Layouts:**
+
 ```tsx
 // TOO BUSY
 <div className="p-2 space-y-1 border-4 shadow-2xl">
 ```
 
 ✅ **Clean Layouts:**
+
 ```tsx
 // BREATHING ROOM
 <div className="p-8 space-y-6 border border-white/10">
 ```
 
 ❌ **Generic Stock Photos:**
+
 ```tsx
 // Generic party photo with fake models
 <img src="/generic-party.jpg" />
 ```
 
 ✅ **Authentic Event Photography:**
+
 ```tsx
 // Real event, real venue, real energy
 <img src="/authentic-event.jpg" />
 ```
 
 ❌ **Overly Technical:**
+
 ```tsx
 // Looks like a developer tool
-<div className="border-2 border-blue-500 font-mono">
-  Event ID: evt_1234567890
-</div>
+<div className="border-2 border-blue-500 font-mono">Event ID: evt_1234567890</div>
 ```
 
 ✅ **User-Friendly:**
+
 ```tsx
 // Clean, understandable
 <div className="card">
@@ -2280,6 +2397,7 @@ bg-white/5 backdrop-blur-xl border-white/10
 The interface should feel like a **knowledgeable local friend** who knows the nightlife scene inside out.
 
 **Confident but not arrogant:**
+
 ```tsx
 // ✅ Confident
 <h1>The Best Events This Weekend</h1>  // Curated by experts
@@ -2289,6 +2407,7 @@ The interface should feel like a **knowledgeable local friend** who knows the ni
 ```
 
 **Helpful but not patronizing:**
+
 ```tsx
 // ✅ Helpful
 <p>New to Tenerife? Start with our Top Picks →</p>
@@ -2298,6 +2417,7 @@ The interface should feel like a **knowledgeable local friend** who knows the ni
 ```
 
 **Sophisticated but not pretentious:**
+
 ```tsx
 // ✅ Sophisticated
 <p>Curated experiences from Tenerife's vibrant nightlife scene</p>
@@ -2307,6 +2427,7 @@ The interface should feel like a **knowledgeable local friend** who knows the ni
 ```
 
 **Energetic but not chaotic:**
+
 ```tsx
 // ✅ Energetic
 <button className="btn-primary">Explore Tonight's Events</button>
@@ -2320,12 +2441,14 @@ The interface should feel like a **knowledgeable local friend** who knows the ni
 ### 11.2 Interaction Style
 
 **Smooth and Responsive:**
+
 - All interactions have smooth transitions (300-500ms)
 - Hover states are subtle but noticeable
 - Loading states are elegant (shimmer, not spinners)
 - Feedback is immediate
 
 **Examples:**
+
 ```tsx
 // Button interaction
 <button className="
@@ -2349,21 +2472,19 @@ The interface should feel like a **knowledgeable local friend** who knows the ni
 ```
 
 **Delightful Micro-Interactions:**
+
 ```tsx
 // Heart favorite with animation
 const [isFavorite, setIsFavorite] = useState(false);
 
-<button 
+<button
   onClick={() => setIsFavorite(!isFavorite)}
   className="transition-transform active:scale-125"
 >
-  <Heart 
-    className={`
-      w-6 h-6 transition-all duration-300
-      ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-400'}
-    `}
+  <Heart
+    className={`h-6 w-6 transition-all duration-300 ${isFavorite ? "fill-red-500 text-red-500" : "text-gray-400"} `}
   />
-</button>
+</button>;
 ```
 
 ### 11.3 Error Handling
@@ -2371,23 +2492,21 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Friendly, Clear, Solution-Oriented:**
 
 ❌ **Bad Error:**
+
 ```tsx
-<div className="text-red-500">
-  Error 404: Resource not found
-</div>
+<div className="text-red-500">Error 404: Resource not found</div>
 ```
 
 ✅ **Good Error:**
+
 ```tsx
-<div className="card p-8 text-center space-y-4">
-  <div className="w-16 h-16 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center">
-    <SearchX className="w-8 h-8 text-purple-400" />
+<div className="card space-y-4 p-8 text-center">
+  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-purple-500/10">
+    <SearchX className="h-8 w-8 text-purple-400" />
   </div>
   <h3 className="text-2xl font-semibold">Event Not Found</h3>
-  <p className="text-gray-400">
-    This event might have ended or been cancelled. 
-  </p>
-  <div className="flex gap-4 justify-center">
+  <p className="text-gray-400">This event might have ended or been cancelled.</p>
+  <div className="flex justify-center gap-4">
     <button className="btn-primary">Browse Events</button>
     <button className="btn-ghost">Go Home</button>
   </div>
@@ -2395,6 +2514,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 **Form Validation - Helpful:**
+
 ```tsx
 // ❌ Harsh
 <p className="text-red-500">Invalid email!</p>
@@ -2411,23 +2531,25 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Encouraging and Actionable:**
 
 ❌ **Bad Empty State:**
+
 ```tsx
 <div>No events found</div>
 ```
 
 ✅ **Good Empty State:**
+
 ```tsx
-<div className="text-center py-16 space-y-6">
-  <div className="w-24 h-24 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center">
-    <Calendar className="w-12 h-12 text-purple-400" />
+<div className="space-y-6 py-16 text-center">
+  <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-purple-500/10">
+    <Calendar className="h-12 w-12 text-purple-400" />
   </div>
   <div className="space-y-2">
     <h3 className="text-2xl font-semibold">No Events Yet</h3>
-    <p className="text-gray-400 max-w-sm mx-auto">
+    <p className="mx-auto max-w-sm text-gray-400">
       Be the first to discover what's happening. Check back soon or explore other dates.
     </p>
   </div>
-  <div className="flex gap-4 justify-center">
+  <div className="flex justify-center gap-4">
     <button className="btn-primary">Browse All Events</button>
     <button className="btn-ghost">View Past Events</button>
   </div>
@@ -2435,20 +2557,19 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 **Search No Results:**
+
 ```tsx
-<div className="text-center py-16 space-y-6">
-  <div className="w-24 h-24 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center">
-    <Search className="w-12 h-12 text-purple-400" />
+<div className="space-y-6 py-16 text-center">
+  <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-purple-500/10">
+    <Search className="h-12 w-12 text-purple-400" />
   </div>
   <div className="space-y-2">
     <h3 className="text-2xl font-semibold">No Results for "{query}"</h3>
-    <p className="text-gray-400 max-w-sm mx-auto">
-      Try adjusting your filters or search terms
-    </p>
+    <p className="mx-auto max-w-sm text-gray-400">Try adjusting your filters or search terms</p>
   </div>
   <div className="space-y-2">
     <p className="text-sm text-gray-500">Suggestions:</p>
-    <div className="flex gap-2 justify-center flex-wrap">
+    <div className="flex flex-wrap justify-center gap-2">
       <button className="badge badge-purple">Techno</button>
       <button className="badge badge-purple">House</button>
       <button className="badge badge-purple">This Weekend</button>
@@ -2487,6 +2608,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 **Page Loading:**
+
 ```tsx
 // Not: Generic spinner
 <div className="flex justify-center">
@@ -2508,21 +2630,19 @@ const [isFavorite, setIsFavorite] = useState(false);
 
 ```tsx
 // Ticket purchase success
-<div className="card p-8 text-center space-y-6 border-2 border-green-500/20 bg-green-500/5">
-  <div className="w-20 h-20 mx-auto bg-green-500/20 rounded-full flex items-center justify-center">
-    <Check className="w-10 h-10 text-green-400" />
+<div className="card space-y-6 border-2 border-green-500/20 bg-green-500/5 p-8 text-center">
+  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-500/20">
+    <Check className="h-10 w-10 text-green-400" />
   </div>
   <div className="space-y-2">
-    <h3 className="text-3xl font-display font-bold">You're In! 🎉</h3>
+    <h3 className="font-display text-3xl font-bold">You're In! 🎉</h3>
     <p className="text-gray-300">
       Your tickets for <strong>Neon Nights</strong> are confirmed
     </p>
   </div>
   <div className="space-y-3">
-    <p className="text-sm text-gray-400">
-      Confirmation sent to your email
-    </p>
-    <div className="flex gap-4 justify-center">
+    <p className="text-sm text-gray-400">Confirmation sent to your email</p>
+    <div className="flex justify-center gap-4">
       <button className="btn-primary">View Tickets</button>
       <button className="btn-ghost">Back to Events</button>
     </div>
@@ -2531,17 +2651,11 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 **Micro-success (form save, favorite added):**
+
 ```tsx
 // Toast notification
-<div className="
-  fixed bottom-4 right-4
-  bg-green-500/20 backdrop-blur-xl
-  border border-green-500/30
-  rounded-xl p-4
-  flex items-center gap-3
-  animate-slide-up
-">
-  <Check className="w-5 h-5 text-green-400" />
+<div className="animate-slide-up fixed bottom-4 right-4 flex items-center gap-3 rounded-xl border border-green-500/30 bg-green-500/20 p-4 backdrop-blur-xl">
+  <Check className="h-5 w-5 text-green-400" />
   <p className="text-green-300">Added to favorites</p>
 </div>
 ```
@@ -2553,24 +2667,28 @@ const [isFavorite, setIsFavorite] = useState(false);
 ### 12.1 Primary Emotions to Evoke
 
 **1. Excitement** (about discovering events)
+
 - Use dynamic imagery
 - Show vibrant event photos
 - Highlight "trending" and "popular"
 - Use phrases like "Don't miss" and "Happening now"
 
 **2. Confidence** (in making choices)
+
 - Provide clear information
 - Show ratings and reviews
 - Display venue details
 - Use trust signals (verified, curated)
 
 **3. Sophistication** (premium experience)
+
 - Clean, spacious layouts
 - High-quality visuals
 - Refined typography
 - Smooth interactions
 
 **4. Belonging** (part of a community)
+
 - Show social proof ("124 people going")
 - Friend activity
 - User reviews
@@ -2578,7 +2696,8 @@ const [isFavorite, setIsFavorite] = useState(false);
 
 ### 12.2 User Journey Emotions
 
-**Discovery Phase:** *Curiosity + Excitement*
+**Discovery Phase:** _Curiosity + Excitement_
+
 ```tsx
 // Homepage hero
 <h1 className="text-7xl font-display font-bold">
@@ -2589,65 +2708,67 @@ const [isFavorite, setIsFavorite] = useState(false);
 </p>
 ```
 
-**Exploration Phase:** *Interest + Engagement*
+**Exploration Phase:** _Interest + Engagement_
+
 ```tsx
 // Event browsing
 <div className="space-y-4">
-  <h2 className="text-4xl font-display">Trending This Week</h2>
+  <h2 className="font-display text-4xl">Trending This Week</h2>
   <p className="text-gray-400">The hottest events everyone's talking about</p>
 </div>
 ```
 
-**Decision Phase:** *Confidence + Clarity*
+**Decision Phase:** _Confidence + Clarity_
+
 ```tsx
 // Event detail
 <div className="card p-6">
   <div className="flex items-center gap-2 text-green-400">
-    <Check className="w-5 h-5" />
+    <Check className="h-5 w-5" />
     <span>Verified Event</span>
   </div>
   <div className="flex items-center gap-2">
-    <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+    <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
     <span>4.8 (234 reviews)</span>
   </div>
 </div>
 ```
 
-**Booking Phase:** *Ease + Trust*
+**Booking Phase:** _Ease + Trust_
+
 ```tsx
 // Checkout
 <div className="space-y-4">
   <h2 className="text-2xl font-semibold">Secure Checkout</h2>
   <div className="flex items-center gap-2 text-sm text-gray-400">
-    <Shield className="w-4 h-4" />
+    <Shield className="h-4 w-4" />
     <span>Your payment is secure and encrypted</span>
   </div>
 </div>
 ```
 
-**Post-Booking Phase:** *Anticipation + Satisfaction*
+**Post-Booking Phase:** _Anticipation + Satisfaction_
+
 ```tsx
 // Confirmation
 <div className="space-y-4">
-  <h2 className="text-3xl font-display">See You There! 🎉</h2>
-  <p className="text-gray-300">
-    Get ready for an unforgettable night
-  </p>
+  <h2 className="font-display text-3xl">See You There! 🎉</h2>
+  <p className="text-gray-300">Get ready for an unforgettable night</p>
   <button className="btn-primary">Add to Calendar</button>
 </div>
 ```
 
 ### 12.3 Emotional Tone Matrix
 
-| Context | Emotion | Implementation |
-|---------|---------|----------------|
-| Homepage Hero | Excitement, Possibility | Large imagery, dynamic copy, bold CTA |
-| Event Browse | Curiosity, Engagement | Rich filtering, visual cards, trending labels |
-| Event Detail | Interest, Trust | Detailed info, reviews, venue details, clear CTA |
-| Checkout | Confidence, Security | Clear pricing, trust signals, simple form |
-| Confirmation | Joy, Anticipation | Celebratory tone, next steps, share options |
-| Error | Understanding, Solution | Friendly message, clear action, no blame |
-| Empty State | Encouragement, Direction | Helpful copy, clear action, alternative paths |
+| Context       | Emotion                  | Implementation                                   |
+| ------------- | ------------------------ | ------------------------------------------------ |
+| Homepage Hero | Excitement, Possibility  | Large imagery, dynamic copy, bold CTA            |
+| Event Browse  | Curiosity, Engagement    | Rich filtering, visual cards, trending labels    |
+| Event Detail  | Interest, Trust          | Detailed info, reviews, venue details, clear CTA |
+| Checkout      | Confidence, Security     | Clear pricing, trust signals, simple form        |
+| Confirmation  | Joy, Anticipation        | Celebratory tone, next steps, share options      |
+| Error         | Understanding, Solution  | Friendly message, clear action, no blame         |
+| Empty State   | Encouragement, Direction | Helpful copy, clear action, alternative paths    |
 
 ---
 
@@ -2658,11 +2779,13 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Clear, Concise, Helpful**
 
 ❌ **Verbose:**
+
 ```
 "Click on the button below in order to proceed with viewing all of the available events"
 ```
 
 ✅ **Concise:**
+
 ```
 "View All Events"
 ```
@@ -2670,11 +2793,13 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Action-Oriented, Not Passive:**
 
 ❌ **Passive:**
+
 ```
 "Events can be viewed here"
 ```
 
 ✅ **Active:**
+
 ```
 "Browse Events"
 ```
@@ -2682,6 +2807,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Specific, Not Generic:**
 
 ❌ **Generic:**
+
 ```
 "Click here"
 "Submit"
@@ -2689,6 +2815,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 ✅ **Specific:**
+
 ```
 "Get Tickets"
 "Save Event"
@@ -2698,6 +2825,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ### 13.2 Button Labels
 
 **Primary Actions (Strong verbs):**
+
 ```tsx
 // ✅ Good button labels
 <button>Get Tickets</button>
@@ -2715,6 +2843,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 **Secondary Actions (Supporting verbs):**
+
 ```tsx
 // ✅ Good secondary labels
 <button>Learn More</button>
@@ -2732,6 +2861,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Solution-Focused, Friendly:**
 
 ❌ **Bad Error Messages:**
+
 ```
 "Error 500: Internal server error"
 "Invalid input"
@@ -2740,6 +2870,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 ✅ **Good Error Messages:**
+
 ```tsx
 // Server error
 <div>
@@ -2773,6 +2904,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Encouraging, Actionable:**
 
 ✅ **Good Empty States:**
+
 ```tsx
 // No saved events
 <div className="text-center py-16 space-y-4">
@@ -2818,6 +2950,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Helpful Examples, Not Generic:**
 
 ❌ **Bad Placeholders:**
+
 ```tsx
 <input placeholder="Enter text" />
 <input placeholder="Search" />
@@ -2825,6 +2958,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 ✅ **Good Placeholders:**
+
 ```tsx
 <input placeholder="Search events, venues, artists..." />
 <input placeholder="e.g., Neon Nights, Papagayo, DJ Martinez" />
@@ -2838,35 +2972,36 @@ const [isFavorite, setIsFavorite] = useState(false);
 **Clear and Reassuring:**
 
 ✅ **Good Confirmations:**
+
 ```tsx
 // Event saved
-"Added to your favorites ✓"
+"Added to your favorites ✓";
 
 // Ticket purchased
-"You're all set! Confirmation sent to maria@email.com"
+"You're all set! Confirmation sent to maria@email.com";
 
 // Profile updated
-"Changes saved successfully"
+"Changes saved successfully";
 
 // Event created
-"Your event is live! 🎉 Share it with your audience"
+"Your event is live! 🎉 Share it with your audience";
 
 // Review submitted
-"Thanks for your feedback! Your review is now live"
+"Thanks for your feedback! Your review is now live";
 ```
 
 ### 13.7 Good vs. Bad Copy Examples
 
-| Context | ❌ Bad | ✅ Good |
-|---------|--------|---------|
-| Homepage Hero | "Welcome to our platform" | "Discover Tenerife's Best Nights" |
-| Event List Header | "Events" | "Happening This Weekend" |
-| Empty Favorites | "No items" | "No favorites yet. Start exploring!" |
-| Loading | "Please wait..." | "Finding the perfect events for you..." |
-| Error (404) | "404 Not Found" | "Oops! This page doesn't exist" |
-| Search Prompt | "Search" | "What are you looking for tonight?" |
-| CTA | "Sign Up Now" | "Start Discovering" |
-| Form Submit | "Submit Form" | "Create My Account" |
+| Context           | ❌ Bad                    | ✅ Good                                 |
+| ----------------- | ------------------------- | --------------------------------------- |
+| Homepage Hero     | "Welcome to our platform" | "Discover Tenerife's Best Nights"       |
+| Event List Header | "Events"                  | "Happening This Weekend"                |
+| Empty Favorites   | "No items"                | "No favorites yet. Start exploring!"    |
+| Loading           | "Please wait..."          | "Finding the perfect events for you..." |
+| Error (404)       | "404 Not Found"           | "Oops! This page doesn't exist"         |
+| Search Prompt     | "Search"                  | "What are you looking for tonight?"     |
+| CTA               | "Sign Up Now"             | "Start Discovering"                     |
+| Form Submit       | "Submit Form"             | "Create My Account"                     |
 
 ---
 
@@ -2877,6 +3012,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 **High-Quality, Authentic, Energetic but Not Chaotic**
 
 ✅ **What to Show:**
+
 - Real events (not stock photos)
 - Real venues with character
 - Real people enjoying themselves
@@ -2887,6 +3023,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 - Tenerife locations (palm trees, beaches, urban areas)
 
 ❌ **What to Avoid:**
+
 - Generic stock party photos
 - Overly posed models
 - Blurry/low-quality images
@@ -2898,6 +3035,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ### 14.2 Image Treatment
 
 **Gradient Overlays:**
+
 ```tsx
 // Hero images - dark gradient for text readability
 <div className="relative">
@@ -2913,6 +3051,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 **Aspect Ratios (Consistency is key):**
+
 ```tsx
 // Event cards - 16:9 (cinematic)
 <div className="aspect-video">
@@ -2936,10 +3075,11 @@ const [isFavorite, setIsFavorite] = useState(false);
 ```
 
 **Hover Effects:**
+
 ```tsx
 // Subtle zoom on hover
 <div className="relative overflow-hidden rounded-2xl">
-  <img 
+  <img
     src="/event.jpg"
     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
     alt=""
@@ -2948,7 +3088,7 @@ const [isFavorite, setIsFavorite] = useState(false);
 
 // Brightness change on hover
 <div className="relative overflow-hidden rounded-2xl group">
-  <img 
+  <img
     src="/event.jpg"
     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
     alt=""
@@ -2959,24 +3099,28 @@ const [isFavorite, setIsFavorite] = useState(false);
 ### 14.3 Image Categories
 
 **Event Images:**
+
 - Minimum resolution: 1920×1080px
 - Aspect ratio: 16:9 preferred
 - Shows: Venue atmosphere, lighting, crowd (medium distance)
 - Treatment: Subtle dark gradient overlay
 
 **Venue Images:**
+
 - Minimum resolution: 1600×1200px
 - Aspect ratio: 4:3 preferred
 - Shows: Interior/exterior, ambiance, architecture
 - Treatment: Natural, minimal overlay
 
 **Artist/DJ Images:**
+
 - Minimum resolution: 1000×1000px
 - Aspect ratio: 1:1 (square)
 - Shows: Artist performing or professional portrait
 - Treatment: Circular crop for profiles
 
 **Category/Genre Images:**
+
 - Minimum resolution: 800×800px
 - Aspect ratio: 1:1
 - Shows: Abstract representations of genre (e.g., turntables for techno)
@@ -2985,12 +3129,14 @@ const [isFavorite, setIsFavorite] = useState(false);
 ### 14.4 Image Quality Guidelines
 
 **Technical Requirements:**
+
 - Format: WebP preferred, JPG fallback
 - Compression: High quality (80-90%)
 - Max file size: 500KB for cards, 1MB for heroes
 - Always provide alt text for accessibility
 
 **Aesthetic Requirements:**
+
 - Good lighting (not too dark, not overexposed)
 - Sharp focus (no motion blur unless intentional)
 - Proper white balance
@@ -3003,16 +3149,16 @@ const [isFavorite, setIsFavorite] = useState(false);
 
 ```tsx
 // Gradient background with icon
-<div className="aspect-video bg-gradient-to-br from-purple-950 to-midnight-950 flex items-center justify-center">
-  <Music className="w-16 h-16 text-purple-400/30" />
-</div>
+<div className="to-midnight-950 flex aspect-video items-center justify-center bg-gradient-to-br from-purple-950">
+  <Music className="h-16 w-16 text-purple-400/30" />
+</div>;
 
 // Category-specific gradients
 const categoryGradients = {
-  techno: 'from-purple-950 to-midnight-950',
-  house: 'from-blue-950 to-midnight-950',
-  reggaeton: 'from-red-950 to-midnight-950',
-  live: 'from-green-950 to-midnight-950',
+  techno: "from-purple-950 to-midnight-950",
+  house: "from-blue-950 to-midnight-950",
+  reggaeton: "from-red-950 to-midnight-950",
+  live: "from-green-950 to-midnight-950",
 };
 ```
 
@@ -3025,6 +3171,7 @@ const categoryGradients = {
 **Lucide Icons** - Consistent, modern, clean
 
 **Why Lucide:**
+
 - Consistent stroke width
 - Modern, minimal aesthetic
 - Extensive library
@@ -3032,18 +3179,18 @@ const categoryGradients = {
 - React-friendly
 
 ```tsx
-import { 
-  Calendar, 
-  MapPin, 
-  Music, 
-  Heart, 
+import {
+  Calendar,
+  MapPin,
+  Music,
+  Heart,
   User,
   Search,
   Filter,
   Star,
   Clock,
-  Ticket
-} from 'lucide-react';
+  Ticket,
+} from "lucide-react";
 ```
 
 ### 15.2 Icon Usage
@@ -3051,6 +3198,7 @@ import {
 **Supportive, Not Decorative:**
 
 ✅ **Good Icon Usage:**
+
 ```tsx
 // Icons enhance understanding
 <div className="flex items-center gap-2 text-sm text-gray-400">
@@ -3065,6 +3213,7 @@ import {
 ```
 
 ❌ **Bad Icon Usage:**
+
 ```tsx
 // Icons without purpose
 <h1>
@@ -3073,6 +3222,7 @@ import {
 ```
 
 **When to Use Icons:**
+
 - To clarify meaning (date, location, time)
 - For actions (search, filter, favorite)
 - To indicate status (verified, popular, sold out)
@@ -3080,6 +3230,7 @@ import {
 - For social media links
 
 **When NOT to Use Icons:**
+
 - As decoration
 - To fill space
 - When text alone is clearer
@@ -3103,6 +3254,7 @@ import {
 ```
 
 **Consistent positioning:**
+
 ```tsx
 // Icon left (default)
 <div className="flex items-center gap-2">
@@ -3167,23 +3319,23 @@ import {
 
 ### 15.6 Common Icons and Their Use
 
-| Icon | Use Case | Size |
-|------|----------|------|
-| Calendar | Date/time information | 16px (w-4 h-4) |
-| MapPin | Location | 16px (w-4 h-4) |
-| Clock | Duration, time | 16px (w-4 h-4) |
-| Music | Genre, audio content | 20px (w-5 h-5) |
-| Heart | Favorite/like action | 20px (w-5 h-5) |
-| User | Profile, account | 20px (w-5 h-5) |
-| Search | Search functionality | 20px (w-5 h-5) |
-| Filter | Filtering options | 20px (w-5 h-5) |
-| Star | Ratings, featured | 16px (w-4 h-4) |
-| Ticket | Ticketing, entry | 20px (w-5 h-5) |
-| Share | Share actions | 20px (w-5 h-5) |
-| ChevronDown | Dropdown menus | 16px (w-4 h-4) |
-| ChevronRight | Next, forward | 16px (w-4 h-4) |
-| X | Close, cancel | 20px (w-5 h-5) |
-| Check | Success, confirmation | 20px (w-5 h-5) |
+| Icon         | Use Case              | Size           |
+| ------------ | --------------------- | -------------- |
+| Calendar     | Date/time information | 16px (w-4 h-4) |
+| MapPin       | Location              | 16px (w-4 h-4) |
+| Clock        | Duration, time        | 16px (w-4 h-4) |
+| Music        | Genre, audio content  | 20px (w-5 h-5) |
+| Heart        | Favorite/like action  | 20px (w-5 h-5) |
+| User         | Profile, account      | 20px (w-5 h-5) |
+| Search       | Search functionality  | 20px (w-5 h-5) |
+| Filter       | Filtering options     | 20px (w-5 h-5) |
+| Star         | Ratings, featured     | 16px (w-4 h-4) |
+| Ticket       | Ticketing, entry      | 20px (w-5 h-5) |
+| Share        | Share actions         | 20px (w-5 h-5) |
+| ChevronDown  | Dropdown menus        | 16px (w-4 h-4) |
+| ChevronRight | Next, forward         | 16px (w-4 h-4) |
+| X            | Close, cancel         | 20px (w-5 h-5) |
+| Check        | Success, confirmation | 20px (w-5 h-5) |
 
 ---
 
@@ -3194,6 +3346,7 @@ import {
 **Smooth, Purposeful, Premium**
 
 **Core Principles:**
+
 1. **Purposeful**: Animations should communicate or assist, not distract
 2. **Smooth**: Transitions should feel natural, not robotic
 3. **Fast but not rushed**: 300-500ms for most transitions
@@ -3205,31 +3358,34 @@ import {
 
 ```css
 /* Quick interactions (hover, focus) */
-transition-duration: 200ms;    /* Button hover */
+transition-duration: 200ms; /* Button hover */
 
 /* Standard transitions (most cases) */
-transition-duration: 300ms;    /* Default */
+transition-duration: 300ms; /* Default */
 
 /* Smooth transitions (scale, complex) */
-transition-duration: 500ms;    /* Card hover, image zoom */
+transition-duration: 500ms; /* Card hover, image zoom */
 
 /* Dramatic transitions (page transitions) */
-transition-duration: 700ms;    /* Modal open, page slide */
+transition-duration: 700ms; /* Modal open, page slide */
 ```
 
 **Not too fast (jarring):**
+
 ```tsx
 // ❌ Too fast - feels jumpy
 <div className="transition-all duration-75 hover:scale-110">
 ```
 
 **Not too slow (sluggish):**
+
 ```tsx
 // ❌ Too slow - feels laggy
 <div className="transition-all duration-1000 hover:scale-110">
 ```
 
 **Just right:**
+
 ```tsx
 // ✅ Smooth and natural
 <div className="transition-all duration-300 hover:scale-105">
@@ -3254,6 +3410,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **Application:**
+
 ```tsx
 // Standard hover (ease-in-out)
 <button className="transition-all duration-300 ease-in-out hover:scale-105">
@@ -3270,6 +3427,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ✅ **DO Animate:**
 
 **1. Feedback (user action confirmation):**
+
 ```tsx
 // Button press
 <button className="transition-transform active:scale-95">
@@ -3283,6 +3441,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **2. State Changes:**
+
 ```tsx
 // Loading state
 <div className="animate-pulse">Loading...</div>
@@ -3292,6 +3451,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **3. Transitions (between views):**
+
 ```tsx
 // Page transitions
 <div className="animate-fade-in">
@@ -3305,6 +3465,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **4. Delight (subtle enhancements):**
+
 ```tsx
 // Card hover
 <article className="transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
@@ -3318,6 +3479,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ❌ **DON'T Animate:**
 
 **1. Reading Content:**
+
 ```tsx
 // ❌ Never animate body text
 <p className="animate-pulse">  // NO!
@@ -3329,6 +3491,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **2. Critical Information:**
+
 ```tsx
 // ❌ Don't animate error messages
 <div className="animate-bounce">  // NO!
@@ -3340,6 +3503,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **3. Everything:**
+
 ```tsx
 // ❌ Animation overload
 <div className="animate-bounce">
@@ -3384,10 +3548,15 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ### 16.7 Common Animations
 
 **Fade In:**
+
 ```css
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-fade-in {
@@ -3396,6 +3565,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **Slide Up:**
+
 ```css
 @keyframes slideUp {
   from {
@@ -3414,6 +3584,7 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **Scale In (Modal, Card):**
+
 ```css
 @keyframes scaleIn {
   from {
@@ -3432,10 +3603,15 @@ transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 ```
 
 **Shimmer (Loading):**
+
 ```css
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .animate-shimmer {
@@ -3458,6 +3634,7 @@ A truly sophisticated platform is one that works beautifully for everyone, regar
 **Minimum Standard: WCAG 2.1 AA**
 
 **Key Requirements:**
+
 1. Color contrast ratio ≥ 4.5:1 for normal text
 2. Color contrast ratio ≥ 3:1 for large text (18pt+)
 3. All interactive elements keyboard accessible
@@ -3555,13 +3732,13 @@ A truly sophisticated platform is one that works beautifully for everyone, regar
 
 ```tsx
 // ✅ Descriptive alt text
-<img 
+<img
   src="/event.jpg"
   alt="DJ performing at Neon Nights event with purple lighting and crowd dancing"
 />
 
 // ✅ Decorative images
-<img 
+<img
   src="/decoration.jpg"
   alt=""
   aria-hidden="true"
@@ -3591,6 +3768,7 @@ text-purple-200 on bg-white        // Too low
 ```
 
 **Tool: Use contrast checker**
+
 - WebAIM Contrast Checker
 - Browser DevTools
 - Figma contrast plugins
@@ -3619,10 +3797,11 @@ text-purple-200 on bg-white        // Too low
 ```
 
 **High visibility focus:**
+
 ```css
 /* Global focus style */
 *:focus-visible {
-  outline: 2px solid theme('colors.purple.500');
+  outline: 2px solid theme("colors.purple.500");
   outline-offset: 2px;
 }
 ```
@@ -3693,68 +3872,64 @@ Before shipping any feature:
 **Copy + Imagery + CTA:**
 
 ```tsx
-<section className="relative min-h-screen flex items-center bg-gradient-to-br from-midnight-950 via-midnight-900 to-purple-950">
+<section className="from-midnight-950 via-midnight-900 relative flex min-h-screen items-center bg-gradient-to-br to-purple-950">
   {/* Background */}
   <div className="absolute inset-0 z-0">
-    <img 
-      src="/hero-tenerife-night.jpg"  // High-quality: Tenerife nightlife skyline
+    <img
+      src="/hero-tenerife-night.jpg" // High-quality: Tenerife nightlife skyline
       alt=""
-      className="w-full h-full object-cover opacity-30"
+      className="h-full w-full object-cover opacity-30"
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-midnight-950/90 to-transparent" />
+    <div className="from-midnight-950/90 absolute inset-0 bg-gradient-to-t to-transparent" />
   </div>
-  
+
   {/* Content */}
   <div className="relative z-10 w-full px-4 md:px-8">
-    <div className="max-w-7xl mx-auto py-32">
+    <div className="mx-auto max-w-7xl py-32">
       <div className="max-w-3xl space-y-8">
         {/* Badge - Local expertise */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 rounded-full">
-          <Sparkles className="w-4 h-4 text-purple-300" />
+        <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/20 px-4 py-2 backdrop-blur-sm">
+          <Sparkles className="h-4 w-4 text-purple-300" />
           <span className="text-sm text-purple-300">Curated by local experts</span>
         </div>
-        
+
         {/* Headline - Exciting, aspirational */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-tight">
+        <h1 className="font-display text-5xl font-bold leading-tight text-white md:text-7xl lg:text-8xl">
           Discover Tenerife's
           <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Best Nights
           </span>
         </h1>
-        
+
         {/* Subheadline - Value proposition */}
-        <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+        <p className="text-xl leading-relaxed text-gray-300 md:text-2xl">
           Your insider guide to the island's most unforgettable nightlife experiences
         </p>
-        
+
         {/* CTAs - Clear actions */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button className="btn-primary btn-lg">
-            Explore Events
-          </button>
-          <button className="btn-secondary btn-lg">
-            For Organizers
-          </button>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <button className="btn-primary btn-lg">Explore Events</button>
+          <button className="btn-secondary btn-lg">For Organizers</button>
         </div>
-        
+
         {/* Social proof */}
         <div className="flex items-center gap-6 text-sm text-gray-400">
           <div className="flex items-center gap-2">
-            <Users className="w-4 h-4" />
+            <Users className="h-4 w-4" />
             <span>10,000+ nightlife lovers</span>
           </div>
           <div className="flex items-center gap-2">
-            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
             <span>4.8 rating</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   {/* Scroll indicator */}
   <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <ChevronDown className="w-6 h-6 text-white/60" />
+    <ChevronDown className="h-6 w-6 text-white/60" />
   </div>
 </section>
 ```
@@ -3764,90 +3939,63 @@ Before shipping any feature:
 **Information Hierarchy + Visual Appeal:**
 
 ```tsx
-<article className="
-  card
-  overflow-hidden
-  transition-all duration-500
-  hover:shadow-2xl
-  hover:-translate-y-1
-  group
-  cursor-pointer
-">
+<article className="card group cursor-pointer overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
   {/* Image - High-quality event photo */}
-  <div className="aspect-video relative overflow-hidden">
-    <img 
-      src="/neon-nights-event.jpg"  // Real event photo
+  <div className="relative aspect-video overflow-hidden">
+    <img
+      src="/neon-nights-event.jpg" // Real event photo
       alt="Neon Nights Underground Session at Papagayo Beach Club"
-      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
-    
+
     {/* Gradient overlay for readability */}
-    <div className="absolute inset-0 bg-gradient-to-t from-midnight-950/80 to-transparent" />
-    
+    <div className="from-midnight-950/80 absolute inset-0 bg-gradient-to-t to-transparent" />
+
     {/* Badge - Genre */}
-    <div className="absolute top-4 left-4">
-      <span className="
-        px-3 py-1
-        bg-purple-500/20 backdrop-blur-md
-        border border-purple-500/30
-        rounded-full
-        text-sm text-purple-300
-        font-medium
-      ">
+    <div className="absolute left-4 top-4">
+      <span className="rounded-full border border-purple-500/30 bg-purple-500/20 px-3 py-1 text-sm font-medium text-purple-300 backdrop-blur-md">
         Techno
       </span>
     </div>
-    
+
     {/* Favorite button */}
-    <button 
-      className="
-        absolute top-4 right-4
-        w-10 h-10
-        bg-white/10 backdrop-blur-md
-        border border-white/20
-        rounded-full
-        flex items-center justify-center
-        opacity-0 group-hover:opacity-100
-        transition-opacity duration-300
-        hover:bg-white/20
-      "
+    <button
+      className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 opacity-0 backdrop-blur-md transition-opacity duration-300 hover:bg-white/20 group-hover:opacity-100"
       aria-label="Add to favorites"
     >
-      <Heart className="w-5 h-5 text-white" />
+      <Heart className="h-5 w-5 text-white" />
     </button>
   </div>
-  
+
   {/* Content */}
-  <div className="p-6 space-y-4">
+  <div className="space-y-4 p-6">
     {/* Date - Clear, scannable */}
     <div className="flex items-center gap-2 text-sm text-gray-400">
-      <Calendar className="w-4 h-4" />
+      <Calendar className="h-4 w-4" />
       <span>Friday, Dec 15 • 23:00</span>
     </div>
-    
+
     {/* Title - Strong hierarchy */}
-    <h3 className="text-xl font-semibold text-white line-clamp-2 leading-snug">
+    <h3 className="line-clamp-2 text-xl font-semibold leading-snug text-white">
       Neon Nights: Underground Session
     </h3>
-    
+
     {/* Location - Supporting info */}
     <div className="flex items-center gap-2 text-sm text-gray-400">
-      <MapPin className="w-4 h-4" />
+      <MapPin className="h-4 w-4" />
       <span>Papagayo Beach Club • Playa de las Américas</span>
     </div>
-    
+
     {/* Divider */}
-    <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+    <div className="flex items-center justify-between border-t border-white/5 pt-4">
       {/* Price - Clear value */}
       <div>
         <p className="text-sm text-gray-400">From</p>
         <p className="text-2xl font-bold text-white">€25</p>
       </div>
-      
+
       {/* CTA - Action-oriented */}
-      <button className="btn-primary">
-        Get Tickets
-      </button>
+      <button className="btn-primary">Get Tickets</button>
     </div>
   </div>
 </article>
@@ -3858,37 +4006,29 @@ Before shipping any feature:
 **Friendly + Helpful:**
 
 ```tsx
-<div className="min-h-screen flex items-center justify-center px-4">
-  <div className="max-w-md w-full text-center space-y-8">
+<div className="flex min-h-screen items-center justify-center px-4">
+  <div className="w-full max-w-md space-y-8 text-center">
     {/* Icon - Visual clarity */}
-    <div className="w-24 h-24 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center">
-      <SearchX className="w-12 h-12 text-purple-400" />
+    <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-purple-500/10">
+      <SearchX className="h-12 w-12 text-purple-400" />
     </div>
-    
+
     {/* Heading - Clear, not technical */}
     <div className="space-y-2">
-      <h1 className="text-4xl font-display font-bold text-white">
-        Event Not Found
-      </h1>
-      <p className="text-lg text-gray-400">
-        This event might have ended or been cancelled
-      </p>
+      <h1 className="font-display text-4xl font-bold text-white">Event Not Found</h1>
+      <p className="text-lg text-gray-400">This event might have ended or been cancelled</p>
     </div>
-    
+
     {/* Actions - Solution-focused */}
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <button className="btn-primary">
-        Browse All Events
-      </button>
-      <button className="btn-ghost">
-        Go Home
-      </button>
+    <div className="flex flex-col justify-center gap-4 sm:flex-row">
+      <button className="btn-primary">Browse All Events</button>
+      <button className="btn-ghost">Go Home</button>
     </div>
-    
+
     {/* Helpful suggestions */}
-    <div className="pt-8 space-y-3">
+    <div className="space-y-3 pt-8">
       <p className="text-sm text-gray-500">Looking for something similar?</p>
-      <div className="flex gap-2 justify-center flex-wrap">
+      <div className="flex flex-wrap justify-center gap-2">
         <button className="badge badge-purple">Techno Events</button>
         <button className="badge badge-purple">This Weekend</button>
         <button className="badge badge-purple">Papagayo</button>
@@ -3904,30 +4044,26 @@ Before shipping any feature:
 
 ```tsx
 <div className="py-24 text-center">
-  <div className="max-w-md mx-auto space-y-6">
+  <div className="mx-auto max-w-md space-y-6">
     {/* Icon - Positive visual */}
-    <div className="w-20 h-20 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center">
-      <Heart className="w-10 h-10 text-purple-400" />
+    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-purple-500/10">
+      <Heart className="h-10 w-10 text-purple-400" />
     </div>
-    
+
     {/* Heading - Encouraging tone */}
     <div className="space-y-2">
-      <h2 className="text-3xl font-display font-bold text-white">
-        Your Favorites Will Live Here
-      </h2>
+      <h2 className="font-display text-3xl font-bold text-white">Your Favorites Will Live Here</h2>
       <p className="text-lg text-gray-400">
         Start saving events you're interested in to find them easily later
       </p>
     </div>
-    
+
     {/* Action - Clear next step */}
-    <button className="btn-primary btn-lg">
-      Discover Events
-    </button>
-    
+    <button className="btn-primary btn-lg">Discover Events</button>
+
     {/* Additional context */}
-    <p className="text-sm text-gray-500 pt-4">
-      💡 Tip: Click the <Heart className="w-4 h-4 inline" /> icon on any event to save it
+    <p className="pt-4 text-sm text-gray-500">
+      💡 Tip: Click the <Heart className="inline h-4 w-4" /> icon on any event to save it
     </p>
   </div>
 </div>
@@ -3938,37 +4074,36 @@ Before shipping any feature:
 **Celebratory + Refined:**
 
 ```tsx
-<div className="max-w-2xl mx-auto text-center space-y-8 py-16">
+<div className="mx-auto max-w-2xl space-y-8 py-16 text-center">
   {/* Success icon - Celebratory but subtle */}
-  <div className="w-24 h-24 mx-auto bg-green-500/20 rounded-full flex items-center justify-center animate-scale-in">
-    <Check className="w-12 h-12 text-green-400" />
+  <div className="animate-scale-in mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-green-500/20">
+    <Check className="h-12 w-12 text-green-400" />
   </div>
-  
+
   {/* Heading - Exciting but sophisticated */}
   <div className="space-y-3">
-    <h1 className="text-5xl font-display font-bold text-white">
-      You're All Set! 🎉
-    </h1>
+    <h1 className="font-display text-5xl font-bold text-white">You're All Set! 🎉</h1>
     <p className="text-xl text-gray-300">
-      Your tickets for <strong className="text-white">Neon Nights: Underground Session</strong> are confirmed
+      Your tickets for <strong className="text-white">Neon Nights: Underground Session</strong> are
+      confirmed
     </p>
   </div>
-  
+
   {/* Key info - Reassuring */}
-  <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 space-y-4">
+  <div className="space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
     <div className="flex items-start gap-4">
-      <div className="flex-shrink-0 w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-        <Mail className="w-5 h-5 text-purple-400" />
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple-500/20">
+        <Mail className="h-5 w-5 text-purple-400" />
       </div>
       <div className="text-left">
         <p className="font-medium text-white">Confirmation Sent</p>
         <p className="text-sm text-gray-400">Check your email at maria@example.com</p>
       </div>
     </div>
-    
+
     <div className="flex items-start gap-4">
-      <div className="flex-shrink-0 w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-        <Smartphone className="w-5 h-5 text-purple-400" />
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple-500/20">
+        <Smartphone className="h-5 w-5 text-purple-400" />
       </div>
       <div className="text-left">
         <p className="font-medium text-white">Add to Wallet</p>
@@ -3976,33 +4111,27 @@ Before shipping any feature:
       </div>
     </div>
   </div>
-  
+
   {/* Next actions - Clear path forward */}
   <div className="space-y-4">
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <button className="btn-primary btn-lg">
-        View My Tickets
-      </button>
-      <button className="btn-ghost btn-lg">
-        Add to Calendar
-      </button>
+    <div className="flex flex-col justify-center gap-4 sm:flex-row">
+      <button className="btn-primary btn-lg">View My Tickets</button>
+      <button className="btn-ghost btn-lg">Add to Calendar</button>
     </div>
-    
-    <button className="btn-ghost">
-      Share with Friends
-    </button>
+
+    <button className="btn-ghost">Share with Friends</button>
   </div>
-  
+
   {/* What's next - Anticipation building */}
-  <div className="pt-8 space-y-2">
+  <div className="space-y-2 pt-8">
     <p className="text-sm text-gray-400">What to expect</p>
-    <div className="flex items-center gap-6 justify-center text-sm text-gray-400">
+    <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
       <div className="flex items-center gap-2">
-        <Calendar className="w-4 h-4" />
+        <Calendar className="h-4 w-4" />
         <span>Fri, Dec 15 • 23:00</span>
       </div>
       <div className="flex items-center gap-2">
-        <MapPin className="w-4 h-4" />
+        <MapPin className="h-4 w-4" />
         <span>Papagayo Beach Club</span>
       </div>
     </div>
@@ -4023,14 +4152,14 @@ Before shipping any feature:
       <div className="aspect-video bg-white/5 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
       </div>
-      
+
       {/* Content skeleton */}
       <div className="p-6 space-y-4">
         {/* Date */}
         <div className="h-4 bg-white/5 rounded-full w-32 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
         </div>
-        
+
         {/* Title */}
         <div className="space-y-2">
           <div className="h-6 bg-white/10 rounded-full w-full relative overflow-hidden">
@@ -4040,7 +4169,7 @@ Before shipping any feature:
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
           </div>
         </div>
-        
+
         {/* Location */}
         <div className="h-4 bg-white/5 rounded-full w-48 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer" />
@@ -4068,18 +4197,21 @@ Before shipping any feature:
 ### 19.1 vs. Generic Event Platforms
 
 **Generic Platforms (Eventbrite, etc.):**
+
 - Comprehensive (list everything)
 - Utilitarian design
 - Global, not local
 - Transactional focus
 
 **Tenerife Music:**
+
 - Curated (quality over quantity)
 - Sophisticated, premium design
 - Local expertise, insider knowledge
 - Experience-focused
 
 **Key Differentiators:**
+
 1. **Curation** - Every event vetted by local experts
 2. **Design** - Premium, nightlife-optimized aesthetic
 3. **Local Knowledge** - Insider tips, neighborhood guides
@@ -4088,18 +4220,21 @@ Before shipping any feature:
 ### 19.2 vs. Social Media Events
 
 **Social Media (Facebook Events, Instagram):**
+
 - Crowdsourced, unverified
 - Mixed quality
 - Poor discovery
 - Cluttered interface
 
 **Tenerife Music:**
+
 - Verified, reliable information
 - Consistent quality
 - Intelligent discovery (search, filters, recommendations)
 - Clean, focused interface
 
 **Key Differentiators:**
+
 1. **Reliability** - Verified information, no spam
 2. **Discovery** - Smart search and recommendations
 3. **User Experience** - Purpose-built for nightlife discovery
@@ -4108,18 +4243,21 @@ Before shipping any feature:
 ### 19.3 vs. Venue Websites
 
 **Venue Websites:**
+
 - Fragmented (visit multiple sites)
 - Inconsistent quality
 - Poor mobile experience
 - Limited discovery
 
 **Tenerife Music:**
+
 - Centralized (one place for all venues)
 - Consistent, high-quality presentation
 - Mobile-optimized
 - Cross-venue discovery
 
 **Key Differentiators:**
+
 1. **Centralization** - All venues in one place
 2. **Comparison** - Easy to compare events across venues
 3. **User Experience** - Consistent, premium interface
@@ -4164,12 +4302,14 @@ Before shipping any feature:
 **Maintain core identity while evolving:**
 
 **Never Change:**
+
 - Brand values (discovery, sophistication, local expertise, community)
 - Core visual identity (midnight blue, electric purple, clean design)
 - Tone of voice (confident, helpful, sophisticated, energetic)
 - User-first approach
 
 **Can Evolve:**
+
 - Feature set (new tools, capabilities)
 - Visual refinements (updated components, patterns)
 - Content strategy (new content types)
@@ -4180,30 +4320,32 @@ Before shipping any feature:
 **Room for seasonal themes and special events:**
 
 **Seasonal Variations:**
+
 ```tsx
 // Summer Season (June-September)
 // Warmer accent colors, beach vibes
 const summerTheme = {
-  accent: 'from-blue-400 to-cyan-400',
-  bg: 'bg-gradient-to-br from-midnight-950 via-blue-950/30 to-midnight-950'
+  accent: "from-blue-400 to-cyan-400",
+  bg: "bg-gradient-to-br from-midnight-950 via-blue-950/30 to-midnight-950",
 };
 
 // Winter Season (December-February)
 // Cooler tones, sophisticated
 const winterTheme = {
-  accent: 'from-purple-400 to-pink-400',
-  bg: 'bg-gradient-to-br from-midnight-950 via-purple-950/30 to-midnight-950'
+  accent: "from-purple-400 to-pink-400",
+  bg: "bg-gradient-to-br from-midnight-950 via-purple-950/30 to-midnight-950",
 };
 
 // Festival Season (Carnaval)
 // More vibrant, energetic
 const festivalTheme = {
-  accent: 'from-pink-400 via-purple-400 to-blue-400',
-  bg: 'bg-gradient-to-br from-midnight-950 via-purple-950 to-midnight-950'
+  accent: "from-pink-400 via-purple-400 to-blue-400",
+  bg: "bg-gradient-to-br from-midnight-950 via-purple-950 to-midnight-950",
 };
 ```
 
 **Special Events:**
+
 - Can use temporary themed headers
 - Can feature special badges/labels
 - Can use event-specific color accents
@@ -4214,6 +4356,7 @@ const festivalTheme = {
 **How to test new design directions:**
 
 **A/B Testing:**
+
 1. Test with small user segment
 2. Measure key metrics (engagement, conversion, satisfaction)
 3. Gather qualitative feedback
@@ -4221,6 +4364,7 @@ const festivalTheme = {
 5. Roll out gradually
 
 **User Testing:**
+
 1. Test with representative users (tourists, locals, organizers)
 2. Observe real usage patterns
 3. Collect feedback
@@ -4228,6 +4372,7 @@ const festivalTheme = {
 5. Refine based on findings
 
 **Metrics to Track:**
+
 - User engagement (time on site, pages per session)
 - Conversion rates (ticket purchases, account signups)
 - User satisfaction (NPS, surveys)
@@ -4239,6 +4384,7 @@ const festivalTheme = {
 **Incorporating user feedback while maintaining brand:**
 
 **Process:**
+
 1. **Collect** - Multiple channels (surveys, support, analytics)
 2. **Categorize** - Feature requests, bugs, UX issues, design feedback
 3. **Evaluate** - Does it align with brand values?
@@ -4247,6 +4393,7 @@ const festivalTheme = {
 6. **Measure** - Did it improve the experience?
 
 **Guiding Questions:**
+
 - Does this make the platform more sophisticated or less?
 - Does this align with our premium positioning?
 - Does this improve the nightlife discovery experience?
@@ -4254,6 +4401,7 @@ const festivalTheme = {
 - Does this maintain our design system principles?
 
 **When to Say No:**
+
 - Request conflicts with brand identity
 - Would add clutter/complexity
 - Serves niche use case at expense of majority
@@ -4261,6 +4409,7 @@ const festivalTheme = {
 - Doesn't align with nightlife focus
 
 **When to Say Yes:**
+
 - Improves core user experience
 - Aligns with brand values
 - Requested by multiple user segments
@@ -4274,24 +4423,28 @@ const festivalTheme = {
 This guide provides the foundation for creating consistent, high-quality experiences across the Tenerife Music platform. Remember:
 
 **Layout Principles:**
+
 - Use the 8px spacing system religiously
 - Embrace whitespace for sophistication
 - Design mobile-first, enhance for desktop
 - Maintain consistent patterns and structures
 
 **Brand Voice:**
+
 - Sophisticated but not pretentious
 - Helpful but not patronizing
 - Energetic but not chaotic
 - Premium throughout
 
 **User Focus:**
+
 - Accessibility is non-negotiable
 - Clarity over cleverness
 - Purpose over decoration
 - Users over ego
 
 **Quality Standards:**
+
 - High-quality imagery always
 - Smooth, purposeful animations
 - Attention to detail
@@ -4304,6 +4457,7 @@ This guide provides the foundation for creating consistent, high-quality experie
 If anything in this guide is unclear or you need specific examples for a use case not covered, consult the design team or refer to existing implementations in the codebase.
 
 **Keep this guide alive:**
+
 - Update as we learn
 - Document new patterns
 - Share improvements
@@ -4312,6 +4466,7 @@ If anything in this guide is unclear or you need specific examples for a use cas
 ---
 
 **Version History:**
+
 - v1.0 (November 2025) - Initial comprehensive guide
 
 **Next Review:** February 2026

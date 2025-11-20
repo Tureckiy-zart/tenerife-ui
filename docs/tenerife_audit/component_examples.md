@@ -23,7 +23,8 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-        outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+        outline:
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
@@ -46,6 +47,7 @@ const buttonVariants = cva(
 ### Analysis
 
 **Strengths:**
+
 - ✅ Uses CVA for variant management
 - ✅ TypeScript support with VariantProps
 - ✅ Radix Slot for composition
@@ -53,6 +55,7 @@ const buttonVariants = cva(
 - ✅ Disabled state handling
 
 **Weaknesses:**
+
 - ❌ Generic styling (no brand personality)
 - ❌ No loading state
 - ❌ No icon positioning helpers
@@ -68,12 +71,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-gradient-to-r from-primary to-primary-600 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]",
+        primary:
+          "bg-gradient-to-r from-primary to-primary-600 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         outline: "border-2 border-primary text-primary hover:bg-primary hover:text-white",
         ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary hover:underline underline-offset-4",
-        gradient: "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg hover:shadow-purple-500/50",
+        gradient:
+          "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg hover:shadow-purple-500/50",
       },
       size: {
         xs: "h-7 px-2.5 text-xs rounded-md",
@@ -118,11 +123,11 @@ const buttonVariants = cva(
 ### Current Code
 
 ```typescript
-export const Heading: React.FC<HeadingProps> = ({ 
-  className, 
-  children, 
-  as, 
-  level = 1 
+export const Heading: React.FC<HeadingProps> = ({
+  className,
+  children,
+  as,
+  level = 1
 }) => {
   const Component = as || (`h${level}` as keyof React.JSX.IntrinsicElements);
 
@@ -322,6 +327,7 @@ if (typeof showImage !== "boolean") {
 ```
 
 **Problems:**
+
 1. ❌ Runtime errors instead of TypeScript types
 2. ❌ Over-validation (checking empty strings)
 3. ❌ Complex data structure
@@ -369,8 +375,8 @@ const eventCardVariants = cva(
 // 3. Split into sub-components
 const EventCardImage = ({ src, alt }: { src: string; alt: string }) => (
   <div className="relative aspect-video overflow-hidden">
-    <img 
-      src={src} 
+    <img
+      src={src}
       alt={alt}
       className="h-full w-full object-cover transition-transform group-hover:scale-110"
     />
@@ -399,7 +405,7 @@ export const EventCard: React.FC<EventCardProps> = ({
   onTicketClick,
 }) => {
   return (
-    <Card 
+    <Card
       variant={variant === "featured" ? "elevated" : "default"}
       padding="none"
       clickable
@@ -471,7 +477,7 @@ interface GridProps {
 const Grid = ({ cols, gap, className, ...props }: GridProps) => {
   const getResponsiveClasses = () => {
     const classes: string[] = ["grid"];
-    
+
     if (typeof cols === "object") {
       if (cols.default) classes.push(`grid-cols-${cols.default}`);
       if (cols.sm) classes.push(`sm:grid-cols-${cols.sm}`);
@@ -481,12 +487,12 @@ const Grid = ({ cols, gap, className, ...props }: GridProps) => {
     } else {
       classes.push(`grid-cols-${cols || 1}`);
     }
-    
+
     // Similar for gap...
-    
+
     return classes.join(" ");
   };
-  
+
   return (
     <div className={cn(getResponsiveClasses(), className)} {...props} />
   );
@@ -518,7 +524,7 @@ interface FormFieldProps {
 
 export const FormField = ({ name, label, description, required }: FormFieldProps) => {
   const { control, formState: { errors } } = useFormContext();
-  
+
   return (
     <Controller
       name={name}
@@ -565,7 +571,7 @@ export const LoginForm = () => {
   const form = useForm({
     resolver: zodResolver(formSchema),
   });
-  
+
   return (
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -586,15 +592,24 @@ export const LoginForm = () => {
 
 ```css
 /* colors.css */
-:root { /* light mode */ }
-[data-mode="night"] { /* dark mode */ }
+:root {
+  /* light mode */
+}
+[data-mode="night"] {
+  /* dark mode */
+}
 
 /* globals.css */
-:root { /* light mode again */ }
-.dark { /* dark mode different selector */ }
+:root {
+  /* light mode again */
+}
+.dark {
+  /* dark mode different selector */
+}
 ```
 
 **Problems:**
+
 - Duplicate definitions
 - Inconsistent selectors
 - No smooth transitions
@@ -622,26 +637,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const root = document.documentElement;
-    
+
     // Remove existing theme classes
     root.classList.remove("day", "night");
-    
+
     // Resolve theme
     let applied: "day" | "night";
     if (theme === "system") {
-      applied = window.matchMedia("(prefers-color-scheme: dark)").matches 
-        ? "night" 
+      applied = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "night"
         : "day";
     } else {
       applied = theme;
     }
-    
+
     // Apply theme with transition
     root.style.setProperty("color-scheme", applied);
     root.setAttribute("data-mode", applied);
     root.classList.add(applied);
     setResolvedTheme(applied);
-    
+
     // Store preference
     localStorage.setItem("theme", theme);
   }, [theme]);
@@ -665,7 +680,7 @@ export const useTheme = () => {
 :root,
 [data-mode="day"] {
   color-scheme: light;
-  
+
   --background: 0 0% 100%;
   --foreground: 0 0% 9%;
   --primary: 173 100% 37%;
@@ -674,7 +689,7 @@ export const useTheme = () => {
 
 [data-mode="night"] {
   color-scheme: dark;
-  
+
   --background: 240 10% 3.9%;
   --foreground: 0 0% 89.8%;
   --primary: 259 70% 67%;
@@ -685,7 +700,7 @@ export const useTheme = () => {
 *,
 *::before,
 *::after {
-  transition: 
+  transition:
     background-color 200ms ease,
     border-color 200ms ease,
     color 200ms ease,
@@ -704,16 +719,19 @@ export const useTheme = () => {
 ## Summary of Recommended Patterns
 
 ### 1. **Use CVA for All Variants**
+
 ```typescript
 const componentVariants = cva(baseClasses, { variants, defaultVariants });
 ```
 
 ### 2. **Responsive Props Pattern**
+
 ```typescript
 type Responsive<T> = T | { default?: T; sm?: T; md?: T; lg?: T };
 ```
 
 ### 3. **Compound Components Pattern**
+
 ```typescript
 export const Card = () => {};
 Card.Header = () => {};
@@ -722,6 +740,7 @@ Card.Footer = () => {};
 ```
 
 ### 4. **Composition over Configuration**
+
 ```typescript
 // Good: Flexible composition
 <Card variant="glass" padding="lg">
@@ -734,6 +753,7 @@ Card.Footer = () => {};
 ```
 
 ### 5. **TypeScript-First Validation**
+
 ```typescript
 // Good: Type-safe at compile time
 interface Props {
