@@ -9,6 +9,7 @@
 ## Executive Summary
 
 This report validates token usage across the entire codebase, checking for:
+
 - Non-token spacing patterns (hardcoded p-4, m-2, etc.)
 - Hardcoded HSL/RGB colors
 - Old shadow classes (not using elevation tokens)
@@ -45,6 +46,7 @@ This report validates token usage across the entire codebase, checking for:
 **Issue:** Some components use hardcoded spacing values like `p-4`, `m-2`, `px-4`, `py-2` instead of token-based spacing (`px-sm`, `py-md`, etc.).
 
 **Recommendation:** Replace hardcoded spacing with token-based spacing:
+
 - `p-4` → `p-md` (if 16px) or appropriate token
 - `m-2` → `m-sm` (if 8px) or appropriate token
 - `px-4` → `px-md`
@@ -61,6 +63,7 @@ This report validates token usage across the entire codebase, checking for:
 #### ✅ GOOD: Most components use token-based spacing
 
 **Components using tokens correctly:**
+
 - `Container.tsx` - Uses `px-md`, `px-sm`, `px-lg`, `px-xl` ✅
 - `FilterSelect.tsx` - Uses `px-sm`, `py-sm` ✅
 - `FilterBar.tsx` - Uses `space-y-md`, `gap-md`, `gap-sm` ✅
@@ -80,6 +83,7 @@ This report validates token usage across the entire codebase, checking for:
 **Files using `shadow-sm`, `shadow-md`, `shadow-lg`, etc.:**
 
 Found 25 files using old shadow classes:
+
 - `ui/button.tsx` - Uses `shadow`, `shadow-sm`
 - `ui/card.tsx` - Uses `shadow-md`
 - `ui/dialog.tsx` - Uses `shadow-lg`
@@ -93,7 +97,8 @@ Found 25 files using old shadow classes:
 
 **Issue:** Components use Tailwind's default shadow classes (`shadow-sm`, `shadow-md`, `shadow-lg`) instead of elevation tokens (`shadow-elevation-sm`, `shadow-elevation-md`, `shadow-elevation-lg`).
 
-**Recommendation:** 
+**Recommendation:**
+
 1. Verify if Tailwind config maps `shadow-sm/md/lg` to elevation tokens
 2. If not mapped, replace with elevation tokens:
    - `shadow-sm` → `shadow-elevation-sm`
@@ -113,6 +118,7 @@ Found 25 files using old shadow classes:
 **File:** `cards/EventCard.tsx`
 
 **Usage:**
+
 - `shadow-elevation-md` ✅
 - `shadow-elevation-xl` ✅
 - `shadow-elevation-lg` ✅
@@ -132,6 +138,7 @@ Found 25 files using old shadow classes:
 **Status:** No hardcoded HSL, RGB, or hex color values found in components. ✅
 
 All components use token-based colors:
+
 - `bg-primary` ✅
 - `text-foreground` ✅
 - `border-border` ✅
@@ -148,11 +155,13 @@ All components use token-based colors:
 #### ✅ GOOD: Radius classes are acceptable
 
 **Files using radius classes:**
+
 - 44 files use `rounded-md`, `rounded-lg`, `rounded-xl`, `rounded-full`, etc.
 
 **Status:** These are acceptable if Tailwind config maps them to radius tokens.
 
-**Recommendation:** 
+**Recommendation:**
+
 1. Verify Tailwind config maps radius classes to tokens
 2. If not, consider using explicit radius tokens (if available)
 
@@ -169,6 +178,7 @@ All components use token-based colors:
 #### ✅ GOOD: Motion tokens used correctly
 
 **Components using motion tokens:**
+
 - `EventCard.tsx` - Uses `duration-normal`, `duration-slow` ✅
 - `Modal.tsx` - Uses `duration-200` (could use token)
 - Various components use `transition-colors`, `transition-all` ✅
@@ -192,11 +202,13 @@ All components use token-based colors:
 **Issue:** Line 27 - Uses `p-4` instead of token-based spacing.
 
 **Current:**
+
 ```typescript
 <div className={cn("rounded-lg border p-4", variantClasses[variant], className)}>
 ```
 
 **Recommendation:**
+
 ```typescript
 <div className={cn("rounded-lg border p-md", variantClasses[variant], className)}>
 ```
@@ -214,6 +226,7 @@ All components use token-based colors:
 **Issue:** Lines 12-16 - Uses `shadow`, `shadow-sm` instead of elevation tokens.
 
 **Current:**
+
 ```typescript
 default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
 destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
@@ -222,6 +235,7 @@ secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/
 ```
 
 **Recommendation:**
+
 ```typescript
 default: "bg-primary text-primary-foreground shadow-elevation-xs hover:bg-primary/90",
 destructive: "bg-destructive text-destructive-foreground shadow-elevation-xs hover:bg-destructive/90",
@@ -242,6 +256,7 @@ secondary: "bg-secondary text-secondary-foreground shadow-elevation-xs hover:bg-
 **Issue:** Line 39 - Uses `shadow-lg` instead of elevation token.
 
 **Current:**
+
 ```typescript
 className={cn(
   "... shadow-lg duration-200 ...",
@@ -250,6 +265,7 @@ className={cn(
 ```
 
 **Recommendation:**
+
 ```typescript
 className={cn(
   "... shadow-elevation-xl duration-200 ...",
@@ -264,18 +280,22 @@ className={cn(
 ## 7. Summary of Violations
 
 ### Critical Violations (0)
+
 None found.
 
 ### High Priority Violations (0)
+
 None found.
 
 ### Medium Priority Violations (12)
+
 1. Alert.tsx - Hardcoded `p-4` spacing
 2. Button.tsx - Old shadow classes (`shadow`, `shadow-sm`)
 3. Modal.tsx - Old shadow classes (`shadow-lg`)
 4. 9 more files with hardcoded spacing or old shadow classes
 
 ### Low Priority Violations (0)
+
 - Radius classes are acceptable if mapped to tokens
 - Motion durations are mostly acceptable
 
@@ -284,6 +304,7 @@ None found.
 ## 8. Recommendations
 
 ### Immediate Actions (Medium Priority)
+
 1. ✅ Replace hardcoded spacing with tokens
    - `p-4` → `p-md` (verify mapping)
    - `m-2` → `m-sm` (verify mapping)
@@ -302,6 +323,7 @@ None found.
    - If not mapped, replace with explicit tokens
 
 ### Short-term Actions
+
 1. ✅ Create token usage guidelines
    - Document which spacing tokens to use
    - Document which shadow tokens to use
@@ -313,6 +335,7 @@ None found.
    - Enforce token usage
 
 ### Long-term Actions
+
 1. ✅ Audit all components
    - Systematic review of all components
    - Replace all violations
@@ -323,6 +346,7 @@ None found.
 ## 9. Positive Findings
 
 ### ✅ Excellent Token Usage Found
+
 1. **Colors:** Perfect - no hardcoded colors ✅
 2. **Spacing:** Good - most components use tokens ✅
 3. **EventCard:** Excellent - uses elevation tokens correctly ✅
@@ -334,13 +358,15 @@ None found.
 ## 10. Token System Status
 
 ### Available Tokens
+
 - ✅ **Spacing:** Complete token system (xs, sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl)
 - ✅ **Shadows:** Complete elevation system (xs, sm, md, lg, xl, 2xl)
 - ✅ **Colors:** Complete color system (all colors tokenized)
 - ✅ **Radius:** Available via Tailwind (rounded-md, rounded-lg, etc.)
-- ✅ **Motion:** Available via Tailwind (duration-*, transition-*)
+- ✅ **Motion:** Available via Tailwind (duration-_, transition-_)
 
 ### Token Usage Compliance
+
 - **Colors:** 100% compliant ✅
 - **Spacing:** ~85% compliant (some hardcoded values)
 - **Shadows:** ~10% compliant (most use old classes)
@@ -351,4 +377,3 @@ None found.
 
 **Report Generated:** 2025-01-20  
 **Next Steps:** Proceed with Static Validation (FRP_STATIC_VALIDATION.md)
-

@@ -9,6 +9,7 @@
 ## Executive Summary
 
 This report analyzes the public API surface of all components in the Tenerife UI Library, focusing on:
+
 - Variant API consistency
 - Prop naming conventions
 - Pass-through props to native elements
@@ -29,6 +30,7 @@ This report analyzes the public API surface of all components in the Tenerife UI
 #### ✅ GOOD: Consistent size values across most components
 
 **Components with size prop:**
+
 - **Button** (`ui/button.tsx`): `"default" | "sm" | "lg" | "icon"` ✅
 - **Link** (`primitives/Link.tsx`): `"default" | "sm" | "lg" | "icon" | "none"` ✅
 - **Container** (`layout/Container.tsx`): `"sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "full"` ⚠️ (Different scale)
@@ -36,7 +38,8 @@ This report analyzes the public API surface of all components in the Tenerife UI
 
 **Issue:** Container uses a different size scale (sm, md, lg, xl, 2xl, etc.) compared to Button/Link (default, sm, lg, icon).
 
-**Recommendation:** 
+**Recommendation:**
+
 - Document that Container uses a different scale (max-width based)
 - OR consider aligning with standard size scale if possible
 - This is acceptable as Container serves a different purpose (layout vs interactive)
@@ -51,16 +54,17 @@ This report analyzes the public API surface of all components in the Tenerife UI
 
 **Components with variant prop:**
 
-| Component | Variants | Status |
-|-----------|----------|--------|
-| Button | `default`, `destructive`, `outline`, `secondary`, `ghost`, `link` | ✅ |
-| Badge | `default`, `secondary`, `destructive`, `outline` | ✅ |
-| Link | `default`, `destructive`, `ghost`, `secondary`, `button`, `button-outline`, `button-secondary` | ⚠️ (Has additional button variants) |
-| Alert | `success`, `error`, `warning`, `info` | ⚠️ (Different naming) |
+| Component | Variants                                                                                       | Status                              |
+| --------- | ---------------------------------------------------------------------------------------------- | ----------------------------------- |
+| Button    | `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`                              | ✅                                  |
+| Badge     | `default`, `secondary`, `destructive`, `outline`                                               | ✅                                  |
+| Link      | `default`, `destructive`, `ghost`, `secondary`, `button`, `button-outline`, `button-secondary` | ⚠️ (Has additional button variants) |
+| Alert     | `success`, `error`, `warning`, `info`                                                          | ⚠️ (Different naming)               |
 
 **Issue 1:** Link component has additional `button`, `button-outline`, `button-secondary` variants that don't match Button's variant names.
 
 **Recommendation:** Consider renaming Link variants to match Button:
+
 - `button` → `default`
 - `button-outline` → `outline`
 - `button-secondary` → `secondary`
@@ -80,12 +84,14 @@ This report analyzes the public API surface of all components in the Tenerife UI
 #### 🟡 MEDIUM: Inconsistent size prop naming
 
 **Components:**
+
 - **Text** (`Typography.tsx`): `size="xs" | "sm" | "base" | "lg" | "xl"` ✅
 - **Heading** (`Typography.tsx`): `level={1 | 2 | 3 | 4 | 5 | 6}` ✅ (Different prop name)
 
 **Issue:** Heading uses `level` prop while Text uses `size` prop. Both control size/scale but with different prop names.
 
-**Recommendation:** 
+**Recommendation:**
+
 - This is acceptable as `level` is semantic (HTML heading levels)
 - Document that `level` is semantic while `size` is visual
 
@@ -101,19 +107,21 @@ This report analyzes the public API surface of all components in the Tenerife UI
 
 **Components:**
 
-| Component | Change Handler Prop | Type | Status |
-|----------|-------------------|------|--------|
-| SearchInput | `onChange` | `(value: string) => void` | ✅ |
-| FilterSelect | `onValueChange` | `(value: string) => void` | ⚠️ |
-| LanguageSelector | `onLanguageChange` | `(language: string) => void` | ⚠️ |
-| DateRangePicker | `onChange` | `(range: { from, to }) => void` | ✅ |
-| PriceRangeSlider | `onChange` | `(range: { min, max }) => void` | ✅ |
+| Component        | Change Handler Prop | Type                            | Status |
+| ---------------- | ------------------- | ------------------------------- | ------ |
+| SearchInput      | `onChange`          | `(value: string) => void`       | ✅     |
+| FilterSelect     | `onValueChange`     | `(value: string) => void`       | ⚠️     |
+| LanguageSelector | `onLanguageChange`  | `(language: string) => void`    | ⚠️     |
+| DateRangePicker  | `onChange`          | `(range: { from, to }) => void` | ✅     |
+| PriceRangeSlider | `onChange`          | `(range: { min, max }) => void` | ✅     |
 
-**Issue:** 
+**Issue:**
+
 - `FilterSelect` uses `onValueChange` instead of `onChange`
 - `LanguageSelector` uses `onLanguageChange` instead of `onChange`
 
 **Recommendation:** Standardize to `onChange` for consistency:
+
 - `FilterSelect.onValueChange` → `onChange`
 - `LanguageSelector.onLanguageChange` → `onChange`
 
@@ -128,6 +136,7 @@ This report analyzes the public API surface of all components in the Tenerife UI
 #### ✅ GOOD: Consistent value prop naming
 
 **Components:**
+
 - `FilterSelect`: `value: string` ✅
 - `LanguageSelector`: `value?: string` ✅
 - `SearchInput`: `value: string` ✅
@@ -145,6 +154,7 @@ This report analyzes the public API surface of all components in the Tenerife UI
 #### ✅ GOOD: Most components properly pass through HTML attributes
 
 **Components with proper pass-through:**
+
 - **Button** (`ui/button.tsx`): Extends `React.ButtonHTMLAttributes<HTMLButtonElement>` ✅
 - **Link** (`primitives/Link.tsx`): Extends `React.AnchorHTMLAttributes<HTMLAnchorElement>` ✅
 - **Container** (`layout/Container.tsx`): Extends `React.HTMLAttributes<HTMLDivElement>` ✅
@@ -168,6 +178,7 @@ This report analyzes the public API surface of all components in the Tenerife UI
    - Missing: `id`, `data-*`, `aria-*`, etc.
 
 **Recommendation:**
+
 ```typescript
 interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "success" | "error" | "warning" | "info";
@@ -183,6 +194,7 @@ interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
    - Missing: `id`, `data-*`, `aria-*`, etc.
 
 **Recommendation:**
+
 ```typescript
 interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number;
@@ -197,6 +209,7 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
    - Missing pass-through for semantic HTML attributes
 
 **Recommendation:** Extend appropriate HTML attributes:
+
 - `Heading` → `React.HTMLAttributes<HTMLHeadingElement>`
 - `Text` → `React.HTMLAttributes<HTMLSpanElement>`
 - `Paragraph` → `React.HTMLAttributes<HTMLParagraphElement>`
@@ -214,6 +227,7 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 #### ✅ GOOD: Consistent export patterns
 
 **Export patterns:**
+
 - Components exported as named exports ✅
 - Props interfaces exported ✅
 - Variant functions exported (for CVA components) ✅
@@ -228,6 +242,7 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 #### ✅ GOOD: Consistent default prop patterns
 
 **Components with default props:**
+
 - Button: `variant="default"`, `size="default"` ✅
 - Link: `variant="default"`, `size="none"` ✅
 - Badge: `variant="default"` ✅
@@ -244,13 +259,15 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 #### 🟡 MEDIUM: Inconsistent required prop patterns
 
 **Components with many required props:**
+
 - **FilterBar**: 20+ required string props (labels) ⚠️
 - **FilterSelect**: `placeholder` required (validated at runtime) ⚠️
 - **LanguageSelector**: `ariaLabel`, `dataTestId`, `languages` required ⚠️
 
 **Issue:** Some components have many required props that could be optional with defaults.
 
-**Recommendation:** 
+**Recommendation:**
+
 - Provide default values for labels where possible
 - Use TypeScript to enforce required props (not runtime validation)
 - Document which props are truly required vs optional
@@ -266,12 +283,14 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 #### 🟡 MEDIUM: Overlapping toast hook implementations
 
 **Files:**
+
 - `src/hooks/useToast.ts` - Custom implementation
 - `src/hooks/use-toast.ts` - shadcn/ui implementation
 
 **Issue:** Two different toast hook implementations exist.
 
 **Recommendation:**
+
 - Choose one implementation (prefer shadcn/ui for consistency)
 - Remove or deprecate the other
 - Document which one to use
@@ -295,6 +314,7 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 #### ✅ GOOD: Container API is well-designed
 
 **Props:**
+
 - `size`: Controls max-width (sm to 7xl, full)
 - `padding`: Controls horizontal padding (none, sm, md, lg, xl)
 
@@ -307,6 +327,7 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 #### ✅ GOOD: Layout components have consistent patterns
 
 **Pattern:**
+
 - All use CVA with VariantProps
 - All extend `React.HTMLAttributes<HTMLDivElement>`
 - All use `forwardRef`
@@ -321,6 +342,7 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 #### 🟡 MEDIUM: Filter components have inconsistent change handlers
 
 **Components:**
+
 - `FilterSelect`: `onValueChange`
 - `SearchInput`: `onChange`
 - `DateRangePicker`: `onChange`
@@ -347,6 +369,7 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 #### ✅ GOOD: Generic components properly typed
 
 **Components:**
+
 - `Table<T>` - Properly generic ✅
 - `List<T>` - Properly generic ✅
 
@@ -357,12 +380,15 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 ## 8. Summary of Issues
 
 ### Critical Issues (0)
+
 None found.
 
 ### High Priority Issues (1)
+
 1. Duplicate toast hook implementations (`useToast.ts` vs `use-toast.ts`)
 
 ### Medium Priority Issues (8)
+
 1. FilterSelect uses `onValueChange` instead of `onChange`
 2. LanguageSelector uses `onLanguageChange` instead of `onChange`
 3. Alert component missing HTML attributes pass-through
@@ -373,6 +399,7 @@ None found.
 8. Inconsistent change handler naming across filter components
 
 ### Low Priority Issues (3)
+
 1. Container uses different size scale (acceptable for layout component)
 2. Alert uses semantic variant names (acceptable)
 3. Heading uses `level` prop while Text uses `size` (acceptable semantic difference)
@@ -382,12 +409,14 @@ None found.
 ## 9. Recommendations
 
 ### Immediate Actions (High Priority)
+
 1. ✅ Resolve duplicate toast hook implementations
    - Choose one (recommend `use-toast.ts` from shadcn/ui)
    - Remove or deprecate the other
    - Update all usages
 
 ### Short-term Actions (Medium Priority)
+
 1. ✅ Standardize change handler prop names
    - `FilterSelect.onValueChange` → `onChange` (with deprecation)
    - `LanguageSelector.onLanguageChange` → `onChange` (with deprecation)
@@ -406,6 +435,7 @@ None found.
    - Use TypeScript for required prop enforcement
 
 ### Long-term Actions (Low Priority)
+
 1. ✅ Document API patterns
    - Document size scale differences (Container vs Button)
    - Document semantic vs visual prop naming (Heading.level vs Text.size)
@@ -421,6 +451,7 @@ None found.
 ## 10. Positive Findings
 
 ### ✅ Good API Practices Found
+
 1. **Consistent CVA Usage:** All variant-based components use CVA with VariantProps ✅
 2. **Proper TypeScript:** All components have proper TypeScript interfaces ✅
 3. **Pass-through Props:** Most components properly extend HTML attributes ✅
@@ -433,4 +464,3 @@ None found.
 
 **Report Generated:** 2025-01-20  
 **Next Steps:** Proceed with Consistency Audit (FRP_CONSISTENCY_AUDIT.md)
-

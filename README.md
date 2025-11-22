@@ -1,18 +1,18 @@
 🌴 Tenerife UI — Premium React Component Library
 Elegant. Token-driven. Fully Typed. Built for Luxury Interfaces.
+
 <p align="center"> <img src="https://raw.githubusercontent.com/Tureckiy-zart/tenerife-ui/main/.github/banner.png" width="100%" /> </p> <p align="center"> <strong> A high-end, fully tokenized design system crafted for modern React apps.<br/> Built with Tailwind, CVA, TypeScript and a luxury-first aesthetic. </strong> </p> <p align="center"> <img src="https://img.shields.io/badge/React-18+-blue?style=for-the-badge"/> <img src="https://img.shields.io/badge/TailwindCSS-3.4-38b2ac?style=for-the-badge"/> <img src="https://img.shields.io/badge/TypeScript-Strict-blue?style=for-the-badge"/> <img src="https://img.shields.io/badge/Design%20Tokens-Complete-purple?style=for-the-badge"/> <img src="https://img.shields.io/badge/CVA-Variants-success?style=for-the-badge"/> </p>
 🚀 Quick Start
 npm install @tenerife/ui
 # or
 pnpm add @tenerife/ui
 
-
 Use a component:
 
 import { Button } from "@tenerife/ui";
 
 export function Demo() {
-  return <Button variant="primary">Book Now</Button>;
+return <Button variant="primary">Book Now</Button>;
 }
 
 🎨 Tenerife UI Design Philosophy
@@ -100,11 +100,11 @@ npm install @tenerife/ui
 import { ThemeProvider } from "@tenerife/ui";
 
 export default function App() {
-  return (
-    <ThemeProvider>
-      <YourApp />
-    </ThemeProvider>
-  );
+return (
+<ThemeProvider>
+<YourApp />
+</ThemeProvider>
+);
 }
 
 🎨 Design Tokens System
@@ -188,13 +188,13 @@ Instant day/night mode.
 
 🧱 Folder Structure
 src/
-  components/
-  tokens/
-  theme/
-  layouts/
-  overlays/
-  search/
-  data/
+components/
+tokens/
+theme/
+layouts/
+overlays/
+search/
+data/
 
 📸 Component Preview
 

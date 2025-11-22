@@ -9,6 +9,7 @@
 ## Executive Summary
 
 This report documents code review findings across 71 components and 4 hooks. The review focused on:
+
 - Code smells and anti-patterns
 - Dead code (unused imports, functions)
 - Hook issues (stale closures, dependency arrays)
@@ -44,7 +45,8 @@ React.useEffect(() => {
 
 **Problem:** If `onChange` is recreated on every render, this effect will run on every parent re-render, defeating the purpose of debouncing.
 
-**Recommendation:** 
+**Recommendation:**
+
 - Use `useCallback` in parent component, OR
 - Remove `onChange` from dependencies if it's stable, OR
 - Use `useRef` to store the latest `onChange` callback
@@ -157,6 +159,7 @@ const options = useMemo(() => languages, [languages]);
 **Issue:** Most components don't use `React.memo`, which could cause unnecessary re-renders when parent components re-render.
 
 **Affected Components:**
+
 - `Alert.tsx` - Simple component that could benefit from memo
 - `Badge.tsx` - Frequently used component
 - `Typography.tsx` - Text components that rarely change
@@ -164,6 +167,7 @@ const options = useMemo(() => languages, [languages]);
 - `VenueCard.tsx` - Similar to EventCard
 
 **Recommendation:** Consider adding `React.memo` to components that:
+
 - Receive stable props
 - Are rendered frequently in lists
 - Have expensive render logic
@@ -171,6 +175,7 @@ const options = useMemo(() => languages, [languages]);
 **Severity:** Medium
 
 **Example Fix:**
+
 ```typescript
 export const Alert = React.memo<AlertProps>(({ ... }) => {
   // ...
@@ -190,6 +195,7 @@ export const Alert = React.memo<AlertProps>(({ ... }) => {
 **Problem:** These computations run on every render, even if props haven't changed.
 
 **Recommendation:** Use `useMemo` for expensive computations:
+
 ```typescript
 const title = useMemo(() => {
   return typeof event?.name === "string"
@@ -209,6 +215,7 @@ const title = useMemo(() => {
 #### 🟡 MEDIUM: Components without explicit Props interfaces
 
 **Files:**
+
 - `ModalHeader` and `ModalFooter` in `Modal.tsx` - Use `React.HTMLAttributes<HTMLDivElement>` directly
 - Some internal components don't export their Props types
 
@@ -225,6 +232,7 @@ const title = useMemo(() => {
 #### ✅ GOOD: Proper VariantProps usage
 
 **Files with correct VariantProps:**
+
 - `Container.tsx` - ✅ Correctly extends `VariantProps<typeof containerVariants>`
 - `Button.tsx` (ui) - ✅ Correctly extends `VariantProps<typeof buttonVariants>`
 - `Badge.tsx` - ✅ Correctly extends `VariantProps<typeof badgeVariants>`
@@ -239,6 +247,7 @@ const title = useMemo(() => {
 #### 🟡 MEDIUM: Missing type exports
 
 **Files:**
+
 - `FilterSelect.tsx` - Exports `FilterSelectProps` ✅
 - `SearchInput.tsx` - Exports `SearchInputProps` ✅
 - `LanguageSelector.tsx` - Exports `LanguageSelectorProps` ✅
@@ -255,6 +264,7 @@ const title = useMemo(() => {
 #### ✅ GOOD: Event handlers properly typed
 
 Most components correctly type their event handlers:
+
 - `SearchInput.tsx` - `onChange: (value: string) => void` ✅
 - `FilterSelect.tsx` - `onValueChange: (value: string) => void` ✅
 - `LanguageSelector.tsx` - `onLanguageChange?: (language: string) => void` ✅
@@ -294,16 +304,19 @@ Most components correctly type their event handlers:
 #### 🟡 MEDIUM: Some components missing ARIA labels
 
 **Files with good ARIA support:**
+
 - `LanguageSelector.tsx` - ✅ Has `aria-label` and `data-testid`
 - `SearchInput.tsx` - ✅ Has `aria-label` on clear button
 - `Modal.tsx` - ✅ Has `sr-only` text for close button
 
 **Files that could improve:**
+
 - `Alert.tsx` - Could add `role="alert"` for better screen reader support
 - `EventCard.tsx` - Complex card could benefit from better ARIA structure
 - `FilterBar.tsx` - Filter controls could have better ARIA labels
 
 **Recommendation:** Add appropriate ARIA attributes:
+
 - `role="alert"` for Alert component
 - `aria-label` for icon-only buttons
 - `aria-describedby` for form inputs with descriptions
@@ -327,6 +340,7 @@ Most components correctly type their event handlers:
 #### 🟡 MEDIUM: Console.log in production code
 
 **Files with console statements:**
+
 - `ThemeSwitch.tsx` - Line 45 - `console.log` in `debugModeSnapshot` function
 - `Image.tsx` - Potential console statements (needs verification)
 - `types.ts` (filters) - Potential console statements (needs verification)
@@ -334,6 +348,7 @@ Most components correctly type their event handlers:
 **Issue:** Console statements should be removed or wrapped in development-only checks.
 
 **Recommendation:**
+
 ```typescript
 if (process.env.NODE_ENV === 'development') {
   console.log(...);
@@ -349,13 +364,15 @@ if (process.env.NODE_ENV === 'development') {
 #### 🟡 MEDIUM: Runtime validation in component body
 
 **Files:**
+
 - `FilterSelect.tsx` - Line 159-161 - Throws error if placeholder is empty
 - `LanguageSelector.tsx` - Lines 33-41 - Multiple error throws
 - `FilterBar.tsx` - Lines 90-158 - Many error throws
 
 **Issue:** Throwing errors during render can crash the entire app. These should be handled more gracefully.
 
-**Recommendation:** 
+**Recommendation:**
+
 - Use React Error Boundaries
 - Return error state instead of throwing
 - Validate props in development only
@@ -364,8 +381,9 @@ if (process.env.NODE_ENV === 'development') {
 **Severity:** Medium
 
 **Example:**
+
 ```typescript
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
   if (!placeholder || placeholder.trim() === "") {
     console.error('FilterSelect: "placeholder" prop is required');
   }
@@ -379,6 +397,7 @@ if (process.env.NODE_ENV !== 'production') {
 #### 🟢 LOW: Unused imports and functions
 
 **Files to check:**
+
 - `SearchInput.tsx` - `useSearch` hook exported but may not be used (line 96-119)
 - Some components may have unused imports
 
@@ -393,6 +412,7 @@ if (process.env.NODE_ENV !== 'production') {
 #### 🟡 MEDIUM: Hardcoded values
 
 **Files:**
+
 - `EventCard.tsx` - Line 257 - Hardcoded `max={500}` in PriceRangeSlider
 - `ThemeSwitch.tsx` - Multiple magic strings for storage keys
 - Various components with hardcoded class names
@@ -414,8 +434,9 @@ if (process.env.NODE_ENV !== 'production') {
 **Issue:** Missing `role="alert"` for screen readers.
 
 **Recommendation:**
+
 ```typescript
-<div 
+<div
   role="alert"
   className={cn("rounded-lg border p-4", variantClasses[variant], className)}
 >
@@ -464,6 +485,7 @@ if (process.env.NODE_ENV !== 'production') {
 **Problem:** This is extremely verbose and will crash the app if any prop is missing.
 
 **Recommendation:**
+
 1. Use TypeScript to enforce required props
 2. Provide default values where possible
 3. Only validate in development mode
@@ -480,6 +502,7 @@ if (process.env.NODE_ENV !== 'production') {
 #### ✅ GOOD: Most components follow good structure
 
 **Status:** Components are well-organized with:
+
 - Clear prop interfaces
 - Proper TypeScript types
 - Good separation of concerns
@@ -491,6 +514,7 @@ if (process.env.NODE_ENV !== 'production') {
 #### 🟡 MEDIUM: Inconsistent import grouping
 
 **Issue:** Some files group imports differently. Should follow consistent pattern:
+
 1. React imports
 2. Third-party imports
 3. Internal imports
@@ -525,6 +549,7 @@ if (process.env.NODE_ENV !== 'production') {
 #### ✅ GOOD: External links use proper attributes
 
 **Files:**
+
 - `EventCard.tsx` - Line 170 - Uses `target="_blank"` with `rel="noopener noreferrer"` ✅
 
 **Status:** External links are properly secured. ✅
@@ -534,12 +559,14 @@ if (process.env.NODE_ENV !== 'production') {
 ## 10. Summary by Severity
 
 ### Critical Issues (8)
+
 1. SearchInput.tsx - Missing dependency in useEffect (stale closure risk)
 2. FilterBar.tsx - Excessive prop validation (20+ error throws)
 3. Multiple components - Missing React.memo optimization
 4. useToast.ts - Potential memory leak with setTimeout
 
 ### High Priority Issues (15)
+
 1. LanguageSelector.tsx - Potential stale closure
 2. FilterBar.tsx - Missing dependency warning
 3. EventCard.tsx - Complex inline computations
@@ -549,6 +576,7 @@ if (process.env.NODE_ENV !== 'production') {
 7. Console.log statements in production code
 
 ### Medium Priority Issues (18)
+
 1. Unnecessary useMemo usage
 2. Missing type exports (some components)
 3. Inline functions in map (minor performance impact)
@@ -557,6 +585,7 @@ if (process.env.NODE_ENV !== 'production') {
 6. Error throwing in render (should use Error Boundaries)
 
 ### Low Priority Issues (6)
+
 1. Dead code (unused imports/functions)
 2. Missing explicit Props exports (some components)
 3. Style objects created on every render (minor)
@@ -566,24 +595,28 @@ if (process.env.NODE_ENV !== 'production') {
 ## 11. Recommendations
 
 ### Immediate Actions (Critical)
+
 1. ✅ Fix SearchInput useEffect dependency issue
 2. ✅ Refactor FilterBar prop validation (use TypeScript + defaults)
 3. ✅ Add React.memo to frequently rendered components
 4. ✅ Fix useToast setTimeout memory leak
 
 ### Short-term Actions (High Priority)
+
 1. ✅ Extract ThemeSwitch logic to custom hook
 2. ✅ Add ARIA attributes to Alert and other components
 3. ✅ Wrap console.log statements in development checks
 4. ✅ Add React.memo to EventCard, VenueCard, Badge
 
 ### Medium-term Actions
+
 1. ✅ Standardize import organization
 2. ✅ Extract magic numbers to constants
 3. ✅ Add Error Boundaries for graceful error handling
 4. ✅ Optimize EventCard computations with useMemo
 
 ### Long-term Actions
+
 1. ✅ Add comprehensive unit tests
 2. ✅ Set up ESLint rules for unused imports
 3. ✅ Document component prop requirements
@@ -594,6 +627,7 @@ if (process.env.NODE_ENV !== 'production') {
 ## 12. Positive Findings
 
 ### ✅ Good Practices Found
+
 1. **TypeScript Usage:** Excellent TypeScript coverage across all components
 2. **VariantProps:** All CVA components properly use VariantProps
 3. **forwardRef:** Components that need refs properly use forwardRef
@@ -606,4 +640,3 @@ if (process.env.NODE_ENV !== 'production') {
 
 **Report Generated:** 2025-01-20  
 **Next Steps:** Proceed with API Audit (FRP_API_AUDIT.md)
-

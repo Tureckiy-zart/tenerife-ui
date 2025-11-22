@@ -11,6 +11,7 @@
 This inventory provides a comprehensive overview of the Tenerife UI Library codebase structure, including all components, hooks, utilities, tokens, and theme files.
 
 **Total Files Scanned:**
+
 - Components: 93 `.tsx` files
 - TypeScript files: 29 `.ts` files
 - **Total: 122 files**
@@ -23,17 +24,17 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Base UI components** - Core building blocks of the design system:
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| Badge | `Badge.tsx` | ❌ | ❌ | ✅ |
-| Button | `Button.tsx` | ✅ `Button.stories.tsx` | ✅ `Button.test.tsx` | ✅ |
-| Card | `Card.tsx` | ❌ | ❌ | ✅ |
-| Divider | `Divider.tsx` | ❌ | ❌ | ✅ |
-| Input | `Input.tsx` | ❌ | ❌ | ✅ |
-| Label | `Label.tsx` | ❌ | ❌ | ✅ |
-| Link | `Link.tsx` | ❌ | ❌ | ✅ |
-| ThemeSwitch | `ThemeSwitch.tsx` | ✅ `ThemeSwitch.stories.tsx` | ❌ | ✅ |
-| Typography | `Typography.tsx` | ✅ `Typography.stories.tsx` | ❌ | ✅ |
+| Component   | File              | Stories                      | Tests                | Exported |
+| ----------- | ----------------- | ---------------------------- | -------------------- | -------- |
+| Badge       | `Badge.tsx`       | ❌                           | ❌                   | ✅       |
+| Button      | `Button.tsx`      | ✅ `Button.stories.tsx`      | ✅ `Button.test.tsx` | ✅       |
+| Card        | `Card.tsx`        | ❌                           | ❌                   | ✅       |
+| Divider     | `Divider.tsx`     | ❌                           | ❌                   | ✅       |
+| Input       | `Input.tsx`       | ❌                           | ❌                   | ✅       |
+| Label       | `Label.tsx`       | ❌                           | ❌                   | ✅       |
+| Link        | `Link.tsx`        | ❌                           | ❌                   | ✅       |
+| ThemeSwitch | `ThemeSwitch.tsx` | ✅ `ThemeSwitch.stories.tsx` | ❌                   | ✅       |
+| Typography  | `Typography.tsx`  | ✅ `Typography.stories.tsx`  | ❌                   | ✅       |
 
 **Total Primitives:** 9 components
 
@@ -41,16 +42,16 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Layout and structure components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| Container | `Container.tsx` | ❌ | ❌ | ✅ |
-| Flex | `Flex.tsx` | ❌ | ❌ | ✅ |
-| Footer | `Footer.tsx` | ❌ | ❌ | ✅ |
-| Grid | `Grid.tsx` | ❌ | ❌ | ✅ |
-| ModeHero | `ModeHero.tsx` | ❌ | ❌ | ✅ |
-| Navbar | `Navbar.tsx` | ❌ | ❌ | ✅ |
-| Section | `Section.tsx` | ❌ | ❌ | ✅ |
-| Stack | `Stack.tsx` | ❌ | ❌ | ✅ |
+| Component | File            | Stories | Tests | Exported |
+| --------- | --------------- | ------- | ----- | -------- |
+| Container | `Container.tsx` | ❌      | ❌    | ✅       |
+| Flex      | `Flex.tsx`      | ❌      | ❌    | ✅       |
+| Footer    | `Footer.tsx`    | ❌      | ❌    | ✅       |
+| Grid      | `Grid.tsx`      | ❌      | ❌    | ✅       |
+| ModeHero  | `ModeHero.tsx`  | ❌      | ❌    | ✅       |
+| Navbar    | `Navbar.tsx`    | ❌      | ❌    | ✅       |
+| Section   | `Section.tsx`   | ❌      | ❌    | ✅       |
+| Stack     | `Stack.tsx`     | ❌      | ❌    | ✅       |
 
 **Total Layout Components:** 8 components
 
@@ -58,13 +59,13 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Modal and dialog components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| ConfirmDialog | `ConfirmDialog.tsx` | ✅ `ConfirmDialog.stories.tsx` | ❌ | ✅ |
-| CustomDialog | `CustomDialog.tsx` | ✅ `CustomDialog.stories.tsx` | ❌ | ✅ |
-| Modal | `Modal.tsx` | ✅ `Modal.stories.tsx` | ❌ | ✅ |
-| ModalProvider | `ModalProvider.tsx` | ❌ | ❌ | ✅ |
-| SimpleModal | `SimpleModal.tsx` | ✅ `SimpleModal.stories.tsx` | ❌ | ✅ |
+| Component     | File                | Stories                        | Tests | Exported |
+| ------------- | ------------------- | ------------------------------ | ----- | -------- |
+| ConfirmDialog | `ConfirmDialog.tsx` | ✅ `ConfirmDialog.stories.tsx` | ❌    | ✅       |
+| CustomDialog  | `CustomDialog.tsx`  | ✅ `CustomDialog.stories.tsx`  | ❌    | ✅       |
+| Modal         | `Modal.tsx`         | ✅ `Modal.stories.tsx`         | ❌    | ✅       |
+| ModalProvider | `ModalProvider.tsx` | ❌                             | ❌    | ✅       |
+| SimpleModal   | `SimpleModal.tsx`   | ✅ `SimpleModal.stories.tsx`   | ❌    | ✅       |
 
 **Total Modal Components:** 5 components
 
@@ -72,11 +73,11 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Menu and navigation menu components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| DropdownMenu | `DropdownMenu.tsx` | ✅ `DropdownMenu.stories.tsx` | ❌ | ✅ |
-| NavigationMenu | `NavigationMenu.tsx` | ❌ | ❌ | ✅ |
-| Tabs | `Tabs.tsx` | ✅ `Tabs.stories.tsx` | ❌ | ✅ |
+| Component      | File                 | Stories                       | Tests | Exported |
+| -------------- | -------------------- | ----------------------------- | ----- | -------- |
+| DropdownMenu   | `DropdownMenu.tsx`   | ✅ `DropdownMenu.stories.tsx` | ❌    | ✅       |
+| NavigationMenu | `NavigationMenu.tsx` | ❌                            | ❌    | ✅       |
+| Tabs           | `Tabs.tsx`           | ✅ `Tabs.stories.tsx`         | ❌    | ✅       |
 
 **Total Menu Components:** 3 components
 
@@ -84,15 +85,15 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Filter and search components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| DateRangePicker | `DateRangePicker.tsx` | ❌ | ❌ | ✅ |
-| FilterBar | `FilterBar.tsx` | ✅ `FilterBar.stories.tsx` | ❌ | ✅ |
-| FilterSelect | `FilterSelect.tsx` | ❌ | ❌ | ✅ |
-| PriceRangeSlider | `PriceRangeSlider.tsx` | ❌ | ❌ | ✅ |
-| SearchFilters | `SearchFilters.tsx` | ❌ | ❌ | ✅ |
-| SearchInput | `SearchInput.tsx` | ❌ | ❌ | ✅ |
-| types | `types.ts` | ❌ | ❌ | ❌ (internal) |
+| Component        | File                   | Stories                    | Tests | Exported      |
+| ---------------- | ---------------------- | -------------------------- | ----- | ------------- |
+| DateRangePicker  | `DateRangePicker.tsx`  | ❌                         | ❌    | ✅            |
+| FilterBar        | `FilterBar.tsx`        | ✅ `FilterBar.stories.tsx` | ❌    | ✅            |
+| FilterSelect     | `FilterSelect.tsx`     | ❌                         | ❌    | ✅            |
+| PriceRangeSlider | `PriceRangeSlider.tsx` | ❌                         | ❌    | ✅            |
+| SearchFilters    | `SearchFilters.tsx`    | ❌                         | ❌    | ✅            |
+| SearchInput      | `SearchInput.tsx`      | ❌                         | ❌    | ✅            |
+| types            | `types.ts`             | ❌                         | ❌    | ❌ (internal) |
 
 **Total Filter Components:** 6 components + 1 types file
 
@@ -100,10 +101,10 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Toast notification components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| Toast | `Toast.tsx` | ✅ `Toast.stories.tsx` | ❌ | ✅ |
-| ToastProvider | `ToastProvider.tsx` | ❌ | ❌ | ✅ |
+| Component     | File                | Stories                | Tests | Exported |
+| ------------- | ------------------- | ---------------------- | ----- | -------- |
+| Toast         | `Toast.tsx`         | ✅ `Toast.stories.tsx` | ❌    | ✅       |
+| ToastProvider | `ToastProvider.tsx` | ❌                     | ❌    | ✅       |
 
 **Total Toast Components:** 2 components
 
@@ -111,11 +112,11 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Overlay and popup components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| OverlayPortal | `OverlayPortal.tsx` | ❌ | ❌ | ✅ |
-| Popover | `Popover.tsx` | ✅ `Popover.stories.tsx` | ❌ | ✅ |
-| Tooltip | `Tooltip.tsx` | ✅ `Tooltip.stories.tsx` | ❌ | ✅ |
+| Component     | File                | Stories                  | Tests | Exported |
+| ------------- | ------------------- | ------------------------ | ----- | -------- |
+| OverlayPortal | `OverlayPortal.tsx` | ❌                       | ❌    | ✅       |
+| Popover       | `Popover.tsx`       | ✅ `Popover.stories.tsx` | ❌    | ✅       |
+| Tooltip       | `Tooltip.tsx`       | ✅ `Tooltip.stories.tsx` | ❌    | ✅       |
 
 **Total Overlay Components:** 3 components
 
@@ -123,20 +124,20 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **User feedback and status components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| Alert | `Alert.tsx` | ✅ `Alert.stories.tsx` | ❌ | ✅ |
-| ConsentBanner | `ConsentBanner.tsx` | ❌ | ❌ | ✅ |
-| Progress | `Progress.tsx` | ✅ `Progress.stories.tsx` | ❌ | ✅ |
-| Skeleton | `Skeleton.tsx` | ❌ | ❌ | ✅ |
+| Component     | File                | Stories                   | Tests | Exported |
+| ------------- | ------------------- | ------------------------- | ----- | -------- |
+| Alert         | `Alert.tsx`         | ✅ `Alert.stories.tsx`    | ❌    | ✅       |
+| ConsentBanner | `ConsentBanner.tsx` | ❌                        | ❌    | ✅       |
+| Progress      | `Progress.tsx`      | ✅ `Progress.stories.tsx` | ❌    | ✅       |
+| Skeleton      | `Skeleton.tsx`      | ❌                        | ❌    | ✅       |
 
 **Total Feedback Components:** 4 components
 
 ### 1.9 Image Components (`src/components/image/`)
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| Image | `Image.tsx` | ❌ | ❌ | ✅ |
+| Component | File        | Stories | Tests | Exported |
+| --------- | ----------- | ------- | ----- | -------- |
+| Image     | `Image.tsx` | ❌      | ❌    | ✅       |
 
 **Total Image Components:** 1 component
 
@@ -144,10 +145,10 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Navigation and pagination components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| Breadcrumbs | `Breadcrumbs.tsx` | ✅ `Breadcrumbs.stories.tsx` | ❌ | ✅ |
-| Pagination | `Pagination.tsx` | ✅ `Pagination.stories.tsx` | ❌ | ✅ |
+| Component   | File              | Stories                      | Tests | Exported |
+| ----------- | ----------------- | ---------------------------- | ----- | -------- |
+| Breadcrumbs | `Breadcrumbs.tsx` | ✅ `Breadcrumbs.stories.tsx` | ❌    | ✅       |
+| Pagination  | `Pagination.tsx`  | ✅ `Pagination.stories.tsx`  | ❌    | ✅       |
 
 **Total Navigation Components:** 2 components
 
@@ -155,11 +156,11 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Data display components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| List | `List.tsx` | ✅ `List.stories.tsx` | ❌ | ✅ |
-| Table | `Table.tsx` | ✅ `Table.stories.tsx` | ❌ | ✅ |
-| Timeline | `Timeline.tsx` | ✅ `Timeline.stories.tsx` | ❌ | ✅ |
+| Component | File           | Stories                   | Tests | Exported |
+| --------- | -------------- | ------------------------- | ----- | -------- |
+| List      | `List.tsx`     | ✅ `List.stories.tsx`     | ❌    | ✅       |
+| Table     | `Table.tsx`    | ✅ `Table.stories.tsx`    | ❌    | ✅       |
+| Timeline  | `Timeline.tsx` | ✅ `Timeline.stories.tsx` | ❌    | ✅       |
 
 **Total Data Components:** 3 components
 
@@ -167,10 +168,10 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Card display components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| EventCard | `EventCard.tsx` | ❌ | ❌ | ✅ |
-| VenueCard | `VenueCard.tsx` | ❌ | ❌ | ✅ |
+| Component | File            | Stories | Tests | Exported |
+| --------- | --------------- | ------- | ----- | -------- |
+| EventCard | `EventCard.tsx` | ❌      | ❌    | ✅       |
+| VenueCard | `VenueCard.tsx` | ❌      | ❌    | ✅       |
 
 **Total Card Components:** 2 components
 
@@ -178,11 +179,11 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Form input components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| FormInput | `FormInput.tsx` | ❌ | ❌ | ✅ |
-| FormSelect | `FormSelect.tsx` | ❌ | ❌ | ✅ |
-| FormTextarea | `FormTextarea.tsx` | ❌ | ❌ | ✅ |
+| Component    | File               | Stories | Tests | Exported |
+| ------------ | ------------------ | ------- | ----- | -------- |
+| FormInput    | `FormInput.tsx`    | ❌      | ❌    | ✅       |
+| FormSelect   | `FormSelect.tsx`   | ❌      | ❌    | ✅       |
+| FormTextarea | `FormTextarea.tsx` | ❌      | ❌    | ✅       |
 
 **Total Form Components:** 3 components
 
@@ -190,11 +191,11 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Authentication components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| LoginForm | `LoginForm.tsx` | ❌ | ❌ | ✅ |
-| ProfileCard | `ProfileCard.tsx` | ❌ | ❌ | ✅ |
-| RegisterForm | `RegisterForm.tsx` | ❌ | ❌ | ✅ |
+| Component    | File               | Stories | Tests | Exported |
+| ------------ | ------------------ | ------- | ----- | -------- |
+| LoginForm    | `LoginForm.tsx`    | ❌      | ❌    | ✅       |
+| ProfileCard  | `ProfileCard.tsx`  | ❌      | ❌    | ✅       |
+| RegisterForm | `RegisterForm.tsx` | ❌      | ❌    | ✅       |
 
 **Total Auth Components:** 3 components
 
@@ -202,18 +203,18 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Admin dashboard components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| Dashboard | `Dashboard.tsx` | ❌ | ❌ | ✅ |
-| UserManagement | `UserManagement.tsx` | ❌ | ❌ | ✅ |
+| Component      | File                 | Stories | Tests | Exported |
+| -------------- | -------------------- | ------- | ----- | -------- |
+| Dashboard      | `Dashboard.tsx`      | ❌      | ❌    | ✅       |
+| UserManagement | `UserManagement.tsx` | ❌      | ❌    | ✅       |
 
 **Total Admin Components:** 2 components
 
 ### 1.16 Search Components (`src/components/search/`)
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| SearchBar | `SearchBar.tsx` | ❌ | ❌ | ✅ |
+| Component | File            | Stories | Tests | Exported |
+| --------- | --------------- | ------- | ----- | -------- |
+| SearchBar | `SearchBar.tsx` | ❌      | ❌    | ✅       |
 
 **Total Search Components:** 1 component
 
@@ -221,26 +222,26 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Page section components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| ArticlesSection | `ArticlesSection.tsx` | ❌ | ❌ | ✅ |
-| TrendingSection | `TrendingSection.tsx` | ❌ | ❌ | ✅ |
+| Component       | File                  | Stories | Tests | Exported |
+| --------------- | --------------------- | ------- | ----- | -------- |
+| ArticlesSection | `ArticlesSection.tsx` | ❌      | ❌    | ✅       |
+| TrendingSection | `TrendingSection.tsx` | ❌      | ❌    | ✅       |
 
 **Total Section Components:** 2 components
 
 ### 1.18 Icon Components (`src/components/icons/`)
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| TrendingIcon | `TrendingIcon.tsx` | ❌ | ❌ | ✅ |
+| Component    | File               | Stories | Tests | Exported |
+| ------------ | ------------------ | ------- | ----- | -------- |
+| TrendingIcon | `TrendingIcon.tsx` | ❌      | ❌    | ✅       |
 
 **Total Icon Components:** 1 component
 
 ### 1.19 Control Components (`src/components/controls/`)
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| LanguageSelector | `LanguageSelector.tsx` | ❌ | ❌ | ✅ |
+| Component        | File                   | Stories | Tests | Exported |
+| ---------------- | ---------------------- | ------- | ----- | -------- |
+| LanguageSelector | `LanguageSelector.tsx` | ❌      | ❌    | ✅       |
 
 **Total Control Components:** 1 component
 
@@ -248,10 +249,10 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Loading skeleton components:**
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| EventCardSkeleton | `EventCardSkeleton.tsx` | ❌ | ❌ | ✅ |
-| VenueCardSkeleton | `VenueCardSkeleton.tsx` | ❌ | ❌ | ✅ |
+| Component         | File                    | Stories | Tests | Exported |
+| ----------------- | ----------------------- | ------- | ----- | -------- |
+| EventCardSkeleton | `EventCardSkeleton.tsx` | ❌      | ❌    | ✅       |
+| VenueCardSkeleton | `VenueCardSkeleton.tsx` | ❌      | ❌    | ✅       |
 
 **Total Skeleton Components:** 2 components
 
@@ -259,16 +260,16 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **shadcn/ui base components** (internal use, prefer primitives):
 
-| Component | File | Stories | Tests | Exported |
-|-----------|------|---------|-------|----------|
-| button | `button.tsx` | ❌ | ❌ | ❌ (internal) |
-| card | `card.tsx` | ❌ | ❌ | ❌ (internal) |
-| dialog | `dialog.tsx` | ❌ | ❌ | ❌ (internal) |
-| input | `input.tsx` | ❌ | ❌ | ❌ (internal) |
-| label | `label.tsx` | ❌ | ❌ | ❌ (internal) |
-| toast | `toast.tsx` | ❌ | ❌ | ❌ (internal) |
-| toaster | `toaster.tsx` | ❌ | ❌ | ❌ (internal) |
-| tooltip | `tooltip.tsx` | ❌ | ❌ | ❌ (internal) |
+| Component | File          | Stories | Tests | Exported      |
+| --------- | ------------- | ------- | ----- | ------------- |
+| button    | `button.tsx`  | ❌      | ❌    | ❌ (internal) |
+| card      | `card.tsx`    | ❌      | ❌    | ❌ (internal) |
+| dialog    | `dialog.tsx`  | ❌      | ❌    | ❌ (internal) |
+| input     | `input.tsx`   | ❌      | ❌    | ❌ (internal) |
+| label     | `label.tsx`   | ❌      | ❌    | ❌ (internal) |
+| toast     | `toast.tsx`   | ❌      | ❌    | ❌ (internal) |
+| toaster   | `toaster.tsx` | ❌      | ❌    | ❌ (internal) |
+| tooltip   | `tooltip.tsx` | ❌      | ❌    | ❌ (internal) |
 
 **Total UI Components:** 8 components (internal, not exported)
 
@@ -276,18 +277,20 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 ## 2. Hooks Inventory (`src/hooks/`)
 
-| Hook | File | Purpose | Exported |
-|------|------|---------|----------|
-| useDebounce | `useDebounce.ts` | Debounce a value | ❌ (not exported in index.ts) |
-| useModal | `useModal.ts` | Manage modal state | ✅ |
-| useToast | `useToast.ts` | Manage toast notifications | ❌ (not exported in index.ts) |
-| use-toast | `use-toast.ts` | shadcn/ui toast hook | ❌ (internal) |
+| Hook        | File             | Purpose                    | Exported                      |
+| ----------- | ---------------- | -------------------------- | ----------------------------- |
+| useDebounce | `useDebounce.ts` | Debounce a value           | ❌ (not exported in index.ts) |
+| useModal    | `useModal.ts`    | Manage modal state         | ✅                            |
+| useToast    | `useToast.ts`    | Manage toast notifications | ❌ (not exported in index.ts) |
+| use-toast   | `use-toast.ts`   | shadcn/ui toast hook       | ❌ (internal)                 |
 
 **Total Hooks:** 4 hooks
+
 - **Exported:** 1 hook (useModal)
 - **Not Exported:** 3 hooks (useDebounce, useToast, use-toast)
 
 **Note:** There are two toast hooks:
+
 - `useToast.ts` - Custom implementation
 - `use-toast.ts` - shadcn/ui implementation
 
@@ -295,14 +298,15 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 ## 3. Utilities Inventory (`src/lib/`)
 
-| Utility | File | Functions | Exported |
-|---------|------|-----------|----------|
-| utils | `utils.ts` | cn, formatDate, formatTime, formatDateTime, generateId, debounce, throttle | ✅ |
-| utils.test | `utils.test.ts` | Tests for utils | ❌ (test file) |
+| Utility    | File            | Functions                                                                  | Exported       |
+| ---------- | --------------- | -------------------------------------------------------------------------- | -------------- |
+| utils      | `utils.ts`      | cn, formatDate, formatTime, formatDateTime, generateId, debounce, throttle | ✅             |
+| utils.test | `utils.test.ts` | Tests for utils                                                            | ❌ (test file) |
 
 **Total Utilities:** 1 utility file with 7 functions
 
 **Functions:**
+
 - `cn()` - Merge class names (clsx + tailwind-merge)
 - `formatDate()` - Format date to string
 - `formatTime()` - Format time to string
@@ -317,16 +321,16 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Design tokens** - Foundation of the design system:
 
-| Token | File | Purpose | Exported |
-|-------|------|---------|----------|
-| colors | `colors.ts` | Color tokens | ✅ |
-| css-variables | `css-variables.ts` | CSS variable mappings | ✅ |
-| motion | `motion.ts` | Motion/animation tokens | ✅ |
-| radius | `radius.ts` | Border radius tokens | ✅ |
-| shadows | `shadows.ts` | Shadow tokens | ✅ |
-| spacing | `spacing.ts` | Spacing tokens | ✅ |
-| typography | `typography.ts` | Typography tokens | ✅ |
-| index | `index.ts` | Token exports | ✅ |
+| Token         | File               | Purpose                 | Exported |
+| ------------- | ------------------ | ----------------------- | -------- |
+| colors        | `colors.ts`        | Color tokens            | ✅       |
+| css-variables | `css-variables.ts` | CSS variable mappings   | ✅       |
+| motion        | `motion.ts`        | Motion/animation tokens | ✅       |
+| radius        | `radius.ts`        | Border radius tokens    | ✅       |
+| shadows       | `shadows.ts`       | Shadow tokens           | ✅       |
+| spacing       | `spacing.ts`       | Spacing tokens          | ✅       |
+| typography    | `typography.ts`    | Typography tokens       | ✅       |
+| index         | `index.ts`         | Token exports           | ✅       |
 
 **Total Token Files:** 8 files
 
@@ -336,15 +340,15 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Theme system files:**
 
-| Theme File | File | Purpose | Exported |
-|------------|------|---------|----------|
-| applyMode | `applyMode.ts` | Apply theme mode | ✅ |
-| colors | `colors.ts` | Theme color definitions | ✅ |
-| spacing | `spacing.ts` | Theme spacing | ✅ |
-| typography | `typography.ts` | Theme typography | ✅ |
-| ThemeProvider | `ThemeProvider.tsx` | Theme context provider | ✅ |
-| global.css | `global.css` | Global theme styles | ✅ (imported) |
-| index | `index.ts` | Theme exports | ✅ |
+| Theme File    | File                | Purpose                 | Exported      |
+| ------------- | ------------------- | ----------------------- | ------------- |
+| applyMode     | `applyMode.ts`      | Apply theme mode        | ✅            |
+| colors        | `colors.ts`         | Theme color definitions | ✅            |
+| spacing       | `spacing.ts`        | Theme spacing           | ✅            |
+| typography    | `typography.ts`     | Theme typography        | ✅            |
+| ThemeProvider | `ThemeProvider.tsx` | Theme context provider  | ✅            |
+| global.css    | `global.css`        | Global theme styles     | ✅ (imported) |
+| index         | `index.ts`          | Theme exports           | ✅            |
 
 **Total Theme Files:** 7 files
 
@@ -354,13 +358,13 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Predefined theme configurations:**
 
-| Theme | File | Purpose | Exported |
-|-------|------|---------|----------|
-| default | `default.ts` | Default theme | ✅ |
-| dark | `dark.ts` | Dark theme | ✅ |
-| brand | `brand.ts` | Brand theme | ✅ |
-| types | `types.ts` | Theme type definitions | ✅ |
-| index | `index.ts` | Theme exports | ✅ |
+| Theme   | File         | Purpose                | Exported |
+| ------- | ------------ | ---------------------- | -------- |
+| default | `default.ts` | Default theme          | ✅       |
+| dark    | `dark.ts`    | Dark theme             | ✅       |
+| brand   | `brand.ts`   | Brand theme            | ✅       |
+| types   | `types.ts`   | Theme type definitions | ✅       |
+| index   | `index.ts`   | Theme exports          | ✅       |
 
 **Total Theme Configurations:** 5 files (3 themes + types + index)
 
@@ -368,17 +372,18 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 ## 7. Other Files
 
-| File | Purpose |
-|------|---------|
-| `src/index.ts` | Main library export file |
-| `src/preset.ts` | Tailwind preset configuration |
-| `src/test/setup.ts` | Test setup file |
+| File                | Purpose                       |
+| ------------------- | ----------------------------- |
+| `src/index.ts`      | Main library export file      |
+| `src/preset.ts`     | Tailwind preset configuration |
+| `src/test/setup.ts` | Test setup file               |
 
 ---
 
 ## Summary Statistics
 
 ### Components
+
 - **Total Components:** 71 components
 - **Components with Stories:** 20 components (28%)
 - **Components with Tests:** 1 component (1.4%) - Button only
@@ -386,6 +391,7 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 - **Internal Components:** 10 components (ui/ folder)
 
 ### Component Categories
+
 1. Primitives: 9
 2. Layout: 8
 3. Modals: 5
@@ -409,19 +415,23 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 21. UI (internal): 8
 
 ### Hooks
+
 - **Total Hooks:** 4
 - **Exported Hooks:** 1 (useModal)
 - **Not Exported:** 3
 
 ### Utilities
+
 - **Total Utility Files:** 1
 - **Total Functions:** 7
 
 ### Tokens
+
 - **Total Token Files:** 8
 - **All Exported:** ✅
 
 ### Theme
+
 - **Total Theme Files:** 7
 - **Total Theme Configurations:** 3 (default, dark, brand)
 
@@ -430,24 +440,29 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 ## Issues Identified
 
 ### 1. Missing Stories
+
 - 51 components (72%) lack Storybook stories
 - Only 20 components have stories
 
 ### 2. Missing Tests
+
 - 70 components (99%) lack unit tests
 - Only Button component has tests
 
 ### 3. Hook Export Issues
+
 - `useDebounce` is not exported in `index.ts` but may be useful
 - `useToast` is not exported but there's also `use-toast.ts` (duplication?)
 
 ### 4. Duplicate Toast Hooks
+
 - Two toast hook implementations:
   - `src/hooks/useToast.ts` - Custom implementation
   - `src/hooks/use-toast.ts` - shadcn/ui implementation
 - Need to clarify which one should be used
 
 ### 5. Internal UI Components
+
 - 8 components in `ui/` folder are not exported
 - These are shadcn/ui base components
 - Should remain internal or be documented
@@ -466,4 +481,3 @@ This inventory provides a comprehensive overview of the Tenerife UI Library code
 
 **Report Generated:** 2025-01-20  
 **Next Steps:** Proceed with Code Review (FRP_CODE_REVIEW.md)
-

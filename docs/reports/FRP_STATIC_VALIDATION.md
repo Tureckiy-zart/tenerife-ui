@@ -9,6 +9,7 @@
 ## Executive Summary
 
 This report documents the results of running static analysis tools on the Tenerife UI Library codebase:
+
 - ESLint (linting)
 - TypeScript (type checking)
 - Vite (build)
@@ -24,6 +25,7 @@ This report documents the results of running static analysis tools on the Teneri
 **Command:** `pnpm lint`
 
 **Output:**
+
 ```
 > @tenerife.music/ui@0.0.7 lint /home/tureckiy/Projects/TenerifeMusic/tenerife-ui
 > eslint . --ext .ts,.tsx --fix
@@ -42,6 +44,7 @@ This report documents the results of running static analysis tools on the Teneri
 **Command:** `pnpm typecheck`
 
 **Output:**
+
 ```
 > @tenerife.music/ui@0.0.7 typecheck /home/tureckiy/Projects/TenerifeMusic/tenerife-ui
 > tsc --noEmit && tsc --noEmit --project tsconfig.vite.json
@@ -49,7 +52,8 @@ This report documents the results of running static analysis tools on the Teneri
 
 **Result:** ✅ **PASSED** - No TypeScript errors
 
-**Status:** 
+**Status:**
+
 - Main TypeScript compilation: ✅ PASSED
 - Vite TypeScript compilation: ✅ PASSED
 - All types are correctly defined
@@ -64,6 +68,7 @@ This report documents the results of running static analysis tools on the Teneri
 **Command:** `pnpm build`
 
 **Output:**
+
 ```
 > @tenerife.music/ui@0.0.7 build /home/tenerife-ui
 > vite build
@@ -105,12 +110,14 @@ dist/index.cjs               111.93 kB │ gzip: 27.26 kB
 **Result:** ✅ **PASSED** - Build completed successfully
 
 **Status:**
+
 - ✅ 397 modules transformed successfully
 - ✅ Declaration files generated (5635ms)
 - ✅ All output files created
 - ✅ Build completed in 7.02s
 
 **Build Output Summary:**
+
 - **Main bundle (ESM):** 154.14 kB (32.58 kB gzipped)
 - **Main bundle (CJS):** 111.93 kB (27.26 kB gzipped)
 - **Tokens bundle:** 30.03 kB (7.00 kB gzipped)
@@ -123,6 +130,7 @@ dist/index.cjs               111.93 kB │ gzip: 27.26 kB
 **Warnings Found:** Sourcemap warnings for multiple files
 
 **Files with warnings:**
+
 - `src/index.ts`
 - `src/theme/ThemeProvider.tsx`
 - `src/theme/applyMode.ts`
@@ -131,19 +139,22 @@ dist/index.cjs               111.93 kB │ gzip: 27.26 kB
 - And 35+ more files...
 
 **Warning Message:**
+
 ```
 Error when using sourcemap for reporting an error: Can't resolve original location of error.
 ```
 
 **Severity:** ⚠️ **LOW** - Non-blocking warning
 
-**Impact:** 
+**Impact:**
+
 - Build still succeeds ✅
 - Sourcemaps may not work correctly for error reporting
 - Does not affect production builds
 - May affect development debugging experience
 
-**Recommendation:** 
+**Recommendation:**
+
 - Investigate sourcemap configuration
 - These warnings are common with Vite and don't prevent the build
 - Can be addressed in future optimization
@@ -154,13 +165,13 @@ Error when using sourcemap for reporting an error: Can't resolve original locati
 
 ### 4.1 Overall Status
 
-| Check | Status | Result |
-|-------|--------|--------|
-| ESLint | ✅ PASSED | No errors or warnings |
-| TypeScript (main) | ✅ PASSED | No type errors |
-| TypeScript (vite) | ✅ PASSED | No type errors |
-| Build | ✅ PASSED | Build successful |
-| Sourcemaps | ⚠️ WARNINGS | Non-blocking warnings |
+| Check             | Status      | Result                |
+| ----------------- | ----------- | --------------------- |
+| ESLint            | ✅ PASSED   | No errors or warnings |
+| TypeScript (main) | ✅ PASSED   | No type errors        |
+| TypeScript (vite) | ✅ PASSED   | No type errors        |
+| Build             | ✅ PASSED   | Build successful      |
+| Sourcemaps        | ⚠️ WARNINGS | Non-blocking warnings |
 
 **Overall:** ✅ **ALL CHECKS PASSED**
 
@@ -169,11 +180,13 @@ Error when using sourcemap for reporting an error: Can't resolve original locati
 ### 4.2 Build Metrics
 
 **Performance:**
+
 - Build time: 7.02s
 - Modules transformed: 397
 - Declaration files: Generated in 5.6s
 
 **Bundle Sizes:**
+
 - Main ESM: 154.14 kB (32.58 kB gzipped) ✅
 - Main CJS: 111.93 kB (27.26 kB gzipped) ✅
 - Tokens: 30.03 kB (7.00 kB gzipped) ✅
@@ -186,9 +199,11 @@ Error when using sourcemap for reporting an error: Can't resolve original locati
 ## 5. Recommendations
 
 ### 5.1 Immediate Actions
+
 1. ✅ **None required** - All checks passed
 
 ### 5.2 Optional Improvements
+
 1. ⚠️ **Sourcemap warnings** - Investigate and fix if needed (low priority)
 2. ✅ **Bundle size** - Monitor and optimize if needed (currently acceptable)
 
@@ -199,6 +214,7 @@ Error when using sourcemap for reporting an error: Can't resolve original locati
 **Static validation completed successfully.** ✅
 
 All critical checks passed:
+
 - ✅ Code quality (ESLint)
 - ✅ Type safety (TypeScript)
 - ✅ Build success (Vite)
@@ -211,4 +227,3 @@ The codebase is in good shape from a static analysis perspective. No blocking is
 
 **Report Generated:** 2025-01-20  
 **Next Steps:** Proceed with Fix Proposals (FRP_FIX_PROPOSALS.md)
-

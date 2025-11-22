@@ -28,6 +28,7 @@ This report consolidates all issues found in the Full Review Pipeline and provid
 **Issue:** useEffect includes `onChange` in dependencies, causing potential stale closures
 
 **Current Code:**
+
 ```typescript
 React.useEffect(() => {
   onChange(debouncedValue);
@@ -35,6 +36,7 @@ React.useEffect(() => {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 const onChangeRef = React.useRef(onChange);
 React.useEffect(() => {
@@ -47,6 +49,7 @@ React.useEffect(() => {
 ```
 
 **Alternative Fix (if onChange is stable):**
+
 ```typescript
 React.useEffect(() => {
   onChange(debouncedValue);
@@ -66,6 +69,7 @@ React.useEffect(() => {
 **Issue:** 20+ runtime error throws for prop validation
 
 **Current Code:**
+
 ```typescript
 if (!sortOptions || sortOptions.length === 0) {
   throw new Error('FilterBar: "sortOptions" prop is required and cannot be empty');
@@ -74,6 +78,7 @@ if (!sortOptions || sortOptions.length === 0) {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 // Remove all runtime validations, use TypeScript instead
 // Add default values where possible
@@ -98,6 +103,7 @@ export function FilterBar({
 ```
 
 **Additional Fix:** Update TypeScript interface to mark truly required props:
+
 ```typescript
 export interface FilterBarProps {
   // ... other props
@@ -117,6 +123,7 @@ export interface FilterBarProps {
 **Issue:** setTimeout callback captures stale dismiss function
 
 **Current Code:**
+
 ```typescript
 if (newToast.duration && newToast.duration > 0) {
   setTimeout(() => {
@@ -126,6 +133,7 @@ if (newToast.duration && newToast.duration > 0) {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 const dismissRef = React.useRef(dismiss);
 React.useEffect(() => {
@@ -144,7 +152,8 @@ if (newToast.duration && newToast.duration > 0) {
 
 ### 1.4 Duplicate toast hook implementations
 
-**Files:** 
+**Files:**
+
 - `src/hooks/useToast.ts`
 - `src/hooks/use-toast.ts`
 
@@ -154,11 +163,13 @@ if (newToast.duration && newToast.duration > 0) {
 **Proposed Fix:**
 
 **Option 1: Keep shadcn/ui implementation (recommended)**
+
 1. Remove `src/hooks/useToast.ts`
 2. Update all imports from `useToast` to `use-toast`
 3. Update component implementations if needed
 
 **Option 2: Keep custom implementation**
+
 1. Remove `src/hooks/use-toast.ts`
 2. Ensure `useToast.ts` is exported in `index.ts`
 3. Update all imports
@@ -176,6 +187,7 @@ if (newToast.duration && newToast.duration > 0) {
 **Severity:** High
 
 **Current Code:**
+
 ```typescript
 useEffect(() => {
   if (value !== undefined && value !== internalValue) {
@@ -185,6 +197,7 @@ useEffect(() => {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 const prevValueRef = React.useRef(value);
 useEffect(() => {
@@ -204,6 +217,7 @@ useEffect(() => {
 **Severity:** High
 
 **Current Code:**
+
 ```typescript
 React.useEffect(() => {
   if (onFiltersChange) {
@@ -220,6 +234,7 @@ React.useEffect(() => {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 const onFiltersChangeRef = React.useRef(onFiltersChange);
 React.useEffect(() => {
@@ -251,19 +266,22 @@ React.useEffect(() => {
 **Severity:** High
 
 **Current Code:**
+
 ```typescript
 <div className={cn("rounded-lg border p-4", variantClasses[variant], className)}>
 ```
 
 **Proposed Fix:**
+
 ```typescript
-<div 
+<div
   role="alert"
   className={cn("rounded-lg border p-md", variantClasses[variant], className)}
 >
 ```
 
 **Changes:**
+
 1. Add `role="alert"` for screen readers
 2. Replace `p-4` with `p-md` (token-based spacing)
 
@@ -275,6 +293,7 @@ React.useEffect(() => {
 **Severity:** High
 
 **Current Code:**
+
 ```typescript
 interface AlertProps {
   variant?: "success" | "error" | "warning" | "info";
@@ -285,6 +304,7 @@ interface AlertProps {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: "success" | "error" | "warning" | "info";
@@ -301,6 +321,7 @@ interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
 **Severity:** High
 
 **Current Code:**
+
 ```typescript
 interface ProgressProps {
   value: number;
@@ -310,6 +331,7 @@ interface ProgressProps {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number;
@@ -325,6 +347,7 @@ interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
 **Severity:** High
 
 **Current Code:**
+
 ```typescript
 interface HeadingProps extends TypographyProps {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -333,6 +356,7 @@ interface HeadingProps extends TypographyProps {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -358,6 +382,7 @@ interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 **Severity:** High
 
 **Current Code:**
+
 ```typescript
 export interface FilterSelectProps {
   onValueChange: (value: string) => void;
@@ -366,6 +391,7 @@ export interface FilterSelectProps {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 export interface FilterSelectProps {
   onChange: (value: string) => void;
@@ -394,6 +420,7 @@ export function FilterSelect({
 **Severity:** High
 
 **Current Code:**
+
 ```typescript
 interface LanguageSelectorProps {
   onLanguageChange?: (language: string) => void;
@@ -402,6 +429,7 @@ interface LanguageSelectorProps {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 interface LanguageSelectorProps {
   onChange?: (language: string) => void;
@@ -422,6 +450,7 @@ interface LanguageSelectorProps {
 **Severity:** Medium
 
 **Current Code:**
+
 ```typescript
 variant: {
   default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
@@ -432,6 +461,7 @@ variant: {
 ```
 
 **Proposed Fix:**
+
 ```typescript
 variant: {
   default: "bg-primary text-primary-foreground shadow-elevation-xs hover:bg-primary/90",
@@ -452,6 +482,7 @@ variant: {
 **Severity:** Medium
 
 **Current Code:**
+
 ```typescript
 className={cn(
   "... shadow-lg duration-200 ...",
@@ -460,6 +491,7 @@ className={cn(
 ```
 
 **Proposed Fix:**
+
 ```typescript
 className={cn(
   "... shadow-elevation-xl duration-200 ...",
@@ -476,11 +508,13 @@ className={cn(
 **Severity:** Medium
 
 **Current Code:**
+
 ```typescript
 const options = useMemo(() => languages, [languages]);
 ```
 
 **Proposed Fix:**
+
 ```typescript
 // Remove useMemo, use languages directly
 // useMemo is only beneficial for expensive computations
@@ -495,14 +529,17 @@ const options = useMemo(() => languages, [languages]);
 **Severity:** Medium
 
 **Current Code:**
+
 ```typescript
-const title = typeof event?.name === "string"
-  ? event.name
-  : event?.name?.en || event?.name?.es || event?.name?.ru || "";
+const title =
+  typeof event?.name === "string"
+    ? event.name
+    : event?.name?.en || event?.name?.es || event?.name?.ru || "";
 // ... similar for description, venue, price
 ```
 
 **Proposed Fix:**
+
 ```typescript
 const title = React.useMemo(() => {
   return typeof event?.name === "string"
@@ -573,6 +610,7 @@ Then update ThemeSwitch to use the hook.
 ```
 
 **Import order:**
+
 1. React imports
 2. Third-party imports (lucide-react, @radix-ui, etc.)
 3. Internal absolute imports (@/components, @/lib, etc.)
@@ -588,13 +626,15 @@ Then update ThemeSwitch to use the hook.
 **Severity:** Medium
 
 **Current Code:**
+
 ```typescript
 console.log("[theme-switch]", context, snapshot);
 ```
 
 **Proposed Fix:**
+
 ```typescript
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   console.log("[theme-switch]", context, snapshot);
 }
 ```
@@ -606,21 +646,20 @@ if (process.env.NODE_ENV === 'development') {
 ### 4.1 Add React.memo to frequently rendered components
 
 **Files:**
+
 - `src/components/feedback/Alert.tsx`
 - `src/components/primitives/Badge.tsx`
 - `src/components/cards/EventCard.tsx`
 - `src/components/cards/VenueCard.tsx`
 
 **Proposed Fix:**
+
 ```typescript
-export const Alert = React.memo<AlertProps>(({
-  variant = "info",
-  title,
-  description,
-  className,
-}) => {
-  // ... component code
-});
+export const Alert = React.memo<AlertProps>(
+  ({ variant = "info", title, description, className }) => {
+    // ... component code
+  },
+);
 
 Alert.displayName = "Alert";
 ```
@@ -633,7 +672,8 @@ Alert.displayName = "Alert";
 **Severity:** Low
 
 **Proposed Fix Template:**
-```typescript
+
+````typescript
 /**
  * Alert component for displaying feedback messages
  *
@@ -643,25 +683,28 @@ Alert.displayName = "Alert";
  * ```
  */
 export const Alert: React.FC<AlertProps> = ...
-```
+````
 
 ---
 
 ## 5. Implementation Priority
 
 ### Phase 1: Critical Issues (Week 1)
+
 1. Fix SearchInput useEffect dependency
 2. Refactor FilterBar prop validation
 3. Fix useToast memory leak
 4. Resolve duplicate toast hooks
 
 ### Phase 2: High Priority Issues (Week 2)
+
 1. Fix LanguageSelector stale closure
 2. Add HTML attributes pass-through (Alert, Progress, Typography)
 3. Standardize change handler naming (with deprecation)
 4. Add role="alert" to Alert
 
 ### Phase 3: Medium Priority Issues (Week 3-4)
+
 1. Replace old shadow classes with elevation tokens
 2. Optimize EventCard with useMemo
 3. Extract ThemeSwitch logic to hook
@@ -669,6 +712,7 @@ export const Alert: React.FC<AlertProps> = ...
 5. Wrap console.log in development checks
 
 ### Phase 4: Low Priority Issues (Week 5+)
+
 1. Add React.memo to components
 2. Add JSDoc comments
 3. Add test files
@@ -679,11 +723,13 @@ export const Alert: React.FC<AlertProps> = ...
 ## 6. Breaking Changes
 
 ### Breaking Changes Identified
+
 1. **FilterSelect.onValueChange → onChange** (with deprecation)
 2. **LanguageSelector.onLanguageChange → onChange** (with deprecation)
 3. **Removal of useToast.ts** (if choosing shadcn/ui implementation)
 
 ### Migration Guide Needed
+
 - Document prop name changes
 - Provide codemod scripts if possible
 - Update all internal usages first
@@ -693,6 +739,7 @@ export const Alert: React.FC<AlertProps> = ...
 ## 7. Testing Recommendations
 
 ### Tests to Add
+
 1. Unit tests for all hooks (useDebounce, useModal, useToast)
 2. Component tests for Alert, Progress, Typography
 3. Integration tests for FilterBar
@@ -702,4 +749,3 @@ export const Alert: React.FC<AlertProps> = ...
 
 **Report Generated:** 2025-01-20  
 **Next Steps:** Proceed with Final Report (FULL_REVIEW_PIPELINE_REPORT.md)
-
