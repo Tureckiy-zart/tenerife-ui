@@ -604,8 +604,8 @@ All typing enforcement tasks completed:
 - **Key Accomplishments:**
   - All spacing violations replaced with semantic tokens (p-xs, p-sm, p-md, p-lg, gap-xs, gap-sm, gap-md, space-y-sm, space-y-md, etc.)
   - All color violations replaced with semantic tokens (text-info, text-success, text-warning, text-destructive, etc.)
-  - Radius classes verified to use tokens (all rounded-* classes correctly mapped via Tailwind config)
-  - Shadow classes verified to use tokens (all shadow-* classes correctly mapped via Tailwind config)
+  - Radius classes verified to use tokens (all rounded-\* classes correctly mapped via Tailwind config)
+  - Shadow classes verified to use tokens (all shadow-\* classes correctly mapped via Tailwind config)
   - Variant components (Stack, Flex, Container) updated to use semantic tokens in variant definitions
   - TypeScript compilation: PASSED
   - Linting: PASSED

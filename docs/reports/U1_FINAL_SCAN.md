@@ -19,6 +19,7 @@ Scanned all `.tsx` files in `src/components/` for remaining hardcoded spacing, r
 Files with hardcoded spacing values (`p-*`, `px-*`, `py-*`, `gap-*`, `space-*`, `m-*`):
 
 #### Stories Files (High Priority):
+
 - `src/components/overlays/Popover.stories.tsx`
 - `src/components/toasts/Toast.stories.tsx`
 - `src/components/primitives/ThemeSwitch.stories.tsx`
@@ -34,6 +35,7 @@ Files with hardcoded spacing values (`p-*`, `px-*`, `py-*`, `gap-*`, `space-*`, 
 - `src/components/feedback/Progress.stories.tsx`
 
 #### Secondary Components:
+
 - `src/components/layout/Stack.tsx`
 - `src/components/layout/Flex.tsx`
 - `src/components/layout/Container.tsx`
@@ -62,6 +64,7 @@ Files with hardcoded spacing values (`p-*`, `px-*`, `py-*`, `gap-*`, `space-*`, 
 - `src/components/menus/DropdownMenu.tsx`
 
 #### Already Partially Migrated (Need Verification):
+
 - `src/components/filters/FilterSelect.tsx`
 - `src/components/search/SearchBar.tsx`
 - `src/components/filters/SearchFilters.tsx`
@@ -82,6 +85,7 @@ Files with hardcoded radius values (`rounded-*`):
 Most components already use token-based radius classes (`rounded-md`, `rounded-lg`, etc.) which are configured in Tailwind. These need verification to ensure they're using tokens correctly.
 
 **Key Files to Verify:**
+
 - Stories files (all `.stories.tsx`)
 - Secondary components (Stack, Flex, Container, Footer, etc.)
 - Layout components
@@ -92,6 +96,7 @@ Most components already use token-based radius classes (`rounded-md`, `rounded-l
 Files with hardcoded shadow values (`shadow-*`):
 
 **Key Files:**
+
 - Stories files
 - Secondary components
 - Layout components
@@ -102,12 +107,15 @@ Files with hardcoded shadow values (`shadow-*`):
 ## Migration Priority
 
 ### Priority 1: Stories Files (13 files)
+
 All Storybook stories must use tokens for consistency and demonstration purposes.
 
 ### Priority 2: Secondary Components (25+ files)
+
 Components that are less frequently used but still need token compliance.
 
 ### Priority 3: Verification (13 files)
+
 Components that were partially migrated need final verification.
 
 ---
@@ -126,4 +134,3 @@ Components that were partially migrated need final verification.
 **Scan Completed:** 2025-01-20  
 **Total Files with Violations:** 51 (spacing), 44 (radius), 26 (shadow)  
 **Estimated Violations:** ~200-300 remaining
-

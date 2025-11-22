@@ -14,7 +14,8 @@ const linkVariants = cva(
         default: "text-primary hover:text-primary/80 underline-offset-4 hover:underline",
         destructive:
           "text-destructive hover:text-destructive/80 underline-offset-4 hover:underline",
-        ghost: "text-foreground hover:text-accent-foreground hover:bg-accent rounded-md px-sm py-sm",
+        ghost:
+          "text-foreground hover:text-accent-foreground hover:bg-accent rounded-md px-sm py-sm",
         secondary: "text-secondary-foreground underline-offset-4 hover:underline",
         button: "bg-primary text-primary-foreground hover:bg-primary/90 rounded-md",
         "button-outline":
