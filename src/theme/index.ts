@@ -1,4 +1,5 @@
+export * from "./applyMode";
 export * from "./colors";
-export * from "./motion";
 export * from "./spacing";
 export * from "./typography";
+export { ThemeProvider, useTheme } from "./ThemeProvider";

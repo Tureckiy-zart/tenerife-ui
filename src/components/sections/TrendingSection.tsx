@@ -6,8 +6,14 @@ import { Card, CardContent } from "@/components/primitives/Card";
 import { Heading, Text } from "@/components/primitives/Typography";
 import { cn } from "@/lib/utils";
 
+interface Event {
+  id: string;
+  title: string;
+  [key: string]: unknown;
+}
+
 interface TrendingSectionProps {
-  events: any[];
+  events: Event[];
   limit: number;
   loading: boolean;
   title: string;

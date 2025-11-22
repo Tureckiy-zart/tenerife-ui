@@ -85,7 +85,8 @@ export const EventCard: React.FC<EventCardProps> = ({
   if (typeof eventPrice === "string") {
     price = eventPrice;
   } else if (typeof event?.price === "object" && event?.price !== null) {
-    const { min = 0, max = "∞" } = (event.price as any) || {};
+    const priceObj = event.price as { min?: number | string; max?: number | string };
+    const { min = 0, max = "∞" } = priceObj;
     price = `€${min} - €${max}`;
   }
   if (!price || price.trim() === "") {
