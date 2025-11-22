@@ -447,7 +447,7 @@ export interface ButtonProps
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     // Implementation
-  }
+  },
 );
 
 Button.displayName = "Button";
@@ -463,7 +463,7 @@ export const spacing = {
 } as const;
 
 export type Spacing = keyof typeof spacing;
-export type SpacingValue = typeof spacing[Spacing];
+export type SpacingValue = (typeof spacing)[Spacing];
 ```
 
 ### Complete Hook Example
@@ -478,19 +478,19 @@ export interface UseCounterReturn {
 
 export function useCounter(initialValue = 0): UseCounterReturn {
   const [count, setCount] = React.useState(initialValue);
-  
+
   const increment = React.useCallback(() => {
     setCount((prev) => prev + 1);
   }, []);
-  
+
   const decrement = React.useCallback(() => {
     setCount((prev) => prev - 1);
   }, []);
-  
+
   const reset = React.useCallback(() => {
     setCount(initialValue);
   }, [initialValue]);
-  
+
   return { count, increment, decrement, reset };
 }
 ```
@@ -516,4 +516,3 @@ Before marking code as complete:
 
 **Status:** ✅ ACTIVE  
 **Last Updated:** 2025-01-20
-

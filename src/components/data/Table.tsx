@@ -38,7 +38,7 @@ export const Table = <T extends Record<string, unknown>>({
         </thead>
         <tbody>
           {data.map((item) => (
-            <tr key={String(item[rowKey])} className="hover:bg-muted/50 border-b">
+            <tr key={String(item[rowKey])} className="border-b hover:bg-muted/50">
               {columns.map((column) => (
                 <td key={String(column.key)} className="p-3">
                   {column.render ? column.render(item[column.key], item) : String(item[column.key])}

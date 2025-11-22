@@ -1,10 +1,10 @@
 /**
  * Color Palette Tokens
- * 
+ *
  * Complete color palette system for Tenerife UI based on design system specifications.
  * Includes: primary midnight blues, accent purples, secondary refined cyan,
  * surface colors for dark/light themes, and semantic colors.
- * 
+ *
  * @see docs/tenerife_audit/design_system.md - colour palette section
  */
 
@@ -33,17 +33,17 @@ export type ColorScale = {
  * Tenerife brand primary colors
  */
 export const primaryColors: ColorScale = {
-  50: "210 40% 98%",  // Lightest blue
+  50: "210 40% 98%", // Lightest blue
   100: "210 40% 96%",
   200: "217 32.6% 17.5%",
   300: "216 28% 26%",
   400: "215 25% 27%",
-  500: "215 20% 35%",  // Base primary
+  500: "215 20% 35%", // Base primary
   600: "215 16% 47%",
   700: "216 12% 54%",
   800: "217 10% 62%",
   900: "222 47.4% 11.2%",
-  950: "222 84% 4.9%",  // Darkest blue
+  950: "222 84% 4.9%", // Darkest blue
 };
 
 /**
@@ -56,7 +56,7 @@ export const accentColors: ColorScale = {
   200: "280 60% 85%",
   300: "280 55% 75%",
   400: "280 50% 65%",
-  500: "280 70% 67%",  // Base accent (night mode primary)
+  500: "280 70% 67%", // Base accent (night mode primary)
   600: "259 65% 58%",
   700: "259 60% 50%",
   800: "259 55% 45%",
@@ -74,7 +74,7 @@ export const secondaryColors: ColorScale = {
   200: "173 100% 85%",
   300: "173 100% 70%",
   400: "173 100% 55%",
-  500: "173 100% 37%",  // Base secondary (Tenerife #00bfa6)
+  500: "173 100% 37%", // Base secondary (Tenerife #00bfa6)
   600: "173 100% 32%",
   700: "173 95% 27%",
   800: "173 90% 22%",
@@ -97,20 +97,20 @@ export type SurfaceColors = {
 
 export const surfaceColors: Record<Mode, SurfaceColors> = {
   day: {
-    base: "0 0% 100%",           // White background
-    elevated1: "0 0% 98%",        // Slightly elevated
-    elevated2: "0 0% 96%",        // More elevated
-    elevated3: "0 0% 94%",        // Most elevated
-    overlay: "0 0% 0% / 0.5",     // Overlay backdrop
-    glass: "0 0% 100% / 0.8",     // Glass effect
+    base: "0 0% 100%", // White background
+    elevated1: "0 0% 98%", // Slightly elevated
+    elevated2: "0 0% 96%", // More elevated
+    elevated3: "0 0% 94%", // Most elevated
+    overlay: "0 0% 0% / 0.5", // Overlay backdrop
+    glass: "0 0% 100% / 0.8", // Glass effect
   },
   night: {
-    base: "240 10% 3.9%",         // Dark background (#0b0b10)
-    elevated1: "240 10% 5.1%",    // #0e1016
-    elevated2: "240 10% 6.3%",    // Slightly lighter
-    elevated3: "240 10% 7.5%",    // Even lighter
-    overlay: "0 0% 0% / 0.7",     // Darker overlay
-    glass: "240 10% 10% / 0.9",   // Dark glass effect
+    base: "240 10% 3.9%", // Dark background (#0b0b10)
+    elevated1: "240 10% 5.1%", // #0e1016
+    elevated2: "240 10% 6.3%", // Slightly lighter
+    elevated3: "240 10% 7.5%", // Even lighter
+    overlay: "0 0% 0% / 0.7", // Darker overlay
+    glass: "240 10% 10% / 0.9", // Dark glass effect
   },
 };
 
@@ -131,23 +131,23 @@ export type SemanticColors = {
 
 export const semanticColors: Record<Mode, SemanticColors> = {
   day: {
-    success: "142 76% 36%",       // Green
+    success: "142 76% 36%", // Green
     successForeground: "0 0% 100%",
-    error: "0 84.2% 60.2%",       // Red (destructive)
+    error: "0 84.2% 60.2%", // Red (destructive)
     errorForeground: "0 0% 98%",
-    warning: "38 92% 50%",        // Orange
+    warning: "38 92% 50%", // Orange
     warningForeground: "0 0% 9%",
-    info: "199 89% 48%",          // Blue
+    info: "199 89% 48%", // Blue
     infoForeground: "0 0% 100%",
   },
   night: {
     success: "142 70% 45%",
     successForeground: "0 0% 100%",
-    error: "0 62.8% 30.6%",       // Darker red
+    error: "0 62.8% 30.6%", // Darker red
     errorForeground: "0 0% 98%",
-    warning: "38 92% 60%",        // Brighter orange
+    warning: "38 92% 60%", // Brighter orange
     warningForeground: "0 0% 9%",
-    info: "199 89% 55%",          // Brighter blue
+    info: "199 89% 55%", // Brighter blue
     infoForeground: "0 0% 100%",
   },
 };
@@ -166,18 +166,18 @@ export type TextColors = {
 
 export const textColors: Record<Mode, TextColors> = {
   day: {
-    primary: "0 0% 9%",           // Almost black
-    secondary: "0 0% 45%",        // Medium gray
-    tertiary: "0 0% 65%",         // Light gray
-    muted: "0 0% 45.1%",          // Muted gray
-    inverse: "0 0% 100%",         // White (for dark backgrounds)
+    primary: "0 0% 9%", // Almost black
+    secondary: "0 0% 45%", // Medium gray
+    tertiary: "0 0% 65%", // Light gray
+    muted: "0 0% 45.1%", // Muted gray
+    inverse: "0 0% 100%", // White (for dark backgrounds)
   },
   night: {
-    primary: "0 0% 89.8%",        // Light gray (#e5e7eb)
-    secondary: "240 5% 64.9%",    // Medium gray
-    tertiary: "240 5% 50%",       // Darker gray
-    muted: "240 5% 64.9%",        // Muted gray
-    inverse: "0 0% 9%",           // Almost black (for light backgrounds)
+    primary: "0 0% 89.8%", // Light gray (#e5e7eb)
+    secondary: "240 5% 64.9%", // Medium gray
+    tertiary: "240 5% 50%", // Darker gray
+    muted: "240 5% 64.9%", // Muted gray
+    inverse: "0 0% 9%", // Almost black (for light backgrounds)
   },
 };
 
@@ -189,15 +189,15 @@ export type BaseColorTokens = {
   // Base colors
   background: string;
   foreground: string;
-  
+
   // Card colors
   card: string;
   cardForeground: string;
-  
+
   // Popover colors
   popover: string;
   popoverForeground: string;
-  
+
   // Border and input
   border: string;
   input: string;
@@ -217,11 +217,11 @@ export const baseColors: Record<Mode, BaseColorTokens> = {
     ring: "0 0% 3.9%",
   },
   night: {
-    background: "240 10% 3.9%",   // #0b0b10
-    foreground: "0 0% 89.8%",     // #e5e7eb
+    background: "240 10% 3.9%", // #0b0b10
+    foreground: "0 0% 89.8%", // #e5e7eb
     card: "240 10% 3.9%",
     cardForeground: "0 0% 89.8%",
-    popover: "240 10% 5.1%",      // #0e1016
+    popover: "240 10% 5.1%", // #0e1016
     popoverForeground: "0 0% 89.8%",
     border: "240 3.7% 15.9%",
     input: "240 3.7% 15.9%",
@@ -237,23 +237,23 @@ export type ColorTokens = BaseColorTokens & {
   // Primary colors
   primary: string;
   primaryForeground: string;
-  
+
   // Secondary colors
   secondary: string;
   secondaryForeground: string;
-  
+
   // Accent colors
   accent: string;
   accentForeground: string;
-  
+
   // Muted colors
   muted: string;
   mutedForeground: string;
-  
+
   // Destructive colors (uses error from semantic)
   destructive: string;
   destructiveForeground: string;
-  
+
   // Chart colors
   chart1: string;
   chart2: string;
@@ -322,7 +322,7 @@ export const colorCSSVariables = {
   "--primary-800": primaryColors[800],
   "--primary-900": primaryColors[900],
   "--primary-950": primaryColors[950],
-  
+
   // Accent scale
   "--accent-50": accentColors[50],
   "--accent-100": accentColors[100],
@@ -335,7 +335,7 @@ export const colorCSSVariables = {
   "--accent-800": accentColors[800],
   "--accent-900": accentColors[900],
   "--accent-950": accentColors[950],
-  
+
   // Secondary scale
   "--secondary-50": secondaryColors[50],
   "--secondary-100": secondaryColors[100],
@@ -348,7 +348,7 @@ export const colorCSSVariables = {
   "--secondary-800": secondaryColors[800],
   "--secondary-900": secondaryColors[900],
   "--secondary-950": secondaryColors[950],
-  
+
   // Surface colors (mode-dependent, will be set by theme)
   "--surface-base": surfaceColors.day.base,
   "--surface-elevated1": surfaceColors.day.elevated1,
@@ -356,7 +356,7 @@ export const colorCSSVariables = {
   "--surface-elevated3": surfaceColors.day.elevated3,
   "--surface-overlay": surfaceColors.day.overlay,
   "--surface-glass": surfaceColors.day.glass,
-  
+
   // Semantic colors (mode-dependent)
   "--semantic-success": semanticColors.day.success,
   "--semantic-success-foreground": semanticColors.day.successForeground,
@@ -366,7 +366,7 @@ export const colorCSSVariables = {
   "--semantic-warning-foreground": semanticColors.day.warningForeground,
   "--semantic-info": semanticColors.day.info,
   "--semantic-info-foreground": semanticColors.day.infoForeground,
-  
+
   // Text colors (mode-dependent)
   "--text-primary": textColors.day.primary,
   "--text-secondary": textColors.day.secondary,
@@ -383,19 +383,19 @@ export const tailwindThemeColors = {
   // Base colors
   background: "hsl(var(--background))",
   foreground: "hsl(var(--foreground))",
-  
+
   // Card colors
   card: {
     DEFAULT: "hsl(var(--card))",
     foreground: "hsl(var(--card-foreground))",
   },
-  
+
   // Popover colors
   popover: {
     DEFAULT: "hsl(var(--popover))",
     foreground: "hsl(var(--popover-foreground))",
   },
-  
+
   // Primary colors (using CSS variables)
   primary: {
     DEFAULT: "hsl(var(--tm-primary))",
@@ -412,7 +412,7 @@ export const tailwindThemeColors = {
     900: `hsl(var(--primary-900))`,
     950: `hsl(var(--primary-950))`,
   },
-  
+
   // Secondary colors
   secondary: {
     DEFAULT: "hsl(var(--tm-secondary))",
@@ -429,7 +429,7 @@ export const tailwindThemeColors = {
     900: `hsl(var(--secondary-900))`,
     950: `hsl(var(--secondary-950))`,
   },
-  
+
   // Accent colors
   accent: {
     DEFAULT: "hsl(var(--tm-accent))",
@@ -446,19 +446,19 @@ export const tailwindThemeColors = {
     900: `hsl(var(--accent-900))`,
     950: `hsl(var(--accent-950))`,
   },
-  
+
   // Muted colors
   muted: {
     DEFAULT: "hsl(var(--muted))",
     foreground: "hsl(var(--muted-foreground))",
   },
-  
+
   // Destructive colors (semantic error)
   destructive: {
     DEFAULT: "hsl(var(--destructive))",
     foreground: "hsl(var(--destructive-foreground))",
   },
-  
+
   // Semantic colors
   success: {
     DEFAULT: `hsl(var(--semantic-success))`,
@@ -476,7 +476,7 @@ export const tailwindThemeColors = {
     DEFAULT: `hsl(var(--semantic-info))`,
     foreground: `hsl(var(--semantic-info-foreground))`,
   },
-  
+
   // Surface colors
   surface: {
     base: `hsl(var(--surface-base))`,
@@ -486,7 +486,7 @@ export const tailwindThemeColors = {
     overlay: `hsl(var(--surface-overlay))`,
     glass: `hsl(var(--surface-glass))`,
   },
-  
+
   // Text colors
   text: {
     primary: `hsl(var(--text-primary))`,
@@ -495,12 +495,12 @@ export const tailwindThemeColors = {
     muted: `hsl(var(--text-muted))`,
     inverse: `hsl(var(--text-inverse))`,
   },
-  
+
   // Border and input
   border: "hsl(var(--border))",
   input: "hsl(var(--input))",
   ring: "hsl(var(--ring))",
-  
+
   // Chart colors
   chart: {
     1: "hsl(var(--chart-1))",

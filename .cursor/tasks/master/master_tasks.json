@@ -68,7 +68,10 @@
           "id": "U2",
           "title": "Enforce minimal API and variant consistency",
           "purpose": "Standardise the public API across all components by defining allowable properties such as `variant`, `size` and predefined slots (e.g., icon slots). Remove any ad‑hoc style props or inline customization props that compromise consistency.  Align variant names with the design specifications and ensure the same semantic names are used throughout the library.",
-          "inputs": ["docs/tenerife_audit/components_redesign.md", "existing component API definitions"],
+          "inputs": [
+            "docs/tenerife_audit/components_redesign.md",
+            "existing component API definitions"
+          ],
           "outputs": [
             "Updated component TypeScript interfaces",
             "Guidelines document on allowed props and variants"
@@ -325,7 +328,10 @@
           "id": "F0",
           "title": "Create base token files",
           "purpose": "Establish a dedicated tokens folder containing separate files for colours, typography, radii, shadows, spacing and transitions. This meta-task ensures that all visual values are stored in one place and can be centrally managed.",
-          "inputs": ["docs/tenerife_audit/design_system.md", "docs/tenerife_audit/components_redesign.md"],
+          "inputs": [
+            "docs/tenerife_audit/design_system.md",
+            "docs/tenerife_audit/components_redesign.md"
+          ],
           "outputs": [
             "src/tokens/colors.ts",
             "src/tokens/typography.ts",
@@ -454,7 +460,11 @@
           "id": "F8",
           "title": "Establish theme system",
           "purpose": "Create a theme provider (e.g., React context) to handle dark and light themes. Implement logic to switch between themes and persist user preference. Provide a utility hook for components.",
-          "inputs": ["tokens from F1–F6", "docs/tenerife_audit/design_system.md", "tailwind.config.js"],
+          "inputs": [
+            "tokens from F1–F6",
+            "docs/tenerife_audit/design_system.md",
+            "tailwind.config.js"
+          ],
           "outputs": ["src/theme/ThemeProvider.tsx", "src/theme/useTheme.ts"],
           "acceptance_criteria": [
             "Theme provider toggles between dark and light surface tokens defined in the design system【524020591353274†L101-L117】.",
@@ -507,7 +517,10 @@
           "id": "C1",
           "title": "Create Button component",
           "purpose": "Implement a reusable Button component following the redesign specifications. Support seven variants (primary, secondary, accent, outline, ghost, link, destructive) and five sizes. Include optional icons, loading state, and full ARIA support.",
-          "inputs": ["docs/tenerife_audit/components_redesign.md: Button section", "tokens from F1–F6"],
+          "inputs": [
+            "docs/tenerife_audit/components_redesign.md: Button section",
+            "tokens from F1–F6"
+          ],
           "outputs": [
             "src/components/Button.tsx",
             "src/components/Button.stories.tsx",
@@ -869,7 +882,12 @@
           "id": "A6",
           "title": "Create Feature component",
           "purpose": "Build an alternating feature section component that supports image and text content with configurable ordering.",
-          "inputs": ["docs/tenerife_audit/layout_and_brand_guide.md: Feature Section", "C1", "C8", "C9"],
+          "inputs": [
+            "docs/tenerife_audit/layout_and_brand_guide.md: Feature Section",
+            "C1",
+            "C8",
+            "C9"
+          ],
           "outputs": [
             "src/components/FeatureSection.tsx",
             "FeatureSection.stories.tsx",
@@ -967,7 +985,10 @@
           "id": "A11",
           "title": "Create Skeleton Loader component",
           "purpose": "Implement a skeleton loader using gradient shimmer animation for loading states.",
-          "inputs": ["docs/tenerife_audit/components_redesign.md: Skeleton Loader section", "tokens"],
+          "inputs": [
+            "docs/tenerife_audit/components_redesign.md: Skeleton Loader section",
+            "tokens"
+          ],
           "outputs": ["src/components/Skeleton.tsx", "Skeleton.stories.tsx", "Skeleton.test.tsx"],
           "acceptance_criteria": [
             "Skeleton uses gradient from surface-elevated1 to surface-elevated2 and back with animation defined in the redesign【770088508010025†L3970-L3985】.",
@@ -1333,7 +1354,11 @@
           "id": "M1",
           "title": "Enable automated dependency updates",
           "purpose": "Set up Dependabot (or similar) to automatically open pull requests for dependency updates with semantic version labels.",
-          "inputs": ["package.json", "GitHub configuration", "docs/tenerife_audit/design_system.md"],
+          "inputs": [
+            "package.json",
+            "GitHub configuration",
+            "docs/tenerife_audit/design_system.md"
+          ],
           "outputs": [".github/dependabot.yml", "update PRs"],
           "acceptance_criteria": [
             "Dependabot configuration file specifies update frequency and security alerts.",

@@ -1,10 +1,10 @@
 /**
  * Spacing System Tokens
- * 
+ *
  * Complete spacing system for Tenerife UI based on 8px grid system.
  * Includes: base spacing scale (0-96), semantic spacing tokens (xs..5xl),
  * and layout spacing tokens (sections, containers, grids).
- * 
+ *
  * Base unit: 8px (0.5rem)
  * All spacing values are multiples of 8px for consistent layout rhythm.
  */
@@ -18,45 +18,45 @@ export const spacing = {
   // Zero spacing
   0: "0",
   px: "1px",
-  
+
   // Half unit (4px)
   0.5: "0.125rem", // 4px
-  
+
   // Base unit multiples (8px increments)
-  1: "0.25rem",   // 4px (half unit, common)
+  1: "0.25rem", // 4px (half unit, common)
   1.5: "0.375rem", // 6px (rare, for fine adjustments)
-  2: "0.5rem",    // 8px (base unit)
+  2: "0.5rem", // 8px (base unit)
   2.5: "0.625rem", // 10px (rare)
-  3: "0.75rem",   // 12px (1.5 × base)
+  3: "0.75rem", // 12px (1.5 × base)
   3.5: "0.875rem", // 14px (rare)
-  4: "1rem",      // 16px (2 × base)
-  5: "1.25rem",   // 20px (2.5 × base)
-  6: "1.5rem",    // 24px (3 × base)
-  7: "1.75rem",   // 28px (3.5 × base)
-  8: "2rem",      // 32px (4 × base)
-  9: "2.25rem",   // 36px (4.5 × base)
-  10: "2.5rem",   // 40px (5 × base)
-  11: "2.75rem",  // 44px (5.5 × base)
-  12: "3rem",     // 48px (6 × base)
-  14: "3.5rem",   // 56px (7 × base)
-  16: "4rem",     // 64px (8 × base)
-  20: "5rem",     // 80px (10 × base)
-  24: "6rem",     // 96px (12 × base)
-  
+  4: "1rem", // 16px (2 × base)
+  5: "1.25rem", // 20px (2.5 × base)
+  6: "1.5rem", // 24px (3 × base)
+  7: "1.75rem", // 28px (3.5 × base)
+  8: "2rem", // 32px (4 × base)
+  9: "2.25rem", // 36px (4.5 × base)
+  10: "2.5rem", // 40px (5 × base)
+  11: "2.75rem", // 44px (5.5 × base)
+  12: "3rem", // 48px (6 × base)
+  14: "3.5rem", // 56px (7 × base)
+  16: "4rem", // 64px (8 × base)
+  20: "5rem", // 80px (10 × base)
+  24: "6rem", // 96px (12 × base)
+
   // Extended scale for larger spacing
-  28: "7rem",     // 112px (14 × base)
-  32: "8rem",     // 128px (16 × base)
-  36: "9rem",     // 144px (18 × base)
-  40: "10rem",    // 160px (20 × base)
-  44: "11rem",    // 176px (22 × base)
-  48: "12rem",    // 192px (24 × base)
-  52: "13rem",    // 208px (26 × base)
-  56: "14rem",    // 224px (28 × base)
-  60: "15rem",    // 240px (30 × base)
-  64: "16rem",    // 256px (32 × base)
-  72: "18rem",    // 288px (36 × base)
-  80: "20rem",    // 320px (40 × base)
-  96: "24rem",    // 384px (48 × base)
+  28: "7rem", // 112px (14 × base)
+  32: "8rem", // 128px (16 × base)
+  36: "9rem", // 144px (18 × base)
+  40: "10rem", // 160px (20 × base)
+  44: "11rem", // 176px (22 × base)
+  48: "12rem", // 192px (24 × base)
+  52: "13rem", // 208px (26 × base)
+  56: "14rem", // 224px (28 × base)
+  60: "15rem", // 240px (30 × base)
+  64: "16rem", // 256px (32 × base)
+  72: "18rem", // 288px (36 × base)
+  80: "20rem", // 320px (40 × base)
+  96: "24rem", // 384px (48 × base)
 } as const;
 
 /**
@@ -66,34 +66,34 @@ export const spacing = {
  */
 export const semanticSpacing = {
   // Extra small spacing (tight, minimal)
-  xs: spacing[1],    // 4px (0.25rem)
-  
+  xs: spacing[1], // 4px (0.25rem)
+
   // Small spacing (compact)
-  sm: spacing[2],    // 8px (0.5rem)
-  
+  sm: spacing[2], // 8px (0.5rem)
+
   // Medium spacing (default)
-  md: spacing[4],    // 16px (1rem)
-  
+  md: spacing[4], // 16px (1rem)
+
   // Large spacing (spacious)
-  lg: spacing[6],    // 24px (1.5rem)
-  
+  lg: spacing[6], // 24px (1.5rem)
+
   // Extra large spacing (very spacious)
-  xl: spacing[8],    // 32px (2rem)
-  
+  xl: spacing[8], // 32px (2rem)
+
   // 2XL spacing (section-level)
   "2xl": spacing[12], // 48px (3rem)
-  
+
   // 3XL spacing (major sections)
   "3xl": spacing[16], // 64px (4rem)
-  
+
   // 4XL spacing (page sections)
   "4xl": spacing[20], // 80px (5rem)
-  
+
   // 5XL spacing (hero sections)
   "5xl": spacing[24], // 96px (6rem)
-  
+
   // None (no spacing)
-  none: spacing[0],  // 0
+  none: spacing[0], // 0
 } as const;
 
 /**
@@ -103,48 +103,48 @@ export const semanticSpacing = {
 export const layoutSpacing = {
   // Section spacing (vertical spacing between major sections)
   section: {
-    xs: spacing[6],    // 24px (compact sections)
-    sm: spacing[8],    // 32px (small sections)
-    md: spacing[12],   // 48px (default sections)
-    lg: spacing[16],   // 64px (large sections)
-    xl: spacing[20],   // 80px (extra large sections)
+    xs: spacing[6], // 24px (compact sections)
+    sm: spacing[8], // 32px (small sections)
+    md: spacing[12], // 48px (default sections)
+    lg: spacing[16], // 64px (large sections)
+    xl: spacing[20], // 80px (extra large sections)
     "2xl": spacing[24], // 96px (hero sections)
   },
-  
+
   // Container spacing (padding inside containers)
   container: {
-    xs: spacing[2],    // 8px (tight containers)
-    sm: spacing[4],    // 16px (compact containers)
-    md: spacing[6],    // 24px (default containers)
-    lg: spacing[8],    // 32px (spacious containers)
-    xl: spacing[12],   // 48px (very spacious containers)
+    xs: spacing[2], // 8px (tight containers)
+    sm: spacing[4], // 16px (compact containers)
+    md: spacing[6], // 24px (default containers)
+    lg: spacing[8], // 32px (spacious containers)
+    xl: spacing[12], // 48px (very spacious containers)
   },
-  
+
   // Grid spacing (gap between grid items)
   grid: {
-    xs: spacing[2],    // 8px (tight grids)
-    sm: spacing[4],    // 16px (compact grids)
-    md: spacing[6],    // 24px (default grids)
-    lg: spacing[8],    // 32px (spacious grids)
-    xl: spacing[12],   // 48px (very spacious grids)
+    xs: spacing[2], // 8px (tight grids)
+    sm: spacing[4], // 16px (compact grids)
+    md: spacing[6], // 24px (default grids)
+    lg: spacing[8], // 32px (spacious grids)
+    xl: spacing[12], // 48px (very spacious grids)
   },
-  
+
   // Stack spacing (gap between stacked items)
   stack: {
-    xs: spacing[1],    // 4px (tight stacks)
-    sm: spacing[2],    // 8px (compact stacks)
-    md: spacing[4],    // 16px (default stacks)
-    lg: spacing[6],    // 24px (spacious stacks)
-    xl: spacing[8],    // 32px (very spacious stacks)
+    xs: spacing[1], // 4px (tight stacks)
+    sm: spacing[2], // 8px (compact stacks)
+    md: spacing[4], // 16px (default stacks)
+    lg: spacing[6], // 24px (spacious stacks)
+    xl: spacing[8], // 32px (very spacious stacks)
   },
-  
+
   // Component internal spacing (padding inside components)
   component: {
-    xs: spacing[1],    // 4px (tight components)
-    sm: spacing[2],    // 8px (compact components)
-    md: spacing[4],    // 16px (default components)
-    lg: spacing[6],    // 24px (spacious components)
-    xl: spacing[8],    // 32px (extra spacious components)
+    xs: spacing[1], // 4px (tight components)
+    sm: spacing[2], // 8px (compact components)
+    md: spacing[4], // 16px (default components)
+    lg: spacing[6], // 24px (spacious components)
+    xl: spacing[8], // 32px (extra spacious components)
   },
 } as const;
 
@@ -176,7 +176,7 @@ export const spacingCSSVariables = {
   "--spacing-16": spacing[16],
   "--spacing-20": spacing[20],
   "--spacing-24": spacing[24],
-  
+
   // Semantic spacing
   "--spacing-xs": semanticSpacing.xs,
   "--spacing-sm": semanticSpacing.sm,
@@ -188,7 +188,7 @@ export const spacingCSSVariables = {
   "--spacing-4xl": semanticSpacing["4xl"],
   "--spacing-5xl": semanticSpacing["5xl"],
   "--spacing-none": semanticSpacing.none,
-  
+
   // Layout spacing - sections
   "--layout-section-xs": layoutSpacing.section.xs,
   "--layout-section-sm": layoutSpacing.section.sm,
@@ -196,28 +196,28 @@ export const spacingCSSVariables = {
   "--layout-section-lg": layoutSpacing.section.lg,
   "--layout-section-xl": layoutSpacing.section.xl,
   "--layout-section-2xl": layoutSpacing.section["2xl"],
-  
+
   // Layout spacing - containers
   "--layout-container-xs": layoutSpacing.container.xs,
   "--layout-container-sm": layoutSpacing.container.sm,
   "--layout-container-md": layoutSpacing.container.md,
   "--layout-container-lg": layoutSpacing.container.lg,
   "--layout-container-xl": layoutSpacing.container.xl,
-  
+
   // Layout spacing - grids
   "--layout-grid-xs": layoutSpacing.grid.xs,
   "--layout-grid-sm": layoutSpacing.grid.sm,
   "--layout-grid-md": layoutSpacing.grid.md,
   "--layout-grid-lg": layoutSpacing.grid.lg,
   "--layout-grid-xl": layoutSpacing.grid.xl,
-  
+
   // Layout spacing - stacks
   "--layout-stack-xs": layoutSpacing.stack.xs,
   "--layout-stack-sm": layoutSpacing.stack.sm,
   "--layout-stack-md": layoutSpacing.stack.md,
   "--layout-stack-lg": layoutSpacing.stack.lg,
   "--layout-stack-xl": layoutSpacing.stack.xl,
-  
+
   // Layout spacing - components
   "--layout-component-xs": layoutSpacing.component.xs,
   "--layout-component-sm": layoutSpacing.component.sm,

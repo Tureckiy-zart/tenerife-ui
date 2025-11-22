@@ -25,6 +25,7 @@ Auto-fix proposals generated for all code review findings. Proposals organized b
 **File:** `src/components/forms/FormInput.tsx`
 
 **Current:**
+
 ```typescript
 interface FormInputProps {
   id?: string;
@@ -41,6 +42,7 @@ interface FormInputProps {
 ```
 
 **Proposed:**
+
 ```typescript
 interface FormInputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "className"> {
@@ -62,6 +64,7 @@ interface FormInputProps
 **File:** `src/components/forms/FormTextarea.tsx`
 
 **Current:**
+
 ```typescript
 interface FormTextareaProps {
   id?: string;
@@ -77,9 +80,13 @@ interface FormTextareaProps {
 ```
 
 **Proposed:**
+
 ```typescript
 interface FormTextareaProps
-  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange" | "className"> {
+  extends Omit<
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    "value" | "onChange" | "className"
+  > {
   label?: string;
   error?: string;
   value?: string;
@@ -97,6 +104,7 @@ interface FormTextareaProps
 **File:** `src/components/modals/SimpleModal.tsx`
 
 **Current:**
+
 ```typescript
 interface SimpleModalProps {
   isOpen: boolean;
@@ -108,9 +116,9 @@ interface SimpleModalProps {
 ```
 
 **Proposed:**
+
 ```typescript
-interface SimpleModalProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onClick"> {
+interface SimpleModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onClick"> {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
@@ -118,7 +126,7 @@ interface SimpleModalProps
 }
 ```
 
-**Impact:** Adds support for standard HTML props (aria-*, data-*, etc.)
+**Impact:** Adds support for standard HTML props (aria-_, data-_, etc.)
 
 ---
 
@@ -127,6 +135,7 @@ interface SimpleModalProps
 **File:** `src/components/modals/CustomDialog.tsx`
 
 **Current:**
+
 ```typescript
 interface CustomDialogProps {
   isOpen: boolean;
@@ -139,9 +148,9 @@ interface CustomDialogProps {
 ```
 
 **Proposed:**
+
 ```typescript
-interface CustomDialogProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+interface CustomDialogProps extends React.HTMLAttributes<HTMLDivElement> {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
@@ -159,6 +168,7 @@ interface CustomDialogProps
 **File:** `src/components/sections/TrendingSection.tsx`
 
 **Current:**
+
 ```typescript
 interface TrendingSectionProps {
   events: Event[];
@@ -172,9 +182,9 @@ interface TrendingSectionProps {
 ```
 
 **Proposed:**
+
 ```typescript
-interface TrendingSectionProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+interface TrendingSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   events: Event[];
   limit: number;
   loading: boolean;
@@ -197,17 +207,19 @@ interface TrendingSectionProps
 **File:** `src/components/cards/EventCard.tsx`
 
 **Current:**
+
 ```typescript
-className="h-16 w-16 text-gray-400 dark:text-gray-600"
-className="flex items-center gap-2 text-xs text-gray-500"
-className="border-t border-gray-200 pt-3 dark:border-gray-700"
+className = "h-16 w-16 text-gray-400 dark:text-gray-600";
+className = "flex items-center gap-2 text-xs text-gray-500";
+className = "border-t border-gray-200 pt-3 dark:border-gray-700";
 ```
 
 **Proposed:**
+
 ```typescript
-className="h-16 w-16 text-muted"
-className="flex items-center gap-2 text-xs text-muted-foreground"
-className="border-t border-border pt-3"
+className = "h-16 w-16 text-muted";
+className = "flex items-center gap-2 text-xs text-muted-foreground";
+className = "border-t border-border pt-3";
 ```
 
 **Impact:** Uses theme tokens, supports theme switching
@@ -219,15 +231,21 @@ className="border-t border-border pt-3"
 **File:** `src/components/cards/EventCard.tsx`
 
 **Current:**
+
 ```typescript
-className="inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-purple-600 px-2.5 py-0.5 text-xs font-semibold text-white shadow-lg"
-className="inline-flex w-full transform items-center justify-center bg-gradient-to-r from-orange-500 to-purple-600 px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-purple-700 hover:shadow-lg"
+className =
+  "inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-purple-600 px-2.5 py-0.5 text-xs font-semibold text-white shadow-lg";
+className =
+  "inline-flex w-full transform items-center justify-center bg-gradient-to-r from-orange-500 to-purple-600 px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:from-orange-600 hover:to-purple-700 hover:shadow-lg";
 ```
 
 **Proposed:**
+
 ```typescript
-className="inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-2.5 py-0.5 text-xs font-semibold text-primary-foreground shadow-lg"
-className="inline-flex w-full transform items-center justify-center bg-gradient-to-r from-primary to-accent px-4 py-2 font-semibold text-primary-foreground shadow-md transition-all duration-300 hover:scale-105 hover:from-primary/90 hover:to-accent/90 hover:shadow-lg"
+className =
+  "inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-2.5 py-0.5 text-xs font-semibold text-primary-foreground shadow-lg";
+className =
+  "inline-flex w-full transform items-center justify-center bg-gradient-to-r from-primary to-accent px-4 py-2 font-semibold text-primary-foreground shadow-md transition-all duration-300 hover:scale-105 hover:from-primary/90 hover:to-accent/90 hover:shadow-lg";
 ```
 
 **Impact:** Uses theme tokens for gradients, supports theme switching
@@ -239,13 +257,17 @@ className="inline-flex w-full transform items-center justify-center bg-gradient-
 **File:** `src/components/cards/EventCard.tsx`
 
 **Current:**
+
 ```typescript
-className="relative h-48 w-full overflow-hidden rounded-t-lg bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800"
+className =
+  "relative h-48 w-full overflow-hidden rounded-t-lg bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800";
 ```
 
 **Proposed:**
+
 ```typescript
-className="relative h-48 w-full overflow-hidden rounded-t-lg bg-gradient-to-br from-muted to-muted/50"
+className =
+  "relative h-48 w-full overflow-hidden rounded-t-lg bg-gradient-to-br from-muted to-muted/50";
 ```
 
 **Impact:** Uses theme tokens
@@ -265,15 +287,17 @@ className="relative h-48 w-full overflow-hidden rounded-t-lg bg-gradient-to-br f
 **Files:** `EventCardSkeleton.tsx`, `VenueCardSkeleton.tsx`, `Skeleton.tsx`
 
 **Current:**
+
 ```typescript
-className="rounded-lg bg-white p-4 shadow-md dark:bg-gray-800"
-className="animate-pulse rounded bg-gray-200 dark:bg-gray-700"
+className = "rounded-lg bg-white p-4 shadow-md dark:bg-gray-800";
+className = "animate-pulse rounded bg-gray-200 dark:bg-gray-700";
 ```
 
 **Proposed:**
+
 ```typescript
-className="rounded-lg bg-background p-4 shadow-md"
-className="animate-pulse rounded bg-muted"
+className = "rounded-lg bg-background p-4 shadow-md";
+className = "animate-pulse rounded bg-muted";
 ```
 
 **Impact:** Uses theme tokens
@@ -285,13 +309,16 @@ className="animate-pulse rounded bg-muted"
 **Files:** `FormSelect.tsx`, `FormTextarea.tsx`
 
 **Current:**
+
 ```typescript
-className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
+className =
+  "w-full rounded-md border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800";
 ```
 
 **Proposed:**
+
 ```typescript
-className="w-full rounded-md border border-input bg-background px-3 py-2"
+className = "w-full rounded-md border border-input bg-background px-3 py-2";
 ```
 
 **Impact:** Uses theme tokens
@@ -305,17 +332,19 @@ className="w-full rounded-md border border-input bg-background px-3 py-2"
 **File:** `src/components/cards/EventCard.tsx`
 
 **Current:**
+
 ```typescript
-className="shadow-md"
-className="shadow-lg"
-className="shadow-md hover:shadow-lg"
+className = "shadow-md";
+className = "shadow-lg";
+className = "shadow-md hover:shadow-lg";
 ```
 
 **Proposed:**
+
 ```typescript
-className="shadow-elevation-md"
-className="shadow-elevation-lg"
-className="shadow-elevation-md hover:shadow-elevation-lg"
+className = "shadow-elevation-md";
+className = "shadow-elevation-lg";
+className = "shadow-elevation-md hover:shadow-elevation-lg";
 ```
 
 **Note:** Requires shadow tokens to be added to Tailwind config if not already present.
@@ -329,13 +358,15 @@ className="shadow-elevation-md hover:shadow-elevation-lg"
 **File:** `src/components/sections/TrendingSection.tsx`
 
 **Current:**
+
 ```typescript
-className="shadow-md"
+className = "shadow-md";
 ```
 
 **Proposed:**
+
 ```typescript
-className="shadow-elevation-md"
+className = "shadow-elevation-md";
 ```
 
 **Impact:** Uses elevation shadow tokens
@@ -351,6 +382,7 @@ className="shadow-elevation-md"
 **File:** Create `src/hooks/useDebounce.ts`
 
 **Proposed:**
+
 ```typescript
 import { useState, useEffect } from "react";
 
@@ -372,6 +404,7 @@ export function useDebounce<T>(value: T, delay: number): T {
 ```
 
 **Usage in SearchInput.tsx:**
+
 ```typescript
 import { useDebounce } from "@/hooks/useDebounce";
 
@@ -391,6 +424,7 @@ useEffect(() => {
 **File:** `src/components/cards/EventCard.tsx`
 
 **Current:**
+
 ```typescript
 if (typeof featured !== "boolean") {
   throw new Error('EventCard: "featured" prop is required and must be a boolean');
@@ -399,6 +433,7 @@ if (typeof featured !== "boolean") {
 ```
 
 **Proposed:**
+
 ```typescript
 // Remove runtime validation, trust TypeScript types
 // Validation should happen at API/data layer, not component level
@@ -417,6 +452,7 @@ if (typeof featured !== "boolean") {
 **File:** `src/components/filters/SearchInput.tsx`
 
 **Current:**
+
 ```typescript
 <Button
   type="button"
@@ -430,6 +466,7 @@ if (typeof featured !== "boolean") {
 ```
 
 **Proposed:**
+
 ```typescript
 <Button
   type="button"
@@ -452,6 +489,7 @@ if (typeof featured !== "boolean") {
 **File:** `src/components/cards/EventCard.tsx`
 
 **Current:**
+
 ```typescript
 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   {/* ... */}
@@ -459,11 +497,12 @@ if (typeof featured !== "boolean") {
 ```
 
 **Proposed:**
+
 ```typescript
-<svg 
-  className="h-4 w-4" 
-  fill="none" 
-  viewBox="0 0 24 24" 
+<svg
+  className="h-4 w-4"
+  fill="none"
+  viewBox="0 0 24 24"
   stroke="currentColor"
   aria-hidden="true"
 >
@@ -488,6 +527,7 @@ if (typeof featured !== "boolean") {
 **Files:** `SimpleModal.tsx`, `CustomDialog.tsx`
 
 **Proposed:**
+
 ```typescript
 <button
   onClick={onClose}
@@ -523,20 +563,21 @@ if (typeof featured !== "boolean") {
 
 ## 🔧 6. Fix Categories Summary
 
-| Category | Fixes | Priority |
-|----------|-------|----------|
-| Typing | 5 | HIGH |
-| Tokens (Colors) | 16 | HIGH |
-| Tokens (Shadows) | 2 | MEDIUM |
-| Architecture | 2 | MEDIUM |
-| Accessibility | 4 | HIGH |
-| **Total** | **29** | |
+| Category         | Fixes  | Priority |
+| ---------------- | ------ | -------- |
+| Typing           | 5      | HIGH     |
+| Tokens (Colors)  | 16     | HIGH     |
+| Tokens (Shadows) | 2      | MEDIUM   |
+| Architecture     | 2      | MEDIUM   |
+| Accessibility    | 4      | HIGH     |
+| **Total**        | **29** |          |
 
 ---
 
 ## 📝 7. Implementation Steps
 
 ### Step 1: Typing Fixes
+
 1. Update FormInput.tsx interface
 2. Update FormTextarea.tsx interface
 3. Update SimpleModal.tsx interface
@@ -544,6 +585,7 @@ if (typeof featured !== "boolean") {
 5. Update TrendingSection.tsx interface
 
 ### Step 2: Token Fixes
+
 1. Replace hardcoded colors in EventCard.tsx
 2. Replace hardcoded colors in VenueCard.tsx
 3. Replace hardcoded colors in form components
@@ -551,11 +593,13 @@ if (typeof featured !== "boolean") {
 5. Replace hardcoded shadows
 
 ### Step 3: Architecture Fixes
+
 1. Create useDebounce hook
 2. Update SearchInput to use useDebounce
 3. Simplify EventCard validation
 
 ### Step 4: Accessibility Fixes
+
 1. Add aria-labels to icon buttons
 2. Add aria-hidden to decorative icons
 3. Verify focus indicators
@@ -578,4 +622,3 @@ After applying fixes:
 **Total Proposals:** 29  
 **Categories:** 4  
 **Status:** ✅ COMPLETED
-

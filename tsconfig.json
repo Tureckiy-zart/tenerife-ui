@@ -3,7 +3,7 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    
+
     /* Strict Type-Checking Options */
     "strict": true,
     "noImplicitAny": true,
@@ -13,7 +13,7 @@
     "strictPropertyInitialization": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    
+
     /* Additional Checks */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -22,30 +22,30 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": false,
-    
+
     /* Module Resolution */
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "verbatimModuleSyntax": true,
-    
+
     /* Emit */
     "jsx": "react-jsx",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    
+
     /* Interop Constraints */
     "skipLibCheck": true,
     "isolatedModules": true,
-    
+
     /* Paths */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    
+
     /* Output */
     "outDir": "dist",
     "rootDir": "src"

@@ -1,8 +1,10 @@
 "use client";
 
 import React from "react";
-import type { Mode } from "@/tokens/colors";
+
 import type { ThemeName } from "@/themes/types";
+import type { Mode } from "@/tokens/colors";
+
 import {
   applyDocumentTheme,
   getInitialMode,
@@ -39,7 +41,7 @@ interface ThemeProviderProps {
 
 /**
  * Theme Provider
- * 
+ *
  * Provides theme context and manages theme mode (day/night) and theme overrides (default/dark/brand).
  * Uses tokens for all theme values and persists mode and theme in localStorage.
  */
@@ -54,14 +56,14 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [mode, setModeState] = React.useState<Mode>(() => {
     if (typeof window === "undefined") return defaultMode;
-    
+
     // Check if mode is already set in DOM
     const root = document.documentElement;
     const existingMode = root.getAttribute(attribute);
     if (existingMode === "day" || existingMode === "night") {
       return existingMode;
     }
-    
+
     // Try to get from localStorage
     try {
       const stored = localStorage.getItem(storageKey);
@@ -71,13 +73,13 @@ export function ThemeProvider({
     } catch {
       // localStorage access can fail in private mode
     }
-    
+
     // Use system preference if enabled
     if (enableSystem && typeof window !== "undefined") {
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       return prefersDark ? "night" : "day";
     }
-    
+
     return defaultMode;
   });
 
@@ -93,7 +95,7 @@ export function ThemeProvider({
       applyDocumentTheme(newMode, theme);
       persistMode(newMode, storageKey);
     },
-    [theme, storageKey]
+    [theme, storageKey],
   );
 
   // Apply theme to document and persist
@@ -103,7 +105,7 @@ export function ThemeProvider({
       await applyDocumentTheme(mode, newTheme);
       persistTheme(newTheme, themeStorageKey);
     },
-    [mode, themeStorageKey]
+    [mode, themeStorageKey],
   );
 
   // Toggle between day and night
@@ -157,18 +159,17 @@ export function ThemeProvider({
       setTheme,
       toggleMode,
     }),
-    [mode, theme, setMode, setTheme, toggleMode]
+    [mode, theme, setMode, setTheme, toggleMode],
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 
-
 /**
  * useTheme Hook
- * 
+ *
  * Provides access to theme context and theme control functions.
- * 
+ *
  * @example
  * ```tsx
  * const { mode, theme, setMode, setTheme, toggleMode } = useTheme();
@@ -176,11 +177,10 @@ export function ThemeProvider({
  */
 export function useTheme(): ThemeContextValue {
   const context = React.useContext(ThemeContext);
-  
+
   if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
-  
+
   return context;
 }
-

@@ -32,14 +32,14 @@
 
 Проверено наличие всех файлов подзадач:
 
-| Файл | Статус |
-|------|--------|
-| `.cursor/tasks/subtasks/U1.subtasks.json` | ✅ EXISTS |
-| `.cursor/tasks/subtasks/U7.subtasks.json` | ✅ EXISTS |
-| `.cursor/tasks/subtasks/U9.subtasks.json` | ✅ EXISTS |
+| Файл                                       | Статус    |
+| ------------------------------------------ | --------- |
+| `.cursor/tasks/subtasks/U1.subtasks.json`  | ✅ EXISTS |
+| `.cursor/tasks/subtasks/U7.subtasks.json`  | ✅ EXISTS |
+| `.cursor/tasks/subtasks/U9.subtasks.json`  | ✅ EXISTS |
 | `.cursor/tasks/subtasks/U10.subtasks.json` | ✅ EXISTS |
-| `.cursor/tasks/subtasks/P2.subtasks.json` | ✅ EXISTS |
-| `.cursor/tasks/subtasks/Q1.subtasks.json` | ✅ EXISTS |
+| `.cursor/tasks/subtasks/P2.subtasks.json`  | ✅ EXISTS |
+| `.cursor/tasks/subtasks/Q1.subtasks.json`  | ✅ EXISTS |
 
 **Всего файлов подзадач:** 6/6 ✅
 
@@ -49,13 +49,13 @@
 
 ### 3. Критические файлы документации ✅
 
-| Файл | Ожидаемый путь | Реальный путь | Статус |
-|------|----------------|---------------|--------|
-| STRUCTURE_OF_WORK.md | `docs/structure/STRUCTURE_OF_WORK.md` | ✅ EXISTS | ✅ |
-| PROJECT_PROGRESS.md | `docs/PROJECT_PROGRESS.md` | ✅ EXISTS | ✅ |
-| design_system.md | `tenerife_audit/design_system.md` | `docs/tenerife_audit/design_system.md` | ⚠️ |
-| components_redesign.md | `tenerife_audit/components_redesign.md` | `docs/tenerife_audit/components_redesign.md` | ⚠️ |
-| layout_and_brand_guide.md | `tenerife_audit/layout_and_brand_guide.md` | `docs/tenerife_audit/layout_and_brand_guide.md` | ⚠️ |
+| Файл                      | Ожидаемый путь                             | Реальный путь                                   | Статус |
+| ------------------------- | ------------------------------------------ | ----------------------------------------------- | ------ |
+| STRUCTURE_OF_WORK.md      | `docs/structure/STRUCTURE_OF_WORK.md`      | ✅ EXISTS                                       | ✅     |
+| PROJECT_PROGRESS.md       | `docs/PROJECT_PROGRESS.md`                 | ✅ EXISTS                                       | ✅     |
+| design_system.md          | `tenerife_audit/design_system.md`          | `docs/tenerife_audit/design_system.md`          | ⚠️     |
+| components_redesign.md    | `tenerife_audit/components_redesign.md`    | `docs/tenerife_audit/components_redesign.md`    | ⚠️     |
+| layout_and_brand_guide.md | `tenerife_audit/layout_and_brand_guide.md` | `docs/tenerife_audit/layout_and_brand_guide.md` | ⚠️     |
 
 **Примечание:** Файлы `tenerife_audit/*` находятся в `docs/tenerife_audit/`, а не в корне проекта. Это **НЕ блокер**, так как файлы существуют и доступны.
 
@@ -65,13 +65,13 @@
 
 ### 4. Структура документации ✅
 
-| Директория | Статус |
-|------------|--------|
-| `docs/structure/` | ✅ EXISTS |
-| `docs/reports/` | ✅ EXISTS |
-| `docs/tasks/` | ✅ EXISTS |
-| `docs/tenerife_audit/` | ✅ EXISTS |
-| `docs/README.md` | ✅ EXISTS |
+| Директория               | Статус    |
+| ------------------------ | --------- |
+| `docs/structure/`        | ✅ EXISTS |
+| `docs/reports/`          | ✅ EXISTS |
+| `docs/tasks/`            | ✅ EXISTS |
+| `docs/tenerife_audit/`   | ✅ EXISTS |
+| `docs/README.md`         | ✅ EXISTS |
 | `docs/redirect_map.json` | ✅ EXISTS |
 
 **Статус:** ✅ ПРОЙДЕНО
@@ -80,11 +80,11 @@
 
 ### 5. Конфигурация Cursor ✅
 
-| Компонент | Статус |
-|-----------|--------|
-| `.cursor/project-config.json` | ✅ EXISTS |
-| `.cursor/rules/` (файлы .mdc) | ✅ 8 файлов |
-| `.cursor/templates/` (файлы .md) | ✅ 3 файла |
+| Компонент                        | Статус      |
+| -------------------------------- | ----------- |
+| `.cursor/project-config.json`    | ✅ EXISTS   |
+| `.cursor/rules/` (файлы .mdc)    | ✅ 8 файлов |
+| `.cursor/templates/` (файлы .md) | ✅ 3 файла  |
 
 **Статус:** ✅ ПРОЙДЕНО
 
@@ -92,11 +92,11 @@
 
 ### 6. Проверка ссылок в Master Task ✅
 
-| Тип ссылки | Значение | Статус |
-|------------|----------|--------|
-| `reference.structure_of_work` | `docs/structure/STRUCTURE_OF_WORK.md` | ✅ VALID |
-| `post_task_actions` ссылка на | `docs/PROJECT_PROGRESS.md` | ✅ VALID |
-| Старые пути `docs/tenerife_audit/` | В master_tasks.json | ❌ НЕ НАЙДЕНО |
+| Тип ссылки                         | Значение                              | Статус        |
+| ---------------------------------- | ------------------------------------- | ------------- |
+| `reference.structure_of_work`      | `docs/structure/STRUCTURE_OF_WORK.md` | ✅ VALID      |
+| `post_task_actions` ссылка на      | `docs/PROJECT_PROGRESS.md`            | ✅ VALID      |
+| Старые пути `docs/tenerife_audit/` | В master_tasks.json                   | ❌ НЕ НАЙДЕНО |
 
 **Примечание:** В `master_tasks.json` используются пути `tenerife_audit/`, но файлы находятся в `docs/tenerife_audit/`. Это может вызвать проблемы при выполнении задач.
 
@@ -108,19 +108,19 @@
 
 ### Оценка по категориям:
 
-| Категория | Оценка | Максимум | Статус |
-|-----------|--------|----------|--------|
-| JSON валидность | 10 | 10 | ✅ |
-| Структура Master Task | 10 | 10 | ✅ |
-| Файлы подзадач | 12 | 12 | ✅ |
-| Критические файлы | 8 | 10 | ⚠️ |
-| Структура документации | 10 | 10 | ✅ |
-| Конфигурация Cursor | 10 | 10 | ✅ |
-| Проверка ссылок | 8 | 10 | ⚠️ |
-| Отсутствие старых путей | 10 | 10 | ✅ |
-| Проверка зависимостей | 8 | 8 | ✅ |
-| Валидация задач | 6 | 10 | ⚠️ |
-| **ИТОГО** | **92** | **100** | ✅ |
+| Категория               | Оценка | Максимум | Статус |
+| ----------------------- | ------ | -------- | ------ |
+| JSON валидность         | 10     | 10       | ✅     |
+| Структура Master Task   | 10     | 10       | ✅     |
+| Файлы подзадач          | 12     | 12       | ✅     |
+| Критические файлы       | 8      | 10       | ⚠️     |
+| Структура документации  | 10     | 10       | ✅     |
+| Конфигурация Cursor     | 10     | 10       | ✅     |
+| Проверка ссылок         | 8      | 10       | ⚠️     |
+| Отсутствие старых путей | 10     | 10       | ✅     |
+| Проверка зависимостей   | 8      | 8        | ✅     |
+| Валидация задач         | 6      | 10       | ⚠️     |
+| **ИТОГО**               | **92** | **100**  | ✅     |
 
 ---
 
@@ -129,12 +129,14 @@
 ### 1. Несоответствие путей к tenerife_audit файлам ⚠️
 
 **Проблема:**
+
 - В `master_tasks.json` пути указаны как: `tenerife_audit/design_system.md`
 - Реальные пути: `docs/tenerife_audit/design_system.md`
 
 **Влияние:** Среднее. Файлы существуют, но находятся в другом месте. Это может вызвать ошибки при автоматическом чтении файлов.
 
-**Рекомендация:** 
+**Рекомендация:**
+
 1. Обновить пути в `master_tasks.json` на `docs/tenerife_audit/`
 2. ИЛИ создать символические ссылки в корне проекта
 3. ИЛИ переместить файлы в корень проекта
@@ -179,7 +181,8 @@
 
 **Блокеры:** Нет критических блокеров
 
-**Предупреждения:** 
+**Предупреждения:**
+
 - Несоответствие путей к tenerife_audit файлам (не критично)
 
 **Можно начинать:** ✅ ДА
@@ -206,4 +209,3 @@
 **Report Generated:** 2025-11-20  
 **Checked By:** Cursor AI Readiness Check  
 **Version:** 1.0
-

@@ -12,6 +12,7 @@
 Token usage review completed for Tenerife UI library. Scanned all components for hardcoded values (colors, spacing, shadows, radius). Found **23 violations** across **12 files**. Most violations are hardcoded colors (`gray-*`, `orange-*`, `purple-*`) and hardcoded spacing values.
 
 **Violations Found:**
+
 - Color violations: 16
 - Spacing violations: 5
 - Shadow violations: 2
@@ -30,6 +31,7 @@ Token usage review completed for Tenerife UI library. Scanned all components for
 #### Violation 1: EventCard.tsx (5 instances)
 
 **Lines:**
+
 - Line 115: `from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800` (gradient)
 - Line 125: `text-gray-400 dark:text-gray-600` (icon color)
 - Line 160: `text-gray-500` (text color)
@@ -37,20 +39,23 @@ Token usage review completed for Tenerife UI library. Scanned all components for
 - Line 193: `border-gray-200 dark:border-gray-700` (border color)
 
 **Current:**
+
 ```typescript
-className="h-16 w-16 text-gray-400 dark:text-gray-600"
+className = "h-16 w-16 text-gray-400 dark:text-gray-600";
 ```
 
 **Required:**
+
 ```typescript
-className="h-16 w-16 text-muted"
+className = "h-16 w-16 text-muted";
 // or
-className="h-16 w-16 text-muted-foreground"
+className = "h-16 w-16 text-muted-foreground";
 ```
 
 #### Violation 2: VenueCard.tsx (4 instances)
 
 **Lines:**
+
 - Line 114: `text-gray-400 dark:text-gray-600` (icon color)
 - Line 149: `text-gray-500` (text color)
 - Line 169: `border-gray-200 dark:border-gray-700` (border color)
@@ -61,6 +66,7 @@ className="h-16 w-16 text-muted-foreground"
 #### Violation 3: Skeleton Components (3 instances)
 
 **Files:**
+
 - `EventCardSkeleton.tsx` - Line 14: `bg-white dark:bg-gray-800`
 - `VenueCardSkeleton.tsx` - Line 14: `bg-white dark:bg-gray-800`
 - `Skeleton.tsx` - Line 12: `bg-gray-200 dark:bg-gray-700`
@@ -70,6 +76,7 @@ className="h-16 w-16 text-muted-foreground"
 #### Violation 4: Form Components (3 instances)
 
 **Files:**
+
 - `FormSelect.tsx` - Line 48: `border-gray-300`, `bg-white`, `dark:border-gray-600`, `dark:bg-gray-800`
 - `FormTextarea.tsx` - Line 49: `border-gray-300`, `bg-white`, `dark:border-gray-600`, `dark:bg-gray-800`
 
@@ -78,6 +85,7 @@ className="h-16 w-16 text-muted-foreground"
 #### Violation 5: Other Components (3 instances)
 
 **Files:**
+
 - `SearchFilters.tsx` - Line 108: `bg-white dark:bg-gray-800`
 - `ProfileCard.tsx` - Line 27: `bg-gray-200 dark:bg-gray-700`
 - `LanguageSelector.tsx` - Line 78: `border-gray-300`, `bg-white`, `dark:border-gray-600`, `dark:bg-gray-800`
@@ -93,18 +101,23 @@ className="h-16 w-16 text-muted-foreground"
 #### Violation 6: EventCard.tsx (3 instances)
 
 **Lines:**
+
 - Line 108: `from-orange-500 to-purple-600` (gradient badge)
 - Line 197: `from-orange-500 to-purple-600` (gradient button)
 - Line 216: `from-orange-500 to-purple-600` (gradient text)
 
 **Current:**
+
 ```typescript
-className="inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-purple-600 px-2.5 py-0.5 text-xs font-semibold text-white shadow-lg"
+className =
+  "inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-purple-600 px-2.5 py-0.5 text-xs font-semibold text-white shadow-lg";
 ```
 
 **Required:**
+
 ```typescript
-className="inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-2.5 py-0.5 text-xs font-semibold text-primary-foreground shadow-lg"
+className =
+  "inline-flex items-center rounded-full bg-gradient-to-r from-primary to-accent px-2.5 py-0.5 text-xs font-semibold text-primary-foreground shadow-lg";
 // or use token-based gradient classes
 ```
 
@@ -124,6 +137,7 @@ className="inline-flex items-center rounded-full bg-gradient-to-r from-primary t
 #### Violation 7: EventCard.tsx (6 instances)
 
 **Lines:**
+
 - Line 107: `right-3 top-3` (positioning)
 - Line 108: `px-2.5 py-0.5` (padding)
 - Line 143: `p-4` (padding)
@@ -132,13 +146,15 @@ className="inline-flex items-center rounded-full bg-gradient-to-r from-primary t
 - Line 197: `px-4 py-2` (padding)
 
 **Current:**
+
 ```typescript
-className="p-4"
+className = "p-4";
 ```
 
 **Required:**
+
 ```typescript
-className="p-md"
+className = "p-md";
 // or use semantic spacing from tokens
 ```
 
@@ -149,6 +165,7 @@ className="p-md"
 **Issue:** Base class uses hardcoded `px-4`
 
 **Line 6:**
+
 ```typescript
 const containerVariants = cva("mx-auto px-4", {
 ```
@@ -160,6 +177,7 @@ const containerVariants = cva("mx-auto px-4", {
 **Issue:** Padding variants use hardcoded values
 
 **Lines 22-26:**
+
 ```typescript
 const paddingClasses = {
   none: "",
@@ -186,18 +204,21 @@ const paddingClasses = {
 #### Violation 10: EventCard.tsx (3 instances)
 
 **Lines:**
+
 - Line 101: `shadow-md`
 - Line 108: `shadow-lg`
 - Line 197: `shadow-md`, `hover:shadow-lg`
 
 **Current:**
+
 ```typescript
-className="shadow-md"
+className = "shadow-md";
 ```
 
 **Required:**
+
 ```typescript
-className="shadow-elevation-md"
+className = "shadow-elevation-md";
 // or use shadow tokens from src/tokens/shadows.ts
 ```
 
@@ -206,8 +227,9 @@ className="shadow-elevation-md"
 #### Violation 11: TrendingSection.tsx
 
 **Line 54:**
+
 ```typescript
-className="shadow-md"
+className = "shadow-md";
 ```
 
 **Fix:** Replace with elevation shadow token
@@ -218,30 +240,30 @@ className="shadow-md"
 
 ### 4.1 Violation Distribution
 
-| Category | Count | Files | Severity |
-|----------|-------|-------|----------|
-| Color Violations | 16 | 9 | HIGH |
-| Spacing Violations | 5 | 3 | MEDIUM |
-| Shadow Violations | 2 | 2 | LOW |
-| **Total** | **23** | **12** | |
+| Category           | Count  | Files  | Severity |
+| ------------------ | ------ | ------ | -------- |
+| Color Violations   | 16     | 9      | HIGH     |
+| Spacing Violations | 5      | 3      | MEDIUM   |
+| Shadow Violations  | 2      | 2      | LOW      |
+| **Total**          | **23** | **12** |          |
 
 ### 4.2 Most Violated Files
 
-| File | Violations | Type |
-|------|------------|------|
-| EventCard.tsx | 11 | Colors, Spacing, Shadows |
-| VenueCard.tsx | 5 | Colors |
-| FormTextarea.tsx | 4 | Colors |
-| FormSelect.tsx | 4 | Colors |
-| Skeleton.tsx | 1 | Colors |
-| EventCardSkeleton.tsx | 1 | Colors |
-| VenueCardSkeleton.tsx | 1 | Colors |
-| SearchFilters.tsx | 1 | Colors |
-| ProfileCard.tsx | 1 | Colors |
-| LanguageSelector.tsx | 1 | Colors |
-| Container.tsx | 1 | Spacing |
-| Section.tsx | 1 | Spacing |
-| TrendingSection.tsx | 1 | Shadows |
+| File                  | Violations | Type                     |
+| --------------------- | ---------- | ------------------------ |
+| EventCard.tsx         | 11         | Colors, Spacing, Shadows |
+| VenueCard.tsx         | 5          | Colors                   |
+| FormTextarea.tsx      | 4          | Colors                   |
+| FormSelect.tsx        | 4          | Colors                   |
+| Skeleton.tsx          | 1          | Colors                   |
+| EventCardSkeleton.tsx | 1          | Colors                   |
+| VenueCardSkeleton.tsx | 1          | Colors                   |
+| SearchFilters.tsx     | 1          | Colors                   |
+| ProfileCard.tsx       | 1          | Colors                   |
+| LanguageSelector.tsx  | 1          | Colors                   |
+| Container.tsx         | 1          | Spacing                  |
+| Section.tsx           | 1          | Spacing                  |
+| TrendingSection.tsx   | 1          | Shadows                  |
 
 ---
 
@@ -250,17 +272,20 @@ className="shadow-md"
 ### 5.1 Well-Using Components
 
 **Primitives** ✅ EXCELLENT
+
 - `Button.tsx` - Uses token-based colors exclusively
 - `Input.tsx` - Uses token-based colors
 - `Card.tsx` - Uses token-based colors and spacing
 - `Typography.tsx` - Uses token-based typography
 
 **Layout Components** ✅ GOOD
+
 - `Flex.tsx` - Uses token-based spacing
 - `Grid.tsx` - Uses token-based spacing
 - `Stack.tsx` - Uses semantic spacing tokens
 
 **UI Components (shadcn/ui)** ✅ EXCELLENT
+
 - All shadcn components use token-based values
 - No hardcoded colors or spacing
 
@@ -321,4 +346,3 @@ Token usage violations found in **12 files** with **23 total violations**. Most 
 **Files Scanned:** 109  
 **Violations Found:** 23  
 **Status:** ✅ COMPLETED
-

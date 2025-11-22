@@ -1,13 +1,13 @@
 /**
  * Theme Overrides Export
- * 
+ *
  * Exports all theme configurations and utilities.
  */
 
-export * from "./types";
-export { defaultTheme } from "./default";
-export { darkTheme } from "./dark";
 export { brandTheme } from "./brand";
+export { darkTheme } from "./dark";
+export { defaultTheme } from "./default";
+export * from "./types";
 
 /**
  * All available themes
@@ -28,4 +28,3 @@ export async function getTheme(name: "default" | "dark" | "brand") {
   }
   return await themeLoader();
 }
-

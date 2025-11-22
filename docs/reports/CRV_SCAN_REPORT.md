@@ -12,6 +12,7 @@
 Comprehensive codebase scan completed for Tenerife UI library. Scanned **109 files** across `src/**/*.tsx` and `src/**/*.ts`. Identified **47 violations** across multiple categories: token misuse, typing issues, accessibility gaps, and architectural inconsistencies.
 
 **Total Issues Found:**
+
 - Token violations: 23
 - Typing issues: 8
 - Accessibility issues: 4
@@ -185,6 +186,7 @@ Comprehensive codebase scan completed for Tenerife UI library. Scanned **109 fil
 **Finding:** Most components properly exported through `src/index.ts`
 
 **Exceptions:**
+
 - Some internal components may not need public exports (acceptable)
 
 ### 3.2 Component Structure
@@ -193,6 +195,7 @@ Comprehensive codebase scan completed for Tenerife UI library. Scanned **109 fil
 **Finding:** Components follow consistent structure
 
 **Issues:**
+
 - Some components mix layout and logic (acceptable for composite components)
 - Form components could benefit from better separation of concerns
 
@@ -216,25 +219,25 @@ Comprehensive codebase scan completed for Tenerife UI library. Scanned **109 fil
 
 ### Issue Distribution
 
-| Category | Count | Severity |
-|----------|-------|----------|
-| Token Violations | 23 | HIGH |
-| Typing Issues | 8 | MEDIUM |
-| Accessibility | 4 | MEDIUM |
-| Architecture | 5 | MEDIUM |
-| Naming | 7 | LOW |
-| **Total** | **47** | |
+| Category         | Count  | Severity |
+| ---------------- | ------ | -------- |
+| Token Violations | 23     | HIGH     |
+| Typing Issues    | 8      | MEDIUM   |
+| Accessibility    | 4      | MEDIUM   |
+| Architecture     | 5      | MEDIUM   |
+| Naming           | 7      | LOW      |
+| **Total**        | **47** |          |
 
 ### File Distribution
 
-| File Type | Scanned | Issues |
-|-----------|---------|--------|
-| Components (.tsx) | 92 | 42 |
-| Hooks (.ts) | 3 | 0 |
-| Tokens (.ts) | 6 | 0 |
-| Theme (.ts) | 8 | 0 |
-| Utils (.ts) | 1 | 5 |
-| **Total** | **109** | **47** |
+| File Type         | Scanned | Issues |
+| ----------------- | ------- | ------ |
+| Components (.tsx) | 92      | 42     |
+| Hooks (.ts)       | 3       | 0      |
+| Tokens (.ts)      | 6       | 0      |
+| Theme (.ts)       | 8       | 0      |
+| Utils (.ts)       | 1       | 5      |
+| **Total**         | **109** | **47** |
 
 ---
 

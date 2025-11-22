@@ -26,7 +26,7 @@ export const SimpleModal: React.FC<SimpleModalProps> = ({
       <div className="fixed inset-0 bg-black/50" onClick={onClose} />
       <div
         className={cn(
-          "bg-card relative mx-4 w-full max-w-md rounded-lg border shadow-lg",
+          "relative mx-4 w-full max-w-md rounded-lg border bg-card shadow-lg",
           className,
         )}
       >

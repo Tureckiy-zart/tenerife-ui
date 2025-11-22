@@ -1,16 +1,16 @@
 /**
  * CSS Variables Generator
- * 
+ *
  * Merges all CSS custom properties from all token systems.
  * This file aggregates all CSS variables for injection into the theme system.
  */
 
 import { colorCSSVariables } from "./colors";
-import { typographyCSSVariables } from "./typography";
-import { spacingCSSVariables } from "./spacing";
-import { shadowCSSVariables } from "./shadows";
-import { radiusCSSVariables } from "./radius";
 import { motionCSSVariables } from "./motion";
+import { radiusCSSVariables } from "./radius";
+import { shadowCSSVariables } from "./shadows";
+import { spacingCSSVariables } from "./spacing";
+import { typographyCSSVariables } from "./typography";
 
 /**
  * All CSS Variables from Tokens
@@ -33,7 +33,7 @@ export function generateCSSVariablesCSS(variables: Record<string, string>): stri
   const cssLines = Object.entries(variables)
     .map(([key, value]) => `    ${key}: ${value};`)
     .join("\n");
-  
+
   return `:root {\n${cssLines}\n  }`;
 }
 
@@ -56,4 +56,3 @@ export const tokenSystemSummary = {
   motion: Object.keys(motionCSSVariables).length,
   total: Object.keys(allCSSVariables).length,
 } as const;
-

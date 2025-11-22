@@ -59,32 +59,32 @@
 
 ### Existing Token Files
 
-| File | Status | Notes |
-|------|--------|-------|
-| `src/tokens/colors.ts` | ✅ EXISTS | Partial implementation |
-| `src/tokens/typography.ts` | ✅ EXISTS | Partial implementation |
-| `src/tokens/spacing.ts` | ✅ EXISTS | Partial implementation |
-| `src/tokens/radius.ts` | ✅ EXISTS | Partial implementation |
-| `src/tokens/shadows.ts` | ❌ MISSING | **Critical - needs creation** |
-| `src/tokens/motion.ts` | ⚠️ WRONG LOCATION | Found in `src/theme/motion.ts` |
+| File                       | Status            | Notes                          |
+| -------------------------- | ----------------- | ------------------------------ |
+| `src/tokens/colors.ts`     | ✅ EXISTS         | Partial implementation         |
+| `src/tokens/typography.ts` | ✅ EXISTS         | Partial implementation         |
+| `src/tokens/spacing.ts`    | ✅ EXISTS         | Partial implementation         |
+| `src/tokens/radius.ts`     | ✅ EXISTS         | Partial implementation         |
+| `src/tokens/shadows.ts`    | ❌ MISSING        | **Critical - needs creation**  |
+| `src/tokens/motion.ts`     | ⚠️ WRONG LOCATION | Found in `src/theme/motion.ts` |
 
 ### Existing Theme Files
 
-| File | Status | Notes |
-|------|--------|-------|
-| `src/theme/index.ts` | ✅ EXISTS | Barrel exports |
-| `src/theme/colors.ts` | ✅ EXISTS | Theme colors |
-| `src/theme/colors.css` | ✅ EXISTS | CSS variables |
-| `src/theme/typography.ts` | ✅ EXISTS | Theme typography |
-| `src/theme/spacing.ts` | ✅ EXISTS | Theme spacing |
-| `src/theme/motion.ts` | ✅ EXISTS | Should be in tokens/ |
-| `src/theme/global.css` | ✅ EXISTS | Global CSS |
-| `src/theme/applyMode.ts` | ✅ EXISTS | Mode application |
+| File                          | Status     | Notes                         |
+| ----------------------------- | ---------- | ----------------------------- |
+| `src/theme/index.ts`          | ✅ EXISTS  | Barrel exports                |
+| `src/theme/colors.ts`         | ✅ EXISTS  | Theme colors                  |
+| `src/theme/colors.css`        | ✅ EXISTS  | CSS variables                 |
+| `src/theme/typography.ts`     | ✅ EXISTS  | Theme typography              |
+| `src/theme/spacing.ts`        | ✅ EXISTS  | Theme spacing                 |
+| `src/theme/motion.ts`         | ✅ EXISTS  | Should be in tokens/          |
+| `src/theme/global.css`        | ✅ EXISTS  | Global CSS                    |
+| `src/theme/applyMode.ts`      | ✅ EXISTS  | Mode application              |
 | `src/theme/ThemeProvider.tsx` | ❌ MISSING | **Critical - needs creation** |
-| `src/theme/useTheme.ts` | ❌ MISSING | **Critical - needs creation** |
-| `src/themes/default.ts` | ❌ MISSING | Needs creation |
-| `src/themes/dark.ts` | ❌ MISSING | Needs creation |
-| `src/themes/brand.ts` | ❌ MISSING | Needs creation |
+| `src/theme/useTheme.ts`       | ❌ MISSING | **Critical - needs creation** |
+| `src/themes/default.ts`       | ❌ MISSING | Needs creation                |
+| `src/themes/dark.ts`          | ❌ MISSING | Needs creation                |
+| `src/themes/brand.ts`         | ❌ MISSING | Needs creation                |
 
 ---
 
@@ -147,4 +147,3 @@ After Foundation Layer completion:
 **Report Generated:** 2025-11-20  
 **Status:** 🚀 READY TO START  
 **Next Step:** Begin Task F0
-

@@ -1,22 +1,22 @@
 "use client";
 
+import { getTheme } from "@/themes";
+import type { ThemeOverride } from "@/themes/types";
 import type { Mode } from "@/tokens/colors";
 import {
   accentColors as baseAccentColors,
   baseColors as baseBaseColors,
-  secondaryColors as baseSecondaryColors,
-  semanticColors as baseSemanticColors,
-  surfaceColors as baseSurfaceColors,
-  textColors as baseTextColors,
-  primaryColors as basePrimaryColors,
-  type ColorScale,
   type BaseColorTokens,
-  type SurfaceColors,
+  type ColorScale,
+  primaryColors as basePrimaryColors,
+  secondaryColors as baseSecondaryColors,
   type SemanticColors,
+  semanticColors as baseSemanticColors,
+  type SurfaceColors,
+  surfaceColors as baseSurfaceColors,
   type TextColors,
+  textColors as baseTextColors,
 } from "@/tokens/colors";
-import type { ThemeOverride } from "@/themes/types";
-import { getTheme } from "@/themes";
 
 const MODE_ATTRIBUTE = "data-mode";
 const THEME_ATTRIBUTE = "data-theme-name";
@@ -30,7 +30,7 @@ const DARK_CLASS = "dark";
 export function getInitialMode(
   defaultMode: Mode = "day",
   storageKey: string = "tm_mode",
-  enableSystem: boolean = true
+  enableSystem: boolean = true,
 ): Mode {
   if (typeof window === "undefined") return defaultMode;
 
@@ -79,7 +79,9 @@ let currentThemeOverride: ThemeOverride | null = null;
 /**
  * Load and cache theme override
  */
-export async function loadThemeOverride(themeName: "default" | "dark" | "brand"): Promise<ThemeOverride | null> {
+export async function loadThemeOverride(
+  themeName: "default" | "dark" | "brand",
+): Promise<ThemeOverride | null> {
   if (themeName === "default") {
     currentThemeOverride = null;
     return null;
@@ -117,57 +119,33 @@ function mergeObject<T extends Record<string, unknown>>(base: T, override?: Part
  */
 function getMergedTokens(_mode: Mode) {
   const override = currentThemeOverride;
-  
+
   // Merge color scales
   const primaryColors = mergeColorScale(basePrimaryColors, override?.primaryColors);
   const accentColors = mergeColorScale(baseAccentColors, override?.accentColors);
   const secondaryColors = mergeColorScale(baseSecondaryColors, override?.secondaryColors);
-  
+
   // Merge mode-specific tokens
   const baseColors: Record<Mode, BaseColorTokens> = {
-    day: mergeObject(
-      baseBaseColors.day,
-      override?.baseColorsDay
-    ),
-    night: mergeObject(
-      baseBaseColors.night,
-      override?.baseColorsNight
-    ),
+    day: mergeObject(baseBaseColors.day, override?.baseColorsDay),
+    night: mergeObject(baseBaseColors.night, override?.baseColorsNight),
   };
-  
+
   const surfaceColors: Record<Mode, SurfaceColors> = {
-    day: mergeObject(
-      baseSurfaceColors.day,
-      override?.surfaceColorsDay
-    ),
-    night: mergeObject(
-      baseSurfaceColors.night,
-      override?.surfaceColorsNight
-    ),
+    day: mergeObject(baseSurfaceColors.day, override?.surfaceColorsDay),
+    night: mergeObject(baseSurfaceColors.night, override?.surfaceColorsNight),
   };
-  
+
   const semanticColors: Record<Mode, SemanticColors> = {
-    day: mergeObject(
-      baseSemanticColors.day,
-      override?.semanticColorsDay
-    ),
-    night: mergeObject(
-      baseSemanticColors.night,
-      override?.semanticColorsNight
-    ),
+    day: mergeObject(baseSemanticColors.day, override?.semanticColorsDay),
+    night: mergeObject(baseSemanticColors.night, override?.semanticColorsNight),
   };
-  
+
   const textColors: Record<Mode, TextColors> = {
-    day: mergeObject(
-      baseTextColors.day,
-      override?.textColorsDay
-    ),
-    night: mergeObject(
-      baseTextColors.night,
-      override?.textColorsNight
-    ),
+    day: mergeObject(baseTextColors.day, override?.textColorsDay),
+    night: mergeObject(baseTextColors.night, override?.textColorsNight),
   };
-  
+
   return {
     primaryColors,
     accentColors,
@@ -188,7 +166,7 @@ function updateCSSVariablesFromTokens(mode: Mode) {
 
   const root = document.documentElement;
   const tokens = getMergedTokens(mode);
-  
+
   const {
     primaryColors,
     accentColors,
@@ -310,7 +288,10 @@ function updateCSSVariablesFromTokens(mode: Mode) {
  * Apply theme and mode to document
  * Updates DOM attributes, classes, and CSS variables from tokens with theme overrides
  */
-export async function applyDocumentTheme(mode: Mode, themeName: "default" | "dark" | "brand" = "default") {
+export async function applyDocumentTheme(
+  mode: Mode,
+  themeName: "default" | "dark" | "brand" = "default",
+) {
   if (typeof document === "undefined") return;
 
   // Load theme override
@@ -352,7 +333,10 @@ export function applyDocumentMode(mode: Mode) {
   // Use current theme from DOM or default
   if (typeof document !== "undefined") {
     const root = document.documentElement;
-    const currentTheme = (root.getAttribute(THEME_ATTRIBUTE) || "default") as "default" | "dark" | "brand";
+    const currentTheme = (root.getAttribute(THEME_ATTRIBUTE) || "default") as
+      | "default"
+      | "dark"
+      | "brand";
     applyDocumentTheme(mode, currentTheme);
   } else {
     applyDocumentTheme(mode, "default");
@@ -364,7 +348,7 @@ export function applyDocumentMode(mode: Mode) {
  */
 export function getInitialTheme(
   defaultTheme: "default" | "dark" | "brand" = "default",
-  storageKey: string = "tm_theme"
+  storageKey: string = "tm_theme",
 ): "default" | "dark" | "brand" {
   if (typeof window === "undefined") return defaultTheme;
 

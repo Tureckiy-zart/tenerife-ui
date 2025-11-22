@@ -32,16 +32,17 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 
 **Base Unit:** 100ms
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `instant` | `0ms` | No animation (instant) |
-| `fast` | `150ms` | Quick interactions (1.5 × base) |
-| `normal` | `300ms` | Default animations (3 × base) |
-| `slow` | `500ms` | Emphasized animations (5 × base) |
-| `slower` | `700ms` | Very emphasized (7 × base) |
-| `slowest` | `1000ms` | Maximum emphasis (10 × base) |
+| Token     | Value    | Usage                            |
+| --------- | -------- | -------------------------------- |
+| `instant` | `0ms`    | No animation (instant)           |
+| `fast`    | `150ms`  | Quick interactions (1.5 × base)  |
+| `normal`  | `300ms`  | Default animations (3 × base)    |
+| `slow`    | `500ms`  | Emphasized animations (5 × base) |
+| `slower`  | `700ms`  | Very emphasized (7 × base)       |
+| `slowest` | `1000ms` | Maximum emphasis (10 × base)     |
 
 **Additional Granular Durations:**
+
 - `75`: `75ms` (ultra-fast)
 - `100`: `100ms` (base unit)
 - `200`: `200ms` (fast-normal)
@@ -51,6 +52,7 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 - `800`: `800ms` (between slower and slowest)
 
 **CSS Variables:**
+
 - `--duration-instant` through `--duration-slowest` ✅
 
 **Status:** ✅ COMPLETE
@@ -59,26 +61,29 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 
 **Implementation:** Cubic-bezier functions for natural motion
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `linear` | `linear` | No easing (constant speed) |
-| `ease-in` | `cubic-bezier(0.4, 0, 1, 1)` | Accelerate (ease-in) |
-| `ease-out` | `cubic-bezier(0, 0, 0.2, 1)` | Decelerate (ease-out) - **recommended** |
-| `ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Accelerate and decelerate |
-| `bounce` | `cubic-bezier(0.68, -0.55, 0.265, 1.55)` | Bounce effect |
-| `elastic` | `cubic-bezier(0.175, 0.885, 0.32, 1.275)` | Elastic effect |
+| Token         | Value                                     | Usage                                   |
+| ------------- | ----------------------------------------- | --------------------------------------- |
+| `linear`      | `linear`                                  | No easing (constant speed)              |
+| `ease-in`     | `cubic-bezier(0.4, 0, 1, 1)`              | Accelerate (ease-in)                    |
+| `ease-out`    | `cubic-bezier(0, 0, 0.2, 1)`              | Decelerate (ease-out) - **recommended** |
+| `ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)`            | Accelerate and decelerate               |
+| `bounce`      | `cubic-bezier(0.68, -0.55, 0.265, 1.55)`  | Bounce effect                           |
+| `elastic`     | `cubic-bezier(0.175, 0.885, 0.32, 1.275)` | Elastic effect                          |
 
 **Standard Easing:**
+
 - `ease`: Standard CSS ease
 - `ease-in`: Standard CSS ease-in
 - `ease-out`: Standard CSS ease-out
 
 **Material Design Easing:**
+
 - `ease-out-cubic`: Material Design ease-out
 - `ease-in-cubic`: Material Design ease-in
 - `ease-in-out-cubic`: Material Design ease-in-out
 
 **CSS Variables:**
+
 - `--ease-linear`, `--ease-in`, `--ease-out`, `--ease-in-out` ✅
 - `--ease-bounce`, `--ease-elastic` ✅
 
@@ -88,25 +93,26 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 
 **Implementation:** Pre-configured transitions combining duration and easing
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `fast` | `150ms ease-out` | Quick transitions |
-| `fast-in` | `150ms ease-in` | Quick accelerate |
-| `fast-out` | `150ms ease-out` | Quick decelerate |
-| `fast-in-out` | `150ms ease-in-out` | Quick both |
-| `normal` | `300ms ease-in-out` | Default transitions |
-| `normal-in` | `300ms ease-in` | Default accelerate |
-| `normal-out` | `300ms ease-out` | Default decelerate |
-| `normal-in-out` | `300ms ease-in-out` | Default both |
-| `slow` | `500ms ease-in-out` | Emphasized transitions |
-| `slow-in` | `500ms ease-in` | Emphasized accelerate |
-| `slow-out` | `500ms ease-out` | Emphasized decelerate |
-| `slow-in-out` | `500ms ease-in-out` | Emphasized both |
-| `bounce` | `300ms bounce` | Bounce transition |
-| `elastic` | `500ms elastic` | Elastic transition |
-| `DEFAULT` | `300ms ease-in-out` | Default transition |
+| Token           | Value               | Usage                  |
+| --------------- | ------------------- | ---------------------- |
+| `fast`          | `150ms ease-out`    | Quick transitions      |
+| `fast-in`       | `150ms ease-in`     | Quick accelerate       |
+| `fast-out`      | `150ms ease-out`    | Quick decelerate       |
+| `fast-in-out`   | `150ms ease-in-out` | Quick both             |
+| `normal`        | `300ms ease-in-out` | Default transitions    |
+| `normal-in`     | `300ms ease-in`     | Default accelerate     |
+| `normal-out`    | `300ms ease-out`    | Default decelerate     |
+| `normal-in-out` | `300ms ease-in-out` | Default both           |
+| `slow`          | `500ms ease-in-out` | Emphasized transitions |
+| `slow-in`       | `500ms ease-in`     | Emphasized accelerate  |
+| `slow-out`      | `500ms ease-out`    | Emphasized decelerate  |
+| `slow-in-out`   | `500ms ease-in-out` | Emphasized both        |
+| `bounce`        | `300ms bounce`      | Bounce transition      |
+| `elastic`       | `500ms elastic`     | Elastic transition     |
+| `DEFAULT`       | `300ms ease-in-out` | Default transition     |
 
 **CSS Variables:**
+
 - `--transition-fast`, `--transition-normal`, `--transition-slow` ✅
 - `--transition-default` ✅
 
@@ -117,10 +123,12 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 **Implementation:** Pre-defined keyframes for common UI patterns
 
 #### Fade Animations
+
 - `fadeIn`: Fade in from transparent to opaque
 - `fadeOut`: Fade out from opaque to transparent
 
 #### Slide Animations
+
 - `slideInUp`: Slide in from bottom
 - `slideInDown`: Slide in from top
 - `slideInLeft`: Slide in from left
@@ -131,22 +139,26 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 - `slideOutRight`: Slide out to right
 
 #### Scale Animations
+
 - `scaleIn`: Scale in from 95% to 100%
 - `scaleOut`: Scale out from 100% to 95%
 - `scaleUp`: Scale up from 100% to 105%
 - `scaleDown`: Scale down from 105% to 100%
 
 #### Rotation Animations
+
 - `spin`: Rotate 360 degrees
 - `spinReverse`: Rotate -360 degrees
 
 #### Continuous Animations
+
 - `pulse`: Pulse opacity (1 → 0.5 → 1)
 - `bounce`: Bounce translateY
 - `shake`: Shake translateX
 - `ping`: Scale and fade ping effect
 
 #### Component Animations
+
 - `accordion-down`: Radix UI accordion down
 - `accordion-up`: Radix UI accordion up
 
@@ -156,23 +168,23 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 
 **Implementation:** Pre-configured animations combining keyframes, duration, and easing
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `fadeIn` | `fadeIn 300ms ease-out` | Fade in animation |
-| `fadeOut` | `fadeOut 150ms ease-in` | Fade out animation |
-| `slideInUp` | `slideInUp 300ms ease-out` | Slide in from bottom |
-| `slideInDown` | `slideInDown 300ms ease-out` | Slide in from top |
-| `slideInLeft` | `slideInLeft 300ms ease-out` | Slide in from left |
-| `slideInRight` | `slideInRight 300ms ease-out` | Slide in from right |
-| `scaleIn` | `scaleIn 300ms ease-out` | Scale in animation |
-| `scaleOut` | `scaleOut 150ms ease-in` | Scale out animation |
-| `spin` | `spin 1s linear infinite` | Continuous spin |
-| `pulse` | `pulse 2s ease-in-out infinite` | Continuous pulse |
-| `bounce` | `bounce 1s linear infinite` | Continuous bounce |
-| `ping` | `ping 1s ease-out infinite` | Continuous ping |
-| `shake` | `shake 0.5s ease-in-out` | Shake animation |
-| `accordion-down` | `accordion-down 300ms ease-out` | Accordion expand |
-| `accordion-up` | `accordion-up 300ms ease-out` | Accordion collapse |
+| Token            | Value                           | Usage                |
+| ---------------- | ------------------------------- | -------------------- |
+| `fadeIn`         | `fadeIn 300ms ease-out`         | Fade in animation    |
+| `fadeOut`        | `fadeOut 150ms ease-in`         | Fade out animation   |
+| `slideInUp`      | `slideInUp 300ms ease-out`      | Slide in from bottom |
+| `slideInDown`    | `slideInDown 300ms ease-out`    | Slide in from top    |
+| `slideInLeft`    | `slideInLeft 300ms ease-out`    | Slide in from left   |
+| `slideInRight`   | `slideInRight 300ms ease-out`   | Slide in from right  |
+| `scaleIn`        | `scaleIn 300ms ease-out`        | Scale in animation   |
+| `scaleOut`       | `scaleOut 150ms ease-in`        | Scale out animation  |
+| `spin`           | `spin 1s linear infinite`       | Continuous spin      |
+| `pulse`          | `pulse 2s ease-in-out infinite` | Continuous pulse     |
+| `bounce`         | `bounce 1s linear infinite`     | Continuous bounce    |
+| `ping`           | `ping 1s ease-out infinite`     | Continuous ping      |
+| `shake`          | `shake 0.5s ease-in-out`        | Shake animation      |
+| `accordion-down` | `accordion-down 300ms ease-out` | Accordion expand     |
+| `accordion-up`   | `accordion-up 300ms ease-out`   | Accordion collapse   |
 
 **Status:** ✅ COMPLETE
 
@@ -180,15 +192,16 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 
 **Implementation:** Accessibility support for `prefers-reduced-motion`
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `duration` | `0ms` | Instant duration for reduced motion |
-| `easing` | `linear` | Linear easing for reduced motion |
-| `transition` | `0ms linear` | Instant transition for reduced motion |
-| `mediaQuery` | `@media (prefers-reduced-motion: reduce)` | CSS media query |
-| `disableAnimations` | `animation: none !important; transition: none !important;` | Disable all animations |
+| Token               | Value                                                      | Usage                                 |
+| ------------------- | ---------------------------------------------------------- | ------------------------------------- |
+| `duration`          | `0ms`                                                      | Instant duration for reduced motion   |
+| `easing`            | `linear`                                                   | Linear easing for reduced motion      |
+| `transition`        | `0ms linear`                                               | Instant transition for reduced motion |
+| `mediaQuery`        | `@media (prefers-reduced-motion: reduce)`                  | CSS media query                       |
+| `disableAnimations` | `animation: none !important; transition: none !important;` | Disable all animations                |
 
 **Usage:**
+
 ```css
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -209,6 +222,7 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 **File:** `tailwind.config.ts`
 
 **Changes:**
+
 - ✅ Imported `tailwindMotionConfig` from `src/tokens/motion`
 - ✅ Added `transitionDuration` config from tokens
 - ✅ Added `transitionTimingFunction` config from tokens
@@ -218,6 +232,7 @@ Task F6 successfully completed. Complete motion system tokens have been implemen
 - ✅ All motion uses token references
 
 **Before:**
+
 ```typescript
 theme: {
   extend: {
@@ -234,6 +249,7 @@ theme: {
 ```
 
 **After:**
+
 ```typescript
 import { tailwindMotionConfig } from "./src/tokens/motion";
 
@@ -257,50 +273,50 @@ theme: {
 
 ### 3.1 Duration Tokens ✅
 
-| Criterion | Status |
-|-----------|--------|
-| Durations instant..slowest implemented | ✅ PASSED |
+| Criterion                               | Status    |
+| --------------------------------------- | --------- |
+| Durations instant..slowest implemented  | ✅ PASSED |
 | Additional granular durations available | ✅ PASSED |
-| All durations in milliseconds | ✅ PASSED |
-| Proper base unit (100ms) | ✅ PASSED |
+| All durations in milliseconds           | ✅ PASSED |
+| Proper base unit (100ms)                | ✅ PASSED |
 
 ### 3.2 Easing Function Tokens ✅
 
-| Criterion | Status |
-|-----------|--------|
-| ease-out implemented | ✅ PASSED |
-| ease-in-out implemented | ✅ PASSED |
+| Criterion                                     | Status    |
+| --------------------------------------------- | --------- |
+| ease-out implemented                          | ✅ PASSED |
+| ease-in-out implemented                       | ✅ PASSED |
 | Additional easing functions (bounce, elastic) | ✅ PASSED |
-| Material Design easing available | ✅ PASSED |
-| All easings use cubic-bezier | ✅ PASSED |
+| Material Design easing available              | ✅ PASSED |
+| All easings use cubic-bezier                  | ✅ PASSED |
 
 ### 3.3 Transition Tokens ✅
 
-| Criterion | Status |
-|-----------|--------|
-| Pre-configured transitions defined | ✅ PASSED |
-| Fast, normal, slow transitions | ✅ PASSED |
-| In, out, in-out variants | ✅ PASSED |
-| Special transitions (bounce, elastic) | ✅ PASSED |
+| Criterion                                   | Status    |
+| ------------------------------------------- | --------- |
+| Pre-configured transitions defined          | ✅ PASSED |
+| Fast, normal, slow transitions              | ✅ PASSED |
+| In, out, in-out variants                    | ✅ PASSED |
+| Special transitions (bounce, elastic)       | ✅ PASSED |
 | All transitions combine duration and easing | ✅ PASSED |
 
 ### 3.4 Reduced Motion Support ✅
 
-| Criterion | Status |
-|-----------|--------|
-| Reduced motion tokens defined | ✅ PASSED |
+| Criterion                              | Status    |
+| -------------------------------------- | --------- |
+| Reduced motion tokens defined          | ✅ PASSED |
 | Media query for prefers-reduced-motion | ✅ PASSED |
-| Instant duration for reduced motion | ✅ PASSED |
-| Accessibility compliance | ✅ PASSED |
+| Instant duration for reduced motion    | ✅ PASSED |
+| Accessibility compliance               | ✅ PASSED |
 
 ### 3.5 Tailwind Integration ✅
 
-| Criterion | Status |
-|-----------|--------|
+| Criterion                                | Status    |
+| ---------------------------------------- | --------- |
 | Tailwind config extends motion utilities | ✅ PASSED |
-| All motion uses token references | ✅ PASSED |
-| No hardcoded motion values | ✅ PASSED |
-| Keyframes and animations integrated | ✅ PASSED |
+| All motion uses token references         | ✅ PASSED |
+| No hardcoded motion values               | ✅ PASSED |
+| Keyframes and animations integrated      | ✅ PASSED |
 
 ---
 
@@ -397,28 +413,28 @@ theme: {
 
 ```typescript
 // Durations
-className="duration-fast"      // 150ms
-className="duration-normal"    // 300ms (default)
-className="duration-slow"      // 500ms
-className="duration-100"       // 100ms (granular)
+className = "duration-fast"; // 150ms
+className = "duration-normal"; // 300ms (default)
+className = "duration-slow"; // 500ms
+className = "duration-100"; // 100ms (granular)
 
 // Easing functions
-className="ease-out"           // ease-out (recommended)
-className="ease-in-out"        // ease-in-out
-className="ease-bounce"        // bounce easing
+className = "ease-out"; // ease-out (recommended)
+className = "ease-in-out"; // ease-in-out
+className = "ease-bounce"; // bounce easing
 
 // Transitions
-className="transition-fast"    // 150ms ease-out
-className="transition-normal"  // 300ms ease-in-out
-className="transition-slow"    // 500ms ease-in-out
+className = "transition-fast"; // 150ms ease-out
+className = "transition-normal"; // 300ms ease-in-out
+className = "transition-slow"; // 500ms ease-in-out
 
 // Animations
-className="animate-fadeIn"     // Fade in
-className="animate-slideInUp"  // Slide in from bottom
-className="animate-scaleIn"    // Scale in
-className="animate-spin"       // Continuous spin
-className="animate-pulse"      // Continuous pulse
-className="animate-bounce"     // Continuous bounce
+className = "animate-fadeIn"; // Fade in
+className = "animate-slideInUp"; // Slide in from bottom
+className = "animate-scaleIn"; // Scale in
+className = "animate-spin"; // Continuous spin
+className = "animate-pulse"; // Continuous pulse
+className = "animate-bounce"; // Continuous bounce
 ```
 
 **All classes use token references** ✅
@@ -496,6 +512,7 @@ className="animate-bounce"     // Continuous bounce
 **Task F6 Status:** ✅ **COMPLETED**
 
 **Deliverables:**
+
 - ✅ Duration tokens: instant..slowest + granular (14 tokens)
 - ✅ Easing functions: ease-in, ease-out, ease-in-out + advanced (10+ tokens)
 - ✅ Transition tokens: fast, normal, slow variants (14+ tokens)
@@ -506,6 +523,7 @@ className="animate-bounce"     // Continuous bounce
 - ✅ Tailwind config fully integrated
 
 **Output Files:**
+
 - ✅ `src/tokens/motion.ts` (completely rewritten, 405 lines)
 - ✅ `tailwind.config.ts` (updated with motion imports)
 
@@ -538,4 +556,3 @@ className="animate-bounce"     // Continuous bounce
 **Task ID:** F6  
 **Layer:** 1. Foundation Layer  
 **Status:** ✅ COMPLETED
-

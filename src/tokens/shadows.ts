@@ -1,10 +1,10 @@
 /**
  * Shadow and Glow System Tokens
- * 
+ *
  * Complete shadow system for Tenerife UI based on design system specifications.
  * Includes: elevation shadows, colored shadows (primary/accent), glow effects,
  * and focus ring tokens for accessibility.
- * 
+ *
  * @see docs/tenerife_audit/design_system.md - shadow system section
  */
 
@@ -55,11 +55,12 @@ export const accentColoredShadows = {
  */
 export const glowEffects = {
   // Primary glow effects
-  "glow-primary": "0 0 20px 0 hsl(var(--primary-500) / 0.5), 0 0 40px 0 hsl(var(--primary-500) / 0.3)",
+  "glow-primary":
+    "0 0 20px 0 hsl(var(--primary-500) / 0.5), 0 0 40px 0 hsl(var(--primary-500) / 0.3)",
   "glow-primary-subtle": "0 0 8px 0 hsl(var(--primary-500) / 0.3)",
   "glow-primary-medium": "0 0 16px 0 hsl(var(--primary-500) / 0.5)",
   "glow-primary-strong": "0 0 24px 0 hsl(var(--primary-500) / 0.6)",
-  
+
   // Accent glow effects
   "glow-accent": "0 0 20px 0 hsl(var(--accent-500) / 0.5), 0 0 40px 0 hsl(var(--accent-500) / 0.3)",
   "glow-accent-subtle": "0 0 8px 0 hsl(var(--accent-500) / 0.3)",
@@ -92,7 +93,7 @@ export const shadowCSSVariables = {
   "--shadow-lg": elevationShadows.lg,
   "--shadow-xl": elevationShadows.xl,
   "--shadow-2xl": elevationShadows["2xl"],
-  
+
   // Primary colored shadows
   "--shadow-primary-xs": primaryColoredShadows.xs,
   "--shadow-primary-sm": primaryColoredShadows.sm,
@@ -100,7 +101,7 @@ export const shadowCSSVariables = {
   "--shadow-primary-lg": primaryColoredShadows.lg,
   "--shadow-primary-xl": primaryColoredShadows.xl,
   "--shadow-primary-2xl": primaryColoredShadows["2xl"],
-  
+
   // Accent colored shadows
   "--shadow-accent-xs": accentColoredShadows.xs,
   "--shadow-accent-sm": accentColoredShadows.sm,
@@ -108,7 +109,7 @@ export const shadowCSSVariables = {
   "--shadow-accent-lg": accentColoredShadows.lg,
   "--shadow-accent-xl": accentColoredShadows.xl,
   "--shadow-accent-2xl": accentColoredShadows["2xl"],
-  
+
   // Glow effects
   "--glow-primary": glowEffects["glow-primary"],
   "--glow-primary-subtle": glowEffects["glow-primary-subtle"],
@@ -118,7 +119,7 @@ export const shadowCSSVariables = {
   "--glow-accent-subtle": glowEffects["glow-accent-subtle"],
   "--glow-accent-medium": glowEffects["glow-accent-medium"],
   "--glow-accent-strong": glowEffects["glow-accent-strong"],
-  
+
   // Focus rings
   "--focus-ring-default": focusRings.default,
   "--focus-ring-primary": focusRings.primary,
@@ -182,7 +183,7 @@ export const tailwindShadowConfig = {
     lg: elevationShadows.lg,
     xl: elevationShadows.xl,
     "2xl": elevationShadows["2xl"],
-    
+
     // Primary colored shadows
     "primary-xs": primaryColoredShadows.xs,
     "primary-sm": primaryColoredShadows.sm,
@@ -190,7 +191,7 @@ export const tailwindShadowConfig = {
     "primary-lg": primaryColoredShadows.lg,
     "primary-xl": primaryColoredShadows.xl,
     "primary-2xl": primaryColoredShadows["2xl"],
-    
+
     // Accent colored shadows
     "accent-xs": accentColoredShadows.xs,
     "accent-sm": accentColoredShadows.sm,
@@ -198,7 +199,7 @@ export const tailwindShadowConfig = {
     "accent-lg": accentColoredShadows.lg,
     "accent-xl": accentColoredShadows.xl,
     "accent-2xl": accentColoredShadows["2xl"],
-    
+
     // Glow effects
     "glow-primary": glowEffects["glow-primary"],
     "glow-primary-subtle": glowEffects["glow-primary-subtle"],
@@ -208,13 +209,13 @@ export const tailwindShadowConfig = {
     "glow-accent-subtle": glowEffects["glow-accent-subtle"],
     "glow-accent-medium": glowEffects["glow-accent-medium"],
     "glow-accent-strong": glowEffects["glow-accent-strong"],
-    
+
     // Focus rings (using box-shadow for focus states)
     "focus-ring": focusRings.default,
     "focus-primary": focusRings["focus-primary"],
     "focus-accent": focusRings["focus-accent"],
   } as Record<string, string>,
-  
+
   // Ring width (for focus rings using ring utilities)
   ringWidth: {
     DEFAULT: "3px",
@@ -222,7 +223,7 @@ export const tailwindShadowConfig = {
     md: "3px",
     lg: "4px",
   },
-  
+
   // Ring color (for focus rings)
   ringColor: {
     DEFAULT: "hsl(var(--ring) / 0.5)",

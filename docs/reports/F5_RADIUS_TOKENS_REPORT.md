@@ -32,20 +32,21 @@ Task F5 successfully completed. Complete border radius system tokens have been i
 
 **Base Unit:** 4px (0.25rem)
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `none` | `0` | 0px | No radius (sharp corners) |
-| `xs` | `0.125rem` | 2px | Extra small (subtle rounding) |
-| `sm` | `0.25rem` | **4px** | **Small (base unit)** |
-| `base` | `0.25rem` | 4px | Default (alias for sm) |
-| `md` | `0.375rem` | 6px | Medium (default) |
-| `lg` | `0.5rem` | **8px** | **Large (2 × base)** |
-| `xl` | `0.75rem` | **12px** | **Extra large (3 × base)** |
-| `2xl` | `1rem` | **16px** | **2XL (4 × base)** |
-| `3xl` | `1.5rem` | **24px** | **3XL (6 × base)** |
-| `full` | `9999px` | Full | Full radius (circular/pill) |
+| Token  | Value      | Pixels   | Usage                         |
+| ------ | ---------- | -------- | ----------------------------- |
+| `none` | `0`        | 0px      | No radius (sharp corners)     |
+| `xs`   | `0.125rem` | 2px      | Extra small (subtle rounding) |
+| `sm`   | `0.25rem`  | **4px**  | **Small (base unit)**         |
+| `base` | `0.25rem`  | 4px      | Default (alias for sm)        |
+| `md`   | `0.375rem` | 6px      | Medium (default)              |
+| `lg`   | `0.5rem`   | **8px**  | **Large (2 × base)**          |
+| `xl`   | `0.75rem`  | **12px** | **Extra large (3 × base)**    |
+| `2xl`  | `1rem`     | **16px** | **2XL (4 × base)**            |
+| `3xl`  | `1.5rem`   | **24px** | **3XL (6 × base)**            |
+| `full` | `9999px`   | Full     | Full radius (circular/pill)   |
 
 **CSS Variables:**
+
 - `--radius-none` through `--radius-3xl` ✅
 - `--radius-full` ✅
 - `--radius` (default, set to md: 6px) ✅
@@ -58,93 +59,94 @@ Task F5 successfully completed. Complete border radius system tokens have been i
 
 #### Button Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `0.25rem` | 4px | Compact buttons |
-| `md` | `0.375rem` | 6px | Default buttons |
-| `lg` | `0.5rem` | 8px | Large buttons |
-| `pill` | `9999px` | Full | Pill buttons |
+| Token  | Value      | Pixels | Usage           |
+| ------ | ---------- | ------ | --------------- |
+| `sm`   | `0.25rem`  | 4px    | Compact buttons |
+| `md`   | `0.375rem` | 6px    | Default buttons |
+| `lg`   | `0.5rem`   | 8px    | Large buttons   |
+| `pill` | `9999px`   | Full   | Pill buttons    |
 
 #### Card Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `0.25rem` | 4px | Compact cards |
-| `md` | `0.375rem` | 6px | Default cards |
-| `lg` | `0.5rem` | 8px | Large cards |
-| `xl` | `0.75rem` | 12px | Feature cards |
+| Token | Value      | Pixels | Usage         |
+| ----- | ---------- | ------ | ------------- |
+| `sm`  | `0.25rem`  | 4px    | Compact cards |
+| `md`  | `0.375rem` | 6px    | Default cards |
+| `lg`  | `0.5rem`   | 8px    | Large cards   |
+| `xl`  | `0.75rem`  | 12px   | Feature cards |
 
 #### Input/Form Field Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `0.25rem` | 4px | Compact inputs |
-| `md` | `0.375rem` | 6px | Default inputs |
-| `lg` | `0.5rem` | 8px | Large inputs |
+| Token | Value      | Pixels | Usage          |
+| ----- | ---------- | ------ | -------------- |
+| `sm`  | `0.25rem`  | 4px    | Compact inputs |
+| `md`  | `0.375rem` | 6px    | Default inputs |
+| `lg`  | `0.5rem`   | 8px    | Large inputs   |
 
 #### Badge/Status Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `0.125rem` | 2px | Compact badges |
-| `md` | `0.25rem` | 4px | Default badges |
-| `lg` | `0.375rem` | 6px | Large badges |
-| `pill` | `9999px` | Full | Pill badges |
+| Token  | Value      | Pixels | Usage          |
+| ------ | ---------- | ------ | -------------- |
+| `sm`   | `0.125rem` | 2px    | Compact badges |
+| `md`   | `0.25rem`  | 4px    | Default badges |
+| `lg`   | `0.375rem` | 6px    | Large badges   |
+| `pill` | `9999px`   | Full   | Pill badges    |
 
 #### Avatar Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `9999px` | Full | Small circular avatars |
-| `md` | `9999px` | Full | Default circular avatars |
-| `lg` | `9999px` | Full | Large circular avatars |
-| `square` | `0.375rem` | 6px | Square avatars |
+| Token    | Value      | Pixels | Usage                    |
+| -------- | ---------- | ------ | ------------------------ |
+| `sm`     | `9999px`   | Full   | Small circular avatars   |
+| `md`     | `9999px`   | Full   | Default circular avatars |
+| `lg`     | `9999px`   | Full   | Large circular avatars   |
+| `square` | `0.375rem` | 6px    | Square avatars           |
 
 #### Modal/Dialog Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `0.375rem` | 6px | Small modals |
-| `md` | `0.5rem` | 8px | Default modals |
-| `lg` | `0.75rem` | 12px | Large modals |
-| `xl` | `1rem` | 16px | Extra large modals |
+| Token | Value      | Pixels | Usage              |
+| ----- | ---------- | ------ | ------------------ |
+| `sm`  | `0.375rem` | 6px    | Small modals       |
+| `md`  | `0.5rem`   | 8px    | Default modals     |
+| `lg`  | `0.75rem`  | 12px   | Large modals       |
+| `xl`  | `1rem`     | 16px   | Extra large modals |
 
 #### Tooltip Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `0.25rem` | 4px | Default tooltips |
-| `md` | `0.375rem` | 6px | Large tooltips |
+| Token | Value      | Pixels | Usage            |
+| ----- | ---------- | ------ | ---------------- |
+| `sm`  | `0.25rem`  | 4px    | Default tooltips |
+| `md`  | `0.375rem` | 6px    | Large tooltips   |
 
 #### Toast/Notification Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `0.375rem` | 6px | Compact toasts |
-| `md` | `0.5rem` | 8px | Default toasts |
-| `lg` | `0.75rem` | 12px | Large toasts |
+| Token | Value      | Pixels | Usage          |
+| ----- | ---------- | ------ | -------------- |
+| `sm`  | `0.375rem` | 6px    | Compact toasts |
+| `md`  | `0.5rem`   | 8px    | Default toasts |
+| `lg`  | `0.75rem`  | 12px   | Large toasts   |
 
 #### Chip/Tag Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `sm` | `0.125rem` | 2px | Compact chips |
-| `md` | `0.25rem` | 4px | Default chips |
-| `lg` | `0.375rem` | 6px | Large chips |
-| `pill` | `9999px` | Full | Pill chips |
+| Token  | Value      | Pixels | Usage         |
+| ------ | ---------- | ------ | ------------- |
+| `sm`   | `0.125rem` | 2px    | Compact chips |
+| `md`   | `0.25rem`  | 4px    | Default chips |
+| `lg`   | `0.375rem` | 6px    | Large chips   |
+| `pill` | `9999px`   | Full   | Pill chips    |
 
 #### Image/Media Radius Standards
 
-| Token | Value | Pixels | Usage |
-|-------|-------|--------|-------|
-| `none` | `0` | 0px | Sharp images |
-| `sm` | `0.25rem` | 4px | Subtle rounding |
-| `md` | `0.375rem` | 6px | Default |
-| `lg` | `0.5rem` | 8px | Rounded |
-| `xl` | `0.75rem` | 12px | Very rounded |
-| `full` | `9999px` | Full | Circular images |
+| Token  | Value      | Pixels | Usage           |
+| ------ | ---------- | ------ | --------------- |
+| `none` | `0`        | 0px    | Sharp images    |
+| `sm`   | `0.25rem`  | 4px    | Subtle rounding |
+| `md`   | `0.375rem` | 6px    | Default         |
+| `lg`   | `0.5rem`   | 8px    | Rounded         |
+| `xl`   | `0.75rem`  | 12px   | Very rounded    |
+| `full` | `9999px`   | Full   | Circular images |
 
 **CSS Variables:**
+
 - `--radius-button`, `--radius-card`, `--radius-input` ✅
 - `--radius-badge`, `--radius-modal`, `--radius-tooltip` ✅
 - `--radius-toast`, `--radius-chip`, `--radius-image` ✅
@@ -160,12 +162,14 @@ Task F5 successfully completed. Complete border radius system tokens have been i
 **File:** `tailwind.config.ts`
 
 **Changes:**
+
 - ✅ Imported `tailwindRadiusConfig` from `src/tokens/radius`
 - ✅ Added `borderRadius` config from tokens
 - ✅ All radius values use token references
 - ✅ Component-specific aliases available
 
 **Before:**
+
 ```typescript
 theme: {
   extend: {
@@ -180,6 +184,7 @@ theme: {
 ```
 
 **After:**
+
 ```typescript
 import { tailwindRadiusConfig } from "./src/tokens/radius";
 
@@ -200,40 +205,40 @@ theme: {
 
 ### 3.1 Radius Scale Tokens ✅
 
-| Criterion | Status |
-|-----------|--------|
+| Criterion                          | Status    |
+| ---------------------------------- | --------- |
 | Radius scale none..3xl implemented | ✅ PASSED |
-| Full radius token implemented | ✅ PASSED |
-| All values in rem units | ✅ PASSED |
-| Proper base unit (4px) | ✅ PASSED |
+| Full radius token implemented      | ✅ PASSED |
+| All values in rem units            | ✅ PASSED |
+| Proper base unit (4px)             | ✅ PASSED |
 
 ### 3.2 Component-Specific Standards ✅
 
-| Criterion | Status |
-|-----------|--------|
-| Component-specific radius standards defined | ✅ PASSED |
+| Criterion                                    | Status    |
+| -------------------------------------------- | --------- |
+| Component-specific radius standards defined  | ✅ PASSED |
 | Standards for buttons, cards, inputs, badges | ✅ PASSED |
-| Standards for modals, tooltips, toasts | ✅ PASSED |
-| Standards for chips, avatars, images | ✅ PASSED |
-| All standards use token references | ✅ PASSED |
+| Standards for modals, tooltips, toasts       | ✅ PASSED |
+| Standards for chips, avatars, images         | ✅ PASSED |
+| All standards use token references           | ✅ PASSED |
 
 ### 3.3 Tailwind Integration ✅
 
-| Criterion | Status |
-|-----------|--------|
+| Criterion                                      | Status    |
+| ---------------------------------------------- | --------- |
 | Tailwind config extends borderRadius utilities | ✅ PASSED |
-| All radius uses token references | ✅ PASSED |
-| No hardcoded radius values | ✅ PASSED |
-| Component aliases available | ✅ PASSED |
+| All radius uses token references               | ✅ PASSED |
+| No hardcoded radius values                     | ✅ PASSED |
+| Component aliases available                    | ✅ PASSED |
 
 ### 3.4 CSS Variables ✅
 
-| Criterion | Status |
-|-----------|--------|
+| Criterion                            | Status    |
+| ------------------------------------ | --------- |
 | CSS variables defined for all tokens | ✅ PASSED |
-| Default radius variable (--radius) | ✅ PASSED |
-| Component-specific variables | ✅ PASSED |
-| Proper naming convention | ✅ PASSED |
+| Default radius variable (--radius)   | ✅ PASSED |
+| Component-specific variables         | ✅ PASSED |
+| Proper naming convention             | ✅ PASSED |
 
 ---
 
@@ -299,32 +304,32 @@ theme: {
 
 ```typescript
 // Base radius scale
-className="rounded-none"  // 0px
-className="rounded-xs"    // 2px
-className="rounded-sm"    // 4px
-className="rounded-md"    // 6px (default)
-className="rounded-lg"    // 8px
-className="rounded-xl"    // 12px
-className="rounded-2xl"   // 16px
-className="rounded-3xl"   // 24px
-className="rounded-full"  // Full (circular)
+className = "rounded-none"; // 0px
+className = "rounded-xs"; // 2px
+className = "rounded-sm"; // 4px
+className = "rounded-md"; // 6px (default)
+className = "rounded-lg"; // 8px
+className = "rounded-xl"; // 12px
+className = "rounded-2xl"; // 16px
+className = "rounded-3xl"; // 24px
+className = "rounded-full"; // Full (circular)
 
 // Component-specific aliases
-className="rounded-button"  // Uses button.md (6px)
-className="rounded-card"    // Uses card.md (6px)
-className="rounded-input"   // Uses input.md (6px)
-className="rounded-badge"   // Uses badge.md (4px)
-className="rounded-modal"   // Uses modal.md (8px)
+className = "rounded-button"; // Uses button.md (6px)
+className = "rounded-card"; // Uses card.md (6px)
+className = "rounded-input"; // Uses input.md (6px)
+className = "rounded-badge"; // Uses badge.md (4px)
+className = "rounded-modal"; // Uses modal.md (8px)
 
 // Directional radius
-className="rounded-t-lg"    // Top corners
-className="rounded-r-md"    // Right corners
-className="rounded-b-sm"    // Bottom corners
-className="rounded-l-xl"    // Left corners
-className="rounded-tl-full" // Top-left full
-className="rounded-tr-full" // Top-right full
-className="rounded-bl-full" // Bottom-left full
-className="rounded-br-full" // Bottom-right full
+className = "rounded-t-lg"; // Top corners
+className = "rounded-r-md"; // Right corners
+className = "rounded-b-sm"; // Bottom corners
+className = "rounded-l-xl"; // Left corners
+className = "rounded-tl-full"; // Top-left full
+className = "rounded-tr-full"; // Top-right full
+className = "rounded-bl-full"; // Bottom-left full
+className = "rounded-br-full"; // Bottom-right full
 ```
 
 **All classes use token references** ✅
@@ -393,6 +398,7 @@ className="rounded-br-full" // Bottom-right full
 **Task F5 Status:** ✅ **COMPLETED**
 
 **Deliverables:**
+
 - ✅ Border radius scale: none..3xl, full (10 tokens)
 - ✅ Component-specific radius standards: 10 component types, 40+ variants
 - ✅ CSS variables: 20+ radius tokens
@@ -400,6 +406,7 @@ className="rounded-br-full" // Bottom-right full
 - ✅ Tailwind config fully integrated
 
 **Output Files:**
+
 - ✅ `src/tokens/radius.ts` (completely rewritten, 195 lines)
 - ✅ `tailwind.config.ts` (updated with radius imports)
 
@@ -432,4 +439,3 @@ className="rounded-br-full" // Bottom-right full
 **Task ID:** F5  
 **Layer:** 1. Foundation Layer  
 **Status:** ✅ COMPLETED
-
