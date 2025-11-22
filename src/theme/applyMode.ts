@@ -2,12 +2,12 @@
 
 import { getTheme } from "@/themes";
 import type { ThemeOverride } from "@/themes/types";
-import type { Mode } from "@/tokens/colors";
 import {
   accentColors as baseAccentColors,
   baseColors as baseBaseColors,
   type BaseColorTokens,
   type ColorScale,
+  type Mode,
   primaryColors as basePrimaryColors,
   secondaryColors as baseSecondaryColors,
   type SemanticColors,
