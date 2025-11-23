@@ -26,8 +26,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Verify NPM_TOKEN exists
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+          if [ -z "$NPM_TOKEN" ]; then
             echo "❌ ERROR: NPM_TOKEN secret is not set in GitHub Secrets"
             echo "Please add NPM_TOKEN to: Settings → Secrets and variables → Actions"
             exit 1
