@@ -3,6 +3,11 @@ name: Release
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -10,6 +15,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install PNPM
         uses: pnpm/action-setup@v3
@@ -31,8 +39,13 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Disable Husky in CI
+        run: |
+          echo "HUSKY=0" >> $GITHUB_ENV
+
       - name: Release
-        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          HUSKY: 0
+        run: npx semantic-release
