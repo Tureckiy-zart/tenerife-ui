@@ -58,13 +58,15 @@ function loadGradientExceptions(): {
       if (classNameMatches) {
         for (const classNameMatch of classNameMatches) {
           // Extract the full gradient sequence
-          const gradientMatch = classNameMatch.match(/bg-gradient-[^\s"']+(?:\s+(?:from|via|to|bg-clip|text-transparent)[^\s"']*)*/);
+          const gradientMatch = classNameMatch.match(
+            /bg-gradient-[^\s"']+(?:\s+(?:from|via|to|bg-clip|text-transparent)[^\s"']*)*/,
+          );
           if (gradientMatch) {
             allowedClasses.push(gradientMatch[0]);
           }
         }
       }
-      
+
       // Also check for standalone gradient class lines
       const lines = match.split("\n");
       for (const line of lines) {
@@ -84,7 +86,9 @@ function loadGradientExceptions(): {
   const inlineCodeRegex = /`([^`]*bg-gradient-[^`]*)`/g;
   let inlineMatch;
   while ((inlineMatch = inlineCodeRegex.exec(content)) !== null) {
-    const gradientMatch = inlineMatch[1].match(/bg-gradient-[^\s]+(?:\s+(?:from|via|to|bg-clip|text-transparent)[^\s]*)*/);
+    const gradientMatch = inlineMatch[1].match(
+      /bg-gradient-[^\s]+(?:\s+(?:from|via|to|bg-clip|text-transparent)[^\s]*)*/,
+    );
     if (gradientMatch) {
       allowedClasses.push(gradientMatch[0]);
     }
@@ -178,7 +182,11 @@ function extractGradientClasses(content: string): string[] {
 /**
  * Validate component file
  */
-function validateComponentFile(filePath: string, allowedClasses: string[], allowedPatterns: RegExp[]): ValidationResult {
+function validateComponentFile(
+  filePath: string,
+  allowedClasses: string[],
+  allowedPatterns: RegExp[],
+): ValidationResult {
   const fileName = filePath.split("/").pop() || "";
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -314,7 +322,9 @@ function main() {
   console.log(`   Total files checked: ${results.length}`);
   console.log(`   Files with errors: ${results.filter((r) => !r.valid).length}`);
   console.log(`   Files with warnings: ${results.filter((r) => r.warnings.length > 0).length}`);
-  console.log(`   Total gradient violations: ${results.reduce((sum, r) => sum + r.gradientViolations.length, 0)}`);
+  console.log(
+    `   Total gradient violations: ${results.reduce((sum, r) => sum + r.gradientViolations.length, 0)}`,
+  );
   console.log("");
 
   if (hasErrors) {
@@ -334,4 +344,3 @@ function main() {
 
 // Run validation
 main();
-

@@ -268,47 +268,47 @@ Tenerife UI uses gradients sparingly to maintain brand consistency while support
 
 ```tsx
 // Primary brand gradient (ModeHero)
-className="bg-gradient-to-r from-primary to-accent"
+className = "bg-gradient-to-r from-primary to-accent";
 
 // Reversed brand gradient (badges)
-className="bg-gradient-to-r from-accent to-primary"
+className = "bg-gradient-to-r from-accent to-primary";
 
 // Specific shade gradients (EventCard badges)
-className="bg-gradient-to-r from-accent-500 to-primary-600"
+className = "bg-gradient-to-r from-accent-500 to-primary-600";
 ```
 
 #### 2. Surface Gradients
 
 ```tsx
 // Surface elevation gradients (placeholders)
-className="bg-gradient-to-br from-surface-elevated1 to-surface-elevated2"
+className = "bg-gradient-to-br from-surface-elevated1 to-surface-elevated2";
 
 // Muted gradients (VenueCard placeholders)
-className="bg-gradient-to-br from-muted to-muted/50"
+className = "bg-gradient-to-br from-muted to-muted/50";
 ```
 
 #### 3. Overlay Gradients
 
 ```tsx
 // Image overlay gradients (hover effects)
-className="bg-gradient-to-t from-black/60 via-transparent to-transparent"
+className = "bg-gradient-to-t from-black/60 via-transparent to-transparent";
 ```
 
 #### 4. Text Gradients
 
 ```tsx
 // Text gradient effect (premium content)
-className="bg-gradient-to-r from-accent-500 to-primary-600 bg-clip-text text-transparent"
+className = "bg-gradient-to-r from-accent-500 to-primary-600 bg-clip-text text-transparent";
 ```
 
 #### 5. Hero Background Overlays
 
 ```tsx
 // Subtle hero backgrounds (HeroSection)
-className="bg-gradient-to-br from-primary/20 to-accent/20"
+className = "bg-gradient-to-br from-primary/20 to-accent/20";
 
 // Multi-color hero backgrounds
-className="bg-gradient-to-br from-primary/30 via-accent/30 to-secondary/30"
+className = "bg-gradient-to-br from-primary/30 via-accent/30 to-secondary/30";
 ```
 
 ### Gradient Rules
@@ -328,6 +328,7 @@ npm run ui:check
 ```
 
 This will:
+
 - ✅ Validate all gradient classes against the whitelist
 - ✅ Flag unauthorized gradient usage
 - ✅ Report violations with file locations
@@ -347,10 +348,12 @@ If you need to add a new gradient:
 ### Component-Specific Rules
 
 #### ModeHero
+
 - **Allowed:** `bg-gradient-to-r from-primary to-accent` only
 - **Purpose:** Brand identity hero background
 
 #### EventCard
+
 - **Allowed:**
   - Badge: `bg-gradient-to-r from-accent-500 to-primary-600`
   - Placeholder: `bg-gradient-to-br from-surface-elevated1 to-surface-elevated2`
@@ -358,12 +361,14 @@ If you need to add a new gradient:
   - Text: `bg-gradient-to-r from-accent-500 to-primary-600 bg-clip-text text-transparent`
 
 #### VenueCard
+
 - **Allowed:**
   - Badge: `bg-gradient-to-r from-accent to-primary`
   - Placeholder: `bg-gradient-to-br from-muted to-muted/50`
   - Overlay: `bg-gradient-to-t from-black/60 via-transparent to-transparent`
 
 #### HeroSection
+
 - **Allowed:** Background overlays with opacity (`/20`, `/30`)
 - **Purpose:** Subtle hero backgrounds
 

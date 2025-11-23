@@ -21,12 +21,14 @@ Gradients are used sparingly in Tenerife UI to maintain brand consistency while 
 **Purpose:** Decorative text effects for hero sections and featured content.
 
 #### `bg-gradient-to-r from-accent-500 to-primary-600 bg-clip-text text-transparent`
+
 - **Component:** `EventCard`
 - **Usage:** Featured event badge text gradient
 - **Location:** `src/components/cards/EventCard.tsx`
 - **Rationale:** Creates vibrant text effect for trending/featured badges
 
 #### `bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent`
+
 - **Component:** `EventCard`
 - **Usage:** Button text gradient
 - **Location:** `src/components/cards/EventCard.tsx`
@@ -37,42 +39,49 @@ Gradients are used sparingly in Tenerife UI to maintain brand consistency while 
 ### 2. Background Gradients
 
 #### `bg-gradient-to-r from-primary to-accent`
+
 - **Component:** `ModeHero`
 - **Usage:** Hero section background gradient
 - **Location:** `src/components/layout/ModeHero.tsx`
 - **Rationale:** Primary hero background for day/night mode showcase
 
 #### `bg-gradient-to-r from-accent-500 to-primary-600`
+
 - **Component:** `EventCard`
 - **Usage:** Featured badge background
 - **Location:** `src/components/cards/EventCard.tsx`
 - **Rationale:** Vibrant badge background for featured events
 
 #### `bg-gradient-to-r from-accent to-primary`
+
 - **Component:** `VenueCard`
 - **Usage:** Featured badge background
 - **Location:** `src/components/cards/VenueCard.tsx`
 - **Rationale:** Premium badge background for popular venues
 
 #### `bg-gradient-to-br from-surface-elevated1 to-surface-elevated2`
+
 - **Component:** `EventCard`
 - **Usage:** Image placeholder background
 - **Location:** `src/components/cards/EventCard.tsx`
 - **Rationale:** Subtle surface gradient for image placeholders
 
 #### `bg-gradient-to-br from-muted to-muted/50`
+
 - **Component:** `VenueCard`
 - **Usage:** Image placeholder background
 - **Location:** `src/components/cards/VenueCard.tsx`
 - **Rationale:** Subtle muted gradient for image placeholders
 
 #### `bg-gradient-to-br from-primary/20 to-accent/20`
+
 - **Component:** `HeroSection` (stories)
 - **Usage:** Hero section background overlay
 - **Location:** `src/components/sections/HeroSection.stories.tsx`
 - **Rationale:** Subtle hero background overlay
 
 #### `bg-gradient-to-br from-primary/30 via-accent/30 to-secondary/30`
+
 - **Component:** `HeroSection` (stories)
 - **Usage:** Hero section background overlay with via color
 - **Location:** `src/components/sections/HeroSection.stories.tsx`
@@ -83,6 +92,7 @@ Gradients are used sparingly in Tenerife UI to maintain brand consistency while 
 ### 3. Overlay Gradients
 
 #### `bg-gradient-to-t from-black/60 via-transparent to-transparent`
+
 - **Component:** `EventCard`, `VenueCard`
 - **Usage:** Image overlay for hover effects
 - **Location:** `src/components/cards/EventCard.tsx`, `src/components/cards/VenueCard.tsx`
@@ -137,6 +147,7 @@ The following gradient patterns are **NOT allowed** and should be flagged:
 ### When to Use Gradients
 
 ✅ **Allowed:**
+
 - Hero sections and landing pages
 - Featured badges and highlights
 - Image overlays for hover effects
@@ -144,6 +155,7 @@ The following gradient patterns are **NOT allowed** and should be flagged:
 - Brand identity elements (ModeHero)
 
 ❌ **Not Allowed:**
+
 - Regular buttons (use solid colors)
 - Form inputs
 - Navigation elements
@@ -163,11 +175,13 @@ The following gradient patterns are **NOT allowed** and should be flagged:
 ## Component-Specific Rules
 
 ### ModeHero
+
 - **Allowed:** `bg-gradient-to-r from-primary to-accent`
 - **Purpose:** Brand identity hero background
 - **No other gradients allowed**
 
 ### EventCard
+
 - **Allowed:**
   - Badge: `bg-gradient-to-r from-accent-500 to-primary-600`
   - Placeholder: `bg-gradient-to-br from-surface-elevated1 to-surface-elevated2`
@@ -175,12 +189,14 @@ The following gradient patterns are **NOT allowed** and should be flagged:
   - Text: `bg-gradient-to-r from-accent-500 to-primary-600 bg-clip-text text-transparent`
 
 ### VenueCard
+
 - **Allowed:**
   - Badge: `bg-gradient-to-r from-accent to-primary`
   - Placeholder: `bg-gradient-to-br from-muted to-muted/50`
   - Overlay: `bg-gradient-to-t from-black/60 via-transparent to-transparent`
 
 ### HeroSection
+
 - **Allowed:** Background overlays with opacity (`/20`, `/30`)
 - **Purpose:** Subtle hero backgrounds
 
@@ -215,4 +231,3 @@ The following gradient patterns are **NOT allowed** and should be flagged:
 **Status:** ✅ Active  
 **Version:** 1.0.0  
 **Last Reviewed:** 2025-11-23
-
