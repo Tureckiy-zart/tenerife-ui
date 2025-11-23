@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
+          scope: "@tenerife.music"
 
       - uses: pnpm/action-setup@v4
         with:
@@ -43,7 +44,21 @@ jobs:
         run: |
           echo "Testing npm authentication..."
 
-          # Configure npm to use token
+          # Verify token format
+          if [[ ! "$NPM_TOKEN" =~ ^npm_ ]]; then
+            echo "❌ ERROR: NPM_TOKEN format is incorrect"
+            echo "Token should start with 'npm_'"
+            echo "Current token starts with: ${NPM_TOKEN:0:10}..."
+            echo ""
+            echo "To create a new token:"
+            echo "1. Go to https://www.npmjs.com/settings/YOUR_USERNAME/tokens"
+            echo "2. Create 'Automation' token"
+            echo "3. Copy the token (starts with 'npm_')"
+            echo "4. Add it to GitHub Secrets as NPM_TOKEN"
+            exit 1
+          fi
+
+          # Configure npm to use token (setup-node should do this, but we verify)
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
 
           # Test whoami
@@ -56,6 +71,11 @@ jobs:
             echo "  - Token is invalid or expired"
             echo "  - Token doesn't have correct permissions"
             echo "  - Token format is incorrect (should start with 'npm_')"
+            echo ""
+            echo "To fix:"
+            echo "1. Go to https://www.npmjs.com/settings/YOUR_USERNAME/tokens"
+            echo "2. Create a new 'Automation' token"
+            echo "3. Update NPM_TOKEN in GitHub Secrets"
             exit 1
           fi
 
