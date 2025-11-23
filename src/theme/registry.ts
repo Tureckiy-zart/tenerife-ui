@@ -105,7 +105,9 @@ export async function loadTheme(id: string): Promise<ThemeSchema> {
     const module = await entry.loader();
     return module.default;
   } catch (error) {
-    throw new Error(`Failed to load theme "${id}": ${error instanceof Error ? error.message : String(error)}`);
+    throw new Error(
+      `Failed to load theme "${id}": ${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 }
 
@@ -165,4 +167,3 @@ export function initializeDefaultThemes(): void {
 
 // Initialize default themes on module load
 initializeDefaultThemes();
-

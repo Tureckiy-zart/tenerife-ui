@@ -204,10 +204,24 @@ export function validateThemeSchema(theme: unknown): ThemeValidationResult {
   for (const field of colorScaleFields) {
     if (themeObj[field]) {
       const scale = themeObj[field] as Record<string, unknown>;
-      const validKeys = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"];
+      const validKeys = [
+        "50",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "950",
+      ];
       for (const key of Object.keys(scale)) {
         if (!validKeys.includes(key)) {
-          warnings.push(`Invalid color scale key in ${field}: ${key}. Valid keys: ${validKeys.join(", ")}`);
+          warnings.push(
+            `Invalid color scale key in ${field}: ${key}. Valid keys: ${validKeys.join(", ")}`,
+          );
         }
         if (typeof scale[key] !== "string") {
           errors.push(`Color value in ${field}.${key} must be a string (HSL format)`);
@@ -220,7 +234,9 @@ export function validateThemeSchema(theme: unknown): ThemeValidationResult {
   if (themeObj.version && typeof themeObj.version === "string") {
     const semverRegex = /^\d+\.\d+\.\d+$/;
     if (!semverRegex.test(themeObj.version)) {
-      warnings.push(`Invalid version format: "${themeObj.version}". Should be semver (e.g., "1.0.0")`);
+      warnings.push(
+        `Invalid version format: "${themeObj.version}". Should be semver (e.g., "1.0.0")`,
+      );
     }
   }
 
@@ -252,4 +268,3 @@ export function createMinimalThemeSchema(id: string, name: string): ThemeSchema 
     version: "1.0.0",
   };
 }
-

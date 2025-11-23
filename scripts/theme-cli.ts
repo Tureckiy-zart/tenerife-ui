@@ -142,7 +142,9 @@ function updateRegistry(themeId: string, themeName: string): void {
   const varName = `${pascalName.charAt(0).toLowerCase()}${pascalName.slice(1)}Theme`;
 
   // Find the initializeDefaultThemes function
-  const initFunctionMatch = registryContent.match(/function initializeDefaultThemes\(\): void \{([\s\S]*?)\}/);
+  const initFunctionMatch = registryContent.match(
+    /function initializeDefaultThemes\(\): void \{([\s\S]*?)\}/,
+  );
 
   if (!initFunctionMatch) {
     console.error("❌ Could not find initializeDefaultThemes function in registry.ts");
@@ -191,10 +193,7 @@ function updateThemesIndex(themeId: string): void {
 
   // Add export
   const exportLine = `export { ${varName} } from "./${themeId}";`;
-  const updatedContent = indexContent.replace(
-    /(export \* from "\.\/types";)/,
-    `$1\n${exportLine}`,
-  );
+  const updatedContent = indexContent.replace(/(export \* from "\.\/types";)/, `$1\n${exportLine}`);
 
   // Add to themes object
   const themesObjectMatch = indexContent.match(/export const themes = \{([\s\S]*?)\} as const;/);
@@ -303,7 +302,9 @@ function main() {
   try {
     updateRegistry(themeId, displayName);
   } catch (error) {
-    console.warn(`⚠️  Failed to update registry: ${error instanceof Error ? error.message : String(error)}`);
+    console.warn(
+      `⚠️  Failed to update registry: ${error instanceof Error ? error.message : String(error)}`,
+    );
     console.warn(`   You may need to manually register the theme in src/theme/registry.ts`);
   }
 
@@ -311,7 +312,9 @@ function main() {
   try {
     updateThemesIndex(themeId);
   } catch (error) {
-    console.warn(`⚠️  Failed to update themes index: ${error instanceof Error ? error.message : String(error)}`);
+    console.warn(
+      `⚠️  Failed to update themes index: ${error instanceof Error ? error.message : String(error)}`,
+    );
     console.warn(`   You may need to manually export the theme in src/themes/index.ts`);
   }
 
@@ -324,4 +327,3 @@ function main() {
 
 // Run CLI
 main();
-

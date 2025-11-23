@@ -1,6 +1,6 @@
-import { default as React } from '../../../node_modules/.pnpm/react@19.2.0/node_modules/react';
+import { default as React } from "../../../node_modules/.pnpm/react@19.2.0/node_modules/react";
 interface SkeletonProps {
-    className?: string;
+  className?: string;
 }
 export declare const Skeleton: React.FC<SkeletonProps>;
 export {};

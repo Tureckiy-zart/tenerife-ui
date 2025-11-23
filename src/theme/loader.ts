@@ -125,7 +125,11 @@ export async function loadThemeSafe(
     }
 
     // Use fallback on error
-    if (opts.fallbackThemeId && themeExists(opts.fallbackThemeId) && opts.fallbackThemeId !== themeId) {
+    if (
+      opts.fallbackThemeId &&
+      themeExists(opts.fallbackThemeId) &&
+      opts.fallbackThemeId !== themeId
+    ) {
       warnings.push(
         `Failed to load theme "${themeId}": ${error instanceof Error ? error.message : String(error)}. Using fallback "${opts.fallbackThemeId}"`,
       );
@@ -179,4 +183,3 @@ export async function canLoadTheme(themeId: string): Promise<boolean> {
     return false;
   }
 }
-

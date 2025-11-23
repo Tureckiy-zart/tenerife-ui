@@ -15,7 +15,15 @@ interface HeadingProps extends TypographyProps {
 interface TextProps extends TypographyProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   weight?: "normal" | "medium" | "semibold" | "bold";
-  variant?: "primary" | "secondary" | "accent" | "outline" | "ghost" | "link" | "destructive" | "muted";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "outline"
+    | "ghost"
+    | "link"
+    | "destructive"
+    | "muted";
 }
 
 export const Heading: React.FC<HeadingProps> = ({ className, children, as, level = 1 }) => {

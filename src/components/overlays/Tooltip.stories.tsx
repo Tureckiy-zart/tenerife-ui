@@ -100,7 +100,10 @@ export const WithFormElements: Story = {
       <div className="space-y-sm">
         <div className="flex items-center gap-sm">
           <Label htmlFor="email">Email</Label>
-          <TooltipWrapper content="We'll never share your email with anyone else." variant="primary">
+          <TooltipWrapper
+            content="We'll never share your email with anyone else."
+            variant="primary"
+          >
             <Info className="h-4 w-4 text-muted-foreground" />
           </TooltipWrapper>
         </div>

@@ -195,7 +195,9 @@ function main() {
     process.exit(1);
   }
 
-  const themeFiles = readdirSync(THEMES_DIR).filter((file) => file.endsWith(".ts") && file !== "index.ts" && file !== "types.ts");
+  const themeFiles = readdirSync(THEMES_DIR).filter(
+    (file) => file.endsWith(".ts") && file !== "index.ts" && file !== "types.ts",
+  );
   const results: ValidationResult[] = [];
 
   for (const themeFile of themeFiles) {
@@ -258,4 +260,3 @@ function main() {
 
 // Run validation
 main();
-

@@ -1,4 +1,4 @@
-import { Config } from 'tailwindcss';
+import { Config } from "tailwindcss";
 /**
  * Tailwind CSS preset for Tenerife.Music UI
  *

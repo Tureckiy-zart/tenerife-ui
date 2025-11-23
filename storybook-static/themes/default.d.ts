@@ -1,4 +1,4 @@
-import { ThemeOverride } from './types';
+import { ThemeOverride } from "./types";
 /**
  * Default theme configuration
  * No overrides - uses all default tokens

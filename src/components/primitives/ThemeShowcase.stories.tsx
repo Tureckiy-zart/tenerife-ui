@@ -44,7 +44,9 @@ export const DefaultTheme: Story = {
       <div className="space-y-lg">
         <div>
           <h2 className="mb-md text-2xl font-bold">Default Theme</h2>
-          <p className="text-muted-foreground">Standard Tenerife UI theme with default color palette.</p>
+          <p className="text-muted-foreground">
+            Standard Tenerife UI theme with default color palette.
+          </p>
         </div>
         <div className="flex flex-wrap gap-md">
           <Button variant="primary">Primary</Button>
@@ -59,7 +61,9 @@ export const DefaultTheme: Story = {
             <CardTitle>Theme Information</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-sm">This is the default theme with standard Tenerife branding colors.</p>
+            <p className="mb-sm">
+              This is the default theme with standard Tenerife branding colors.
+            </p>
             <div className="flex gap-sm">
               <Badge variant="primary">Primary</Badge>
               <Badge variant="accent">Accent</Badge>
@@ -82,7 +86,9 @@ export const DarkTheme: Story = {
       <div className="space-y-lg">
         <div>
           <h2 className="mb-md text-2xl font-bold">Dark Theme</h2>
-          <p className="text-muted-foreground">Enhanced dark theme with deeper surfaces and higher contrast.</p>
+          <p className="text-muted-foreground">
+            Enhanced dark theme with deeper surfaces and higher contrast.
+          </p>
         </div>
         <div className="flex flex-wrap gap-md">
           <Button variant="primary">Primary</Button>
@@ -97,7 +103,9 @@ export const DarkTheme: Story = {
             <CardTitle>Theme Information</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-sm">Dark theme with enhanced contrast for better readability in low-light conditions.</p>
+            <p className="mb-sm">
+              Dark theme with enhanced contrast for better readability in low-light conditions.
+            </p>
             <div className="flex gap-sm">
               <Badge variant="primary">Primary</Badge>
               <Badge variant="accent">Accent</Badge>
@@ -161,11 +169,17 @@ export const AllThemesComparison: Story = {
       </div>
       <div className="grid grid-cols-1 gap-xl md:grid-cols-2 lg:grid-cols-3">
         {themes.map((theme) => (
-          <ThemeProvider key={theme.id} defaultTheme={theme.id as "default" | "dark" | "brand"} defaultMode="day">
+          <ThemeProvider
+            key={theme.id}
+            defaultTheme={theme.id as "default" | "dark" | "brand"}
+            defaultMode="day"
+          >
             <Card>
               <CardHeader>
                 <CardTitle>{theme.name}</CardTitle>
-                {theme.description && <p className="text-sm text-muted-foreground">{theme.description}</p>}
+                {theme.description && (
+                  <p className="text-sm text-muted-foreground">{theme.description}</p>
+                )}
               </CardHeader>
               <CardContent className="space-y-md">
                 <div className="flex flex-wrap gap-sm">
@@ -208,7 +222,9 @@ export const ThemeSwitching: Story = {
         <div className="space-y-lg">
           <div>
             <h2 className="mb-md text-2xl font-bold">Theme Switching</h2>
-            <p className="text-muted-foreground">Switch between themes to see how components adapt.</p>
+            <p className="text-muted-foreground">
+              Switch between themes to see how components adapt.
+            </p>
           </div>
           <div className="flex gap-md">
             <Button
@@ -249,4 +265,3 @@ export const ThemeSwitching: Story = {
     );
   },
 };
-

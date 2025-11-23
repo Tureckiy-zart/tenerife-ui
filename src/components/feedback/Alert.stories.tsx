@@ -93,7 +93,11 @@ export const AllVariants: Story = {
       <Alert variant="outline" title="Outline" description="Outline alert variant." />
       <Alert variant="ghost" title="Ghost" description="Ghost alert variant." />
       <Alert variant="link" title="Link" description="Link alert variant." />
-      <Alert variant="destructive" title="Destructive" description="Destructive alert variant (error)." />
+      <Alert
+        variant="destructive"
+        title="Destructive"
+        description="Destructive alert variant (error)."
+      />
     </div>
   ),
 };

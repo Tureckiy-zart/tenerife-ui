@@ -1,4 +1,4 @@
-import { ThemeOverride } from './types';
+import { ThemeOverride } from "./types";
 /**
  * Brand theme configuration
  * Overrides color scales for brand-specific styling

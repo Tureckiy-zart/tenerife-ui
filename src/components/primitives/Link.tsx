@@ -13,7 +13,8 @@ const linkVariants = cva(
       variant: {
         primary: "text-primary hover:text-primary/80 underline-offset-4 hover:underline",
         secondary: "text-secondary-foreground underline-offset-4 hover:underline",
-        accent: "text-accent-foreground hover:text-accent-foreground/80 underline-offset-4 hover:underline",
+        accent:
+          "text-accent-foreground hover:text-accent-foreground/80 underline-offset-4 hover:underline",
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md px-md py-sm",
         ghost:

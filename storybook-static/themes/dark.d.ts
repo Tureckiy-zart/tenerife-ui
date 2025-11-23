@@ -1,4 +1,4 @@
-import { ThemeOverride } from './types';
+import { ThemeOverride } from "./types";
 /**
  * Dark theme configuration
  * Overrides surface colors for a darker, more immersive experience

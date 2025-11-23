@@ -36,14 +36,12 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({
           key={article.slug}
           className="rounded-lg border p-lg transition-shadow hover:shadow-md"
         >
-          {article.image && <div className="mb-md h-[var(--spacing-3xl)] w-full rounded-md bg-muted" />}
+          {article.image && (
+            <div className="mb-md h-[var(--spacing-3xl)] w-full rounded-md bg-muted" />
+          )}
           <div className="space-y-sm">
             <Heading level={2} className="text-xl font-semibold">
-              <Link
-                href={`/news/${article.slug}`}
-                variant="ghost"
-                className="hover:text-primary"
-              >
+              <Link href={`/news/${article.slug}`} variant="ghost" className="hover:text-primary">
                 {article.title}
               </Link>
             </Heading>

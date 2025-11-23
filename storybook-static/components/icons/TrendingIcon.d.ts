@@ -1,6 +1,6 @@
-import { default as React } from '../../../node_modules/.pnpm/react@19.2.0/node_modules/react';
+import { default as React } from "../../../node_modules/.pnpm/react@19.2.0/node_modules/react";
 interface TrendingIconProps {
-    className?: string;
+  className?: string;
 }
 export declare const TrendingIcon: React.FC<TrendingIconProps>;
 export {};
