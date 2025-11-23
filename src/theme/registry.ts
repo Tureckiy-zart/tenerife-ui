@@ -5,7 +5,7 @@
  * Provides metadata, dynamic imports, and theme discovery.
  */
 
-import type { ThemeSchema, ThemeMetadata } from "./schema";
+import type { ThemeMetadata,ThemeSchema } from "./schema";
 
 /**
  * Theme registry entry

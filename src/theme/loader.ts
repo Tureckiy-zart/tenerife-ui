@@ -5,9 +5,9 @@
  * Provides async loading support for dynamic themes.
  */
 
-import { loadTheme, themeExists, getAllThemes } from "./registry";
-import { validateThemeSchema } from "./schema";
+import { getAllThemes,loadTheme, themeExists } from "./registry";
 import type { ThemeSchema } from "./schema";
+import { validateThemeSchema } from "./schema";
 
 /**
  * Theme loader options
@@ -89,7 +89,7 @@ export async function loadThemeSafe(
 
   try {
     // Load theme
-    let theme = await loadTheme(themeId);
+    const theme = await loadTheme(themeId);
 
     // Validate theme schema if enabled
     if (opts.validate) {
