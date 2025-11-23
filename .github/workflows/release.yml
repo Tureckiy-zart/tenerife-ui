@@ -2,42 +2,44 @@ name: Release
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches:
+      - release
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          persist-credentials: false
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org/
-          scope: "@tenerife.music"
+          node-version: 18
+          registry-url: "https://registry.npmjs.org"
 
-      - uses: pnpm/action-setup@v4
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
         with:
           version: 9
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Build library
-        run: pnpm build
-
-      - name: Setup NPM token
+      - name: Set NPM token
+        run: npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
-          echo "@tenerife.music:registry=https://registry.npmjs.org/" >> ~/.npmrc
 
-      - name: Run semantic-release
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
