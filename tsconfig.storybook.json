@@ -7,4 +7,3 @@
   "include": [".storybook/**/*"],
   "exclude": ["node_modules", "dist"]
 }
-

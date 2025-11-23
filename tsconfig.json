@@ -51,5 +51,12 @@
     "rootDir": "src"
   },
   "include": ["src/**/*"],
-  "exclude": ["dist", "node_modules", "**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts", ".storybook"]
+  "exclude": [
+    "dist",
+    "node_modules",
+    "**/*.stories.tsx",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    ".storybook"
+  ]
 }
