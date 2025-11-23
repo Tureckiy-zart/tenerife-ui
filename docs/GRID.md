@@ -61,6 +61,7 @@ function MyComponent() {
 ```
 
 This creates a grid that:
+
 - Shows **1 column** on mobile (< 768px)
 - Shows **2 columns** on tablet (≥ 768px)
 - Shows **3 columns** on desktop (≥ 1024px)
@@ -72,19 +73,19 @@ This creates a grid that:
 
 ### GridProps
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `cols` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12 \| "none"` | `1` | Number of columns (base breakpoint) |
-| `md` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12 \| "none"` | - | Number of columns for medium breakpoint (768px+) |
-| `lg` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12 \| "none"` | - | Number of columns for large breakpoint (1024px+) |
-| `xl` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12 \| "none"` | - | Number of columns for extra large breakpoint (1280px+) |
-| `gap` | `0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 8 \| 10 \| 12 \| 16 \| 20 \| 24` | `0` | Gap between grid items (uses token spacing) |
-| `align` | `"start" \| "end" \| "center" \| "baseline" \| "stretch"` | `"stretch"` | Vertical alignment of grid items |
-| `justify` | `"start" \| "end" \| "center" \| "between" \| "around" \| "evenly"` | `"start"` | Horizontal alignment of grid items |
-| `rows` | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| "none"` | `"none"` | Number of rows |
-| `flow` | `"row" \| "col" \| "dense" \| "row-dense" \| "col-dense"` | `"row"` | Grid flow direction |
-| `className` | `string` | - | Additional CSS classes to merge |
-| `...rest` | `HTMLDivElement` | - | All standard div props |
+| Prop        | Type                                                                 | Default     | Description                                            |
+| ----------- | -------------------------------------------------------------------- | ----------- | ------------------------------------------------------ |
+| `cols`      | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12 \| "none"`                         | `1`         | Number of columns (base breakpoint)                    |
+| `md`        | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12 \| "none"`                         | -           | Number of columns for medium breakpoint (768px+)       |
+| `lg`        | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12 \| "none"`                         | -           | Number of columns for large breakpoint (1024px+)       |
+| `xl`        | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 12 \| "none"`                         | -           | Number of columns for extra large breakpoint (1280px+) |
+| `gap`       | `0 \| 1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 8 \| 10 \| 12 \| 16 \| 20 \| 24` | `0`         | Gap between grid items (uses token spacing)            |
+| `align`     | `"start" \| "end" \| "center" \| "baseline" \| "stretch"`            | `"stretch"` | Vertical alignment of grid items                       |
+| `justify`   | `"start" \| "end" \| "center" \| "between" \| "around" \| "evenly"`  | `"start"`   | Horizontal alignment of grid items                     |
+| `rows`      | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| "none"`                               | `"none"`    | Number of rows                                         |
+| `flow`      | `"row" \| "col" \| "dense" \| "row-dense" \| "col-dense"`            | `"row"`     | Grid flow direction                                    |
+| `className` | `string`                                                             | -           | Additional CSS classes to merge                        |
+| `...rest`   | `HTMLDivElement`                                                     | -           | All standard div props                                 |
 
 ---
 
@@ -92,21 +93,21 @@ This creates a grid that:
 
 The `gap` prop uses token-based spacing values:
 
-| Gap Value | Token | CSS Value | Description |
-|-----------|-------|-----------|-------------|
-| `0` | - | `0` | No gap |
-| `1` | `xs` | `0.25rem` (4px) | Extra small gap |
-| `2` | `sm` | `0.5rem` (8px) | Small gap |
-| `3` | `sm` | `0.5rem` (8px) | Small gap |
-| `4` | `md` | `1rem` (16px) | Medium gap |
-| `5` | `md` | `1rem` (16px) | Medium gap |
-| `6` | `lg` | `1.5rem` (24px) | Large gap |
-| `8` | `xl` | `2rem` (32px) | Extra large gap |
-| `10` | `2xl` | `2.5rem` (40px) | 2x large gap |
-| `12` | `2xl` | `2.5rem` (40px) | 2x large gap |
-| `16` | `3xl` | `3rem` (48px) | 3x large gap |
-| `20` | `4xl` | `4rem` (64px) | 4x large gap |
-| `24` | `5xl` | `5rem` (80px) | 5x large gap |
+| Gap Value | Token | CSS Value       | Description     |
+| --------- | ----- | --------------- | --------------- |
+| `0`       | -     | `0`             | No gap          |
+| `1`       | `xs`  | `0.25rem` (4px) | Extra small gap |
+| `2`       | `sm`  | `0.5rem` (8px)  | Small gap       |
+| `3`       | `sm`  | `0.5rem` (8px)  | Small gap       |
+| `4`       | `md`  | `1rem` (16px)   | Medium gap      |
+| `5`       | `md`  | `1rem` (16px)   | Medium gap      |
+| `6`       | `lg`  | `1.5rem` (24px) | Large gap       |
+| `8`       | `xl`  | `2rem` (32px)   | Extra large gap |
+| `10`      | `2xl` | `2.5rem` (40px) | 2x large gap    |
+| `12`      | `2xl` | `2.5rem` (40px) | 2x large gap    |
+| `16`      | `3xl` | `3rem` (48px)   | 3x large gap    |
+| `20`      | `4xl` | `4rem` (64px)   | 4x large gap    |
+| `24`      | `5xl` | `5rem` (80px)   | 5x large gap    |
 
 **Important:** Always use the numeric gap values (0-24) rather than raw Tailwind classes. This ensures consistency with the design token system.
 
@@ -198,11 +199,7 @@ function VenuesGrid() {
 ### Custom Styling
 
 ```tsx
-<Grid
-  cols={2}
-  gap={4}
-  className="bg-muted p-lg rounded-lg"
->
+<Grid cols={2} gap={4} className="rounded-lg bg-muted p-lg">
   <div>Item 1</div>
   <div>Item 2</div>
 </Grid>
@@ -216,7 +213,7 @@ function VenuesGrid() {
 
 ```tsx
 // ❌ Don't do this
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
   <div>Item 1</div>
   <div>Item 2</div>
 </div>
@@ -233,6 +230,7 @@ function VenuesGrid() {
 ```
 
 **Benefits:**
+
 - ✅ Token-compliant gaps (ensures consistent spacing)
 - ✅ Type-safe props (TypeScript catches errors)
 - ✅ Consistent API across the codebase
@@ -244,12 +242,12 @@ function VenuesGrid() {
 
 The responsive props use Tailwind's default breakpoints:
 
-| Breakpoint | Min Width | Usage |
-|------------|-----------|-------|
-| Base | `0px` | Mobile (default) |
-| `md` | `768px` | Tablet |
-| `lg` | `1024px` | Desktop |
-| `xl` | `1280px` | Large screens |
+| Breakpoint | Min Width | Usage            |
+| ---------- | --------- | ---------------- |
+| Base       | `0px`     | Mobile (default) |
+| `md`       | `768px`   | Tablet           |
+| `lg`       | `1024px`  | Desktop          |
+| `xl`       | `1280px`  | Large screens    |
 
 ---
 
@@ -294,28 +292,31 @@ const gridProps: GridProps = {
 ### From Manual Tailwind Grids
 
 1. **Replace div with Grid component:**
+
    ```tsx
    // Before
    <div className="grid grid-cols-3 gap-4">
-   
+
    // After
    <Grid cols={3} gap={4}>
    ```
 
 2. **Convert responsive classes:**
+
    ```tsx
    // Before
    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-   
+
    // After
    <Grid cols={1} md={2} lg={3}>
    ```
 
 3. **Convert gap values:**
+
    ```tsx
    // Before (using arbitrary values)
    <div className="grid gap-[1rem]">
-   
+
    // After (using token values)
    <Grid gap={4}> // gap={4} = 1rem (md token)
    ```
@@ -355,4 +356,3 @@ const gridProps: GridProps = {
 
 **Last Updated:** 2025-01-29  
 **Component Version:** 1.0.0
-

@@ -159,7 +159,11 @@ describe("Grid component", () => {
   });
 
   it("should use default cols when responsive props are not provided", () => {
-    const { container } = render(<Grid cols={3} gap={4}>Content</Grid>);
+    const { container } = render(
+      <Grid cols={3} gap={4}>
+        Content
+      </Grid>,
+    );
     const grid = container.firstChild;
     expect(grid).toHaveClass("grid-cols-3");
     // Should not have responsive classes when md/lg/xl are not provided
@@ -191,4 +195,3 @@ describe("Grid component", () => {
     });
   });
 });
-

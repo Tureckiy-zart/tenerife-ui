@@ -89,12 +89,12 @@ export const Default: Story = {
     gap: 4,
     children: (
       <>
-        <div className="bg-card p-md rounded-md border">Item 1</div>
-        <div className="bg-card p-md rounded-md border">Item 2</div>
-        <div className="bg-card p-md rounded-md border">Item 3</div>
-        <div className="bg-card p-md rounded-md border">Item 4</div>
-        <div className="bg-card p-md rounded-md border">Item 5</div>
-        <div className="bg-card p-md rounded-md border">Item 6</div>
+        <div className="rounded-md border bg-card p-md">Item 1</div>
+        <div className="rounded-md border bg-card p-md">Item 2</div>
+        <div className="rounded-md border bg-card p-md">Item 3</div>
+        <div className="rounded-md border bg-card p-md">Item 4</div>
+        <div className="rounded-md border bg-card p-md">Item 5</div>
+        <div className="rounded-md border bg-card p-md">Item 6</div>
       </>
     ),
   },
@@ -109,14 +109,14 @@ export const ResponsiveColumns: Story = {
     gap: 4,
     children: (
       <>
-        <div className="bg-card p-md rounded-md border">Item 1</div>
-        <div className="bg-card p-md rounded-md border">Item 2</div>
-        <div className="bg-card p-md rounded-md border">Item 3</div>
-        <div className="bg-card p-md rounded-md border">Item 4</div>
-        <div className="bg-card p-md rounded-md border">Item 5</div>
-        <div className="bg-card p-md rounded-md border">Item 6</div>
-        <div className="bg-card p-md rounded-md border">Item 7</div>
-        <div className="bg-card p-md rounded-md border">Item 8</div>
+        <div className="rounded-md border bg-card p-md">Item 1</div>
+        <div className="rounded-md border bg-card p-md">Item 2</div>
+        <div className="rounded-md border bg-card p-md">Item 3</div>
+        <div className="rounded-md border bg-card p-md">Item 4</div>
+        <div className="rounded-md border bg-card p-md">Item 5</div>
+        <div className="rounded-md border bg-card p-md">Item 6</div>
+        <div className="rounded-md border bg-card p-md">Item 7</div>
+        <div className="rounded-md border bg-card p-md">Item 8</div>
       </>
     ),
   },
@@ -134,35 +134,35 @@ export const TokenBasedGaps: Story = {
   render: () => (
     <div className="space-y-lg">
       <div>
-        <h3 className="text-lg font-semibold mb-sm">Gap: xs (1)</h3>
+        <h3 className="mb-sm text-lg font-semibold">Gap: xs (1)</h3>
         <Grid cols={3} gap={1}>
-          <div className="bg-card p-md rounded-md border">Item 1</div>
-          <div className="bg-card p-md rounded-md border">Item 2</div>
-          <div className="bg-card p-md rounded-md border">Item 3</div>
+          <div className="rounded-md border bg-card p-md">Item 1</div>
+          <div className="rounded-md border bg-card p-md">Item 2</div>
+          <div className="rounded-md border bg-card p-md">Item 3</div>
         </Grid>
       </div>
       <div>
-        <h3 className="text-lg font-semibold mb-sm">Gap: md (4)</h3>
+        <h3 className="mb-sm text-lg font-semibold">Gap: md (4)</h3>
         <Grid cols={3} gap={4}>
-          <div className="bg-card p-md rounded-md border">Item 1</div>
-          <div className="bg-card p-md rounded-md border">Item 2</div>
-          <div className="bg-card p-md rounded-md border">Item 3</div>
+          <div className="rounded-md border bg-card p-md">Item 1</div>
+          <div className="rounded-md border bg-card p-md">Item 2</div>
+          <div className="rounded-md border bg-card p-md">Item 3</div>
         </Grid>
       </div>
       <div>
-        <h3 className="text-lg font-semibold mb-sm">Gap: xl (8)</h3>
+        <h3 className="mb-sm text-lg font-semibold">Gap: xl (8)</h3>
         <Grid cols={3} gap={8}>
-          <div className="bg-card p-md rounded-md border">Item 1</div>
-          <div className="bg-card p-md rounded-md border">Item 2</div>
-          <div className="bg-card p-md rounded-md border">Item 3</div>
+          <div className="rounded-md border bg-card p-md">Item 1</div>
+          <div className="rounded-md border bg-card p-md">Item 2</div>
+          <div className="rounded-md border bg-card p-md">Item 3</div>
         </Grid>
       </div>
       <div>
-        <h3 className="text-lg font-semibold mb-sm">Gap: 3xl (16)</h3>
+        <h3 className="mb-sm text-lg font-semibold">Gap: 3xl (16)</h3>
         <Grid cols={3} gap={16}>
-          <div className="bg-card p-md rounded-md border">Item 1</div>
-          <div className="bg-card p-md rounded-md border">Item 2</div>
-          <div className="bg-card p-md rounded-md border">Item 3</div>
+          <div className="rounded-md border bg-card p-md">Item 1</div>
+          <div className="rounded-md border bg-card p-md">Item 2</div>
+          <div className="rounded-md border bg-card p-md">Item 3</div>
         </Grid>
       </div>
     </div>
@@ -180,34 +180,34 @@ export const Alignment: Story = {
   render: () => (
     <div className="space-y-lg">
       <div>
-        <h3 className="text-lg font-semibold mb-sm">Align: Start</h3>
+        <h3 className="mb-sm text-lg font-semibold">Align: Start</h3>
         <Grid cols={3} gap={4} align="start" className="h-32">
-          <div className="bg-card p-md rounded-md border">Item 1</div>
-          <div className="bg-card p-md rounded-md border h-20">Tall Item</div>
-          <div className="bg-card p-md rounded-md border">Item 3</div>
+          <div className="rounded-md border bg-card p-md">Item 1</div>
+          <div className="h-20 rounded-md border bg-card p-md">Tall Item</div>
+          <div className="rounded-md border bg-card p-md">Item 3</div>
         </Grid>
       </div>
       <div>
-        <h3 className="text-lg font-semibold mb-sm">Align: Center</h3>
+        <h3 className="mb-sm text-lg font-semibold">Align: Center</h3>
         <Grid cols={3} gap={4} align="center" className="h-32">
-          <div className="bg-card p-md rounded-md border">Item 1</div>
-          <div className="bg-card p-md rounded-md border h-20">Tall Item</div>
-          <div className="bg-card p-md rounded-md border">Item 3</div>
+          <div className="rounded-md border bg-card p-md">Item 1</div>
+          <div className="h-20 rounded-md border bg-card p-md">Tall Item</div>
+          <div className="rounded-md border bg-card p-md">Item 3</div>
         </Grid>
       </div>
       <div>
-        <h3 className="text-lg font-semibold mb-sm">Justify: Between</h3>
+        <h3 className="mb-sm text-lg font-semibold">Justify: Between</h3>
         <Grid cols={3} gap={4} justify="between">
-          <div className="bg-card p-md rounded-md border">Item 1</div>
-          <div className="bg-card p-md rounded-md border">Item 2</div>
-          <div className="bg-card p-md rounded-md border">Item 3</div>
+          <div className="rounded-md border bg-card p-md">Item 1</div>
+          <div className="rounded-md border bg-card p-md">Item 2</div>
+          <div className="rounded-md border bg-card p-md">Item 3</div>
         </Grid>
       </div>
       <div>
-        <h3 className="text-lg font-semibold mb-sm">Justify: Center</h3>
+        <h3 className="mb-sm text-lg font-semibold">Justify: Center</h3>
         <Grid cols={3} gap={4} justify="center">
-          <div className="bg-card p-md rounded-md border">Item 1</div>
-          <div className="bg-card p-md rounded-md border">Item 2</div>
+          <div className="rounded-md border bg-card p-md">Item 1</div>
+          <div className="rounded-md border bg-card p-md">Item 2</div>
         </Grid>
       </div>
     </div>
@@ -270,7 +270,8 @@ export const WithEventCards: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Grid layout with EventCard components. Responsive: 1 column on mobile, 2 on tablet, 3 on desktop.",
+        story:
+          "Grid layout with EventCard components. Responsive: 1 column on mobile, 2 on tablet, 3 on desktop.",
       },
     },
   },
@@ -341,7 +342,8 @@ export const WithVenueCards: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Grid layout with VenueCard components. Responsive: 1 column on mobile, 2 on tablet, 3 on desktop.",
+        story:
+          "Grid layout with VenueCard components. Responsive: 1 column on mobile, 2 on tablet, 3 on desktop.",
       },
     },
   },
@@ -355,23 +357,23 @@ export const MixedContent: Story = {
     gap: 4,
     children: (
       <>
-        <div className="bg-card p-lg rounded-md border col-span-full">
+        <div className="col-span-full rounded-md border bg-card p-lg">
           <h2 className="text-2xl font-bold">Featured Section</h2>
           <p className="text-muted-foreground">This spans all columns</p>
         </div>
-        <div className="bg-card p-md rounded-md border">Card 1</div>
-        <div className="bg-card p-md rounded-md border">Card 2</div>
-        <div className="bg-card p-md rounded-md border">Card 3</div>
-        <div className="bg-card p-md rounded-md border">Card 4</div>
+        <div className="rounded-md border bg-card p-md">Card 1</div>
+        <div className="rounded-md border bg-card p-md">Card 2</div>
+        <div className="rounded-md border bg-card p-md">Card 3</div>
+        <div className="rounded-md border bg-card p-md">Card 4</div>
       </>
     ),
   },
   parameters: {
     docs: {
       description: {
-        story: "Example showing how to combine Grid with manual column spanning using Tailwind classes.",
+        story:
+          "Example showing how to combine Grid with manual column spanning using Tailwind classes.",
       },
     },
   },
 };
-
