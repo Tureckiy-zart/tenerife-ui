@@ -1,6 +1,6 @@
 module.exports = {
   repositoryUrl: "https://github.com/Tureckiy-zart/tenerife-ui.git",
-  branches: ["main", "develop"],
+  branches: ["release"],
   plugins: [
     ["@semantic-release/commit-analyzer", { preset: "conventionalcommits" }],
     ["@semantic-release/release-notes-generator", { preset: "conventionalcommits" }],
@@ -10,7 +10,6 @@ module.exports = {
       "@semantic-release/github",
       {
         assets: ["storybook-static/**/*"],
-        // Explicitly set repository owner and name to avoid parsing issues
         repositoryUrl: "https://github.com/Tureckiy-zart/tenerife-ui.git",
       },
     ],
@@ -18,7 +17,7 @@ module.exports = {
       "@semantic-release/git",
       {
         assets: ["CHANGELOG.md", "package.json"],
-        message: "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
+        message: "chore(release): 🚀 Version ${nextRelease.version} [skip ci]",
       },
     ],
   ],
