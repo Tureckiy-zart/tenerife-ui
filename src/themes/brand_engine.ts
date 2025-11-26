@@ -371,12 +371,6 @@ export function applyBrandOverrides(brand: BrandPackage, mode: Mode): void {
   const { namespace } = brand;
   const { overrides } = theme;
 
-  // Remove previous brand variables (cleanup)
-  // This ensures namespace isolation - previous brand's variables are removed
-  const previousBrandVars = Array.from(root.style)
-    .filter((prop) => prop.startsWith("--brand-"))
-    .map((prop) => root.style.getPropertyValue(prop));
-
   // Apply brand color overrides with namespace prefix
   if (overrides.primaryColors) {
     Object.entries(overrides.primaryColors).forEach(([key, value]) => {
@@ -458,27 +452,37 @@ export function applyBrandOverrides(brand: BrandPackage, mode: Mode): void {
       const layout = overrides.spacing.layoutSpacing;
       if (layout.section) {
         Object.entries(layout.section).forEach(([key, value]) => {
-          root.style.setProperty(`--brand-${namespace}-layout-section-${key}`, value);
+          if (typeof value === "string") {
+            root.style.setProperty(`--brand-${namespace}-layout-section-${key}`, value);
+          }
         });
       }
       if (layout.container) {
         Object.entries(layout.container).forEach(([key, value]) => {
-          root.style.setProperty(`--brand-${namespace}-layout-container-${key}`, value);
+          if (typeof value === "string") {
+            root.style.setProperty(`--brand-${namespace}-layout-container-${key}`, value);
+          }
         });
       }
       if (layout.grid) {
         Object.entries(layout.grid).forEach(([key, value]) => {
-          root.style.setProperty(`--brand-${namespace}-layout-grid-${key}`, value);
+          if (typeof value === "string") {
+            root.style.setProperty(`--brand-${namespace}-layout-grid-${key}`, value);
+          }
         });
       }
       if (layout.stack) {
         Object.entries(layout.stack).forEach(([key, value]) => {
-          root.style.setProperty(`--brand-${namespace}-layout-stack-${key}`, value);
+          if (typeof value === "string") {
+            root.style.setProperty(`--brand-${namespace}-layout-stack-${key}`, value);
+          }
         });
       }
       if (layout.component) {
         Object.entries(layout.component).forEach(([key, value]) => {
-          root.style.setProperty(`--brand-${namespace}-layout-component-${key}`, value);
+          if (typeof value === "string") {
+            root.style.setProperty(`--brand-${namespace}-layout-component-${key}`, value);
+          }
         });
       }
     }
@@ -571,8 +575,8 @@ export function removeBrandOverrides(namespace: string): void {
 
   // Collect all properties that start with --brand-{namespace}-
   for (let i = 0; i < style.length; i++) {
-    const prop = style[i];
-    if (prop.startsWith(`--brand-${namespace}-`)) {
+    const prop = style.item(i);
+    if (prop && prop.startsWith(`--brand-${namespace}-`)) {
       propsToRemove.push(prop);
     }
   }
