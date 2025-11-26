@@ -4,16 +4,27 @@ import React from "react";
 
 import { cn } from "@/lib/utils";
 
-interface NavbarProps {
-  className?: string;
+interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
   left?: React.ReactNode;
   right?: React.ReactNode;
   children?: React.ReactNode;
+  ariaLabel?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ className, left, right, children }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  className,
+  left,
+  right,
+  children,
+  ariaLabel = "Primary navigation",
+  ...rest
+}) => {
   return (
-    <nav className={cn("flex w-full items-center justify-between px-md py-sm", className)}>
+    <nav
+      className={cn("flex w-full items-center justify-between px-md py-sm", className)}
+      aria-label={ariaLabel}
+      {...rest}
+    >
       {left && <div className="flex items-center">{left}</div>}
 
       {children && <div className="flex items-center">{children}</div>}

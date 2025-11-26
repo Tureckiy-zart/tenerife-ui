@@ -28,6 +28,19 @@ const preview: Preview = {
         },
       ],
     },
+    a11y: {
+      config: {
+        rules: [
+          {
+            id: "color-contrast",
+            enabled: true,
+          },
+        ],
+      },
+      options: {
+        checks: { "color-contrast": { options: { noScroll: true } } },
+      },
+    },
   },
   decorators: [
     (Story) => (
