@@ -11,7 +11,7 @@ import type {
   SurfaceColors,
   TextColors,
 } from "@/tokens/colors";
-import { type BorderRadius,componentRadius } from "@/tokens/radius";
+import { type BorderRadius, componentRadius } from "@/tokens/radius";
 import type {
   accentColoredShadows,
   elevationShadows,
