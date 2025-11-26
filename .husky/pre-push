@@ -6,47 +6,14 @@ if [ -n "$SKIP_PRE_PUSH" ]; then
   exit 0
 fi
 
-echo "🚀 PRE-PUSH: Running checks and auto-fixes before push..."
+echo "🔍 PRE-PUSH: Running strict checks (no auto-fix)..."
 
-echo "🧹 Running Prettier (format)..."
-npm run precommit:format
-
-echo "🔧 Running ESLint autofix..."
-npm run precommit:lint
-
-# Проверяем, были ли изменения после форматирования/исправления
-CHANGED_FILES=$(git diff --name-only)
-if [ -n "$CHANGED_FILES" ]; then
-  echo "✅ Code was auto-fixed. Staging changes..."
-  git add -A
-  
-  # Проверяем, есть ли что коммитить
-  if [ -n "$(git diff --cached --name-only)" ]; then
-    echo "💾 Committing auto-fixes..."
-    git commit -m "chore: auto-fix formatting and linting issues [skip ci]"
-    
-    echo "🔍 Running ESLint strict check on fixed code..."
-    if ! npm run lint:strict; then
-      echo ""
-      echo "❌ ESLint still found errors or warnings after auto-fix."
-      echo "💡 Please fix remaining issues manually, then commit and push again."
-      echo ""
-      exit 1
-    fi
-    
-    echo ""
-    echo "✅ Auto-fixes committed successfully!"
-    echo "📝 Please run 'git push' again to push the fixes along with your changes."
-    echo ""
-    exit 1
-  fi
-fi
-
+# Только проверка, без автофикса (автофикс уже сделан в pre-commit)
 echo "🔍 Running ESLint strict check (no warnings allowed)..."
-if ! npm run lint:strict; then
+if ! pnpm run lint:strict; then
   echo ""
   echo "❌ ESLint found errors or warnings."
-  echo "💡 Run 'npm run lint:fix' to auto-fix issues, then commit and push again."
+  echo "💡 Run 'pnpm lint:fix' to auto-fix issues, then commit and push again."
   echo ""
   exit 1
 fi
