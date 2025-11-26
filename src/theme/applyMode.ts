@@ -2,9 +2,9 @@
 
 import { getTheme } from "@/themes";
 import {
-  loadBrand,
-  getActiveBrand,
   applyBrandOverrides,
+  getActiveBrand,
+  loadBrand,
   removeBrandOverrides,
 } from "@/themes/brand_engine";
 import type { ThemeOverride } from "@/themes/types";
@@ -307,7 +307,7 @@ export async function applyDocumentTheme(
 
   // Handle brand switching
   const currentBrand = getActiveBrand();
-  
+
   // If switching brands, remove previous brand overrides
   if (currentBrand && (!brandId || currentBrand.id !== brandId)) {
     removeBrandOverrides(currentBrand.namespace);

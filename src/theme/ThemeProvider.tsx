@@ -2,27 +2,26 @@
 
 import React from "react";
 
+import { minimalBrand,neonBrand } from "@/themes";
 import {
-  registerBrand,
-  loadBrand,
-  getActiveBrand,
-  setActiveBrand,
-  removeBrandOverrides,
   applyBrandOverrides,
-  getAllBrandIds,
+  getActiveBrand,
+  loadBrand,
+  registerBrand,
+  removeBrandOverrides,
+  setActiveBrand,
 } from "@/themes/brand_engine";
-import { neonBrand, minimalBrand } from "@/themes";
 import type { ThemeName } from "@/themes/types";
 import type { Mode } from "@/tokens/colors";
 
 import {
   applyDocumentTheme,
+  getInitialBrand,
   getInitialMode,
   getInitialTheme,
-  getInitialBrand,
+  persistBrand,
   persistMode,
   persistTheme,
-  persistBrand,
 } from "./applyMode";
 
 /**
@@ -195,7 +194,15 @@ export function ThemeProvider({
     persistMode(initialMode, storageKey);
     persistTheme(initialTheme, themeStorageKey);
     persistBrand(initialBrand, brandStorageKey);
-  }, [defaultMode, defaultTheme, defaultBrand, storageKey, themeStorageKey, brandStorageKey, enableSystem]);
+  }, [
+    defaultMode,
+    defaultTheme,
+    defaultBrand,
+    storageKey,
+    themeStorageKey,
+    brandStorageKey,
+    enableSystem,
+  ]);
 
   // Listen for system preference changes if enabled
   React.useEffect(() => {

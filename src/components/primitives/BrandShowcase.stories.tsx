@@ -39,7 +39,15 @@ const brands = getAllBrands();
 /**
  * Component showcase for a single brand
  */
-function BrandShowcaseColumn({ brandId, brandName, description }: { brandId: string | null; brandName: string; description?: string }) {
+function BrandShowcaseColumn({
+  brandId,
+  brandName,
+  description,
+}: {
+  brandId: string | null;
+  brandName: string;
+  description?: string;
+}) {
   return (
     <ThemeProvider defaultBrand={brandId} defaultMode="day">
       <div className="space-y-md">
@@ -129,7 +137,11 @@ export const AllBrandsComparison: Story = {
             <CardDescription>Standard Tenerife UI theme with default tokens</CardDescription>
           </CardHeader>
           <CardContent>
-            <BrandShowcaseColumn brandId={null} brandName="Default" description="No brand overrides" />
+            <BrandShowcaseColumn
+              brandId={null}
+              brandName="Default"
+              description="No brand overrides"
+            />
           </CardContent>
         </Card>
 
@@ -174,10 +186,7 @@ export const BrandSwitching: Story = {
 
           {/* Brand selector */}
           <div className="flex flex-wrap gap-md">
-            <Button
-              variant={brand === null ? "primary" : "outline"}
-              onClick={() => setBrand(null)}
-            >
+            <Button variant={brand === null ? "primary" : "outline"} onClick={() => setBrand(null)}>
               Default
             </Button>
             {getAllBrands().map((b) => (
@@ -265,7 +274,13 @@ export const BrandSwitching: Story = {
  */
 export const BrandTokensDisplay: Story = {
   render: () => {
-    const TokenDisplay = ({ brandId, brandName }: { brandId: string | null; brandName: string }) => {
+    const TokenDisplay = ({
+      brandId,
+      brandName,
+    }: {
+      brandId: string | null;
+      brandName: string;
+    }) => {
       return (
         <ThemeProvider defaultBrand={brandId} defaultMode="day">
           <Card>
@@ -335,7 +350,13 @@ export const BrandTokensDisplay: Story = {
  */
 export const BrandComponentsShowcase: Story = {
   render: () => {
-    const ComponentsColumn = ({ brandId, brandName }: { brandId: string | null; brandName: string }) => {
+    const ComponentsColumn = ({
+      brandId,
+      brandName,
+    }: {
+      brandId: string | null;
+      brandName: string;
+    }) => {
       return (
         <ThemeProvider defaultBrand={brandId} defaultMode="day">
           <div className="space-y-md">
@@ -343,7 +364,9 @@ export const BrandComponentsShowcase: Story = {
 
             {/* Buttons */}
             <div>
-              <div className="mb-xs text-xs font-medium text-muted-foreground">All Button Variants</div>
+              <div className="mb-xs text-xs font-medium text-muted-foreground">
+                All Button Variants
+              </div>
               <div className="flex flex-wrap gap-sm">
                 <Button variant="primary" size="sm">
                   Primary
@@ -387,7 +410,9 @@ export const BrandComponentsShowcase: Story = {
 
             {/* Typography scale */}
             <div>
-              <div className="mb-xs text-xs font-medium text-muted-foreground">Typography Scale</div>
+              <div className="mb-xs text-xs font-medium text-muted-foreground">
+                Typography Scale
+              </div>
               <div className="space-y-xs">
                 <h1 className="text-2xl font-bold">Heading 1</h1>
                 <h2 className="text-xl font-semibold">Heading 2</h2>
@@ -419,4 +444,3 @@ export const BrandComponentsShowcase: Story = {
     );
   },
 };
-

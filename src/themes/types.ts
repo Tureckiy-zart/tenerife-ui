@@ -11,35 +11,21 @@ import type {
   SurfaceColors,
   TextColors,
 } from "@/tokens/colors";
+import type { type BorderRadius, componentRadius } from "@/tokens/radius";
 import type {
-  borderRadius,
-  componentRadius,
-  type BorderRadius,
-} from "@/tokens/radius";
-import type {
-  elevationShadows,
-  primaryColoredShadows,
   accentColoredShadows,
-  glowEffects,
+  elevationShadows,
   focusRings,
+  glowEffects,
+  primaryColoredShadows,
 } from "@/tokens/shadows";
+import type { type SemanticSpacing } from "@/tokens/spacing";
 import type {
-  semanticSpacing,
-  layoutSpacing,
-  type SemanticSpacing,
-} from "@/tokens/spacing";
-import type {
-  fontFamily,
-  fontSize,
-  fontWeight,
-  lineHeight,
-  letterSpacing,
-  textStyles,
   type FontFamily,
   type FontSize,
   type FontWeight,
-  type LineHeight,
   type LetterSpacing,
+  type LineHeight,
   type TextStyle,
 } from "@/tokens/typography";
 
@@ -56,11 +42,7 @@ export interface TypographyOverrides {
    * Override font sizes
    */
   fontSize?: Partial<
-    Record<
-      FontSize,
-      | string
-      | [string, { lineHeight: string; letterSpacing: string }]
-    >
+    Record<FontSize, string | [string, { lineHeight: string; letterSpacing: string }]>
   >;
 
   /**
@@ -128,16 +110,12 @@ export interface ShadowOverrides {
   /**
    * Override primary colored shadows
    */
-  primaryColoredShadows?: Partial<
-    Record<keyof typeof primaryColoredShadows, string>
-  >;
+  primaryColoredShadows?: Partial<Record<keyof typeof primaryColoredShadows, string>>;
 
   /**
    * Override accent colored shadows
    */
-  accentColoredShadows?: Partial<
-    Record<keyof typeof accentColoredShadows, string>
-  >;
+  accentColoredShadows?: Partial<Record<keyof typeof accentColoredShadows, string>>;
 
   /**
    * Override glow effects

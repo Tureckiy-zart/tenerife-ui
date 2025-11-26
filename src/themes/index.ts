@@ -10,8 +10,8 @@ export { defaultTheme } from "./default";
 export * from "./types";
 
 // Export brand packages
-export { neonBrand } from "./neon";
 export { minimalBrand } from "./minimal";
+export { neonBrand } from "./neon";
 
 // Export brand engine
 export * from "./brand_engine";

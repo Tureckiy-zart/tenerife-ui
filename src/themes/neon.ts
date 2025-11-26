@@ -15,7 +15,8 @@ import type { BrandPackage } from "./types";
 export const neonBrand: BrandPackage = {
   id: "neon",
   name: "Neon",
-  description: "Vibrant brand theme with high-saturation neon colors, bold typography, and enhanced visual effects",
+  description:
+    "Vibrant brand theme with high-saturation neon colors, bold typography, and enhanced visual effects",
   namespace: "neon",
   version: "1.0.0",
   author: "Tenerife UI",
@@ -70,11 +71,26 @@ export const neonBrand: BrandPackage = {
             bold: "800", // Extra bold
           },
           fontSize: {
-            xs: ["clamp(0.875rem, 0.8rem + 0.25vw, 1rem)", { lineHeight: "1.25rem", letterSpacing: "0.025em" }], // Larger than default
-            sm: ["clamp(1rem, 0.95rem + 0.25vw, 1.125rem)", { lineHeight: "1.5rem", letterSpacing: "0em" }], // Larger
-            base: ["clamp(1.125rem, 1rem + 0.5vw, 1.25rem)", { lineHeight: "1.75rem", letterSpacing: "-0.025em" }], // Larger
-            lg: ["clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)", { lineHeight: "1.75rem", letterSpacing: "-0.025em" }], // Larger
-            xl: ["clamp(1.5rem, 1.25rem + 1.25vw, 2rem)", { lineHeight: "2rem", letterSpacing: "-0.05em" }], // Larger
+            xs: [
+              "clamp(0.875rem, 0.8rem + 0.25vw, 1rem)",
+              { lineHeight: "1.25rem", letterSpacing: "0.025em" },
+            ], // Larger than default
+            sm: [
+              "clamp(1rem, 0.95rem + 0.25vw, 1.125rem)",
+              { lineHeight: "1.5rem", letterSpacing: "0em" },
+            ], // Larger
+            base: [
+              "clamp(1.125rem, 1rem + 0.5vw, 1.25rem)",
+              { lineHeight: "1.75rem", letterSpacing: "-0.025em" },
+            ], // Larger
+            lg: [
+              "clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)",
+              { lineHeight: "1.75rem", letterSpacing: "-0.025em" },
+            ], // Larger
+            xl: [
+              "clamp(1.5rem, 1.25rem + 1.25vw, 2rem)",
+              { lineHeight: "2rem", letterSpacing: "-0.05em" },
+            ], // Larger
           },
         },
         // Spacing overrides - larger spacing for breathing room
@@ -98,7 +114,8 @@ export const neonBrand: BrandPackage = {
             xl: "0 24px 32px -5px rgb(0 0 0 / 0.15), 0 10px 14px -6px rgb(0 0 0 / 0.15)",
           },
           glowEffects: {
-            "glow-primary": "0 0 30px 0 hsl(180 100% 45% / 0.7), 0 0 60px 0 hsl(180 100% 45% / 0.4)",
+            "glow-primary":
+              "0 0 30px 0 hsl(180 100% 45% / 0.7), 0 0 60px 0 hsl(180 100% 45% / 0.4)",
             "glow-primary-subtle": "0 0 12px 0 hsl(180 100% 45% / 0.5)",
             "glow-primary-medium": "0 0 24px 0 hsl(180 100% 45% / 0.7)",
             "glow-primary-strong": "0 0 36px 0 hsl(180 100% 45% / 0.8)",
@@ -200,11 +217,26 @@ export const neonBrand: BrandPackage = {
             bold: "800",
           },
           fontSize: {
-            xs: ["clamp(0.875rem, 0.8rem + 0.25vw, 1rem)", { lineHeight: "1.25rem", letterSpacing: "0.025em" }],
-            sm: ["clamp(1rem, 0.95rem + 0.25vw, 1.125rem)", { lineHeight: "1.5rem", letterSpacing: "0em" }],
-            base: ["clamp(1.125rem, 1rem + 0.5vw, 1.25rem)", { lineHeight: "1.75rem", letterSpacing: "-0.025em" }],
-            lg: ["clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)", { lineHeight: "1.75rem", letterSpacing: "-0.025em" }],
-            xl: ["clamp(1.5rem, 1.25rem + 1.25vw, 2rem)", { lineHeight: "2rem", letterSpacing: "-0.05em" }],
+            xs: [
+              "clamp(0.875rem, 0.8rem + 0.25vw, 1rem)",
+              { lineHeight: "1.25rem", letterSpacing: "0.025em" },
+            ],
+            sm: [
+              "clamp(1rem, 0.95rem + 0.25vw, 1.125rem)",
+              { lineHeight: "1.5rem", letterSpacing: "0em" },
+            ],
+            base: [
+              "clamp(1.125rem, 1rem + 0.5vw, 1.25rem)",
+              { lineHeight: "1.75rem", letterSpacing: "-0.025em" },
+            ],
+            lg: [
+              "clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)",
+              { lineHeight: "1.75rem", letterSpacing: "-0.025em" },
+            ],
+            xl: [
+              "clamp(1.5rem, 1.25rem + 1.25vw, 2rem)",
+              { lineHeight: "2rem", letterSpacing: "-0.05em" },
+            ],
           },
         },
         // Spacing overrides - same as day
@@ -228,7 +260,8 @@ export const neonBrand: BrandPackage = {
             xl: "0 24px 32px -5px rgb(0 0 0 / 0.25), 0 10px 14px -6px rgb(0 0 0 / 0.25)",
           },
           glowEffects: {
-            "glow-primary": "0 0 40px 0 hsl(180 100% 50% / 0.8), 0 0 80px 0 hsl(180 100% 50% / 0.5)",
+            "glow-primary":
+              "0 0 40px 0 hsl(180 100% 50% / 0.8), 0 0 80px 0 hsl(180 100% 50% / 0.5)",
             "glow-primary-subtle": "0 0 16px 0 hsl(180 100% 50% / 0.6)",
             "glow-primary-medium": "0 0 32px 0 hsl(180 100% 50% / 0.8)",
             "glow-primary-strong": "0 0 48px 0 hsl(180 100% 50% / 0.9)",
@@ -276,4 +309,3 @@ export const neonBrand: BrandPackage = {
     },
   ],
 };
-

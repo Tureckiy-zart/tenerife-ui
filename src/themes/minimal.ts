@@ -15,7 +15,8 @@ import type { BrandPackage } from "./types";
 export const minimalBrand: BrandPackage = {
   id: "minimal",
   name: "Minimal",
-  description: "Clean, minimal brand theme with muted colors, light typography, and compact spacing",
+  description:
+    "Clean, minimal brand theme with muted colors, light typography, and compact spacing",
   namespace: "minimal",
   version: "1.0.0",
   author: "Tenerife UI",
@@ -72,11 +73,26 @@ export const minimalBrand: BrandPackage = {
             bold: "700", // Standard bold
           },
           fontSize: {
-            xs: ["clamp(0.6875rem, 0.65rem + 0.125vw, 0.75rem)", { lineHeight: "1rem", letterSpacing: "0.05em" }], // Smaller
-            sm: ["clamp(0.8125rem, 0.75rem + 0.25vw, 0.875rem)", { lineHeight: "1.25rem", letterSpacing: "0.025em" }], // Smaller
-            base: ["clamp(0.9375rem, 0.875rem + 0.25vw, 1rem)", { lineHeight: "1.5rem", letterSpacing: "0em" }], // Smaller
-            lg: ["clamp(1.0625rem, 0.95rem + 0.5vw, 1.125rem)", { lineHeight: "1.75rem", letterSpacing: "-0.025em" }], // Smaller
-            xl: ["clamp(1.1875rem, 1rem + 0.75vw, 1.375rem)", { lineHeight: "1.75rem", letterSpacing: "-0.025em" }], // Smaller
+            xs: [
+              "clamp(0.6875rem, 0.65rem + 0.125vw, 0.75rem)",
+              { lineHeight: "1rem", letterSpacing: "0.05em" },
+            ], // Smaller
+            sm: [
+              "clamp(0.8125rem, 0.75rem + 0.25vw, 0.875rem)",
+              { lineHeight: "1.25rem", letterSpacing: "0.025em" },
+            ], // Smaller
+            base: [
+              "clamp(0.9375rem, 0.875rem + 0.25vw, 1rem)",
+              { lineHeight: "1.5rem", letterSpacing: "0em" },
+            ], // Smaller
+            lg: [
+              "clamp(1.0625rem, 0.95rem + 0.5vw, 1.125rem)",
+              { lineHeight: "1.75rem", letterSpacing: "-0.025em" },
+            ], // Smaller
+            xl: [
+              "clamp(1.1875rem, 1rem + 0.75vw, 1.375rem)",
+              { lineHeight: "1.75rem", letterSpacing: "-0.025em" },
+            ], // Smaller
           },
         },
         // Spacing overrides - compact spacing for tight layout
@@ -198,11 +214,26 @@ export const minimalBrand: BrandPackage = {
             bold: "700",
           },
           fontSize: {
-            xs: ["clamp(0.6875rem, 0.65rem + 0.125vw, 0.75rem)", { lineHeight: "1rem", letterSpacing: "0.05em" }],
-            sm: ["clamp(0.8125rem, 0.75rem + 0.25vw, 0.875rem)", { lineHeight: "1.25rem", letterSpacing: "0.025em" }],
-            base: ["clamp(0.9375rem, 0.875rem + 0.25vw, 1rem)", { lineHeight: "1.5rem", letterSpacing: "0em" }],
-            lg: ["clamp(1.0625rem, 0.95rem + 0.5vw, 1.125rem)", { lineHeight: "1.75rem", letterSpacing: "-0.025em" }],
-            xl: ["clamp(1.1875rem, 1rem + 0.75vw, 1.375rem)", { lineHeight: "1.75rem", letterSpacing: "-0.025em" }],
+            xs: [
+              "clamp(0.6875rem, 0.65rem + 0.125vw, 0.75rem)",
+              { lineHeight: "1rem", letterSpacing: "0.05em" },
+            ],
+            sm: [
+              "clamp(0.8125rem, 0.75rem + 0.25vw, 0.875rem)",
+              { lineHeight: "1.25rem", letterSpacing: "0.025em" },
+            ],
+            base: [
+              "clamp(0.9375rem, 0.875rem + 0.25vw, 1rem)",
+              { lineHeight: "1.5rem", letterSpacing: "0em" },
+            ],
+            lg: [
+              "clamp(1.0625rem, 0.95rem + 0.5vw, 1.125rem)",
+              { lineHeight: "1.75rem", letterSpacing: "-0.025em" },
+            ],
+            xl: [
+              "clamp(1.1875rem, 1rem + 0.75vw, 1.375rem)",
+              { lineHeight: "1.75rem", letterSpacing: "-0.025em" },
+            ],
           },
         },
         // Spacing overrides - same as day
@@ -270,4 +301,3 @@ export const minimalBrand: BrandPackage = {
     },
   ],
 };
-

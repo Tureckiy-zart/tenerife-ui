@@ -6,11 +6,8 @@
  */
 
 import type { Mode } from "@/tokens/colors";
-import type {
-  BrandPackage,
-  BrandTheme,
-  BrandValidationResult,
-} from "./types";
+
+import type { BrandPackage, BrandTheme, BrandValidationResult } from "./types";
 
 /**
  * Brand registry entry
@@ -127,9 +124,7 @@ export function validateBrand(brand: unknown): BrandValidationResult {
           errors.push(`Theme at index ${index} is missing required field: name`);
         }
         if (!themeObj.mode || !["day", "night"].includes(themeObj.mode as string)) {
-          errors.push(
-            `Theme at index ${index} must have mode set to "day" or "night"`,
-          );
+          errors.push(`Theme at index ${index} must have mode set to "day" or "night"`);
         }
         if (!themeObj.overrides || typeof themeObj.overrides !== "object") {
           errors.push(`Theme at index ${index} is missing required field: overrides`);
@@ -181,17 +176,12 @@ export function registerBrand(
   // Validate brand
   const validation = validateBrand(brand);
   if (!validation.valid) {
-    throw new Error(
-      `Invalid brand "${brand.id}": ${validation.errors.join(", ")}`,
-    );
+    throw new Error(`Invalid brand "${brand.id}": ${validation.errors.join(", ")}`);
   }
 
   // Log warnings if any
   if (validation.warnings.length > 0) {
-    console.warn(
-      `Brand "${brand.id}" validation warnings:`,
-      validation.warnings.join(", "),
-    );
+    console.warn(`Brand "${brand.id}" validation warnings:`, validation.warnings.join(", "));
   }
 
   // Check for duplicate ID
@@ -273,9 +263,7 @@ export async function loadBrand(brandId: string): Promise<BrandPackage> {
       // Validate loaded brand
       const validation = validateBrand(loadedBrand);
       if (!validation.valid) {
-        throw new Error(
-          `Invalid loaded brand "${brandId}": ${validation.errors.join(", ")}`,
-        );
+        throw new Error(`Invalid loaded brand "${brandId}": ${validation.errors.join(", ")}`);
       }
 
       // Cache and return
@@ -359,10 +347,7 @@ export function clearActiveBrand(): void {
  * @param mode - Theme mode (day or night)
  * @returns Brand theme or undefined
  */
-export function getBrandTheme(
-  brand: BrandPackage,
-  mode: Mode,
-): BrandTheme | undefined {
+export function getBrandTheme(brand: BrandPackage, mode: Mode): BrandTheme | undefined {
   return brand.themes.find((theme) => theme.mode === mode);
 }
 
@@ -378,15 +363,13 @@ export function applyBrandOverrides(brand: BrandPackage, mode: Mode): void {
 
   const theme = getBrandTheme(brand, mode);
   if (!theme) {
-    console.warn(
-      `Brand "${brand.id}" has no theme for mode "${mode}"`,
-    );
+    console.warn(`Brand "${brand.id}" has no theme for mode "${mode}"`);
     return;
   }
 
   const root = document.documentElement;
-  const namespace = brand.namespace;
-  const overrides = theme.overrides;
+  const {namespace} = brand;
+  const {overrides} = theme;
 
   // Remove previous brand variables (cleanup)
   // This ensures namespace isolation - previous brand's variables are removed
@@ -436,8 +419,7 @@ export function applyBrandOverrides(brand: BrandPackage, mode: Mode): void {
     // Font sizes
     if (overrides.typography.fontSize) {
       Object.entries(overrides.typography.fontSize).forEach(([key, value]) => {
-        const fontSizeValue =
-          typeof value === "string" ? value : value[0];
+        const fontSizeValue = typeof value === "string" ? value : value[0];
         root.style.setProperty(`--brand-${namespace}-font-size-${key}`, fontSizeValue);
       });
     }
@@ -544,7 +526,7 @@ export function applyBrandOverrides(brand: BrandPackage, mode: Mode): void {
     }
 
     if (overrides.radius.componentRadius) {
-      const componentRadius = overrides.radius.componentRadius;
+      const {componentRadius} = overrides.radius;
       if (componentRadius.button) {
         Object.entries(componentRadius.button).forEach(([key, value]) => {
           root.style.setProperty(`--brand-${namespace}-radius-button-${key}`, value);
@@ -584,7 +566,7 @@ export function removeBrandOverrides(namespace: string): void {
   const root = document.documentElement;
 
   // Remove all CSS variables with brand namespace prefix
-  const style = root.style;
+  const {style} = root;
   const propsToRemove: string[] = [];
 
   // Collect all properties that start with --brand-{namespace}-
@@ -609,4 +591,3 @@ export function removeBrandOverrides(namespace: string): void {
     clearActiveBrand();
   }
 }
-
