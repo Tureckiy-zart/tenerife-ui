@@ -131,10 +131,10 @@ export type SemanticColors = {
 
 export const semanticColors: Record<Mode, SemanticColors> = {
   day: {
-    success: "142 76% 36%", // Green
+    success: "142 70% 28%", // Darker green for better contrast
     successForeground: "0 0% 100%",
-    error: "0 84.2% 60.2%", // Red (destructive)
-    errorForeground: "0 0% 98%",
+    error: "0 80% 40%", // Richer red for contrast
+    errorForeground: "0 0% 100%",
     warning: "38 92% 50%", // Orange
     warningForeground: "0 0% 9%",
     info: "199 89% 48%", // Blue
@@ -148,7 +148,7 @@ export const semanticColors: Record<Mode, SemanticColors> = {
     warning: "38 92% 60%", // Brighter orange
     warningForeground: "0 0% 9%",
     info: "199 89% 55%", // Brighter blue
-    infoForeground: "0 0% 100%",
+    infoForeground: "0 0% 9%",
   },
 };
 
@@ -169,7 +169,7 @@ export const textColors: Record<Mode, TextColors> = {
     primary: "0 0% 9%", // Almost black
     secondary: "0 0% 45%", // Medium gray
     tertiary: "0 0% 65%", // Light gray
-    muted: "0 0% 45.1%", // Muted gray
+    muted: "0 0% 38%", // Muted gray with stronger contrast
     inverse: "0 0% 100%", // White (for dark backgrounds)
   },
   night: {

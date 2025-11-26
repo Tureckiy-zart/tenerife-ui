@@ -2,7 +2,8 @@
 
 This file tracks the completion status of all tasks and subtasks in the Master Task system.
 
-**Last Updated:** 2025-11-26 (U5 Token export system delivered)
+
+**Last Updated:** 2025-11-26 (U6 Accessibility & testing delivered)
 
 ---
 
@@ -976,6 +977,44 @@ All typing enforcement tasks completed:
 - **Master Task Status:** Updated to `completed` in `.cursor/tasks/master/master_tasks.json`
 - **Output:** `docs/reports/U4_COMPLETION_REPORT.md`
 - **Next Steps:** U8 or U9 depending on development order
+
+---
+
+### U5 - Export Tokens for Design Tools (100% Complete)
+
+- **Status:** ✅ completed
+- **Date Completed:** 2025-11-26
+- **Summary:** Delivered a full token-export pipeline that converts the canonical TypeScript token sources into designer-friendly artifacts and documentation.
+- **Key Deliverables:**
+  - ✅ `scripts/export-tokens.ts` – deterministic exporter that normalizes HSL/REM values
+  - ✅ `design-tokens/` outputs – JSON + Figma Tokens files grouped by colors, spacing, typography, radius, shadows, motion
+  - ✅ `docs/design_tokens_export.md` – regeneration + Figma import instructions
+  - ✅ `package.json` script `tokens:export` (`pnpm tokens:export`) wired to the exporter
+- **Validation:**
+  - ✅ `pnpm tokens:export` regenerates artifacts without manual edits
+  - ✅ ESLint + TypeScript clean for the new script/config
+  - ✅ Designers validated import via Tokens Studio plugin
+- **Notes:** Designers can now sync Tenerife tokens directly from the repo, ensuring up-to-date palettes prior to visual design work.
+
+---
+
+### U6 - Augment Accessibility and Testing (100% Complete)
+
+- **Status:** ✅ completed
+- **Date Completed:** 2025-11-26
+- **Summary:** Executed the Upgrade Layer accessibility mandate—audited every component, fixed keyboard/focus gaps, formalized guidelines, and enforced automated testing + CI gates.
+- **Key Deliverables:**
+  - ✅ Audit artifacts: `docs/reports/accessibility_audit_report.md` highlighting violations + remediation
+  - ✅ Component fixes: `SimpleModal` rebuilt on Radix Dialog with focus trap, `Pagination`/`Breadcrumbs`/`Navbar` ARIA upgrades, card icons hidden from SRs, shared `focusRing` helper in `src/lib/a11y.ts`
+  - ✅ Automated coverage: new axe suites (`Pagination.a11y.test.tsx`, `SimpleModal.a11y.test.tsx`), `jest-axe` integration, and `scripts/a11y-contrast-check.js`
+  - ✅ Documentation: `docs/a11y_guidelines.md` describing required roles, keyboard patterns, focus styles, and checklist
+  - ✅ Tooling: Storybook now loads `@storybook/addon-a11y`; npm scripts `test:a11y`, `a11y:contrast`, `ci:a11y` plus GitHub `quality.yml` workflow + release gate
+- **Validation:**
+  - ✅ `pnpm test`, `pnpm test:a11y`, `pnpm a11y:contrast`
+  - ✅ Linting + TypeScript unaffected
+  - ✅ Storybook builds with new addon
+  - ✅ CI blocks merges/releases if accessibility checks fail
+- **Next Steps:** Prepare for U7 (Multi-Brand Theme Engine). CI automation already guards regressions during upcoming theme work.
 
 ---
 

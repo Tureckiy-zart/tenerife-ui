@@ -191,7 +191,7 @@
             "A11y guidelines document instructs developers on best practices and is included in the repository’s documentation."
           ],
           "dependencies": ["Q1", "Q2"],
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "U7",

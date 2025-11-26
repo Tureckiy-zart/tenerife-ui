@@ -162,7 +162,13 @@ export const VenueCard: React.FC<VenueCardProps> = ({
           <div className="flex items-center justify-between text-xs">
             {eventsCount > 0 && (
               <div className="flex items-center gap-xs font-medium text-primary">
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

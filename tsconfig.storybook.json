@@ -2,7 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "dist-storybook"
+    "outDir": "dist-storybook",
+    "moduleResolution": "node",
+    "types": ["node", "vite/client"]
   },
   "include": [".storybook/**/*"],
   "exclude": ["node_modules", "dist"]

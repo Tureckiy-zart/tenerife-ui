@@ -86,6 +86,7 @@ export const EventCard: React.FC<EventCardProps> = ({
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -121,7 +122,13 @@ export const EventCard: React.FC<EventCardProps> = ({
         <div className="mb-sm flex flex-col gap-xs">
           {date && (
             <div className="flex items-center gap-xs text-xs text-muted-foreground">
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -136,7 +143,13 @@ export const EventCard: React.FC<EventCardProps> = ({
           )}
           {venueName && (
             <div className="flex items-center gap-xs text-xs text-muted-foreground">
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -165,7 +178,13 @@ export const EventCard: React.FC<EventCardProps> = ({
               rel="noopener noreferrer"
             >
               {getTicketsLabel}
-              <svg className="ml-xs h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg
+                className="ml-xs h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
