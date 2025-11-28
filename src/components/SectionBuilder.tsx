@@ -144,10 +144,39 @@ function resolveSlot(slot: SectionSlotValue | undefined): React.ReactNode {
             </Heading>
           );
         }
+        // Map typography size to Text component supported sizes
+        // For sizes > xl, use Heading component instead
+        if (typoConfig.size && ["2xl", "3xl", "4xl", "5xl"].includes(typoConfig.size)) {
+          // Map large sizes to heading levels
+          const levelMap: Record<string, 1 | 2 | 3 | 4 | 5 | 6> = {
+            "2xl": 3,
+            "3xl": 2,
+            "4xl": 1,
+            "5xl": 1,
+          };
+          return (
+            <Heading
+              level={levelMap[typoConfig.size] || 3}
+              className={cn(className, typoConfig.className)}
+            >
+              {content}
+            </Heading>
+          );
+        }
+        const textSize =
+          typoConfig.size && ["xs", "sm", "md", "lg", "xl"].includes(typoConfig.size)
+            ? (typoConfig.size as "xs" | "sm" | "md" | "lg" | "xl")
+            : "md";
+        // Map typography variant to Text component supported variants
+        // "default" maps to undefined (no variant)
+        const textVariant =
+          typoConfig.variant && typoConfig.variant !== "default"
+            ? (typoConfig.variant as "primary" | "secondary" | "accent" | "muted")
+            : undefined;
         return (
           <Text
-            size={typoConfig.size}
-            variant={typoConfig.variant}
+            size={textSize}
+            variant={textVariant}
             className={cn(className, typoConfig.className)}
           >
             {content}
@@ -314,6 +343,50 @@ function resolveStackedLayout(
 }
 
 /**
+ * Validate layout configuration
+ */
+function validateLayoutConfig(config: LayoutConfig): void {
+  if (!config || !config.type) {
+    throw new Error("SectionBuilder: layout configuration is required");
+  }
+
+  switch (config.type) {
+    case "split":
+      if (!config.left && !config.right && !config.media) {
+        console.warn(
+          "SectionBuilder: Split layout should have at least one of: left, right, or media",
+        );
+      }
+      break;
+    case "grid":
+      if (!Array.isArray(config.items) || config.items.length === 0) {
+        throw new Error("SectionBuilder: Grid layout requires a non-empty items array");
+      }
+      break;
+    case "stacked":
+      if (!Array.isArray(config.items) || config.items.length === 0) {
+        throw new Error("SectionBuilder: Stacked layout requires a non-empty items array");
+      }
+      break;
+  }
+}
+
+/**
+ * Validate SectionBuilder configuration
+ */
+function validateConfig(config: SectionBuilderConfig): void {
+  if (!config) {
+    throw new Error("SectionBuilder: config is required");
+  }
+
+  if (!config.layout) {
+    throw new Error("SectionBuilder: layout configuration is required");
+  }
+
+  validateLayoutConfig(config.layout);
+}
+
+/**
  * Resolve layout configuration to appropriate primitive component
  */
 function resolveLayout(config: LayoutConfig): React.ReactElement {
@@ -379,6 +452,17 @@ export const SectionBuilder = React.forwardRef<HTMLElement, SectionBuilderProps>
       slots,
     };
 
+    // Validate configuration in development
+    if (process.env.NODE_ENV !== "production") {
+      try {
+        validateConfig(effectiveConfig);
+      } catch (error) {
+        console.error("SectionBuilder validation error:", error);
+        // In development, we still render but log the error
+        // In production, we could choose to throw or render a fallback
+      }
+    }
+
     const {
       layout: layoutConfig,
       background: bgConfig,
@@ -402,11 +486,23 @@ export const SectionBuilder = React.forwardRef<HTMLElement, SectionBuilderProps>
         }
       : undefined;
 
-    // Resolve slots
-    const headerSlot = sectionSlots?.header ? resolveSlot(sectionSlots.header) : null;
-    const bodySlot = sectionSlots?.body ? resolveSlot(sectionSlots.body) : null;
-    const footerSlot = sectionSlots?.footer ? resolveSlot(sectionSlots.footer) : null;
-    const overlaySlot = sectionSlots?.overlay ? resolveSlot(sectionSlots.overlay) : null;
+    // Resolve slots with memoization for performance
+    const headerSlot = React.useMemo(
+      () => (sectionSlots?.header ? resolveSlot(sectionSlots.header) : null),
+      [sectionSlots?.header],
+    );
+    const bodySlot = React.useMemo(
+      () => (sectionSlots?.body ? resolveSlot(sectionSlots.body) : null),
+      [sectionSlots?.body],
+    );
+    const footerSlot = React.useMemo(
+      () => (sectionSlots?.footer ? resolveSlot(sectionSlots.footer) : null),
+      [sectionSlots?.footer],
+    );
+    const overlaySlot = React.useMemo(
+      () => (sectionSlots?.overlay ? resolveSlot(sectionSlots.overlay) : null),
+      [sectionSlots?.overlay],
+    );
 
     // Resolve layout
     const layoutContent = resolveLayout(layoutConfig);

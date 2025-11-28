@@ -25,9 +25,9 @@ export type SectionLayoutType = "split" | "grid" | "stacked";
 
 /**
  * Surface background variants
- * Maps to surfaceColors tokens from tokens/colors.ts
+ * Derived from surfaceColors tokens from tokens/colors.ts
  */
-export type SurfaceVariant = "base" | "elevated1" | "elevated2" | "elevated3" | "overlay" | "glass";
+export type SurfaceVariant = keyof typeof import("@/tokens/colors").surfaceColors.day;
 
 /**
  * Background configuration
@@ -333,11 +333,24 @@ export interface SectionBuilderConfig {
  * Extends the config with standard React props
  */
 export interface SectionBuilderProps
-  extends Omit<SectionBuilderConfig, "as" | "aria-label">,
+  extends Omit<SectionBuilderConfig, "as" | "aria-label" | "style" | "className">,
     Omit<React.HTMLAttributes<HTMLElement>, "style" | "className"> {
   /**
    * Configuration object (alternative to individual props)
    * If provided, other props are ignored
    */
   config?: SectionBuilderConfig;
+  /**
+   * HTML element to render as
+   * @default "section"
+   */
+  as?: keyof React.JSX.IntrinsicElements;
+  /**
+   * Custom className for section wrapper
+   */
+  className?: string;
+  /**
+   * Custom style for section wrapper
+   */
+  style?: React.CSSProperties;
 }

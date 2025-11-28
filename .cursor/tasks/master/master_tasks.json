@@ -254,7 +254,7 @@
             "Documentation includes at least three examples of custom sections built with SectionBuilder, such as hero, feature grid and testimonial section."
           ],
           "dependencies": ["U8", "C0", "U4"],
-          "status": "pending"
+          "status": "completed"
         },
         {
           "id": "U10",
