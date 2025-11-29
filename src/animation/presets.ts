@@ -6,7 +6,7 @@
  */
 
 import { createRevealConfig, createSpring, getAnimationConfig, shouldReduceMotion } from "./tas";
-import type { AnimationProps, PresetConfig, SpringConfig } from "./types";
+import type { AnimationProps, PresetConfig, Spring, SpringConfig } from "./types";
 
 /**
  * Fade animation presets
@@ -22,7 +22,7 @@ export const fadePresets = {
       animate: { opacity: 1 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
       }),
@@ -39,7 +39,7 @@ export const fadePresets = {
       animate: { opacity: 0 },
       transition: getAnimationConfig({
         duration: config?.duration || "fast",
-        easing: config?.ease || "ease-in",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-in",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
       }),
@@ -57,7 +57,7 @@ export const fadePresets = {
       animate: { opacity: 1, y: 0 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring,
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -76,7 +76,7 @@ export const fadePresets = {
       animate: { opacity: 1, y: 0 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring,
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -95,7 +95,7 @@ export const fadePresets = {
       animate: { opacity: 1, x: 0 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring,
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -114,7 +114,7 @@ export const fadePresets = {
       animate: { opacity: 1, x: 0 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring,
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -138,7 +138,7 @@ export const slidePresets = {
       animate: { y: 0, opacity: 1 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring || "gentle",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -157,7 +157,7 @@ export const slidePresets = {
       animate: { y: 0, opacity: 1 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring || "gentle",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -176,7 +176,7 @@ export const slidePresets = {
       animate: { x: 0, opacity: 1 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring || "gentle",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -195,7 +195,7 @@ export const slidePresets = {
       animate: { x: 0, opacity: 1 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring || "gentle",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -214,7 +214,7 @@ export const slidePresets = {
       exit: reduceMotion ? {} : { y: -distance, opacity: 0 },
       transition: getAnimationConfig({
         duration: config?.duration || "fast",
-        easing: config?.ease || "ease-in",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-in",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
       }),
@@ -232,7 +232,7 @@ export const slidePresets = {
       exit: reduceMotion ? {} : { y: distance, opacity: 0 },
       transition: getAnimationConfig({
         duration: config?.duration || "fast",
-        easing: config?.ease || "ease-in",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-in",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
       }),
@@ -255,7 +255,7 @@ export const scalePresets = {
       animate: { scale: 1, opacity: 1 },
       transition: getAnimationConfig({
         duration: config?.duration || "normal",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring || "gentle",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
@@ -274,7 +274,7 @@ export const scalePresets = {
       exit: reduceMotion ? {} : { scale, opacity: 0 },
       transition: getAnimationConfig({
         duration: config?.duration || "fast",
-        easing: config?.ease || "ease-in",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-in",
         delay: config?.delay,
         reduceMotion: config?.reducedMotion,
       }),
@@ -291,7 +291,7 @@ export const scalePresets = {
       whileHover: reduceMotion ? {} : { scale },
       transition: getAnimationConfig({
         duration: config?.duration || "fast",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         spring: config?.spring || "gentle",
         reduceMotion: config?.reducedMotion,
       }),
@@ -308,7 +308,7 @@ export const scalePresets = {
       whileTap: reduceMotion ? {} : { scale },
       transition: getAnimationConfig({
         duration: config?.duration || "fast",
-        easing: config?.ease || "ease-out",
+        easing: typeof config?.ease === "string" ? config.ease : "ease-out",
         reduceMotion: config?.reducedMotion,
       }),
     };
@@ -340,11 +340,23 @@ export function createStagger(
     };
   }
 
+  const springConfig = config?.spring;
+  let springName: Spring | undefined;
+  if (typeof springConfig === "string") {
+    springName = springConfig;
+  } else if (springConfig) {
+    springName = undefined;
+  } else {
+    springName = "gentle";
+  }
+  const springPartial =
+    typeof springConfig === "object" && springConfig !== null ? springConfig : undefined;
+
   return {
     transition: {
       staggerChildren,
       delayChildren,
-      ...createSpring(config?.spring || "gentle"),
+      ...createSpring(springName, springPartial),
     },
   };
 }

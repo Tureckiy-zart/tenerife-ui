@@ -7,7 +7,7 @@
  * Supports animation props via Framer Motion when provided.
  */
 
-import { motion } from "framer-motion";
+import { type HTMLMotionProps, motion } from "framer-motion";
 import * as React from "react";
 
 import type { AnimationProps } from "@/animation/types";
@@ -319,13 +319,35 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
     // Use motion.div if animations are present and Component is 'div', otherwise use regular element
     // Note: motion components only support standard HTML elements, so 'as' prop is ignored when using animations
     if (hasAnimations && Component === "div") {
+      // Exclude conflicting handlers from props to avoid conflict with Framer Motion
+      const {
+        onDrag: _onDrag,
+        onDragStart: _onDragStart,
+        onDragEnd: _onDragEnd,
+        onAnimationStart: _onAnimationStart,
+        onAnimationEnd: _onAnimationEnd,
+        onAnimationIteration: _onAnimationIteration,
+        ...restProps
+      } = props;
+
+      // Type restProps to exclude conflicting handlers (animation props are already destructured above)
+      const safeProps = restProps as Omit<
+        React.HTMLAttributes<HTMLDivElement>,
+        | "onDrag"
+        | "onDragStart"
+        | "onDragEnd"
+        | "onAnimationStart"
+        | "onAnimationEnd"
+        | "onAnimationIteration"
+      >;
+
       return (
         <motion.div
           ref={ref}
           className={className}
           style={mergedStyle}
-          {...animationProps}
-          {...props}
+          {...(animationProps as Partial<HTMLMotionProps<"div">>)}
+          {...safeProps}
         />
       );
     }

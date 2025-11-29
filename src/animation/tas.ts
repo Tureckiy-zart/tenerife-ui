@@ -14,12 +14,13 @@ import {
   type Easing,
   easings,
   reducedMotion,
+  type Spring,
   springs,
   type Transition,
   transitions,
 } from "@/tokens/motion";
 
-import type { Spring, SpringConfig } from "./types";
+import type { SpringConfig } from "./types";
 
 /**
  * Check if user prefers reduced motion
@@ -113,9 +114,9 @@ export function createSpring(
   }
 
   // Use predefined spring if provided
-  if (springName && springs[springName]) {
+  if (springName && springName in springs) {
     return {
-      ...springs[springName],
+      ...springs[springName as keyof typeof springs],
       ...customConfig,
     };
   }
@@ -159,9 +160,21 @@ export function getAnimationConfig(
   // If spring is specified, return spring config
   if (spring) {
     if (typeof spring === "string") {
-      return createSpring(spring, undefined, reduceMotionOverride);
+      return createSpring(spring, undefined, reduceMotionOverride) as {
+        duration?: number | string;
+        ease?: string | number[];
+        delay?: number;
+        type?: "tween" | "spring";
+        [key: string]: unknown;
+      };
     }
-    return createSpring(undefined, spring, reduceMotionOverride);
+    return createSpring(undefined, spring as Partial<SpringConfig>, reduceMotionOverride) as {
+      duration?: number | string;
+      ease?: string | number[];
+      delay?: number;
+      type?: "tween" | "spring";
+      [key: string]: unknown;
+    };
   }
 
   // Return tween config
@@ -178,7 +191,7 @@ export function getAnimationConfig(
     if (typeof duration === "string") {
       // Parse CSS duration (e.g., "300ms" -> 0.3)
       const match = duration.match(/(\d+(?:\.\d+)?)(ms|s)/);
-      if (match) {
+      if (match && match[1]) {
         const value = parseFloat(match[1]);
         configObj.duration = match[2] === "s" ? value : value / 1000;
       } else {
@@ -187,10 +200,10 @@ export function getAnimationConfig(
     } else if (typeof duration === "number") {
       configObj.duration = duration / 1000; // Convert ms to seconds
     } else {
-      const durationValue = durations[duration];
-      if (durationValue) {
+      const durationValue = durations[duration as keyof typeof durations];
+      if (durationValue && typeof durationValue === "string") {
         const match = durationValue.match(/(\d+(?:\.\d+)?)(ms|s)/);
-        if (match) {
+        if (match && match[1]) {
           const value = parseFloat(match[1]);
           configObj.duration = match[2] === "s" ? value : value / 1000;
         }
@@ -241,7 +254,7 @@ export function cssTransitionToMotionTransition(
 
   const match = durationPart.match(/(\d+(?:\.\d+)?)(ms|s)/);
   let duration: number | undefined;
-  if (match) {
+  if (match && match[1]) {
     const value = parseFloat(match[1]);
     duration = match[2] === "s" ? value : value / 1000;
   }
@@ -258,7 +271,7 @@ export function cssTransitionToMotionTransition(
  * Converts keyframe tokens to Framer Motion keyframes
  */
 export function getKeyframeConfig(
-  keyframeName: string,
+  _keyframeName: string,
   reduceMotionOverride?: boolean | "auto",
 ): object | undefined {
   if (shouldReduceMotion(reduceMotionOverride)) {
@@ -348,4 +361,4 @@ export { durations, easings, reducedMotion, springs, transitions };
 /**
  * Export types
  */
-export type { Duration, Easing, Spring, Transition };
+export type { Duration, Easing, Transition };

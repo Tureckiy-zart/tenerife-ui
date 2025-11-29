@@ -4,7 +4,12 @@
  * Type definitions for TAS animation system
  */
 
-import type { Spring } from "@/tokens/motion";
+import type { Spring as SpringToken } from "@/tokens/motion";
+
+/**
+ * Spring type re-exported for convenience
+ */
+export type Spring = SpringToken;
 
 /**
  * Animation props for layout primitives
@@ -85,6 +90,7 @@ export interface SpringConfig {
   damping?: number;
   mass?: number;
   velocity?: number;
+  [key: string]: unknown;
 }
 
 /**

@@ -7,7 +7,7 @@
  */
 
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "framer-motion";
+import { type HTMLMotionProps, motion } from "framer-motion";
 import * as React from "react";
 
 import type { AnimationProps } from "@/animation/types";
@@ -320,13 +320,35 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
     const baseClassName = cn(baseClasses, hasResponsiveProps && responsiveCols, className);
 
     if (hasAnimations) {
+      // Exclude conflicting handlers from props to avoid conflict with Framer Motion
+      const {
+        onDrag: _onDrag,
+        onDragStart: _onDragStart,
+        onDragEnd: _onDragEnd,
+        onAnimationStart: _onAnimationStart,
+        onAnimationEnd: _onAnimationEnd,
+        onAnimationIteration: _onAnimationIteration,
+        ...restProps
+      } = props;
+
+      // Type restProps to exclude conflicting handlers (animation props are already destructured above)
+      const safeProps = restProps as Omit<
+        React.HTMLAttributes<HTMLDivElement>,
+        | "onDrag"
+        | "onDragStart"
+        | "onDragEnd"
+        | "onAnimationStart"
+        | "onAnimationEnd"
+        | "onAnimationIteration"
+      >;
+
       return (
         <motion.div
           ref={ref}
           className={baseClassName}
           style={mergedStyle}
-          {...animationProps}
-          {...props}
+          {...(animationProps as Partial<HTMLMotionProps<"div">>)}
+          {...safeProps}
         />
       );
     }
