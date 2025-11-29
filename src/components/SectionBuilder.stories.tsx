@@ -5,9 +5,11 @@
  * presets, theme variations, and before/after comparisons.
  */
 
+import { getAnimationConfig } from "@/animation/tas";
 import { Box } from "@/components/layout/Box";
 import { Button } from "@/components/primitives/Button";
 import { Heading, Text } from "@/components/primitives/Typography";
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { SectionBuilder } from "./SectionBuilder";
@@ -508,9 +510,14 @@ export const BeforeAfterComparison: Story = {
                   </div>
                 ),
               },
-              background: { type: "surface", variant: "card" },
+              background: { type: "surface", variant: "elevated1" },
               spacing: { paddingY: "xl", paddingX: "lg" },
             })}
+            layout={
+              {
+                type: "split",
+              } as any
+            }
           />
         </div>
       </div>
@@ -616,24 +623,48 @@ export const GridLayoutCustomItems: Story = {
         },
         gap: "lg",
         items: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8"],
-        itemRenderer: (item, index) => (
-          <Box
-            key={index}
-            p="md"
-            radius="lg"
-            bg="card"
-            className="border text-center shadow-sm"
-            whileHover={{
-              boxShadow: "var(--shadow-md)",
-            }}
-            transition={getAnimationConfig({
-              duration: "fast",
-              easing: "ease-out",
-            })}
-          >
-            {typeof item === "string" ? item : item}
-          </Box>
-        ),
+        itemRenderer: (item, index) => {
+          let content: React.ReactNode;
+          if (typeof item === "string") {
+            content = item;
+          } else if (
+            typeof item === "object" &&
+            item !== null &&
+            !React.isValidElement(item) &&
+            "content" in item
+          ) {
+            content = (item as { content: React.ReactNode }).content;
+          } else if (
+            typeof item === "object" &&
+            item !== null &&
+            !React.isValidElement(item) &&
+            "type" in item
+          ) {
+            // StructuredSlot - extract content
+            const slot = item as { type: string; content?: React.ReactNode };
+            content = slot.content || item;
+          } else {
+            content = item;
+          }
+          return (
+            <Box
+              key={index}
+              p="md"
+              radius="lg"
+              bg="card"
+              className="border text-center shadow-sm"
+              whileHover={{
+                boxShadow: "var(--shadow-md)",
+              }}
+              transition={getAnimationConfig({
+                duration: "fast",
+                easing: "ease-out",
+              })}
+            >
+              {content}
+            </Box>
+          );
+        },
       },
       background: {
         type: "surface",
@@ -717,11 +748,35 @@ export const WithAnimationProps: Story = {
             typography: { level: 3 },
           },
         ],
-        itemRenderer: (item, index) => (
-          <Box key={index} p="md" radius="lg" bg="card" className="border text-center shadow-sm">
-            {typeof item === "string" ? item : item}
-          </Box>
-        ),
+        itemRenderer: (item, index) => {
+          let content: React.ReactNode;
+          if (typeof item === "string") {
+            content = item;
+          } else if (
+            typeof item === "object" &&
+            item !== null &&
+            !React.isValidElement(item) &&
+            "content" in item
+          ) {
+            content = (item as { content: React.ReactNode }).content;
+          } else if (
+            typeof item === "object" &&
+            item !== null &&
+            !React.isValidElement(item) &&
+            "type" in item
+          ) {
+            // StructuredSlot - extract content
+            const slot = item as { type: string; content?: React.ReactNode };
+            content = slot.content || item;
+          } else {
+            content = item;
+          }
+          return (
+            <Box key={index} p="md" radius="lg" bg="card" className="border text-center shadow-sm">
+              {content}
+            </Box>
+          );
+        },
       },
       background: {
         type: "surface",

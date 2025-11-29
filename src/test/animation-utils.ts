@@ -88,30 +88,24 @@ export function verifyTokenUsage(animationProps: AnimationProps): {
       const transition = animationProps.transition as Record<string, unknown>;
 
       // Check for hardcoded duration values (common hardcoded values)
-      if (transition.duration) {
-        const { duration } = transition;
-        if (typeof duration === "number") {
-          // Check for common hardcoded durations (200, 300, 500ms)
-          const hardcodedDurations = [0.2, 0.3, 0.5, 200, 300, 500];
-          if (hardcodedDurations.includes(duration)) {
-            issues.push(`Hardcoded duration detected: ${duration}. Use motion tokens instead.`);
-          }
+      if (transition.duration && typeof transition.duration === "number") {
+        const hardcodedDurations = [0.2, 0.3, 0.5, 200, 300, 500];
+        if (hardcodedDurations.includes(transition.duration)) {
+          issues.push(
+            `Hardcoded duration detected: ${transition.duration}. Use motion tokens instead.`,
+          );
         }
       }
 
       // Check for hardcoded easing values
-      if (transition.ease) {
-        const { ease } = transition;
-        if (typeof ease === "string") {
-          // Check for common hardcoded easing values
-          const hardcodedEasings = [
-            "cubic-bezier(0.4, 0, 1, 1)",
-            "cubic-bezier(0, 0, 0.2, 1)",
-            "cubic-bezier(0.4, 0, 0.2, 1)",
-          ];
-          if (hardcodedEasings.includes(ease)) {
-            issues.push(`Hardcoded easing detected: ${ease}. Use motion tokens instead.`);
-          }
+      if (transition.ease && typeof transition.ease === "string") {
+        const hardcodedEasings = [
+          "cubic-bezier(0.4, 0, 1, 1)",
+          "cubic-bezier(0, 0, 0.2, 1)",
+          "cubic-bezier(0.4, 0, 0.2, 1)",
+        ];
+        if (hardcodedEasings.includes(transition.ease)) {
+          issues.push(`Hardcoded easing detected: ${transition.ease}. Use motion tokens instead.`);
         }
       }
     }
