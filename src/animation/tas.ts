@@ -78,8 +78,16 @@ export function createTransition(
   let duration: string;
   if (customDuration) {
     if (typeof customDuration === "string") {
-      duration = customDuration;
+      // Check if it's a Duration token first (e.g., "normal", "fast", "slow")
+      // Duration tokens are string literals that map to CSS duration strings in the durations object
+      if (customDuration in durations) {
+        duration = durations[customDuration as keyof typeof durations] || durations.normal;
+      } else {
+        // Not a Duration token - treat as raw CSS duration string (e.g., "300ms", "0.5s")
+        duration = customDuration;
+      }
     } else {
+      // This branch handles cases where TypeScript knows it's a Duration type (not a string)
       duration = durations[customDuration] || durations.normal;
     }
   } else {
@@ -89,8 +97,16 @@ export function createTransition(
   let easing: string;
   if (customEasing) {
     if (typeof customEasing === "string") {
-      easing = customEasing;
+      // Check if it's an Easing token first (e.g., "bounce", "ease-in-out")
+      // Easing tokens are string literals that map to CSS easing strings in the easings object
+      if (customEasing in easings) {
+        easing = easings[customEasing as keyof typeof easings] || easings["ease-in-out"];
+      } else {
+        // Not an Easing token - treat as raw CSS easing string (e.g., "cubic-bezier(0.4, 0, 0.2, 1)")
+        easing = customEasing;
+      }
     } else {
+      // This branch handles cases where TypeScript knows it's an Easing type (not a string)
       easing = easings[customEasing] || easings["ease-in-out"];
     }
   } else {
@@ -255,25 +271,40 @@ export function getAnimationConfig(
     let parsedDuration: number | undefined;
 
     if (typeof duration === "string") {
-      // Parse CSS duration (e.g., "300ms" -> 0.3)
-      // Only accept if it's a valid CSS duration string format
-      const parsed = parseDurationString(duration);
-      if (parsed !== undefined) {
-        parsedDuration = parsed;
+      // CRITICAL: Check if it's a Duration token FIRST (e.g., "normal", "fast", "slow")
+      // Duration tokens are string literals that map to CSS duration strings in the durations object
+      // We must check token lookup BEFORE attempting to parse as CSS duration string
+      if (duration in durations) {
+        // This is a Duration token - look up its CSS duration string value
+        const durationValue = durations[duration as keyof typeof durations];
+        if (durationValue && typeof durationValue === "string") {
+          // Parse the CSS duration string (e.g., "300ms" -> 0.3)
+          parsedDuration = parseDurationString(durationValue);
+          // If parsing fails, fallback to undefined (will use default)
+          if (parsedDuration === undefined) {
+            // Log warning in development
+            if (process.env.NODE_ENV === "development") {
+              console.warn(
+                `[TAS] Failed to parse duration token "${duration}" value "${durationValue}". Using default timing.`,
+              );
+            }
+          }
+        }
+      } else {
+        // Not a Duration token - treat as CSS duration string (e.g., "300ms", "0.5s")
+        parsedDuration = parseDurationString(duration);
       }
-      // If parsed is undefined, don't set parsedDuration - don't pass invalid strings to framer-motion
     } else if (typeof duration === "number") {
+      // Duration is already a number (assumed to be in milliseconds)
       if (!isNaN(duration) && duration >= 0) {
         parsedDuration = duration / 1000; // Convert ms to seconds
       }
     } else {
-      // Duration token (e.g., "normal", "fast")
+      // Duration is a Duration token type (TypeScript type, not string literal)
+      // This branch handles cases where TypeScript knows it's a Duration type
       const durationValue = durations[duration as keyof typeof durations];
       if (durationValue && typeof durationValue === "string") {
-        const parsed = parseDurationString(durationValue);
-        if (parsed !== undefined) {
-          parsedDuration = parsed;
-        }
+        parsedDuration = parseDurationString(durationValue);
       }
     }
 
