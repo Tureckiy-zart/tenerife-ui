@@ -101,6 +101,7 @@ export function useFocusLock({
       }
 
       const isShiftTab = event.shiftKey;
+      const currentIndex = focusableElements.indexOf(document.activeElement as HTMLElement);
 
       if (isShiftTab && document.activeElement === firstElement) {
         // Shift+Tab: wrap to last
@@ -110,10 +111,14 @@ export function useFocusLock({
         // Tab: wrap to first
         event.preventDefault();
         firstElement?.focus();
-      } else if (!isShiftTab) {
+      } else if (!isShiftTab && currentIndex >= 0 && currentIndex < focusableElements.length - 1) {
         // Tab: focus next element
-        const nextElement = getNextElement(document.activeElement as HTMLElement);
-        nextElement?.focus();
+        const nextIndex = currentIndex + 1;
+        focusableElements[nextIndex]?.focus();
+      } else if (isShiftTab && currentIndex > 0) {
+        // Shift+Tab: focus previous element
+        const prevIndex = currentIndex - 1;
+        focusableElements[prevIndex]?.focus();
       }
     }
 

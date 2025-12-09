@@ -16,6 +16,7 @@ import type {
   NotificationContextType,
   NotificationData,
   NotificationOptions,
+  NotificationVariant,
 } from "./NotificationCenter.types";
 
 const NotificationContext = React.createContext<NotificationContextType | undefined>(undefined);
@@ -71,7 +72,7 @@ export function NotificationCenterProvider({
         return "info";
       };
 
-      const getVariantFromChannel = (channel: NotificationChannel): string => {
+      const getVariantFromChannel = (channel: NotificationChannel): NotificationVariant => {
         if (channel === "error") return "danger";
         if (channel === "success") return "success";
         return "default";
