@@ -46,23 +46,59 @@ export const OVERLAY_TOKENS = {
       sm: "rounded-md", // 6px - maps to borderRadius.md / componentRadius.modal.sm
       md: "rounded-lg", // 8px - maps to borderRadius.lg / componentRadius.modal.md
       lg: "rounded-xl", // 12px - maps to borderRadius.xl / componentRadius.modal.lg
+      xl: "rounded-2xl", // 16px - maps to borderRadius.2xl / componentRadius.modal.xl
       fullscreen: "rounded-none", // No radius - maps to borderRadius.none
     } as const,
     padding: {
       sm: "p-md", // 16px - maps to semanticSpacing.md
       md: "p-lg", // 24px - maps to semanticSpacing.lg
       lg: "p-xl", // 32px - maps to semanticSpacing.xl
+      xl: "p-xl", // 32px - maps to semanticSpacing.xl (same as lg)
     } as const,
     shadow: {
       sm: "shadow-md", // Maps to elevationShadows.md
       md: "shadow-lg", // Maps to elevationShadows.lg
       lg: "shadow-xl", // Maps to elevationShadows.xl
+      xl: "shadow-xl", // Maps to elevationShadows.xl (same as lg)
     } as const,
     maxWidth: {
       sm: "max-w-md", // 448px
       md: "max-w-lg", // 512px
       lg: "max-w-2xl", // 672px
+      xl: "max-w-4xl", // 896px
       fullscreen: "max-w-full", // Full width
+    } as const,
+    /**
+     * Modal surface tokens by variant
+     * Note: primary and tinted are defined in SURFACE_TOKENS.modal.surface
+     * Only secondary and bare are defined here in OVERLAY_TOKENS
+     */
+    surface: {
+      secondary: {
+        bg: "bg-card", // Maps to elevated surface
+        border: "border border-border", // Maps to border
+        shadow: "shadow-sm", // Maps to elevation shadow
+      } as const,
+      bare: {
+        bg: "bg-transparent", // No background
+        border: "border-none", // No border
+        shadow: "shadow-none", // No shadow
+      } as const,
+    } as const,
+    /**
+     * Modal position tokens
+     * For centering and positioning modal content
+     */
+    position: {
+      center: "left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2", // Center positioning
+    } as const,
+    /**
+     * Modal transition tokens
+     * Maps to motion tokens for appear/disappear animations
+     */
+    transition: {
+      appear: "tm-motion-fade-scale", // Maps to OVERLAY_TOKENS.animation.enter.combined
+      disappear: "tm-motion-fade-scale-out", // Maps to OVERLAY_TOKENS.animation.exit.combined
     } as const,
   } as const,
 

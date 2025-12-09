@@ -119,12 +119,15 @@ export function useFocusLock({
 
     container.addEventListener("keydown", handleKeyDown);
 
+    // Capture returnFocusRef value for cleanup
+    const returnFocusElement = returnFocusRef?.current;
+
     return () => {
       container.removeEventListener("keydown", handleKeyDown);
 
       // Return focus to previous element or returnFocusRef
-      if (returnFocusRef?.current) {
-        returnFocusRef.current.focus();
+      if (returnFocusElement) {
+        returnFocusElement.focus();
       } else if (previousActiveElementRef.current) {
         previousActiveElementRef.current.focus();
       }

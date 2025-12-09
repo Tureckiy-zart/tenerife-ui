@@ -162,7 +162,7 @@ function getBaseValue<T>(
 /**
  * Convert spacing token to Tailwind class
  */
-function spacingToClass(prop: string, value: SpacingValue | undefined): string | undefined {
+function _spacingToClass(prop: string, value: SpacingValue | undefined): string | undefined {
   if (!value) return undefined;
 
   // Handle numeric values (map to numeric classes)
@@ -183,7 +183,7 @@ function spacingToClass(prop: string, value: SpacingValue | undefined): string |
 /**
  * Convert radius token to Tailwind class
  */
-function radiusToClass(value: RadiusValue | undefined): string | undefined {
+function _radiusToClass(value: RadiusValue | undefined): string | undefined {
   if (!value) return undefined;
   return `rounded-${value}`;
 }
@@ -227,7 +227,7 @@ function flexDirectionToClass(value: FlexDirectionValue | undefined): string | u
 /**
  * Convert background color to Tailwind class
  */
-function bgToClass(value: ColorValue | undefined): string | undefined {
+function _bgToClass(value: ColorValue | undefined): string | undefined {
   if (!value) return undefined;
   return `bg-${value}`;
 }
