@@ -1,9 +1,9 @@
 "use client";
 import { Input } from "@/components/input";
+import { Select } from "@/components/select";
+import { Textarea } from "@/components/textarea";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Field } from "./field";
-import { Select } from "@/components/select";
-import { Textarea } from "./textarea";
 
 const meta: Meta<typeof Field> = {
   title: "UI/Field",

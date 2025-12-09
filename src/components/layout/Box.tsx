@@ -156,36 +156,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
 function getBaseValue<T>(
   value: ResponsiveSpacing | ResponsiveRadius | ResponsiveColor | T | undefined,
 ): T | undefined {
-  return getBaseValueUtil(value);
-}
-
-/**
- * Convert spacing token to Tailwind class
- */
-function _spacingToClass(prop: string, value: SpacingValue | undefined): string | undefined {
-  if (!value) return undefined;
-
-  // Handle numeric values (map to numeric classes)
-  if (typeof value === "number") {
-    return `${prop}-${value}`;
-  }
-
-  // Handle string token values
-  const token = String(value);
-  if (token === "none" || token === "0") {
-    return `${prop}-0`;
-  }
-
-  // Map semantic tokens to Tailwind classes
-  return `${prop}-${token}`;
-}
-
-/**
- * Convert radius token to Tailwind class
- */
-function _radiusToClass(value: RadiusValue | undefined): string | undefined {
-  if (!value) return undefined;
-  return `rounded-${value}`;
+  return getBaseValueUtil(value) as T | undefined;
 }
 
 /**
@@ -222,14 +193,6 @@ function flexDirectionToClass(value: FlexDirectionValue | undefined): string | u
   if (value === "row-reverse") return "flex-row-reverse";
   if (value === "column-reverse") return "flex-col-reverse";
   return undefined;
-}
-
-/**
- * Convert background color to Tailwind class
- */
-function _bgToClass(value: ColorValue | undefined): string | undefined {
-  if (!value) return undefined;
-  return `bg-${value}`;
 }
 
 /**
