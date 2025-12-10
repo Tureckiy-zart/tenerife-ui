@@ -23,7 +23,7 @@ describe("Select", () => {
       expect(trigger).toBeInTheDocument();
     });
 
-    it("renders with default value", () => {
+    it("renders with default value", async () => {
       renderWithTheme(
         <Select.Root defaultValue="option2">
           <Select.Trigger placeholder="Select an option" />
@@ -34,7 +34,10 @@ describe("Select", () => {
         </Select.Root>,
       );
       const trigger = screen.getByRole("button");
-      expect(trigger).toHaveTextContent("Option 2");
+      // Wait for options to register before checking text content
+      await waitFor(() => {
+        expect(trigger).toHaveTextContent("Option 2");
+      });
     });
 
     it("forwards ref correctly", () => {

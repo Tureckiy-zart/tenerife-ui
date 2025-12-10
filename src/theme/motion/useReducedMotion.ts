@@ -5,6 +5,8 @@
  * Returns boolean indicating if user prefers reduced motion.
  */
 
+"use client";
+
 import { useEffect, useState } from "react";
 
 /**

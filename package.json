@@ -37,6 +37,8 @@
     "format": "prettier . --write",
     "lint:fix": "./scripts/lint-local.sh",
     "typecheck": "tsc --noEmit && tsc --noEmit --project tsconfig.vite.json",
+    "test": "vitest run",
+    "ci:local": "./scripts/ci-local.sh",
     "build": "vite build",
     "dev": "vite build --watch",
     "clean": "rimraf dist",
@@ -47,8 +49,6 @@
     "lint:strict": "eslint . --ext .ts,.tsx --max-warnings=0 --ignore-pattern '**/*.stories.*' --ignore-pattern '.storybook/**' --ignore-pattern 'storybook-static/**'",
     "lint:errors": "eslint . --ext .ts,.tsx --format stylish --ignore-pattern '**/*.stories.*' --ignore-pattern '.storybook/**' --ignore-pattern 'storybook-static/**'",
     "precommit:lint": "eslint . --ext .ts,.tsx --fix --ignore-pattern '**/*.stories.*' --ignore-pattern '.storybook/**' --ignore-pattern 'storybook-static/**'",
-    "precommit:format": "prettier . --write",
-    "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
@@ -65,7 +65,6 @@
     "ui:check": "tsx scripts/check-ui-consistency.ts",
     "tokens:export": "npx tsx scripts/export-tokens.ts",
     "commitlint": "commitlint",
-    "ci:local": "./scripts/ci-local.sh",
     "prepare": "husky"
   },
   "peerDependencies": {

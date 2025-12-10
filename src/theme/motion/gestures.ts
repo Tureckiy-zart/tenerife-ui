@@ -5,6 +5,8 @@
  * Supports swipe gestures for dismissible components (Toast, NotificationPanel, Drawer).
  */
 
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 
 /**

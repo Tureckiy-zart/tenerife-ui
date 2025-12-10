@@ -187,6 +187,29 @@ export function SelectRoot({
 SelectRoot.displayName = "SelectRoot";
 
 /**
+ * Helper function to extract text from React.ReactNode
+ * Extracts text content from various React node types (string, number, array, element)
+ */
+function extractTextFromNode(node: React.ReactNode): string {
+  if (typeof node === "string") {
+    return node;
+  }
+  if (typeof node === "number") {
+    return String(node);
+  }
+  if (Array.isArray(node)) {
+    return node.map(extractTextFromNode).join("");
+  }
+  if (React.isValidElement(node)) {
+    const props = node.props as { children?: React.ReactNode };
+    if (props.children) {
+      return extractTextFromNode(props.children);
+    }
+  }
+  return "";
+}
+
+/**
  * Select Trigger Component
  * Button that opens/closes the dropdown and displays the selected value
  */
@@ -307,15 +330,17 @@ export const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerPr
       // Try to find label from registered options
       const option = context.options.get(context.value);
       if (option) {
-        // Priority: label > string children > value
+        // Priority: label > children text > value
         if (option.label) {
           return option.label;
         }
-        if (typeof option.children === "string") {
-          return option.children;
+        // Extract text from children
+        if (option.children) {
+          const extractedText = extractTextFromNode(option.children);
+          if (extractedText) {
+            return extractedText;
+          }
         }
-        // If children is React element, we'll use value as fallback
-        // (extracting text from React elements would require DOM access)
       }
       return context.value;
     }, [context.value, context.options, placeholder]);
