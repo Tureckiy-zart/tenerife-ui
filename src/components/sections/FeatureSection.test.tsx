@@ -1,4 +1,5 @@
-import React from "react";
+/// <reference types="vitest/globals" />
+/// <reference types="@testing-library/jest-dom/vitest" />
 import "@testing-library/jest-dom/vitest";
 import { render, screen } from "@testing-library/react";
 import { FeatureSection, type FeatureItem } from "./FeatureSection";
@@ -94,8 +95,9 @@ describe("FeatureSection component", () => {
   });
 
   it("should handle single feature", () => {
-    const singleFeature = [sampleFeatures[0]];
-    render(<FeatureSection features={singleFeature} />);
+    const singleFeature = sampleFeatures[0];
+    if (!singleFeature) throw new Error("Expected feature to exist");
+    render(<FeatureSection features={[singleFeature]} />);
     expect(screen.getByText("Fast Performance")).toBeInTheDocument();
   });
 

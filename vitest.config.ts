@@ -1,6 +1,7 @@
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
-import { defineConfig } from "vitest/config";
+import { defineConfig } from "vite";
+import { configDefaults } from "vitest/config";
 
 export default defineConfig({
   plugins: [react()],
@@ -9,7 +10,10 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./src/test/setup.ts"],
     include: ["src/**/*.{test,spec}.{ts,tsx}"],
-    exclude: ["node_modules", "dist", ".storybook", "storybook-static"],
+    exclude: ["node_modules", "dist", ".storybook", "storybook-static", ...configDefaults.exclude],
+    typecheck: {
+      tsconfig: "./tsconfig.vitest.json",
+    },
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
@@ -37,4 +41,4 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
     },
   },
-});
+} as any);
