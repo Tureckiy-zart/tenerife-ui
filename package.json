@@ -70,7 +70,13 @@
     "ui:check": "tsx scripts/check-ui-consistency.ts",
     "tokens:export": "npx tsx scripts/export-tokens.ts",
     "commitlint": "commitlint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "version:patch": "./scripts/publish.sh patch",
+    "version:minor": "./scripts/publish.sh minor",
+    "version:major": "./scripts/publish.sh major",
+    "publish:patch": "./scripts/publish.sh patch",
+    "publish:minor": "./scripts/publish.sh minor",
+    "publish:major": "./scripts/publish.sh major"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
