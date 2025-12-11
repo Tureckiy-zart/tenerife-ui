@@ -9,7 +9,11 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
       exclude: ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts", "**/test/**", "src/test/**"],
-      logLevel: "error", // Only show errors, suppress sourcemap warnings
+      logLevel: "silent", // Suppress all sourcemap warnings
+      compilerOptions: {
+        sourceMap: false,
+        declarationMap: false,
+      },
     }),
   ],
   esbuild: {
