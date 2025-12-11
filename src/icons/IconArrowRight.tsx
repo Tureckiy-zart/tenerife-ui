@@ -31,5 +31,3 @@ export const IconArrowRight: React.FC<IconProps> = ({
 };
 
 IconArrowRight.displayName = "IconArrowRight";
-
-

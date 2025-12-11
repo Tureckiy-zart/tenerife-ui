@@ -199,7 +199,7 @@ function VenuesGrid() {
 ### Custom Styling
 
 ```tsx
-<Grid cols={2} gap={4} className="bg-muted p-lg rounded-lg">
+<Grid cols={2} gap={4} className="rounded-lg bg-muted p-lg">
   <div>Item 1</div>
   <div>Item 2</div>
 </Grid>

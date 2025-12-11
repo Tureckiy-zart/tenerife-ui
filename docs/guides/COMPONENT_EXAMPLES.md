@@ -154,7 +154,7 @@ function InputWithError() {
         placeholder="example@email.com"
         className="border-destructive"
       />
-      <p className="text-destructive text-sm">Invalid email address</p>
+      <p className="text-sm text-destructive">Invalid email address</p>
     </div>
   );
 }
@@ -736,7 +736,7 @@ function HeroWithMedia() {
       description="Используйте наши компоненты для быстрой разработки"
       actions={<Button variant="primary">Начать</Button>}
       media={
-        <div className="from-primary/20 to-accent/20 flex aspect-video items-center justify-center rounded-lg bg-gradient-to-br">
+        <div className="flex aspect-video items-center justify-center rounded-lg bg-gradient-to-br from-primary/20 to-accent/20">
           <span className="text-4xl">🎨</span>
         </div>
       }

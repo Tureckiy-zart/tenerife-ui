@@ -48,5 +48,3 @@ export interface EventCardProps {
   /** Animation configuration for entrance and hover animations */
   animation?: ComponentAnimationConfig;
 }
-
-

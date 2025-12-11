@@ -14,5 +14,3 @@ export {
   venueCardMetadataRowVariants,
   venueCardVariants,
 } from "./VenueCard.variants";
-
-
