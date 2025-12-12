@@ -2,7 +2,7 @@
 
 This file tracks the completion status of all tasks and subtasks in the Master Task system.
 
-**Last Updated:** 2025-12-12 (L4_ARTIST_CARD completed)
+**Last Updated:** 2025-12-12 (L4_CATEGORY_CARD completed)
 
 ---
 
@@ -1891,6 +1891,80 @@ _No tasks in progress currently._
 - **Next Steps:**
   - Component is ready for use
   - Maintains consistency with other domain card components (EventCard, VenueCard)
+
+---
+
+### L4_CATEGORY_CARD - CategoryCard Component Refactoring
+
+- **Status:** ✅ completed
+- **Date Completed:** 2025-12-12
+- **Summary:** Successfully refactored CategoryCard component to use domain tokens (CARD_TOKENS, DOMAIN_TOKENS) and CVA architecture. All hardcoded visual values replaced with tokens. Component properly implements icon and label sections using semantic tokens. Component is exported and ready for use.
+- **Key Accomplishments:**
+  - ✅ Refactored existing CategoryCard component in `src/components/cards/CategoryCard/`
+  - ✅ Replaced all hardcoded visual values with tokens
+  - ✅ Updated CVA variants to reference CARD_TOKENS and DOMAIN_TOKENS
+  - ✅ Icon section uses ICON_TOKENS for sizes and colors
+  - ✅ Label section uses TEXT_TOKENS and DOMAIN_TOKENS.text for typography
+  - ✅ Full token compliance achieved
+  - ✅ Component exported in main index.ts
+- **Token System:**
+  - Uses CARD_TOKENS (imported for documentation and future use)
+  - Uses DOMAIN_TOKENS extensively for domain-specific styling:
+    - `badges.*` - Badge positioning and styling
+    - `image.*` - Image overlay and placeholder
+    - `motion.*` - Hover transitions and animations
+    - `text.*` - Text line clamp and hover states
+    - `spacing.*` - Section spacing
+    - `layout.*` - Card layout (via CardBase)
+    - `surface.*` - Card surface (via CardBase)
+  - Uses TEXT_TOKENS for typography: `fontSize.*`, `fontWeight.*`
+  - Uses ICON_TOKENS for icons: `sizes.*`, `colors.*`
+  - Uses MOTION_TOKENS for transitions: `transition.*`, `duration.*`
+- **CVA Variants:**
+  - `categoryCardBadgeVariants` - Badge positioning (uses DOMAIN_TOKENS.badges.position)
+  - `categoryCardBadgeSurfaceVariants` - Badge surface styling (uses DOMAIN_TOKENS.badges + TEXT_TOKENS)
+- **Hardcoded Values Replaced:**
+  - `"line-clamp-2"` → `DOMAIN_TOKENS.text.lineClamp.two`
+  - `"transition-colors"` → `MOTION_TOKENS.transition.colors`
+  - `"group-hover:text-primary"` → `DOMAIN_TOKENS.text.hover.primary`
+  - `"transition-opacity duration-normal"` → `MOTION_TOKENS.transition.opacity` + `MOTION_TOKENS.duration.normal`
+  - Icon `size="xl"` and `color="muted"` props → Direct `ICON_TOKENS` usage in className
+- **Icon Section:**
+  - ✅ Uses `ICON_TOKENS.sizes["4xl"]` for sizing (48px)
+  - ✅ Uses `ICON_TOKENS.colors.muted` for color
+  - ✅ Proper accessibility with `aria-hidden="true"`
+- **Label Section:**
+  - ✅ Title uses `TEXT_TOKENS.fontSize.lg` and `TEXT_TOKENS.fontWeight.bold`
+  - ✅ Both title and description use `DOMAIN_TOKENS.text.lineClamp.two`
+  - ✅ Title uses `MOTION_TOKENS.transition.colors` and `DOMAIN_TOKENS.text.hover.primary`
+  - ✅ Spacing uses `DOMAIN_TOKENS.spacing.section.*` tokens
+- **Files Modified:**
+  - `src/components/cards/CategoryCard/CategoryCard.variants.ts` - Updated CVA variants with token references
+  - `src/components/cards/CategoryCard/CategoryCard.tsx` - Replaced hardcoded values with tokens
+  - `src/index.ts` - Added CategoryCard exports
+- **Code Review:**
+  - `docs/reviews/L4_CATEGORY_CARD_code_review.md` - Comprehensive code review completed
+  - Overall Status: ✅ APPROVED
+  - All requirements met: Full tokenization, Clean CVA, Icon/Label sections, Proper exports
+- **Verification:**
+  - ✅ TypeScript: PASSED (no errors)
+  - ✅ All visual values from tokens
+  - ✅ CVA structure clean and correct
+  - ✅ Icon section uses ICON_TOKENS
+  - ✅ Label section uses TEXT_TOKENS and DOMAIN_TOKENS.text
+  - ✅ Component exported properly
+- **Success Criteria Met:**
+  - ✅ Чистая архитектура - компонент следует паттернам CardBase и других domain components
+  - ✅ Нет hardcoded визуала - все стили через токены (CARD_TOKENS, DOMAIN_TOKENS, TEXT_TOKENS, ICON_TOKENS)
+  - ✅ Работающий component API - все props работают корректно, типы правильные
+  - ✅ CVA структура - правильные base/variants с ссылками на токены
+  - ✅ Icon секция - использует ICON_TOKENS для размеров и цветов
+  - ✅ Label секция - использует TEXT_TOKENS для типографики
+  - ✅ Экспорты - компонент доступен через главный index.ts
+  - ✅ Code review - документ создан и содержит полный анализ
+- **Next Steps:**
+  - Component is ready for use
+  - Maintains consistency with other domain card components (EventCard, VenueCard, ArtistCard)
 
 ---
 
