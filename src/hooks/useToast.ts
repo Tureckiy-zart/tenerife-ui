@@ -2,6 +2,8 @@
 
 import { useCallback, useState } from "react";
 
+import type { ResponsiveDelay } from "@/tokens/types";
+
 export type ToastType = "success" | "error" | "warning" | "info";
 
 export interface Toast {
@@ -9,7 +11,11 @@ export interface Toast {
   type: ToastType;
   title?: string;
   description?: string;
-  duration?: number;
+  /**
+   * Toast duration - token-based
+   * Uses motion duration tokens
+   */
+  duration?: ResponsiveDelay;
   action?: {
     label: string;
     onClick: () => void;

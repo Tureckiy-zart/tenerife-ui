@@ -155,6 +155,31 @@ export {
 // Tooltip tokens
 export { TOOLTIP_TOKENS, type TooltipContentRadius, type TooltipContentShadow } from "./tooltip";
 
+// Select tokens
+export {
+  SELECT_TOKENS,
+  type SelectContentPadding,
+  type SelectContentRadius,
+  type SelectItemFontSize,
+  type SelectItemPaddingHorizontal,
+  type SelectItemPaddingVertical,
+  type SelectItemRadius,
+  type SelectLabelFontSize,
+  type SelectLabelPaddingHorizontal,
+  type SelectLabelPaddingVertical,
+  type SelectSeparatorMarginHorizontal,
+  type SelectSeparatorMarginVertical,
+  type SelectSizeToken,
+  type SelectStateToken,
+  type SelectTriggerFontSize,
+  type SelectTriggerHeight,
+  type SelectTriggerPaddingHorizontal,
+  type SelectTriggerPaddingVertical,
+  type SelectTriggerRadius,
+  type SelectVariantToken,
+  type SelectWidthToken,
+} from "./select";
+
 // Data tokens
 export {
   DATA_TOKENS,

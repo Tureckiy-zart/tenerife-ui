@@ -10,6 +10,8 @@
 
 import * as React from "react";
 
+import type { ResponsiveDelay } from "@/tokens/types";
+
 import { Toast, type ToastAction, type ToastData } from "./Toast";
 import { type ToastPosition, ToastViewport } from "./ToastViewport";
 
@@ -18,7 +20,11 @@ export interface ToastOptions {
   description?: string;
   variant?: "default" | "success" | "info" | "warning" | "danger";
   action?: ToastAction;
-  duration?: number;
+  /**
+   * Toast duration - token-based
+   * Uses motion duration tokens
+   */
+  duration?: ResponsiveDelay;
 }
 
 interface ToastContextType {

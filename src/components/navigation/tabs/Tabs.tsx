@@ -14,6 +14,8 @@ import { cn } from "@/lib/utils";
 import { MOTION_TOKENS } from "@/tokens/components/motion";
 import { NAVIGATION_TOKENS } from "@/tokens/components/navigation";
 
+import type { ResponsiveSpacing } from "../../layout/layout.types";
+
 // ============================================================================
 // Variants
 // ============================================================================
@@ -92,8 +94,9 @@ export interface TabsListProps
     VariantProps<typeof tabsListVariants> {
   /**
    * Gap between tab items
+   * Token-based spacing (xs, sm, md, lg, xl, etc.)
    */
-  gap?: "xs" | "sm" | "md" | "lg";
+  gap?: ResponsiveSpacing;
 }
 
 export interface TabsTriggerProps
