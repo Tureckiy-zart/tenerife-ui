@@ -31,6 +31,15 @@ export {
   type CardSpacingVertical,
 } from "./card";
 
+// Artist tokens
+export {
+  ARTIST_TOKENS,
+  type ArtistCardFooterBorder,
+  type ArtistCardImageContainer,
+  type ArtistCardImagePlaceholder,
+  type ArtistCardImageSizing,
+} from "./artist";
+
 // Domain tokens
 export {
   DOMAIN_TOKENS,
@@ -192,10 +201,10 @@ export {
 // Modal tokens
 export {
   MODAL_TOKENS,
+  type ModalFooterAlignToken,
+  type ModalHeightToken,
   type ModalSizeToken,
   type ModalWidthToken,
-  type ModalHeightToken,
-  type ModalFooterAlignToken,
 } from "./modal";
 
 // Data tokens

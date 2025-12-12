@@ -2,7 +2,7 @@
 
 This file tracks the completion status of all tasks and subtasks in the Master Task system.
 
-**Last Updated:** 2025-12-12 (L4_VENUE_CARD completed)
+**Last Updated:** 2025-12-12 (L4_ARTIST_CARD completed)
 
 ---
 
@@ -1825,6 +1825,72 @@ _No tasks in progress currently._
 - **Next Steps:**
   - Component is ready for use
   - Maintains consistency with other domain card components
+
+---
+
+### L4_ARTIST_CARD - ArtistCard Component Tokenization
+
+- **Status:** ✅ completed
+- **Date Completed:** 2025-12-12
+- **Summary:** Successfully created ARTIST_TOKENS and ensured full tokenization of ArtistCard component. All hardcoded visual values replaced with tokens. CVA structure is clean and correct. Component renders artist information stably across all variants and states.
+- **Key Accomplishments:**
+  - ✅ Created `ARTIST_TOKENS` for artist-specific layout values
+  - ✅ Replaced all hardcoded visual values with tokens
+  - ✅ Updated CVA variants to use ARTIST_TOKENS and DOMAIN_TOKENS
+  - ✅ Verified CVA cleanliness (all visual values from tokens)
+  - ✅ Verified rendering stability (all variants and states work correctly)
+  - ✅ Full token compliance achieved
+- **Token System:**
+  - Created `src/tokens/components/artist.ts` with ARTIST_TOKENS:
+    - `image.container.layout` - Layout classes for image container
+    - `image.sizing.full` - Full size image classes
+    - `image.placeholder.container` - Placeholder container layout
+    - `footer.border.top` - Footer border styling
+  - All tokens reference foundation tokens or DOMAIN_TOKENS
+  - Minimal token set (only artist-specific values)
+- **CVA Variants Updated:**
+  - `artistCardVariants` - Root wrapper variant
+  - `artistCardBadgeVariants` - Badge positioning
+  - `artistCardBadgeSurfaceVariants` - Badge surface styling
+  - `artistCardImageOverlayVariants` - Image overlay on hover
+  - `artistCardImageTransformVariants` - Image transform on hover
+  - `artistCardMetadataVariants` - Metadata container
+  - `artistCardMetadataItemVariants` - Metadata item
+  - `artistCardMetadataIconVariants` - Metadata icon
+  - `artistCardGenresVariants` - Genres display
+  - `artistCardFooterBorderVariants` - Footer border (uses ARTIST_TOKENS)
+- **Hardcoded Values Replaced:**
+  - `"relative w-full overflow-hidden bg-gradient-to-br from-muted to-muted/50"` → `ARTIST_TOKENS.image.container.layout` + `DOMAIN_TOKENS.image.placeholder.gradient`
+  - `"h-full w-full"` → `ARTIST_TOKENS.image.sizing.full`
+  - `"flex h-full w-full items-center justify-center"` → `ARTIST_TOKENS.image.placeholder.container`
+  - `"border-t border-border"` → `ARTIST_TOKENS.footer.border.top`
+  - `"line-clamp-2"` → `DOMAIN_TOKENS.text.lineClamp.two`
+  - `"group-hover:text-primary"` → `DOMAIN_TOKENS.text.hover.primary`
+- **Files Created:**
+  - `src/tokens/components/artist.ts` - ARTIST_TOKENS definition
+  - `docs/reviews/L4_ARTIST_CARD_code_review.md` - Comprehensive code review
+- **Files Modified:**
+  - `src/tokens/components/index.ts` - Added ARTIST_TOKENS export
+  - `src/tokens/index.ts` - Added ARTIST_TOKENS export
+  - `src/components/cards/ArtistCard/ArtistCard.variants.ts` - Updated to use ARTIST_TOKENS
+  - `src/components/cards/ArtistCard/ArtistCard.tsx` - Replaced hardcoded values with tokens
+- **Code Review:**
+  - `docs/reviews/L4_ARTIST_CARD_code_review.md` - Comprehensive code review completed
+  - Overall Status: ✅ APPROVED
+  - All requirements met: Full tokenization, Clean CVA, Stable rendering
+- **Verification:**
+  - ✅ TypeScript: PASSED (no errors related to ArtistCard)
+  - ✅ All visual values from tokens
+  - ✅ CVA structure clean and correct
+  - ✅ Rendering stable across all variants and states
+  - ✅ Barrel exports verified
+- **Success Criteria Met:**
+  - ✅ Все значения берутся только из токенов (CARD_TOKENS, ARTIST_TOKENS, DOMAIN_TOKENS)
+  - ✅ CVA корректен и чист (нет hardcoded классов)
+  - ✅ Компонент рендерит artist info стабильно (все варианты и состояния работают)
+- **Next Steps:**
+  - Component is ready for use
+  - Maintains consistency with other domain card components (EventCard, VenueCard)
 
 ---
 
