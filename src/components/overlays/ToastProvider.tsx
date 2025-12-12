@@ -20,7 +20,7 @@ import * as React from "react";
 
 import type { ResponsiveDelay } from "@/tokens/types";
 
-import { type ToastActionData, type ToastData,ToastRoot } from "./Toast";
+import { type ToastActionData, type ToastData, ToastRoot } from "./Toast";
 import { type ToastPosition, ToastViewport } from "./ToastViewport";
 
 export interface ToastOptions {
