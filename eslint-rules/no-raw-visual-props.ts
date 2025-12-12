@@ -85,6 +85,7 @@ const EXCLUDED_PROP_PATTERNS = [
  */
 const EXCLUDED_FILE_PATTERNS = [
   /Table\.types\.ts$/, // TableColumn.width is a documented exception
+  /animation\/types\.ts$/, // ComponentAnimationConfig.animation and hoverAnimation allow string for custom CSS
 ] as const;
 
 /**
