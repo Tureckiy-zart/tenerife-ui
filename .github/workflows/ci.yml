@@ -80,7 +80,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Storybook
-        run: pnpm storybook:build
+        run: pnpm build-storybook
 
       - name: Upload Storybook Artifact
         uses: actions/upload-pages-artifact@v3
