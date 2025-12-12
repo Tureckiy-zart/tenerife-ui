@@ -274,7 +274,7 @@ export {
 // UI COMPONENTS
 // ============================================================================
 // Button component (CVA-based, token-driven)
-export { Button, type ButtonProps, buttonVariants } from "./components/ui/button";
+export { Button, type ButtonProps,buttonVariants } from "./components/ui/button";
 
 // Text component (CVA-based, token-driven)
 export {
@@ -286,15 +286,15 @@ export {
 } from "./components/ui/text";
 
 // Alert component (CVA-based, token-driven)
-export { Alert, type AlertProps, alertVariants } from "./components/ui/alert";
+export { Alert, type AlertProps,alertVariants } from "./components/ui/alert";
 
 // Typography components (CVA-based, token-driven)
-export { Body, type BodyProps, bodyVariants } from "./components/ui/body";
-export { Caption, type CaptionProps, captionVariants } from "./components/ui/caption";
-export { Code, type CodeProps, codeVariants } from "./components/ui/code";
-export { Display, type DisplayProps, displayVariants } from "./components/ui/display";
-export { Heading, type HeadingProps, headingVariants } from "./components/ui/heading";
-export { Lead, type LeadProps, leadVariants } from "./components/ui/lead";
+export { Body, type BodyProps,bodyVariants } from "./components/ui/body";
+export { Caption, type CaptionProps,captionVariants } from "./components/ui/caption";
+export { Code, type CodeProps,codeVariants } from "./components/ui/code";
+export { Display, type DisplayProps,displayVariants } from "./components/ui/display";
+export { Heading, type HeadingProps,headingVariants } from "./components/ui/heading";
+export { Lead, type LeadProps,leadVariants } from "./components/ui/lead";
 
 // Select component (Radix-based, token-driven)
 export {
@@ -329,9 +329,33 @@ export {
   type SelectWidth,
 } from "./components/select";
 
+// Modal component (Radix-based, token-driven)
+export {
+  Modal,
+  ModalClose,
+  type ModalCloseProps,
+  ModalContent,
+  type ModalContentProps,
+  ModalDescription,
+  type ModalDescriptionProps,
+  ModalFooter,
+  type ModalFooterProps,
+  ModalHeader,
+  type ModalHeaderProps,
+  ModalOverlay,
+  type ModalOverlayProps,
+  ModalRoot,
+  type ModalRootProps,
+  ModalTitle,
+  type ModalTitleProps,
+  ModalTrigger,
+  type ModalTriggerProps,
+} from "./components/modal";
+// Note: ModalPortal is internal-only and not exported
+
 // Form components (CVA-based, token-driven)
-export { Checkbox, type CheckboxProps, checkboxVariants } from "./components/checkbox";
-export { Input, type InputProps, inputVariants } from "./components/input";
+export { Checkbox, type CheckboxProps,checkboxVariants } from "./components/checkbox";
+export { Input, type InputProps,inputVariants } from "./components/input";
 export {
   Radio,
   RadioGroup,
@@ -339,7 +363,7 @@ export {
   type RadioProps,
   radioVariants,
 } from "./components/radio";
-export { Textarea, type TextareaProps, textareaVariants } from "./components/textarea";
+export { Textarea, type TextareaProps,textareaVariants } from "./components/textarea";
 export {
   Field,
   type FieldControlProps,
@@ -348,7 +372,7 @@ export {
   type FieldLabelProps,
   type FieldProps,
 } from "./components/ui/field";
-export { Label, type LabelProps, labelVariants } from "./components/ui/label";
+export { Label, type LabelProps,labelVariants } from "./components/ui/label";
 
 // ============================================================================
 // LAYOUT PRIMITIVES
@@ -397,7 +421,8 @@ export {
 // ============================================================================
 // OVERLAY SYSTEM
 // ============================================================================
-// Overlay components (Portal, Backdrop, Modal, Dialog, Toast)
+// Overlay components (Portal, Backdrop, Dialog, Toast)
+// Note: Modal is exported from ./components/modal, not ./components/overlays
 export {
   Backdrop,
   type BackdropProps,
@@ -414,15 +439,6 @@ export {
   DialogRoot,
   DialogTitle,
   type DialogTitleProps,
-  Modal,
-  ModalBody,
-  type ModalBodyProps,
-  ModalFooter,
-  type ModalFooterProps,
-  ModalHeader,
-  type ModalHeaderProps,
-  type ModalProps,
-  modalVariants,
   Portal,
   type PortalProps,
   Toast,
@@ -620,17 +636,15 @@ export {
   Tabs,
   type TabsContentProps,
   type TabsListProps,
-  tabsListVariants,
   type TabsRootProps,
   type TabsTriggerProps,
-  tabsTriggerVariants,
 } from "./components/navigation";
 
 // ============================================================================
 // ICON SYSTEM
 // ============================================================================
 // Icon component and icon registry
-export { Icon, type IconProps, iconVariants } from "./components/icon";
+export { Icon, type IconProps,iconVariants } from "./components/icon";
 
 // Icon registry exports (tree-shakeable)
 export {

@@ -180,6 +180,24 @@ export {
   type SelectWidthToken,
 } from "./select";
 
+// Tabs tokens
+export {
+  TABS_TOKENS,
+  type TabsSizeToken,
+  type TabsToneToken,
+  type TabsVariantToken,
+  type TabsWidthToken,
+} from "./tabs";
+
+// Modal tokens
+export {
+  MODAL_TOKENS,
+  type ModalSizeToken,
+  type ModalWidthToken,
+  type ModalHeightToken,
+  type ModalFooterAlignToken,
+} from "./modal";
+
 // Data tokens
 export {
   DATA_TOKENS,

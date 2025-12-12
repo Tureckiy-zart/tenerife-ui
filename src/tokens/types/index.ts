@@ -7,7 +7,9 @@
  */
 
 import type { Responsive } from "@/types/responsive";
+import type { MODAL_TOKENS } from "../components/modal";
 import type { SELECT_TOKENS } from "../components/select";
+import type { TABS_TOKENS } from "../components/tabs";
 import type { durations, easings, transitions } from "../motion";
 import type { borderRadius } from "../radius";
 import type {
@@ -374,3 +376,76 @@ export type ResponsiveSelectSize = Responsive<SelectSizeToken>;
  * Responsive select width type
  */
 export type ResponsiveSelectWidth = Responsive<SelectWidthToken>;
+
+// ============================================================================
+// TABS TOKENS
+// ============================================================================
+
+/**
+ * Tabs size token keys
+ */
+export type TabsSizeToken = keyof typeof TABS_TOKENS.size;
+
+/**
+ * Tabs variant token keys
+ */
+export type TabsVariantToken = keyof typeof TABS_TOKENS.variant;
+
+/**
+ * Tabs tone token keys
+ */
+export type TabsToneToken = keyof typeof TABS_TOKENS.tone;
+
+/**
+ * Tabs width token keys
+ */
+export type TabsWidthToken = keyof typeof TABS_TOKENS.width;
+
+/**
+ * Responsive tabs size type
+ */
+export type ResponsiveTabsSize = Responsive<TabsSizeToken>;
+
+/**
+ * Responsive tabs width type
+ */
+export type ResponsiveTabsWidth = Responsive<TabsWidthToken>;
+
+// ============================================================================
+// MODAL TOKENS
+// ============================================================================
+
+/**
+ * Modal size token keys
+ */
+export type ModalSizeToken = keyof typeof MODAL_TOKENS.size;
+
+/**
+ * Modal width token keys
+ */
+export type ModalWidthToken = keyof typeof MODAL_TOKENS.width;
+
+/**
+ * Modal height token keys
+ */
+export type ModalHeightToken = keyof typeof MODAL_TOKENS.height;
+
+/**
+ * Modal footer align token keys
+ */
+export type ModalFooterAlignToken = keyof typeof MODAL_TOKENS.footer.align;
+
+/**
+ * Responsive modal size type
+ */
+export type ResponsiveModalSize = Responsive<ModalSizeToken>;
+
+/**
+ * Responsive modal width type
+ */
+export type ResponsiveModalWidth = Responsive<ModalWidthToken>;
+
+/**
+ * Responsive modal height type
+ */
+export type ResponsiveModalHeight = Responsive<ModalHeightToken>;
