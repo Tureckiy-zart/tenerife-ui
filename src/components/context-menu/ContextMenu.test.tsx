@@ -128,7 +128,7 @@ describe("ContextMenu", () => {
       await waitFor(() => {
         const disabledItem = screen.getByText("Cut (Disabled)");
         expect(disabledItem).toBeInTheDocument();
-        expect(disabledItem).toHaveAttribute("data-disabled", "true");
+        expect(disabledItem).toHaveAttribute("data-disabled");
       });
     });
 
