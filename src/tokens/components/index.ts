@@ -225,21 +225,36 @@ export {
   type ModalWidthToken,
 } from "./modal";
 
-// Data tokens
+// Data tokens (skeleton only - other data components have isolated domains)
 export {
   DATA_TOKENS,
-  type DataListLabelWidth,
-  type DataListRowPadding,
-  type EmptyStateIconSize,
   type SkeletonAnimation,
   type SkeletonBackground,
   type SkeletonVariant,
+} from "./data";
+
+// Table tokens (isolated domain)
+export {
+  TABLE_TOKENS,
   type TableCellPadding,
   type TableGap,
   type TableHeaderPadding,
   type TableRowHeight,
   type TableShadow,
-} from "./data";
+} from "./table";
+
+// DataList tokens (isolated domain)
+export { DATA_LIST_TOKENS, type DataListLabelWidth, type DataListRowPadding } from "./data-list";
+
+// EmptyState tokens (isolated domain)
+export {
+  EMPTY_STATE_TOKENS,
+  type EmptyStateIconSize,
+  type EmptyStateAlignment,
+} from "./empty-state";
+
+// Pagination tokens (isolated domain)
+export { PAGINATION_TOKENS, type PaginationSize, type PaginationState } from "./pagination";
 
 // Icon tokens
 export { ICON_TOKENS, type IconColor, type IconSize, type IconStroke } from "./icon";

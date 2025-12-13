@@ -50,6 +50,10 @@ Each component has its own token domain in `src/tokens/components/`:
 - **`SELECT_TOKENS`** - Select component tokens only
 - **`TEXTAREA_TOKENS`** - Textarea component tokens only
 - **`BUTTON_TOKENS`** - Button component tokens only
+- **`TABLE_TOKENS`** - Table component tokens only
+- **`DATA_LIST_TOKENS`** - DataList component tokens only
+- **`EMPTY_STATE_TOKENS`** - EmptyState component tokens only
+- **`PAGINATION_TOKENS`** - Pagination component tokens only
 - etc.
 
 **Rule:** Component-specific tokens can ONLY be imported by their owning component.
@@ -359,6 +363,18 @@ import { SELECT_TOKENS } from "@/tokens/components/select";
 
 // Textarea component
 import { TEXTAREA_TOKENS } from "@/tokens/components/textarea";
+
+// Table component
+import { TABLE_TOKENS } from "@/tokens/components/table";
+
+// DataList component
+import { DATA_LIST_TOKENS } from "@/tokens/components/data-list";
+
+// EmptyState component
+import { EMPTY_STATE_TOKENS } from "@/tokens/components/empty-state";
+
+// Pagination component
+import { PAGINATION_TOKENS } from "@/tokens/components/pagination";
 ```
 
 ### ✅ Correct: Shared Tokens for Shared Semantics
@@ -386,6 +402,12 @@ import { INPUT_TOKENS } from "@/tokens/components/input";
 
 // Textarea using Input tokens - VIOLATION
 import { INPUT_TOKENS } from "@/tokens/components/input";
+
+// Table using shared DATA_TOKENS - VIOLATION (should use TABLE_TOKENS)
+import { DATA_TOKENS } from "@/tokens/components/data";
+
+// DataList using Table tokens - VIOLATION
+import { TABLE_TOKENS } from "@/tokens/components/table";
 ```
 
 ### ❌ Incorrect: Token Domain Leakage

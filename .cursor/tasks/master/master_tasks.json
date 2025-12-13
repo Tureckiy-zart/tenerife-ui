@@ -457,7 +457,7 @@
                   "id": "L4_S3",
                   "title": "Create DataBase Primitive",
                   "status": "completed",
-                  "progress": "100%",
+                  "progress": "0%",
                   "completed_date": "2025-12-12",
                   "steps": [
                     "Implement <DataContainer /> primitive with tokens for spacing and layout.",
@@ -471,7 +471,7 @@
                   "id": "L4_S4",
                   "title": "Table Migration",
                   "status": "completed",
-                  "progress": "100%",
+                  "progress": "0%",
                   "completed_date": "2025-12-12",
                   "steps": [
                     "Implement fully token-driven Table using <Table>, <TableHead>, <TableRow>, <TableCell> primitives.",
@@ -486,7 +486,7 @@
                   "id": "L4_S5",
                   "title": "List & ListItem Migration",
                   "status": "completed",
-                  "progress": "100%",
+                  "progress": "0%",
                   "completed_date": "2025-12-12",
                   "steps": [
                     "Refactor List and ListItem using DataBase.",

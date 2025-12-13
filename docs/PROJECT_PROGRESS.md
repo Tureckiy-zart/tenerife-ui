@@ -2168,12 +2168,69 @@ _No tasks in progress currently._
 
 ## L4 - Data Components Migration
 
+### L4_S2_DEFINE_DATA_TOKEN_DOMAINS - Define Isolated Token Domains for L4 Data Components
+
+- **Status:** ✅ completed
+- **Date Completed:** 2025-12-13
+- **Summary:** Successfully defined and introduced isolated token domains for all L4 data-related components. Removed incorrect shared DATA_TOKENS usage and established strict per-component token ownership according to TenerifeUI canonical architecture rules.
+- **Key Accomplishments:**
+  - ✅ Created 4 isolated token domain files:
+    - `TABLE_TOKENS` (src/tokens/components/table.ts)
+    - `DATA_LIST_TOKENS` (src/tokens/components/data-list.ts)
+    - `EMPTY_STATE_TOKENS` (src/tokens/components/empty-state.ts)
+    - `PAGINATION_TOKENS` (src/tokens/components/pagination.ts)
+  - ✅ Removed shared DATA_TOKENS usage from L4 components
+  - ✅ Updated all L4 components to use isolated token domains
+  - ✅ Updated DATA_TOKENS to contain only skeleton tokens
+  - ✅ Updated token system documentation
+- **Token Domains Created:**
+  - **TABLE_TOKENS:** Includes layout, sticky, expandable, loading, sortable, sortIcon subdomains
+  - **DATA_LIST_TOKENS:** Includes item, label, value subdomains with responsive layout tokens
+  - **EMPTY_STATE_TOKENS:** Includes alignment, icon, title, description subdomains
+  - **PAGINATION_TOKENS:** Includes container, sizes, states, icon tokens
+- **Components Updated:**
+  - ✅ Table component and all subcomponents (TableHead, TableCell, TableRow, TableHeader, TableExpandableContent, TableLoadingState, TableEmpty)
+  - ✅ DataList component and all subcomponents (DataListItem, DataListValue)
+  - ✅ EmptyState component and all subcomponents (EmptyStateIcon, EmptyStateTitle, EmptyStateDescription)
+  - ✅ Storybook stories updated with correct token references
+- **Files Created:**
+  - `src/tokens/components/table.ts` - TABLE_TOKENS domain
+  - `src/tokens/components/data-list.ts` - DATA_LIST_TOKENS domain
+  - `src/tokens/components/empty-state.ts` - EMPTY_STATE_TOKENS domain
+  - `src/tokens/components/pagination.ts` - PAGINATION_TOKENS domain
+- **Files Modified:**
+  - `src/tokens/components/data.ts` - Removed table, dataList, emptyState tokens (kept only skeleton)
+  - `src/tokens/components/index.ts` - Added exports for new token domains
+  - All Table component files - Updated to use TABLE_TOKENS
+  - All DataList component files - Updated to use DATA_LIST_TOKENS
+  - All EmptyState component files - Updated to use EMPTY_STATE_TOKENS
+  - `docs/architecture/TUI_TOKEN_SYSTEM.md` - Updated with new token domains and examples
+- **Verification:**
+  - ✅ No DATA_TOKENS.table, DATA_TOKENS.dataList, DATA_TOKENS.emptyState usage found
+  - ✅ All L4 components use isolated token domains
+  - ✅ No cross-domain token imports
+  - ✅ TypeScript compilation successful
+  - ✅ All token domains properly exported
+- **Success Criteria Met:**
+  - ✅ No DATA_TOKENS domain used by L4 components
+  - ✅ Each L4 component has exactly one token domain
+  - ✅ No token file contains tokens for multiple components
+  - ✅ Token domains compile with correct TypeScript typing
+  - ✅ No component code changed (only token imports updated)
+- **Next Steps:**
+  - L4_S3: Per-component refactors can now proceed with isolated token domains
+  - Token domains are locked and ready for component migration
+
+---
+
+### L4 - Data Components Migration (Previous Status)
+
 - **Status:** ✅ completed
 - **Date Completed:** 2025-12-12
 - **Summary:** Completed first 5 subtasks of Data Components Migration. Successfully audited existing data components, defined data token structure, created DataBase primitive, migrated Table component, and migrated List & ListItem components.
 - **Completed Subtasks:**
   - ✅ L4_S1: Audit of existing data components (2025-12-12)
-  - ✅ L4_S2: Define Data Token Structure (2025-12-12)
+  - ✅ L4_S2: Define Data Token Structure (2025-12-12) - **UPDATED:** Now L4_S2_DEFINE_DATA_TOKEN_DOMAINS (2025-12-13)
   - ✅ L4_S3: Create DataBase Primitive (2025-12-12)
   - ✅ L4_S4: Table Migration (2025-12-12)
   - ✅ L4_S5: List & ListItem Migration (2025-12-12)
